@@ -1,8 +1,8 @@
 import React from 'react';
-// import ProductOverview from './ProductOverview/ProductOverview.jsx';
-// import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
-// import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
-// import RelatedItems from './RelatedItems/RelatedItems.jsx';
+import ProductOverview from './ProductOverview/ProductOverview.jsx';
+import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
+import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
+import RelatedItems from './RelatedItems/RelatedItems.jsx';
 import ProductState from '../context/products/ProductState.js';
 
 class App extends React.Component {
@@ -13,10 +13,10 @@ class App extends React.Component {
   render() {
     return (
       <ProductState>
-        {/* <ProductOverview/>
+        <ProductOverview/>
         <RelatedItems/>
         <QuestionsAndAnswers/>
-        <RatingsAndReviews/> */}
+        <RatingsAndReviews/>
       </ProductState>
     )
   }
