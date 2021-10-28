@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ProductState from '../context/products/ProductState.js';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -7,7 +9,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>This is the App</h1>
+      <ProductState>
+        <h1>This is the eawgwg</h1>
+      </ProductState>
     )
   }
 }
