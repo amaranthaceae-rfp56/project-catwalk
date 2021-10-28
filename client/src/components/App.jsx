@@ -1,5 +1,8 @@
 import React from 'react';
-
+import ProductOverview from './ProductOverview/ProductOverview.jsx';
+import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
+import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
+import RelatedItems from './RelatedItems/RelatedItems.jsx';
 import ProductState from '../context/products/ProductState.js';
 
 class App extends React.Component {
@@ -10,7 +13,10 @@ class App extends React.Component {
   render() {
     return (
       <ProductState>
-        <h1>This is the eawgwg</h1>
+        <ProductOverview/>
+        <RelatedItems/>
+        <QuestionsAndAnswers/>
+        <RatingsAndReviews/>
       </ProductState>
     )
   }
