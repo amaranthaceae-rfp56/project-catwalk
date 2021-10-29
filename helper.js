@@ -104,6 +104,30 @@ const postReview = async (id, postData) => {
   })
 }
 
+const markReview = async (id) => {
+  return axios.put(`${apiUrl}/reviews/${id}/helpful`, {
+    headers
+  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
+const reportReview = async (id) => {
+  return axios.put(`${apiUrl}/reviews/${id}/report`, {
+    headers
+  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
@@ -111,5 +135,7 @@ module.exports = {
   getRelatedProducts: getRelatedProducts,
   getReviews: getReviews,
   getReviewMetaData: getReviewMetaData,
-  postReview: postReview
+  postReview: postReview,
+  markReview: markReview,
+  reportReview: reportReview
 }

@@ -2,7 +2,7 @@ const path = require("path")
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview } = require('./helper.js');
+const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview } = require('./helper.js');
 
 const app = express();
 
@@ -53,6 +53,19 @@ app.post('/api/reviews/:product_id', async (req, res) => {
   var data = await postReview(req.params.product_id, req.body);
   res.send(data);
 });
+
+// Mark Review as Helpful
+app.put('/api/reviews/helpful/:review_id', async (req, res) => {
+  var data = await markReview(req.params.review_id);
+  res.send(data);
+});
+
+// Report Review
+app.put('/api/reviews/report/:review_id', async(req, res) => {
+  var data = await reportReview(req.params.review_id);
+  res.send(data);
+})
+
 
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
