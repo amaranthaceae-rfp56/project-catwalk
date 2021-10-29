@@ -155,6 +155,23 @@ const getAnswers = async (id) => {
   })
 }
 
+const postQuestion = async (id, postData) => {
+  const { body, name, email } = postData
+
+  return axios.post(`${apiUrl}/qa/questions`, {
+    body: body,
+    name: name,
+    email: email,
+    product_id: id
+  }, { headers })
+  .then((result) => {
+    return result.data
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
@@ -166,5 +183,6 @@ module.exports = {
   markReview: markReview,
   reportReview: reportReview,
   getQuestions: getQuestions,
-  getAnswers: getAnswers
+  getAnswers: getAnswers,
+  postQuestion: postQuestion
 }
