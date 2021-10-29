@@ -1,14 +1,17 @@
 import React, { useReducer } from 'react';
 import Axios from 'axios';
-import ProductContext from './productContext.js';
-import ProductReducer from './productReducer.js';
+import ProductContext from './ProductContext.js';
+import ProductReducer from './ProductReducer.js';
 
 import {
   GET_PRODUCTS,
   GET_PRODUCT_INFO,
   GET_PRODUCT_STYLES,
-  GET_RELATED_PRODUCTS
+  GET_RELATED_PRODUCTS,
+  SET_LOADING
 } from '../types';
+
+const API_URL = 'http://localhost:3000/api/products';
 
 const ProductState = props => {
   const initialState = {
@@ -22,18 +25,33 @@ const ProductState = props => {
   const [state, dispatch] = useReducer(ProductReducer, initialState);
 
   // GET PRODUCTS
+  const getProducts = async () => {
+    const res = await Axios.get(`${API_URL}`);
+    console.log(res);
 
 
-  return (<ProductContext.Provider
+    dispatch({
+      type: GET_PRODUCTS,
+      payload: res.data
+    })
+  }
+
+  // SET LOADING
+  const setLoading = () => dispatch({ type: SET_LOADING });
+
+  return (
+  <ProductContext.Provider
     value={{ products: state.products,
     productStyles: state.productStyles,
     productInfo: state.productInfo,
     relatedProducts: state.relatedProducts,
-    loading: state.loading
+    loading: state.loading,
+    getProducts
     }}
     >
       {props.children}
-    </ProductContext.Provider>)
+    </ProductContext.Provider>
+    )
 }
 
 export default ProductState;

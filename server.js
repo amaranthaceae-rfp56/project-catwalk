@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "/client/dist")));
 
 app.get('/api/products', async (req, res) => {
   var data = await getPosts();
-  console.log(data);
+  res.send(data);
 });
 
 app.listen(3000, () => {
