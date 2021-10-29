@@ -1,18 +1,19 @@
 const path = require("path")
 const express = require("express"); // npm installed
+const cors = require('cors');
 
 const { getPosts } = require('./helper.js');
 
 const app = express();
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/client/dist")));
 // other configuration...
 
 app.get('/api/products', async (req, res) => {
   var data = await getPosts();
-  console.log(data);
+  res.send(data);
 });
 
 app.listen(3000, () => {

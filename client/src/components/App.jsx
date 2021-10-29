@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import ProductOverview from './ProductOverview/ProductOverview.jsx';
 import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
 import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
 import RelatedItems from './RelatedItems/RelatedItems.jsx';
 import ProductState from '../context/products/ProductState.js';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+import ProductContext from '../context/products/ProductContext';
 
-  render() {
+const App = () => {
+  const productContext = useContext(ProductContext);
+
+  useEffect(() => {
+  //  productContext.getProducts();
+  }, []);
+
     return (
       <ProductState>
         <ProductOverview/>
@@ -19,7 +22,6 @@ class App extends React.Component {
         <RatingsAndReviews/>
       </ProductState>
     )
-  }
 }
 
 export default App;
