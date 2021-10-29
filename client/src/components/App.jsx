@@ -11,7 +11,7 @@ const App = () => {
   const productContext = useContext(ProductContext);
 
   useEffect(() => {
-    productContext.getProducts();
+  //  productContext.getProducts();
   }, []);
 
     return (

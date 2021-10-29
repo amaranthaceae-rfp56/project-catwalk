@@ -1,11 +1,12 @@
 const path = require("path")
 const express = require("express"); // npm installed
+const cors = require('cors');
 
 const { getPosts } = require('./helper.js');
 
 const app = express();
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/client/dist")));
 // other configuration...
