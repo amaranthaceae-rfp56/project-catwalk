@@ -2,7 +2,7 @@ const path = require("path")
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getPosts } = require('./helper.js');
+const { getProducts, getProduct } = require('./helper.js');
 
 const app = express();
 
@@ -11,8 +11,16 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "/client/dist")));
 // other configuration...
 
+// Get Products
 app.get('/api/products', async (req, res) => {
-  var data = await getPosts();
+  var data = await getProducts();
+  res.send(data);
+});
+
+// Get Single Product
+app.get('/api/products/:product_id', async (req, res) => {
+  console.log(req.params.product_id)
+  var data = await getProduct(req.params.product_id);
   res.send(data);
 });
 

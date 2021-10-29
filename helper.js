@@ -5,8 +5,7 @@ const headers = {
   'Authorization': `${accessToken}`
 };
 
-const getPosts = async () => {
-
+const getProducts = async () => {
   return axios.get(`${apiUrl}/products`, {
     headers
   })
@@ -18,6 +17,19 @@ const getPosts = async () => {
   })
 }
 
+const getProduct = async (id) => {
+  return axios.get(`${apiUrl}/products/${id}`, {
+    headers
+  })
+  .then((result) => {
+    return result.data
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
 module.exports = {
-  getPosts: getPosts
+  getProducts: getProducts,
+  getProduct: getProduct
 }
