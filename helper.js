@@ -41,8 +41,22 @@ const getProductStyles = async (id) => {
   })
 }
 
+
+const getRelatedProducts = async (id) => {
+  return axios.get(`${apiUrl}/products/${id}/related`, {
+    headers
+  })
+  .then((result) => {
+    return result.data
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
-  getProductStyles: getProductStyles
+  getProductStyles: getProductStyles,
+  getRelatedProducts: getRelatedProducts
 }
