@@ -128,6 +128,19 @@ const reportReview = async (id) => {
     })
 }
 
+const getQuestions = async (id) => {
+  return axios.get(`${apiUrl}/qa/questions`, {
+    headers,
+    params: { page: 1, count: 5, sort: 'newest', product_id: id }
+  })
+  .then((result) => {
+    return result.data
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
@@ -137,5 +150,6 @@ module.exports = {
   getReviewMetaData: getReviewMetaData,
   postReview: postReview,
   markReview: markReview,
-  reportReview: reportReview
+  reportReview: reportReview,
+  getQuestions: getQuestions
 }
