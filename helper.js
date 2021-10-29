@@ -80,11 +80,36 @@ const getReviewMetaData = async (id) => {
   })
 }
 
+const postReview = async (id, postData) => {
+  const { rating, summary, body, recommend, name, email, photos, characteristics } = postData;
+
+  return axios.post(`${apiUrl}/reviews`, {
+      product_id: id,
+      rating: rating,
+      summary: summary,
+      body: body,
+      recommend: recommend,
+      name: name,
+      email: email,
+      photos: photos,
+      characteristics: characteristics
+    },
+    { headers }
+  )
+  .then((result) => {
+    return result.data
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
   getProductStyles: getProductStyles,
   getRelatedProducts: getRelatedProducts,
   getReviews: getReviews,
-  getReviewMetaData: getReviewMetaData
+  getReviewMetaData: getReviewMetaData,
+  postReview: postReview
 }
