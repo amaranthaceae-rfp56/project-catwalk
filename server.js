@@ -1,13 +1,15 @@
 const path = require("path")
+const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview } = require('./helper.js');
+const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion } = require('./helper.js');
 
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(parser.urlencoded({ extended: true }))
+app.use(parser.json());
 app.use(express.static(path.join(__dirname, "/client/dist")));
 // other configuration...
 
@@ -66,6 +68,23 @@ app.put('/api/reviews/report/:review_id', async(req, res) => {
   res.send(data);
 })
 
+// Get questions for product
+app.get('/api/qa/questions/:product_id', async (req, res) => {
+  var data = await getQuestions(req.params.product_id);
+  res.send(data);
+})
+
+// Get answers for question
+app.get('/api/qa/questions/answers/:question_id', async (req, res) => {
+  var data = await getAnswers(req.params.question_id);
+  res.send(data)
+})
+
+// Post question
+app.post('/api/qa/questions/:product_id', async (req, res) => {
+  var data = await postQuestion(req.params.product_id, req.body);
+  res.send(data);
+})
 
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
