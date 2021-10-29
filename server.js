@@ -2,7 +2,7 @@ const path = require("path")
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions } = require('./helper.js');
+const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers } = require('./helper.js');
 
 const app = express();
 
@@ -67,10 +67,15 @@ app.put('/api/reviews/report/:review_id', async(req, res) => {
 })
 
 // Get questions for product
-
 app.get('/api/qa/questions/:product_id', async (req, res) => {
   var data = await getQuestions(req.params.product_id);
   res.send(data);
+})
+
+// Get answers for question
+app.get('/api/qa/questions/answers/:question_id', async (req, res) => {
+  var data = await getAnswers(req.params.question_id);
+  res.send(data)
 })
 
 app.listen(3000, () => {

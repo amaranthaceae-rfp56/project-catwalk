@@ -141,6 +141,20 @@ const getQuestions = async (id) => {
   })
 }
 
+const getAnswers = async (id) => {
+  return axios.get(`${apiUrl}/qa/questions/${id}/answers`, {
+    headers,
+    params: { question_id: id, page: 1, count: 5 }
+  })
+  .then((result) => {
+    console.log(result);
+    return result.data
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
@@ -151,5 +165,6 @@ module.exports = {
   postReview: postReview,
   markReview: markReview,
   reportReview: reportReview,
-  getQuestions: getQuestions
+  getQuestions: getQuestions,
+  getAnswers: getAnswers
 }
