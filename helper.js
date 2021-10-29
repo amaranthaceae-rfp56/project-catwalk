@@ -54,9 +54,25 @@ const getRelatedProducts = async (id) => {
   })
 }
 
+const getReviews = async (id) => {
+  var productId = Number(id);
+  // console.log(productId, typeof productId)
+  return axios.get(`${apiUrl}/reviews`, {
+    headers,
+    params: { page: 1, count: 5, sort: 'newest', product_id: productId }
+  })
+  .then((result) => {
+    return result.data
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
   getProductStyles: getProductStyles,
-  getRelatedProducts: getRelatedProducts
+  getRelatedProducts: getRelatedProducts,
+  getReviews: getReviews
 }
