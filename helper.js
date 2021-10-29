@@ -29,7 +29,20 @@ const getProduct = async (id) => {
   })
 }
 
+const getProductStyles = async (id) => {
+  return axios.get(`${apiUrl}/products/${id}/styles`, {
+    headers
+  })
+  .then((result) => {
+    return result.data
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
 module.exports = {
   getProducts: getProducts,
-  getProduct: getProduct
+  getProduct: getProduct,
+  getProductStyles: getProductStyles
 }
