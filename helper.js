@@ -128,50 +128,6 @@ const reportReview = async (id) => {
     })
 }
 
-const getQuestions = async (id) => {
-  return axios.get(`${apiUrl}/qa/questions`, {
-    headers,
-    params: { page: 1, count: 5, sort: 'newest', product_id: id }
-  })
-  .then((result) => {
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-}
-
-const getAnswers = async (id) => {
-  return axios.get(`${apiUrl}/qa/questions/${id}/answers`, {
-    headers,
-    params: { question_id: id, page: 1, count: 5 }
-  })
-  .then((result) => {
-    console.log(result);
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-}
-
-const postQuestion = async (id, postData) => {
-  const { body, name, email } = postData
-
-  return axios.post(`${apiUrl}/qa/questions`, {
-    body: body,
-    name: name,
-    email: email,
-    product_id: id
-  }, { headers })
-  .then((result) => {
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-}
-
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
@@ -181,8 +137,5 @@ module.exports = {
   getReviewMetaData: getReviewMetaData,
   postReview: postReview,
   markReview: markReview,
-  reportReview: reportReview,
-  getQuestions: getQuestions,
-  getAnswers: getAnswers,
-  postQuestion: postQuestion
+  reportReview: reportReview
 }
