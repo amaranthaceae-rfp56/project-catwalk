@@ -19,8 +19,8 @@ test('test', () => {
 
 });
 
-test('snapshots', () => {
-  const tree = renderer.create(<QuestionsAndAnswers/>).toJSON();
-  console.log(tree);
-  expect(tree).toMatchSnapshot();
-});
+// test('snapshots', () => {
+//   const tree = renderer.create(<QuestionsAndAnswers/>).toJSON();
+//   console.log(tree);
+//   expect(tree).toMatchSnapshot();
+// });
