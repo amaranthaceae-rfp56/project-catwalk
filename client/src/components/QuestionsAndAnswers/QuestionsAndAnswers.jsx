@@ -3,7 +3,7 @@ import React from 'react';
 
 const QuestionsAndAnswers = () => {
   return (
-    <div data-testId = {'Questions-And-Answers'}>
+    <div data-testid = {'Questions-And-Answers'}>
       QUESTIONS AND ANSWERS
     </div>
   );
