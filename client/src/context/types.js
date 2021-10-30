@@ -1,6 +1,13 @@
+// Product Types
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT_INFO = 'GET_PRODUCT_INFO';
 export const GET_PRODUCT_STYLES = 'GET_PRODUCT_STYLES';
 export const GET_RELATED_PRODUCTS = 'GET_RELATED_PRODUCTS';
 export const SET_LOADING = 'SET_LOADING';
 
+// Review Types
+export const GET_REVIEWS = 'GET_REVIEWS';
+export const GET_REVIEW_METADATA = 'GET_REVIEW_METADATA';
+export const POST_REVIEW = 'POST_REVIEW';
+export const MARK_REVIEW = 'MARK_REVIEW';
+export const REPORT_REVIEW = 'REPORT_REVIEW';
