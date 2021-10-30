@@ -3,7 +3,7 @@ import React from 'react';
 
 const RatingsAndReviews = () => {
   return (
-    <div>
+    <div data-testid = {'Ratings-And-Reviews'}>
       RATINGS AND REVIEWS
     </div>
   );
