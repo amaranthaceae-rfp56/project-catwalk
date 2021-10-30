@@ -16,3 +16,9 @@ test('test', () => {
   expect(review).toBeInTheDocument();
   expect(review).toHaveTextContent('RATINGS AND REVIEWS');
 });
+
+test('snapshots', () => {
+  const tree = renderer.create(<RatingsAndReviews/>).toJSON();
+  console.log(tree);
+  expect(tree).toMatchSnapshot();
+});

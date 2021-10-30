@@ -16,3 +16,9 @@ test('test', () => {
   expect(item).toBeInTheDocument();
   expect(item).toHaveTextContent('RELATED ITEMS');
 });
+
+test('snapshots', () => {
+  const tree = renderer.create(<RelatedItems/>).toJSON();
+  console.log(tree);
+  expect(tree).toMatchSnapshot();
+});

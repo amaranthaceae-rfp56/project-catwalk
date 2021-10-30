@@ -15,4 +15,12 @@ test('test', () => {
 
   expect(item).toBeInTheDocument();
   expect(item).toHaveTextContent('QUESTIONS AND ANSWERS');
+
+
+});
+
+test('snapshots', () => {
+  const tree = renderer.create(<QuestionsAndAnswers/>).toJSON();
+  console.log(tree);
+  expect(tree).toMatchSnapshot();
 });

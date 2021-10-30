@@ -16,3 +16,8 @@ test('test', () => {
   expect(item).toBeInTheDocument();
   expect(item).toHaveTextContent('PRODUCT OVERVIEW');
 });
+test('snapshots', () => {
+  const tree = renderer.create(<ProductOverview/>).toJSON();
+  console.log(tree);
+  expect(tree).toMatchSnapshot();
+});
