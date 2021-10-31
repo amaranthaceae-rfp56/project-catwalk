@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ProductContext from '../../../context/products/ProductContext';
+
+import './product-style-selector.styles.scss';
 
 const ProductStyleSelector = () => {
-
+  const { productStyles : { results } } = useContext(ProductContext);
+  // const { results } = productContext.productStyles
+  // console.log(results);
+  console.log(results);
   return (
-    <h5>Product Style Selector</h5>
+    <div>
+      {results && results.map((style) => (
+        <img className="product-style-icon" src={style.photos[0].thumbnail_url} />
+      ))}
+    </div>
   )
 }
 

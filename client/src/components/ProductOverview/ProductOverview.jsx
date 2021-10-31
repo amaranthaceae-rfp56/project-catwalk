@@ -24,6 +24,7 @@ const ProductOverview = () => {
           <h4>name: {name}</h4>
           <h4>Price: {default_price}</h4>
         </div>
+        <h6> Style: Selected Style</h6>
         <ProductStyleSelector />
 
       </div>

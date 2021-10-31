@@ -18,6 +18,11 @@ export default (state, action) => {
         ...state,
         productInfo: action.payload
       }
+    case GET_PRODUCT_STYLES:
+      return {
+        ...state,
+        productStyles: action.payload
+      }
     case SET_LOADING:
       return {
         ...state,
