@@ -1,10 +1,11 @@
 import React from 'react';
-
+import ReviewList from './ReviewList.jsx';
 
 const RatingsAndReviews = () => {
   return (
     <div data-testid = {'Ratings-And-Reviews'}>
       RATINGS AND REVIEWS
+      <ReviewList/>
     </div>
   );
 };
