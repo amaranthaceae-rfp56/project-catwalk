@@ -8,6 +8,7 @@ import {
   GET_PRODUCT_INFO,
   GET_PRODUCT_STYLES,
   GET_RELATED_PRODUCTS,
+  GET_CURRENT_STYLE,
   SET_LOADING
 } from '../types';
 
@@ -18,6 +19,7 @@ const ProductState = props => {
     products: [],
     productStyles: [],
     productInfo: {},
+    currentStyle: {},
     relatedProducts: [],
     loading: false
   }
@@ -59,6 +61,15 @@ const ProductState = props => {
       payload: res.data
     })
   }
+
+  const getCurrentStyle = (id) => {
+    const res = state.productStyles.results.find((product) => product.style_id == id);
+
+    dispatch({
+      type: GET_CURRENT_STYLE,
+      payload: res
+    })
+  }
   // SET LOADING
   const setLoading = () => dispatch({ type: SET_LOADING });
 
@@ -71,7 +82,8 @@ const ProductState = props => {
     loading: state.loading,
     getProducts,
     getProductInfo,
-    getProductStyles
+    getProductStyles,
+    getCurrentStyle
     }}
     >
       {props.children}

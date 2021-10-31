@@ -3,6 +3,7 @@ import {
   GET_PRODUCT_INFO,
   GET_PRODUCT_STYLES,
   GET_RELATED_PRODUCTS,
+  GET_CURRENT_STYLE,
   SET_LOADING
 } from '../types';
 
@@ -22,6 +23,11 @@ export default (state, action) => {
       return {
         ...state,
         productStyles: action.payload
+      }
+    case GET_CURRENT_STYLE:
+      return {
+        ...state,
+        currentStyle: action.payload
       }
     case SET_LOADING:
       return {

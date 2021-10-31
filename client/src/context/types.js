@@ -11,6 +11,7 @@ export const GET_REVIEW_METADATA = 'GET_REVIEW_METADATA';
 export const POST_REVIEW = 'POST_REVIEW';
 export const MARK_REVIEW = 'MARK_REVIEW';
 export const REPORT_REVIEW = 'REPORT_REVIEW';
+export const GET_CURRENT_STYLE = 'GET_CURRENT_STYLE';
 
 // Question Types
 export const GET_QUESTIONS = 'GET_QUESTIONS';
