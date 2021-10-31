@@ -26,8 +26,8 @@ const ProductState = props => {
 
   // GET PRODUCTS
   useEffect(() => {
-    getProducts()
-    console.log(initialState);
+    // getProducts()
+    getProductInfo();
   }, [])
 
   const getProducts = async () => {
@@ -37,6 +37,15 @@ const ProductState = props => {
 
     dispatch({
       type: GET_PRODUCTS,
+      payload: res.data
+    })
+  }
+
+  const getProductInfo = async () => {
+    const res = await Axios.get(`${API_URL}/40344`);
+
+    dispatch({
+      type: GET_PRODUCT_INFO,
       payload: res.data
     })
   }
@@ -51,7 +60,8 @@ const ProductState = props => {
     productInfo: state.productInfo,
     relatedProducts: state.relatedProducts,
     loading: state.loading,
-    getProducts
+    getProducts,
+    getProductInfo
     }}
     >
       {props.children}
