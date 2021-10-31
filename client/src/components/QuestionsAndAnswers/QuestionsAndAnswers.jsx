@@ -1,16 +1,16 @@
 import React from 'react';
-
+import '../styles/components/_questions.scss'
 
 const QuestionsAndAnswers = () => {
   return (
-<<<<<<< HEAD
-    <span className="test">questions and answers
-    </span>
-=======
-    <div data-testid = {'Questions-And-Answers'}>
-      QUESTIONS AND ANSWERS
+    <div>
+      <div data-testid = {'Questions-And-Answers'}>
+        QUESTIONS AND ANSWERS
+      </div>
+      <test>
+        questions and answers
+      </test>
     </div>
->>>>>>> main
   );
 };
 

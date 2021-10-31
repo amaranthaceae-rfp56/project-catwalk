@@ -1,0 +1,8 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(143, 45, 182);
+
+test {
+  font: 100% $font-stack;
+  color: $primary-color;
+  font-weight:700;
+}
