@@ -8,16 +8,19 @@ import RelatedItems from './RelatedItems/RelatedItems.jsx';
 import ProductState from '../context/products/ProductState.js';
 import ReviewState from '../context/reviews/ReviewState.js';
 import QuestionState from '../context/questions/QuestionState.js';
+import CartState from '../context/cart/CartState.js';
 
 // Context
 import ProductContext from '../context/products/ProductContext';
 import ReviewContext from '../context/reviews/ReviewContext';
 import QuestionContext from '../context/questions/QuestionContext';
+import CartContext from '../context/cart/CartContext';
 
 const App = () => {
   const productContext = useContext(ProductContext);
   const reviewContext = useContext(ReviewContext);
   const questionContext = useContext(QuestionContext);
+  const cartContext = useContext(CartContext);
 
   useEffect(() => {
   //  productContext.getProducts();
@@ -27,10 +30,12 @@ const App = () => {
       <ProductState>
         <ReviewState>
           <QuestionState>
-            <ProductOverview/>
-            <RelatedItems/>
-            <QuestionsAndAnswers/>
-            <RatingsAndReviews/>
+            <CartState>
+              <ProductOverview/>
+              <RelatedItems/>
+              <QuestionsAndAnswers/>
+              <RatingsAndReviews/>
+            </CartState>
           </QuestionState>
         </ReviewState>
       </ProductState>

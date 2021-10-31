@@ -21,3 +21,7 @@ export const MARK_QUESTION = 'MARK_QUESTION';
 export const REPORT_QUESTION = 'REPORT_QUESTION';
 export const MARK_ANSWER = 'MARK_ANSWER';
 export const REPORT_ANSWER = 'REPORT_ANSWER';
+
+// Cart Types
+export const GET_CART_ITEMS = 'GET_CART_ITEMS';
+export const ADD_CART_ITEM = 'ADD_CART_ITEM';
