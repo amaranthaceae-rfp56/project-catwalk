@@ -3,7 +3,7 @@ import React from 'react';
 
 const RelatedItems = () => {
   return (
-    <div>
+    <div data-testid = {'Related-Items'}>
       RELATED ITEMS
     </div>
   );

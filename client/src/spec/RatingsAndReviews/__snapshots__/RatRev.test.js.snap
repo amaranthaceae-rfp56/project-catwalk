@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots 1`] = `
+<div
+  data-testid="Ratings-And-Reviews"
+>
+  RATINGS AND REVIEWS
+</div>
+`;
