@@ -17,10 +17,10 @@ const ReviewList = () => {
     if (visibleReviewsCount + 2 <= reviews.length) {
       setVisibleReviewsCount(visibleReviewsCount + 2);
 
-      console.log(visibleReviewsCount);
+
     } else if (visibleReviewsCount + 1 <= reviews.length) {
       setVisibleReviewsCount(visibleReviewsCount + 1);
-      console.log(visibleReviewsCount);
+
     }
   };
 

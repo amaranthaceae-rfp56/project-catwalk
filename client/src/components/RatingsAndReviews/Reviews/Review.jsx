@@ -1,4 +1,5 @@
 import React from 'react';
+import Voter from '../../RelatedItems/Voter.jsx';
 
 const Review = (props) => {
   const {
@@ -57,9 +58,12 @@ const Review = (props) => {
         </div>
         {recommended}
         {responseMessage}
-        <div className = {'helpful-vote'}>
-          Was this review helpful? <div className = {'helpful-vote-option'}>Yes</div><div className = {'helpful-vote-option'}>No</div>
-        </div>
+
+        <Voter
+        question = 'Was this review helpful?'
+        yes = {() => {console.log(review_id)}}
+
+        />
 
     </li>
   );
