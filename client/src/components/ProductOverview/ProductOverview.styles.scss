@@ -1,0 +1,13 @@
+.product-overview-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-overview-container-left {
+  width: 70%;
+}
+
+.product-overview-container-right {
+  display: flex;
+  flex-direction: column;
+}

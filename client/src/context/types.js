@@ -2,6 +2,7 @@
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT_INFO = 'GET_PRODUCT_INFO';
 export const GET_PRODUCT_STYLES = 'GET_PRODUCT_STYLES';
+export const SET_INITIAL_STYLE = 'SET_INITIAL_STYLE';
 export const GET_RELATED_PRODUCTS = 'GET_RELATED_PRODUCTS';
 export const SET_LOADING = 'SET_LOADING';
 
@@ -11,6 +12,7 @@ export const GET_REVIEW_METADATA = 'GET_REVIEW_METADATA';
 export const POST_REVIEW = 'POST_REVIEW';
 export const MARK_REVIEW = 'MARK_REVIEW';
 export const REPORT_REVIEW = 'REPORT_REVIEW';
+export const GET_CURRENT_STYLE = 'GET_CURRENT_STYLE';
 
 // Question Types
 export const GET_QUESTIONS = 'GET_QUESTIONS';
