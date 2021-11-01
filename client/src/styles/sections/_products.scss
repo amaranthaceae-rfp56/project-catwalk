@@ -1,0 +1,8 @@
+@use '../abstracts/fonts';
+@use '../abstracts/colors';
+
+.products-title {
+  font: fonts.$fontTitle;
+  color: colors.$bodyColor;
+  font-weight: 700;
+}
