@@ -9,7 +9,7 @@ import './ProductOverview.styles.scss';
 
 const ProductOverview = () => {
   const productContext = useContext(ProductContext);
-  const { currentStyle } = productContext;
+  const { productInfo, currentStyle } = productContext;
 
   return (
     <div className="product-overview-container">
@@ -21,8 +21,8 @@ const ProductOverview = () => {
       <div className="product-overview-container-right">
         <ProductStarRating />
         <div className="product-overview-details">
-        <h4>{currentStyle && currentStyle.name}</h4>
-        <h5></h5>
+          <h4>{currentStyle.name}</h4>
+          {!currentStyle.sale_price ? <h5>{currentStyle.original_price}</h5> : <div> <strike>{currentStyle.original_price}</strike><h6>{currentStyle.sale_price}</h6></div>}
         </div>
         <h6> Style: Selected Style</h6>
         <ProductStyleSelector />

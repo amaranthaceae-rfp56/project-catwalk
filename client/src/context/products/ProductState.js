@@ -79,6 +79,7 @@ const ProductState = props => {
     productStyles: state.productStyles,
     productInfo: state.productInfo,
     relatedProducts: state.relatedProducts,
+    currentStyle: state.currentStyle,
     loading: state.loading,
     getProducts,
     getProductInfo,
