@@ -27,7 +27,7 @@ ul {
   justify-content: space-between;
 }
 
-.review-helpful-vote {
+.helpful-vote {
   display: flex;
   justify-content: space-around;
   padding: 10px;
@@ -44,7 +44,7 @@ ul {
 }
 
 
-.review-helpful-vote-option {
+.helpful-vote-option {
   border: black solid 1px;
   border-radius: 10px;
   padding: 5px;
@@ -53,7 +53,7 @@ ul {
   justify-content: center;
   background: rgb(196, 188, 188);
 }
-.review-helpful-vote-option:hover {
+.helpful-vote-option:hover {
   cursor: pointer;
   background: rgb(99, 94, 94);
   color: whitesmoke;

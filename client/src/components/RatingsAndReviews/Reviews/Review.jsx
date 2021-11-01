@@ -57,8 +57,8 @@ const Review = (props) => {
         </div>
         {recommended}
         {responseMessage}
-        <div className = {'review-helpful-vote'}>
-          Was this review helpful? <div className = {'review-helpful-vote-option'}>Yes</div><div className = {'review-helpful-vote-option'}>No</div>
+        <div className = {'helpful-vote'}>
+          Was this review helpful? <div className = {'helpful-vote-option'}>Yes</div><div className = {'helpful-vote-option'}>No</div>
         </div>
 
     </li>
