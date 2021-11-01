@@ -2,7 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import ProductOverview from './ProductOverview/ProductOverview.jsx';
 import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
 import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
-import RelatedItems from './RelatedItems/RelatedItems.jsx';
+import RelatedItemsSection from './RelatedItems/RelatedItemsSection.jsx';
+import OutfitSection from './RelatedItems/OutfitSection.jsx';
 
 // Context State
 import ProductState from '../context/products/ProductState.js';
@@ -23,23 +24,24 @@ const App = () => {
   const cartContext = useContext(CartContext);
 
   useEffect(() => {
-  //  productContext.getProducts();
+    //  productContext.getProducts();
   }, []);
 
-    return (
-      <ProductState>
-        <ReviewState>
-          <QuestionState>
-            <CartState>
-              <ProductOverview/>
-              <RelatedItems/>
-              <QuestionsAndAnswers/>
-              <RatingsAndReviews/>
-            </CartState>
-          </QuestionState>
-        </ReviewState>
-      </ProductState>
-    )
+  return (
+    <ProductState>
+      <ReviewState>
+        <QuestionState>
+          <CartState>
+            <ProductOverview />
+            <RelatedItemsSection />
+            <OutfitSection />
+            <QuestionsAndAnswers />
+            <RatingsAndReviews />
+          </CartState>
+        </QuestionState>
+      </ReviewState>
+    </ProductState>
+  )
 }
 
 export default App;
