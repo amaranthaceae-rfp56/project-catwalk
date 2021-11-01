@@ -1,16 +1,12 @@
 import React from 'react';
-import '../../styles/sections/_ratings.scss';
+import ReviewList from './Reviews/ReviewList.jsx';
 
 const RatingsAndReviews = () => {
   return (
-    <div>
-      <div data-testid = {'Ratings-And-Reviews'}>
-        RATINGS AND REVIEWS
-      </div>
-      <div className="ratings-title">
-        ratings and reviews
-      </div>
-  </div>
+    <div  className = 'ratings-reviews-container' data-testid = {'Ratings-And-Reviews'}>
+      RATINGS AND REVIEWS
+      <ReviewList/>
+    </div>
   );
 };
 
