@@ -4,6 +4,7 @@ import '../../styles/sections/_questions.scss';
 
 const QuestionsAndAnswers = () => {
   return (
+<<<<<<< HEAD
     <div>
     <div className="questions-container">
       <div className="questions-idContainer">
@@ -35,6 +36,10 @@ const QuestionsAndAnswers = () => {
   //     questions and answers
   //   </div>
   // </div>
+=======
+    <span className="test">questions and answers
+    </span>
+>>>>>>> main
   );
 };
 
