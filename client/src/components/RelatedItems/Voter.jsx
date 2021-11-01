@@ -5,7 +5,9 @@ const Voter = (props) => {
   //requires a props.question which is a string EX: Was this review helpful?
 
   //requires a props.yes that fires on click events of Yes
-  //requires a props.no that fires on click events of no
+
+
+  // requires props.helpfulness an integer that displays the count of users that clicked yes
 
   return (
     <div className = {'helpful-vote'}>
@@ -13,8 +15,8 @@ const Voter = (props) => {
           <div
           className = {'helpful-vote-option'}
           onClick = {props.yes}
-          >Yes</div>
-
+          >Yes </div>
+          {props.helpfulness} users found this helpful.
         </div>
   );
 };

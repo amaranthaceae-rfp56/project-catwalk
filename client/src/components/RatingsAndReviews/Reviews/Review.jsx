@@ -61,6 +61,7 @@ const Review = (props) => {
 
         <Voter
         question = 'Was this review helpful?'
+        helpfulness = {helpfulness}
         yes = {() => {console.log(review_id)}}
 
         />
