@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ReviewContext from '../../../context/reviews/ReviewContext';
 import Review from './Review.jsx';
+import Sorter from './Sorter.jsx';
 
 
 const ReviewList = () => {
@@ -39,6 +40,7 @@ const ReviewList = () => {
   return (
     <div className = 'reviews-container'>
       <h3>Reviews</h3>
+      <Sorter/>
       <ul>
         {reviews.map((review, index) => {
           if (index < visibleReviewsCount) {
