@@ -16,7 +16,9 @@ const Review = (props) => {
 
   let recommended, responseMessage;
 
-  const setResponse = () => {
+  let formattedDate = new Date(date).toLocaleDateString(undefined,{month: 'long', day: 'numeric', year: 'numeric'});
+
+
     if (response) {
       responseMessage = (
         <div className = 'review-response'>
@@ -26,21 +28,21 @@ const Review = (props) => {
     } else {
       responseMessage = null;
     }
-  };
-
-  const setRecommended = () => {
-      if (recommend) {
-        recommended = (
-          <div className = {'review-recomended-product'}>
-          I recommend this product!
-      </div>
-        );
-      }
-  };
 
 
-  setResponse();
-  setRecommended();
+
+    if (recommend) {
+      recommended = (
+        <div className = {'review-recomended-product'}>
+        I recommend this product!
+    </div>
+      );
+    }
+
+
+
+
+
   return (
     <li className = 'review'>
 
@@ -49,7 +51,7 @@ const Review = (props) => {
           STARS = {rating}
           </div>
           <div>
-            {reviewer_name}, DATE
+            {reviewer_name}, {formattedDate}
           </div>
         </div>
         <h3>{summary}</h3>

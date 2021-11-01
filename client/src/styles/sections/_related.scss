@@ -1,0 +1,8 @@
+@use '../abstracts/fonts';
+@use '../abstracts/colors';
+
+.ratings-title {
+  font: fonts.$fontTitle;
+  color: colors.$titleColor;
+  font-weight: 300;
+}
