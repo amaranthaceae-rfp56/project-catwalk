@@ -1,15 +1,17 @@
 import React from 'react';
-import '../styles/components/_products.scss'
+import styles from '../../styles/components/_products.scss';
+
 
 const ProductOverview = () => {
+
   return (
     <div>
       <div data-testid = {'Product-Overview'}>
         PRODUCT OVERVIEW
       </div>
-      <test className="test">
+      <div className="test">
         product overview
-      </test>
+      </div>
     </div>
   );
 };
