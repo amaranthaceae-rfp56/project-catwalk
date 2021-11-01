@@ -5,6 +5,7 @@ import '../../styles/sections/_products.scss';
 import ProductStarRating from './product-star-rating/product-star-rating.component.jsx';
 import ProductImageGallery from './product-image-gallery/product-image-gallery.component.jsx';
 import ProductStyleSelector from './product-style-selector/product-style-selector.component.jsx'
+import ProductDropdown from './product-dropdown/product-dropdown.component.jsx';
 
 import './ProductOverview.styles.scss';
 
@@ -27,7 +28,7 @@ const ProductOverview = () => {
         </div>
         <h6> Style: Selected Style</h6>
         <ProductStyleSelector />
-
+        <ProductDropdown />
       </div>
 
     </div>

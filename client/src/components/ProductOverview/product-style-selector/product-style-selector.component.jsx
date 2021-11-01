@@ -13,7 +13,7 @@ const ProductStyleSelector = () => {
   }
 
   return (
-    <div>
+    <div className="product-style-container">
       {results && results.map((style) => (
         <img className="product-style-icon" src={style.photos[0].thumbnail_url} name={style.style_id} onClick={handleClick}/>
       ))}
