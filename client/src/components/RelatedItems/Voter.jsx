@@ -17,7 +17,12 @@ const Voter = (props) => {
           onClick = {props.yes}
           >Yes </div>
           {props.helpfulness} users found this helpful.
+          <div
+        className = 'helpful-vote-option'
+        onClick = {props.report}
+        >Report</div>
         </div>
+
   );
 };
 

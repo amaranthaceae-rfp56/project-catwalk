@@ -65,7 +65,7 @@ const Review = (props) => {
         question = 'Was this review helpful?'
         helpfulness = {helpfulness}
         yes = {() => {console.log(review_id)}}
-
+        report = {() => {console.log('ADD HTTP REQUEST')}}
         />
 
     </li>
