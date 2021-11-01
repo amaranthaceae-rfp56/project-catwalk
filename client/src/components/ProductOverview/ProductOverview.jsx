@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ProductContext from '../../context/products/ProductContext';
+import '../../styles/sections/_products.scss';
 
 import ProductStarRating from './product-star-rating/product-star-rating.component.jsx';
 import ProductImageGallery from './product-image-gallery/product-image-gallery.component.jsx';
