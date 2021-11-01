@@ -5,17 +5,18 @@ import './product-image-gallery.styles.scss';
 
 const ProductImageGallery = () => {
   const productContext = useContext(ProductContext);
+  const { currentStyle } = productContext;
   const [mainPhoto, setMainPhoto] = useState(null);
 
   useEffect(() => {
-    if(productContext.currentStyle.photos) {
-      setMainPhoto(productContext.currentStyle.photos[0])
+    if(currentStyle.photos) {
+      setMainPhoto(currentStyle.photos[0])
     }
-  }, [productContext.currentStyle.photos])
+  }, [currentStyle.photos])
 
   const handleClick = (e) => {
     const currentIndex = Number(e.target.name);
-    const selectedPhoto = productContext.currentStyle.photos[currentIndex];
+    const selectedPhoto = currentStyle.photos[currentIndex];
     setMainPhoto(selectedPhoto);
   }
 
@@ -23,22 +24,15 @@ const ProductImageGallery = () => {
       <div className="product-image-gallery-container">
 
         <div className="product-image-gallery-thumbnail-container">
-          {productContext.currentStyle.photos && productContext.currentStyle.photos.map((photo, index) => (
-            <div>
-              <img src={photo.thumbnail_url} className="image-gallery-thumbnail" onClick={handleClick} name={index}/>
+          {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
+            <div key={index}>
+              <img src={photo.thumbnail_url} className="image-gallery-thumbnail" onClick={handleClick} name={index} />
             </div>
           ))}
         </div>
 
         <div className="product-image-gallery-main">
             {mainPhoto && <img className="image-gallery-main" src={mainPhoto.url} />}
-            {/* {!mainPhoto ? productContext.currentStyle.photos && productContext.currentStyle.photos.map((photo, i) => {
-              if (i === 0) {
-                return (
-                  <img className="image-gallery-main" src={photo.url} />
-                )
-              }
-            }) : <img className="image-gallery-main" src={mainPhoto.url} /> } */}
         </div>
 
       </div>
