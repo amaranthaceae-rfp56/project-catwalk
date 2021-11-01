@@ -1,8 +1,28 @@
 @use '../abstracts/fonts';
 @use '../abstracts/colors';
 
+.questions-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.questions-idContainer {
+  display: flex;
+  width: 5%;
+}
+
+.questions-bodyContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .questions-title {
   font: fonts.$fontTitle;
+  font-weight: fonts.$medium;
   color: colors.$titleColor;
-  font-weight: 700;
+}
+
+.questions-answer {
+  font: fonts.$fontTitle;
+  color: colors.$titleColor;
 }
