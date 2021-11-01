@@ -7,9 +7,11 @@ const ProductImageGallery = () => {
   const productContext = useContext(ProductContext);
   const [mainPhoto, setMainPhoto] = useState(null);
 
-  // useEffect(() => {
-
-  // }, [])
+  useEffect(() => {
+    if(productContext.currentStyle.photos) {
+      setMainPhoto(productContext.currentStyle.photos[0])
+    }
+  }, [productContext.currentStyle.photos])
 
   const handleClick = (e) => {
     const currentIndex = Number(e.target.name);
@@ -29,13 +31,14 @@ const ProductImageGallery = () => {
         </div>
 
         <div className="product-image-gallery-main">
-            {!mainPhoto ? productContext.currentStyle.photos && productContext.currentStyle.photos.map((photo, i) => {
+            {mainPhoto && <img className="image-gallery-main" src={mainPhoto.url} />}
+            {/* {!mainPhoto ? productContext.currentStyle.photos && productContext.currentStyle.photos.map((photo, i) => {
               if (i === 0) {
                 return (
                   <img className="image-gallery-main" src={photo.url} />
                 )
               }
-            }) : <img className="image-gallery-main" src={mainPhoto.url} /> }
+            }) : <img className="image-gallery-main" src={mainPhoto.url} /> } */}
         </div>
 
       </div>
