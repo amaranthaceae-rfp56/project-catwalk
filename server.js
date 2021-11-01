@@ -63,7 +63,7 @@ app.put('/api/reviews/helpful/:review_id', async (req, res) => {
 });
 
 // Report Review
-app.put('/api/reviews/report/:review_id', async(req, res) => {
+app.put('/api/reviews/report/:review_id', async (req, res) => {
   var data = await reportReview(req.params.review_id);
   res.send(data);
 })
@@ -85,6 +85,28 @@ app.post('/api/qa/questions/:product_id', async (req, res) => {
   var data = await postQuestion(req.params.product_id, req.body);
   res.send(data);
 })
+
+var yourOutfit = {};
+
+// Post product to Outfit List
+app.post('/outfit/:username', (req, res) => {
+  if (yourOutfit[req.params.username] === undefined) {
+    yourOutfit[req.params.username] = [];
+  }
+  console.log(req.params.username);
+  for (var i = 0; i < yourOutfit[req.params.username].length; i++) {
+    if (yourOutfit[req.params.username][i] === req.body.id) {
+      return;
+    }
+  }
+  yourOutfit[req.params.username].push(req.body.id)
+  res.sendStatus(201);
+});
+
+// get Outfit List
+app.get('/outfit/:username', (req, res) => {
+  res.send(yourOutfit[req.params.username]);
+});
 
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
