@@ -22,7 +22,7 @@ const ProductOverview = () => {
         <ProductStarRating />
         <div className="product-overview-details">
           <h4>{currentStyle.name}</h4>
-          {!currentStyle.sale_price ? <h5>{currentStyle.original_price}</h5> : <div> <strike>{currentStyle.original_price}</strike><h6>{currentStyle.sale_price}</h6></div>}
+          {!currentStyle.sale_price ? <h5>{currentStyle.original_price}</h5> : <div> <strike style={{ color: "red"}}>{currentStyle.original_price}</strike><h6>{currentStyle.sale_price}</h6></div>}
         </div>
         <h6> Style: Selected Style</h6>
         <ProductStyleSelector />
