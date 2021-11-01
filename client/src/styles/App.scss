@@ -1,2 +1,7 @@
-//@use './components/questions';
-//@use './components/products';
+@use './sections/questions';
+@use './sections/products';
+@use './sections/ratings';
+@use './sections/related';
+
+@use './abstracts/fonts';
+@use './abstracts/colors';

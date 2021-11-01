@@ -1,0 +1,8 @@
+@use '../abstracts/fonts';
+@use '../abstracts/colors';
+
+.questions-title {
+  font: fonts.$fontTitle;
+  color: colors.$titleColor;
+  font-weight: 700;
+}

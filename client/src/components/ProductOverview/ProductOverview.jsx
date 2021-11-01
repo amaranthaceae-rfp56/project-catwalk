@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/components/_products.scss';
+import '../../styles/sections/_products.scss';
 
 
 const ProductOverview = () => {
@@ -9,7 +9,7 @@ const ProductOverview = () => {
       <div data-testid = {'Product-Overview'}>
         PRODUCT OVERVIEW
       </div>
-      <div className="test">
+      <div className="products-title">
         product overview
       </div>
     </div>

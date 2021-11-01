@@ -1,11 +1,16 @@
 import React from 'react';
-
+import '../../styles/sections/_ratings.scss';
 
 const RatingsAndReviews = () => {
   return (
-    <div data-testid = {'Ratings-And-Reviews'}>
-      RATINGS AND REVIEWS
-    </div>
+    <div>
+      <div data-testid = {'Ratings-And-Reviews'}>
+        RATINGS AND REVIEWS
+      </div>
+      <div className="ratings-title">
+        ratings and reviews
+      </div>
+  </div>
   );
 };
 
