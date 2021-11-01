@@ -14,11 +14,12 @@ const Review = (props) => {
     summary } = props.review;
 
   let recommended, responseMessage;
+
   const setResponse = () => {
     if (response) {
       responseMessage = (
-        <div>
-          <p>{response}</p>
+        <div className = 'review-response'>
+          {response}
         </div>
       );
     } else {
@@ -26,7 +27,7 @@ const Review = (props) => {
     }
   };
 
-  const recomended = () => {
+  const setRecommended = () => {
       if (recommend) {
         recommended = (
           <div className = {'review-recomended-product'}>
@@ -35,13 +36,13 @@ const Review = (props) => {
         );
       }
   };
+
+
   setResponse();
-  recomended();
-
-
+  setRecommended();
   return (
-    <li>
-      <div>
+    <li className = 'review'>
+
         <div className = {'review-rating-and-date'}>
           <div>
           STARS = {rating}
@@ -57,9 +58,9 @@ const Review = (props) => {
         {recommended}
         {responseMessage}
         <div className = {'review-helpful-vote'}>
-          Was this review helpful? <div className = {'review-helpful-vote-yes'}>Yes</div><div className = {'review-helpful-vote-no'}>No</div>
+          Was this review helpful? <div className = {'review-helpful-vote-option'}>Yes</div><div className = {'review-helpful-vote-option'}>No</div>
         </div>
-      </div>
+
     </li>
   );
 };

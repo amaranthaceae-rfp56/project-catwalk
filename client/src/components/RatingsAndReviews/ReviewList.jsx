@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import testData from './testData.jsx';
 import Review from './Review.jsx';
+
+
 const ReviewList = () => {
 
-  console.log(testData);
+  const [reviews, setReviews] = useState(testData.results);
+
+
   return (
-    <div>
+    <div className = 'reviews-container'>
       <h3>Reviews</h3>
       <ul>
-        {testData.results.map((review, index) => {
+        {reviews.map((review, index) => {
           return (<Review review = {review} key = {`Review-${index}`}/>)
         })}
       </ul>
-      <div>
-        <button>More Reviews</button>
-        <button>Add Review  +</button>
+      <div className = 'review-button-container'>
+        <button className = 'review-button'>More Reviews</button>
+        <button className = 'review-button'>Add Review  +</button>
       </div>
     </div>
   );
