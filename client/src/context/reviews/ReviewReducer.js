@@ -13,6 +13,11 @@ export default (state, action) => {
         ...state,
         reviews: action.payload
       }
+    case GET_REVIEW_METADATA:
+      return {
+        ...state,
+        reviewMeta: action.payload
+      }
     default:
       return {
         ...state
