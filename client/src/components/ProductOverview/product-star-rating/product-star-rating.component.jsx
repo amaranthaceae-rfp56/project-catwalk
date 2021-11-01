@@ -9,8 +9,8 @@ const ProductStarRating = () => {
 
   return (
     <div className="product-star-ratings-container">
-      <h6>Ratings: {avgRatings}</h6>
-      <h6>Reviews: {avgReviewCount}</h6>
+      <h3>Ratings: {avgRatings} Stars</h3>
+      <h5>Read all {avgReviewCount} reviews</h5>
     </div>
   )
 };
