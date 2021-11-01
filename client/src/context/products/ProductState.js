@@ -83,7 +83,7 @@ const ProductState = props => {
     getProducts,
     getProductInfo,
     getProductStyles,
-    getCurrentStyle
+    getCurrentStyle,
     }}
     >
       {props.children}

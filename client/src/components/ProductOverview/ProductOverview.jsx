@@ -9,7 +9,8 @@ import './ProductOverview.styles.scss';
 
 const ProductOverview = () => {
   const productContext = useContext(ProductContext);
-  const { productInfo: { name, slogan, description, category, default_price, features } } = productContext;
+  const { currentStyle } = productContext;
+
   return (
     <div className="product-overview-container">
 
@@ -20,9 +21,8 @@ const ProductOverview = () => {
       <div className="product-overview-container-right">
         <ProductStarRating />
         <div className="product-overview-details">
-          <h4>Category: {category}</h4>
-          <h4>name: {name}</h4>
-          <h4>Price: {default_price}</h4>
+        <h4>{currentStyle && currentStyle.name}</h4>
+        <h5></h5>
         </div>
         <h6> Style: Selected Style</h6>
         <ProductStyleSelector />

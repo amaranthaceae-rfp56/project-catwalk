@@ -22,7 +22,8 @@ export default (state, action) => {
     case GET_PRODUCT_STYLES:
       return {
         ...state,
-        productStyles: action.payload
+        productStyles: action.payload,
+        currentStyle: action.payload.results.find((product) => product['default?'] == true)
       }
     case GET_CURRENT_STYLE:
       return {
