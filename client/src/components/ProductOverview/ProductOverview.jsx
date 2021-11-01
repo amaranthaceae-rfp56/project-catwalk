@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ProductContext from '../../context/products/ProductContext';
 
+import ProductStarRating from './product-star-rating/product-star-rating.component.jsx';
+import ProductImageGallery from './product-image-gallery/product-image-gallery.component.jsx';
+import ProductStyleSelector from './product-style-selector/product-style-selector.component.jsx'
+
+import './ProductOverview.styles.scss';
 
 const ProductOverview = () => {
+  const productContext = useContext(ProductContext);
+  const { productInfo, currentStyle } = productContext;
+
   return (
-    <div data-testid = {'Product-Overview'}>
-      PRODUCT OVERVIEW
+    <div className="product-overview-container">
+
+      <div className="product-overview-container-left">
+        <ProductImageGallery />
+      </div>
+
+      <div className="product-overview-container-right">
+        <ProductStarRating />
+        <div className="product-overview-details">
+          <h4>{currentStyle.name}</h4>
+          {!currentStyle.sale_price ? <h5>{currentStyle.original_price}</h5> : <div> <strike>{currentStyle.original_price}</strike><h6>{currentStyle.sale_price}</h6></div>}
+        </div>
+        <h6> Style: Selected Style</h6>
+        <ProductStyleSelector />
+
+      </div>
+
     </div>
   );
 };
