@@ -2,6 +2,7 @@ import React from 'react';
 import Voter from '../../sharedComponents/Voter.jsx';
 import StarRating from '../../sharedComponents/StarRating.jsx';
 import PhotoTiles from './PhotoTiles.jsx';
+import axios from 'axios';
 
 const Review = (props) => {
   const {
@@ -19,6 +20,7 @@ const Review = (props) => {
   let recommended, responseMessage;
 
   let formattedDate = new Date(date).toLocaleDateString(undefined,{month: 'long', day: 'numeric', year: 'numeric'});
+
 
 
     if (response) {
@@ -66,10 +68,9 @@ const Review = (props) => {
 
 
         <Voter
-        question = 'Was this review helpful?'
         helpfulness = {helpfulness}
-        yes = {() => {console.log(review_id)}}
-        report = {() => {console.log('ADD HTTP REQUEST')}}
+        id = {{review_id}}
+        section = 'review'
         />
 
     </li>
