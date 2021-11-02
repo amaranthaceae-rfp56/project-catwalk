@@ -100,9 +100,9 @@ ul {
 
 //////////////////////////////////////////////////
 :root {
-  --star-size: 60px;
+  --star-size: 30px;
   --star-color: #fff;
-  --star-background: #fc0;
+  --star-background: rgb(19, 17, 8);
 }
 .Stars {
   --percent: calc(var(--rating) / 5 * 100%);
