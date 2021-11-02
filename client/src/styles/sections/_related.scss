@@ -1,8 +1,22 @@
 @use '../abstracts/fonts';
 @use '../abstracts/colors';
 
-.ratings-title {
+.related-title {
   font: fonts.$fontTitle;
   color: colors.$titleColor;
   font-weight: 300;
+}
+
+.related-card {
+  height: 500px;
+  border-radius: 0%;
+  border: solid;
+  display: inline-block;
+  vertical-align:middle;
+  justify-content: center;
+}
+
+
+.outfit-card {
+  display: inline-block;
 }

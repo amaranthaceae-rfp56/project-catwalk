@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RelatedItemCard from './RelatedItemCard.jsx';
+import '../../styles/sections/_related.scss';
 
 
 

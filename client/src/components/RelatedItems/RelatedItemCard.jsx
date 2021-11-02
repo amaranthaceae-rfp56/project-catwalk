@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CompareModal from './CompareModal.jsx';
+import '../../styles/sections/_related.scss';
+
 
 
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
@@ -20,8 +22,8 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
       .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
   }, []);
   return Object.keys(cardProduct).length > 0 && (
-    <div>
-      <img src={thumbnail} />
+    <div className="related-card">
+      <img src={thumbnail} className="thumbnailImg"/>
       <CompareModal left={pageProduct} right={cardProduct} />
       <p>{cardProduct.category}</p>
       <h4>{cardProduct.name}</h4>
