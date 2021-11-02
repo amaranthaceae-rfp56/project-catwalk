@@ -6,33 +6,26 @@ import RelatedItemCard from './RelatedItemCard.jsx';
 const RelatedItemsSection = () => {
   const [relatedItems, setRelatedItems] = useState([]);
   const [pageProduct, setPageProduct] = useState({});
-  // const [ productId, getRelatedProductId ] = useState(40344);
-  const base_url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
+
+  const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
     const requestOptions = {
       method: 'GET',
     };
-
-    fetch(`${base_url}/products/40347`, requestOptions)
+    //get page product info
+    fetch(`${API_URL}/40344`, requestOptions)
       .then(response => response.json())
       .then(data => setPageProduct(data));
 
-    fetch(`${base_url}/products/40347/related`, requestOptions)
+    // get related item id list and map out to an array of related item info list
+    fetch(`${API_URL}/40344/related`, requestOptions)
       .then(response => response.json())
-      .then(data => {
-        console.log('...', data);
-        const res = data.map(id => {
-          const requestOptions = {
-            method: 'GET',
-          };
-          return fetch(`${base_url}/products/${id}`, requestOptions)
-            .then(response => response.json());
-        });
-        return Promise.all(res);
-      })
       .then(res => setRelatedItems(res));
+
+
+    // get related item id list and map out to an array of related item info list
   }, []);
 
   return (
@@ -41,7 +34,7 @@ const RelatedItemsSection = () => {
       {relatedItems.map((product, index) => {
         return <RelatedItemCard
           pageProduct={pageProduct}
-          cardProduct={product}
+          cardProductId={product}
           key={index} />
       })}
     </div>

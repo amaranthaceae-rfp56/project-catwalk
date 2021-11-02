@@ -70,26 +70,29 @@ const ProductState = props => {
       payload: res
     })
   }
+
+
   // SET LOADING
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
-  <ProductContext.Provider
-    value={{ products: state.products,
-    productStyles: state.productStyles,
-    productInfo: state.productInfo,
-    relatedProducts: state.relatedProducts,
-    currentStyle: state.currentStyle,
-    loading: state.loading,
-    getProducts,
-    getProductInfo,
-    getProductStyles,
-    getCurrentStyle,
-    }}
+    <ProductContext.Provider
+      value={{
+        products: state.products,
+        productStyles: state.productStyles,
+        productInfo: state.productInfo,
+        relatedProducts: state.relatedProducts,
+        currentStyle: state.currentStyle,
+        loading: state.loading,
+        getProducts,
+        getProductInfo,
+        getProductStyles,
+        getCurrentStyle,
+      }}
     >
       {props.children}
     </ProductContext.Provider>
-    )
+  )
 }
 
 export default ProductState;
