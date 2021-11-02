@@ -10,10 +10,13 @@ const ProductImageGallery = () => {
   const productContext = useContext(ProductContext);
   const { currentStyle } = productContext;
   const [mainPhoto, setMainPhoto] = useState(null);
+  const [page, setPage] = useState(0);
+  const [length, setLength] = useState(0);
 
   useEffect(() => {
     if(currentStyle.photos) {
       setMainPhoto(currentStyle.photos[0])
+      setLength(currentStyle.photos.length - 1);
     }
   }, [currentStyle.photos])
 
@@ -21,6 +24,24 @@ const ProductImageGallery = () => {
     const currentIndex = Number(e.target.name);
     const selectedPhoto = currentStyle.photos[currentIndex];
     setMainPhoto(selectedPhoto);
+  }
+
+  const handlePageChange = (e) => {
+    console.log('testing')
+    if (e.target.name === "back") {
+      console.log('back')
+      if (page === 0) {
+        setPage(length);
+      } else {
+        setPage(page - 1)
+      }
+    } else {
+      if (page === length) {
+        setPage(0)
+      } else {
+        setPage(page + 1)
+      }
+    }
   }
 
     return (
@@ -35,9 +56,9 @@ const ProductImageGallery = () => {
         </div>
 
         <div className="product-image-gallery-main">
-            <img src={leftArrow} className="left-arrow" />
+            <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
             {mainPhoto && <img className="image-gallery-main" src={mainPhoto.url} />}
-            <img src={rightArrow} className="right-arrow" />
+            <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
         </div>
 
       </div>
