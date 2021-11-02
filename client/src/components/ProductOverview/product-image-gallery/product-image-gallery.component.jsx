@@ -57,7 +57,15 @@ const ProductImageGallery = () => {
 
         <div className="product-image-gallery-main">
             <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
-            {mainPhoto && <img className="image-gallery-main" src={mainPhoto.url} />}
+            {mainPhoto && currentStyle.photos.map((photo, index) => {
+              if (page === index) {
+                return (
+                  <img className="image-gallery-main" src={photo.url} />
+                )
+              }
+            })}
+
+             {/* {mainPhoto && <img className="image-gallery-main" src={mainPhoto.url} />} */}
             <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
         </div>
 
