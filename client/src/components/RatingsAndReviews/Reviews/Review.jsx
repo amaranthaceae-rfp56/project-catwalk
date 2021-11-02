@@ -2,6 +2,7 @@ import React from 'react';
 import Voter from '../../sharedComponents/Voter.jsx';
 import StarRating from '../../sharedComponents/StarRating.jsx';
 import PhotoTiles from './PhotoTiles.jsx';
+import axios from 'axios';
 
 const Review = (props) => {
   const {
@@ -20,6 +21,22 @@ const Review = (props) => {
 
   let formattedDate = new Date(date).toLocaleDateString(undefined,{month: 'long', day: 'numeric', year: 'numeric'});
 
+  const wasHelpful = () => {
+    const options = {
+      url: 'http://localhost:3000/api/reviews/helpful/',
+      method: 'PUT',
+      params: {review_id}
+    };
+    // const url = 'http://localhost:3000/api/reviews/helpful/';
+    // console.log(review_id);
+    axios(options)
+      .then(() => {
+        console.log('Was helpful!');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
     if (response) {
       responseMessage = (
@@ -68,7 +85,7 @@ const Review = (props) => {
         <Voter
         question = 'Was this review helpful?'
         helpfulness = {helpfulness}
-        yes = {() => {console.log(review_id)}}
+        yes = {wasHelpful}
         report = {() => {console.log('ADD HTTP REQUEST')}}
         />
 
