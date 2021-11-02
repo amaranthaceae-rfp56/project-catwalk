@@ -10,9 +10,15 @@ const ProductSocialMedia = () => {
 
   return (
     <div className="social-media-container">
-      <img src={FaceBookIcon} style={{ height: '50px', width: '50px'}} className="social-media-icon"/>
-      <img src={PinterestIcon} style={{ height: '50px', width: '50px'}} className="social-media-icon"/>
-      <img src={TwitterIcon} style={{ height: '50px', width: '50px'}} className="social-media-icon"/>
+      <a href="https://www.facebook.com">
+        <img src={FaceBookIcon} style={{ height: '50px', width: '50px'}} className="social-media-icon"/>
+      </a>
+      <a href="https://www.pinterest.com">
+        <img src={PinterestIcon} style={{ height: '50px', width: '50px'}} className="social-media-icon"/>
+      </a>
+      <a href="https://www.twitter.com">
+        <img src={TwitterIcon} style={{ height: '50px', width: '50px'}} className="social-media-icon"/>
+      </a>
     </div>
   );
 }
