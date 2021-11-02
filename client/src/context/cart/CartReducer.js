@@ -7,7 +7,8 @@ export default (action, state) => {
   switch(action.type) {
     case GET_CART_ITEMS:
       return {
-        ...state
+        ...state,
+        cart: action.payload
       }
     default:
       return {
