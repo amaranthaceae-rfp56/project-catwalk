@@ -1,30 +1,43 @@
 import React, { useState, useContext } from 'react';
 import ProductContext from '../../../context/products/ProductContext';
+import CartContext from '../../../context/cart/CartContext'
 
 import './product-dropdown.styles.scss';
 
 const ProductDropdown = () => {
   const productContext = useContext(ProductContext);
+  const cartContext = useContext(CartContext);
+
   const { currentStyle } = productContext;
   const [quantitySize, setQuantitySize] = useState(null);
   const [quantity, setQuantity] = useState(null);
+  const [sku, setSku] = useState(null);
 
   const handleChange = (e) => {
-    console.log(e.target.value)
+    const skuVal = e.target[e.target.selectedIndex].dataset.id;
     setQuantitySize(Number(e.target.value));
+    setSku(skuVal);
   }
 
-  const handleQuantityChange = (e) => {
-    console.log(e.target.value);
-    setQuantity(e.target.value);
+  const handleQuantityChange = async (e) => {
+    setQuantity(Number(e.target.value));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!quantitySize) {
+      console.log('testing')
+    }
+    cartContext.addCartItem(sku, quantity);
   }
 
   return (
     <div className="product-dropdown-container">
       <select onChange={handleChange} value={quantitySize} className="product-dropdown">
         <option value="" className="product-dropdown-option" selected disabled hidden >Select Size</option>
-        {currentStyle.skus && Object.values(currentStyle.skus).map((sku) => (
-          <option value={sku.quantity}>{sku.size}</option>
+        {currentStyle.skus && Object.entries(currentStyle.skus).map((sku, i) => (
+          <option data-id={sku[0]} value={sku[1].quantity}>{sku[1].size}</option>
         ))}
       </select>
 
@@ -38,12 +51,11 @@ const ProductDropdown = () => {
            }
          })}
       </select>
-      {/* <select>
-        <option value="" selected disabled hidden>Select Size</option>
-        {currentStyle.skus && Object.values(currentStyle.skus).map((sku) => (
-          <option>{sku.quantity}</option>
-        ))}
-      </select> */}
+
+      <form onSubmit={handleSubmit}>
+        <button className="product-dropdown" type="submit">Add To Cart</button>
+      </form>
+
     </div>
   )
 }
