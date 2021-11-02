@@ -21,22 +21,7 @@ const Review = (props) => {
 
   let formattedDate = new Date(date).toLocaleDateString(undefined,{month: 'long', day: 'numeric', year: 'numeric'});
 
-  const wasHelpful = () => {
-    const options = {
-      url: 'http://localhost:3000/api/reviews/helpful/',
-      method: 'PUT',
-      params: {review_id}
-    };
-    // const url = 'http://localhost:3000/api/reviews/helpful/';
-    // console.log(review_id);
-    axios(options)
-      .then(() => {
-        console.log('Was helpful!');
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+
 
     if (response) {
       responseMessage = (
@@ -83,10 +68,9 @@ const Review = (props) => {
 
 
         <Voter
-        question = 'Was this review helpful?'
         helpfulness = {helpfulness}
-        yes = {wasHelpful}
-        report = {() => {console.log('ADD HTTP REQUEST')}}
+        id = {{review_id}}
+        section = 'review'
         />
 
     </li>

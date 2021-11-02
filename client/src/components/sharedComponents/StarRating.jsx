@@ -6,7 +6,6 @@ const StarRating = (props) => {
   return (
     <div className = 'star-rating'>
         <div className = "Stars" style = {{'--rating': roundedRating}}></div>
-
     </div>
   );
 };
