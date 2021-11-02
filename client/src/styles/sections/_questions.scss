@@ -3,7 +3,7 @@
 @use '../base/mixins';
 
 .questions-scrollable-container {
-  @include mixins.scrollable-container(60vh);
+  @include mixins.scrollable-container(100vh);
 }
 
 .answers-scrollable-container answers {
