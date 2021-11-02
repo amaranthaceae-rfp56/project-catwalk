@@ -1,8 +1,122 @@
-@use '../abstracts/fonts';
-@use '../abstracts/colors';
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(63, 207, 171);
 
-.ratings-title {
-  font: fonts.$fontTitle;
-  color: colors.$titleColor;
-  font-weight: 300;
+
+ul {
+  list-style-type: none;
+}
+.ratings-reviews-container {
+  font: 100% $font-stack;
+  padding: 10px;
+}
+.review {
+  display: flex;
+  flex-direction: column;
+  background: rgba(221, 171, 124, 0.418);
+  border: black solid 2px;
+  border-radius: 20px;
+  width: 600px;
+  margin: 15px;
+  padding: 20px;
+}
+
+.review-rating-and-date {
+  display: flex;
+  align-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.helpful-vote {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.review-response {
+  display: flex;
+  align-self: center;
+  background: rgba(124, 150, 184, 0.596);
+  border: whitesmoke solid 1px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 80%;
+}
+
+
+.helpful-vote-option {
+  border: black solid 1px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  background: rgb(196, 188, 188);
+}
+.helpful-vote-option:hover {
+  cursor: pointer;
+  background: rgb(99, 94, 94);
+  color: whitesmoke;
+}
+
+
+//////////////////////////////////////////////////////////////
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.review-button-container {
+  align-self: center;
+  display: flex;
+
+}
+.review-button {
+  padding: 10px;
+  margin: 10px;
+}
+.review-button:hover {
+  cursor: pointer;
+}
+
+//////////////////////////////////////////
+
+.review-photo {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 15%;
+  box-shadow: 1px 1px grey;
+}
+.review-photo:hover {
+  cursor: pointer;
+  border-color: black;
+}
+
+.empty-star {
+  color: rgb(252, 252, 252);
+}
+
+//////////////////////////////////////////////////
+:root {
+  --star-size: 30px;
+  --star-color: #fff;
+  --star-background: rgb(19, 17, 8);
+}
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; // make sure ★ appears correctly
+  line-height: 1;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
