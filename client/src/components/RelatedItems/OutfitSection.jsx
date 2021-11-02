@@ -9,24 +9,24 @@ const OutfitSection = () => {
   const base_url = 'http://localhost:3000';
 
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-    };
-    fetch(`${base_url}/api/products/40344`, requestOptions)
+    fetch(`${base_url}/api/products/40344`)
       .then(response => response.json())
       .then(data => setPageProduct(data));
+    fetchOutfitList();
+  }, []);
+
+  const fetchOutfitList = () => {
     fetch(`${base_url}/outfit/${username}`)
       .then(response => response.json())
       .then(data => setOutfitList(data));
-  }, []);
+  };
 
   const addToList = () => {
-    const requestOptions = {
+    fetch(`${base_url}/outfit/${username}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pageProduct)
-    };
-    fetch(`${base_url}/outfit/${username}`, requestOptions)
+    })
       .then(() => {
         fetch(`${base_url}/outfit/${username}`)
           .then(response => response.json())
@@ -38,7 +38,13 @@ const OutfitSection = () => {
     <div data-testid={'Outfit-Items'}>
       <p>YOUR OUTFIT</p>
       <button onClick={addToList}>Add to Outfit</button>
-      {outfitList.map((productId, index) => <OutfitCard key={index} productId={productId} />)}
+      {outfitList.map((productId, index) =>
+        <OutfitCard
+          key={index}
+          productId={productId}
+          username={username}
+          fetchOutfitList={fetchOutfitList}
+        />)}
 
     </div>
   );

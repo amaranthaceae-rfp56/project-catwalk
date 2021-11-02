@@ -112,6 +112,24 @@ app.get('/outfit/:username', (req, res) => {
   res.send(yourOutfit[username]);
 });
 
+// delete from outfit List
+app.delete('/outfit/:username', (req, res) => {
+  const username = req.params.username;
+  const outfitId = req.body.id;
+  if (yourOutfit[username] === undefined) {
+    res.sendStatus(202);
+    return;
+  }
+  const index = yourOutfit[username].indexOf(outfitId);
+  if (index === -1) {
+    res.sendStatus(202);
+    return;
+  }
+  yourOutfit[username].splice(index, 1);
+  res.sendStatus(202);
+}
+);
+
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
 });
