@@ -86,26 +86,30 @@ app.post('/api/qa/questions/:product_id', async (req, res) => {
   res.send(data);
 })
 
-var yourOutfit = {};
+var yourOutfit = {
+  'xinyi': [40353, 40352]
+};
 
 // Post product to Outfit List
 app.post('/outfit/:username', (req, res) => {
-  if (yourOutfit[req.params.username] === undefined) {
-    yourOutfit[req.params.username] = [];
+  const username = req.params.username;
+  const outfitId = req.body.id;
+  if (yourOutfit[username] === undefined) {
+    yourOutfit[username] = [];
   }
-  console.log(req.params.username);
-  for (var i = 0; i < yourOutfit[req.params.username].length; i++) {
-    if (yourOutfit[req.params.username][i] === req.body.id) {
-      return;
-    }
+  if (!yourOutfit[username].includes(outfitId)) {
+    yourOutfit[username].push(outfitId);
   }
-  yourOutfit[req.params.username].push(req.body.id)
   res.sendStatus(201);
 });
 
 // get Outfit List
 app.get('/outfit/:username', (req, res) => {
-  res.send(yourOutfit[req.params.username]);
+  const username = req.params.username;
+  if (yourOutfit[username] === undefined) {
+    yourOutfit[username] = [];
+  }
+  res.send(yourOutfit[username]);
 });
 
 let cartObj = [];
@@ -120,6 +124,23 @@ app.post('/api/cart', (req, res) => {
   cartObj.push(req.body);
   res.sendStatus(201);
 });
+// delete from outfit List
+app.delete('/outfit/:username', (req, res) => {
+  const username = req.params.username;
+  const outfitId = req.body.id;
+  if (yourOutfit[username] === undefined) {
+    res.sendStatus(202);
+    return;
+  }
+  const index = yourOutfit[username].indexOf(outfitId);
+  if (index === -1) {
+    res.sendStatus(202);
+    return;
+  }
+  yourOutfit[username].splice(index, 1);
+  res.sendStatus(202);
+}
+);
 
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
