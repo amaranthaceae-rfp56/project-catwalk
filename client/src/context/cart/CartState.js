@@ -27,8 +27,13 @@ const CartState = props => {
     })
   }
 
-  const addCartItem = () => {
-    const res = Axios.post(API_URL);
+  const addCartItem = (sku, quantity) => {
+    console.log(sku, quantity);
+
+    const res = Axios.post(API_URL, {
+      sku: sku,
+      count: quantity
+    });
 
     dispatch({
       type: ADD_CART_ITEM
