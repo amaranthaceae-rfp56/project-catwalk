@@ -6,7 +6,6 @@ const AnswerList = (props) => {
   let questionAnswers = Object.values(props.questionAnswers);
 
   return (
-
     <div className="questions-answer">
       {questionAnswers.map((answer) => (
         < AnswerItem key={answer.id} answer={answer.body} />
@@ -16,7 +15,6 @@ const AnswerList = (props) => {
 };
 
 const AnswerItem = (props) => {
-
   return (
     <div className="questions-answer">{props.answer}</div>
   )
