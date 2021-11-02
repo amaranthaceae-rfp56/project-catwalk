@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import Axios from 'axios';
 import CartContext from './CartContext';
 import CartReducer from './CartReducer';
@@ -18,6 +18,10 @@ const CartState = props => {
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
 
+  // useEffect(() => {
+  //   getCartItems();
+  // }, []);
+
   const getCartItems = () => {
     const res = Axios.get(API_URL);
 
@@ -30,13 +34,16 @@ const CartState = props => {
   const addCartItem = (sku, quantity) => {
     console.log(sku, quantity);
 
-    const res = Axios.post(API_URL, {
+    const cartInfo = {
       sku: sku,
       count: quantity
-    });
+    }
+
+    const res = Axios.post(API_URL, cartInfo);
 
     dispatch({
-      type: ADD_CART_ITEM
+      type: ADD_CART_ITEM,
+      payload: cartInfo
     })
   }
 
