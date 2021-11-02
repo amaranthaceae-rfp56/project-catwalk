@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import ProductContext from '../../../context/products/ProductContext';
 
+// import CheckMark from '../../../../assets/checkmark.svg';
+
 import './product-style-selector.styles.scss';
 
 const ProductStyleSelector = () => {
