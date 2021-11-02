@@ -2,9 +2,6 @@ import React from 'react';
 
 
 const Sorter = (props) => {
-
-
-
   return (
     <div className = 'review-sorter'>
       Sort reviews by: <select id = 'sorter'>

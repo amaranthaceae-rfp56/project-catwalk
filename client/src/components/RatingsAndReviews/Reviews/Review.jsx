@@ -1,5 +1,7 @@
 import React from 'react';
-import Voter from '../../RelatedItems/Voter.jsx';
+import Voter from '../../sharedComponents/Voter.jsx';
+import StarRating from '../../sharedComponents/StarRating.jsx';
+import PhotoTiles from './PhotoTiles.jsx';
 
 const Review = (props) => {
   const {
@@ -48,7 +50,7 @@ const Review = (props) => {
 
         <div className = {'review-rating-and-date'}>
           <div>
-          STARS = {rating}
+          <StarRating rating = {rating}/>
           </div>
           <div>
             {reviewer_name}, {formattedDate}
@@ -60,12 +62,14 @@ const Review = (props) => {
         </div>
         {recommended}
         {responseMessage}
+        <PhotoTiles photos = {photos}/>
+
 
         <Voter
         question = 'Was this review helpful?'
         helpfulness = {helpfulness}
         yes = {() => {console.log(review_id)}}
-
+        report = {() => {console.log('ADD HTTP REQUEST')}}
         />
 
     </li>
