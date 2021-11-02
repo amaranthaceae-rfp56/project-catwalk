@@ -21,9 +21,11 @@ const ProductImageGallery = () => {
   }, [currentStyle.photos])
 
   const handleClick = (e) => {
+    // const currentIndex = Number(e.target.name);
+    // const selectedPhoto = currentStyle.photos[currentIndex];
+    // setMainPhoto(selectedPhoto);
     const currentIndex = Number(e.target.name);
-    const selectedPhoto = currentStyle.photos[currentIndex];
-    setMainPhoto(selectedPhoto);
+    setPage(currentIndex);
   }
 
   const handlePageChange = (e) => {
