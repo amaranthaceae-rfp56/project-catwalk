@@ -29,9 +29,7 @@ const ProductImageGallery = () => {
   }
 
   const handlePageChange = (e) => {
-    console.log('testing')
     if (e.target.name === "back") {
-      console.log('back')
       if (page === 0) {
         setPage(length);
       } else {
@@ -52,7 +50,7 @@ const ProductImageGallery = () => {
         <div className="product-image-gallery-thumbnail-container">
           {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
             <div key={index}>
-              <img src={photo.thumbnail_url} className="image-gallery-thumbnail" onClick={handleClick} name={index} />
+              <img src={photo.thumbnail_url} className={ page === index ? "image-gallery-thumbnail active" : "image-gallery-thumbnail" } onClick={handleClick} name={index} />
             </div>
           ))}
         </div>
