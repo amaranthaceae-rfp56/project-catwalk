@@ -1,5 +1,14 @@
 @use '../abstracts/fonts';
 @use '../abstracts/colors';
+@use '../base/mixins';
+
+.questions-scrollable-container {
+  @include mixins.scrollable-container(100vh);
+}
+
+.answers-scrollable-container answers {
+  @include mixins.scrollable-container(50vh);
+}
 
 .questions-container {
   display: flex;
