@@ -108,6 +108,19 @@ app.get('/outfit/:username', (req, res) => {
   res.send(yourOutfit[req.params.username]);
 });
 
+let cartObj = [];
+
+// Add to cart
+app.get('/api/cart', (req, res) => {
+  res.status(200).send(cartObj);
+});
+
+app.post('/api/cart', (req, res) => {
+  console.log(req.body);
+  cartObj.push(req.body);
+  res.sendStatus(201);
+});
+
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
 });
