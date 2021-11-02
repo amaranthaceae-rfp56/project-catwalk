@@ -6,6 +6,7 @@ import ProductStarRating from './product-star-rating/product-star-rating.compone
 import ProductImageGallery from './product-image-gallery/product-image-gallery.component.jsx';
 import ProductStyleSelector from './product-style-selector/product-style-selector.component.jsx'
 import ProductDropdown from './product-dropdown/product-dropdown.component.jsx';
+import ProductSocialMedia from './product-social-media/product-social-media.component.jsx'
 
 import './ProductOverview.styles.scss';
 
@@ -29,6 +30,7 @@ const ProductOverview = () => {
         <h4> Style: Selected Style</h4>
         <ProductStyleSelector />
         <ProductDropdown />
+        <ProductSocialMedia />
       </div>
 
     </div>
