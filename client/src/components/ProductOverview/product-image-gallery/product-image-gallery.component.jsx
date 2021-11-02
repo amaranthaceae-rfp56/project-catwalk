@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import ProductContext from '../../../context/products/ProductContext';
 
+import leftArrow from '../../../../assets/backArrow.svg';
+import rightArrow from '../../../../assets/forwardArrow.svg';
+
 import './product-image-gallery.styles.scss';
 
 const ProductImageGallery = () => {
@@ -32,7 +35,9 @@ const ProductImageGallery = () => {
         </div>
 
         <div className="product-image-gallery-main">
+            <img src={leftArrow} className="left-arrow" />
             {mainPhoto && <img className="image-gallery-main" src={mainPhoto.url} />}
+            <img src={rightArrow} className="right-arrow" />
         </div>
 
       </div>
