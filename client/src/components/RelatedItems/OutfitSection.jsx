@@ -1,34 +1,51 @@
 import React, { useState, useEffect } from 'react';
+import OutfitCard from './OutfitCard.jsx';
 
 const OutfitSection = () => {
+  const username = window.location.search.slice(10);
   const [pageProduct, setPageProduct] = useState({});
+  const [outfitList, setOutfitList] = useState([]);
 
-  const base_url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
+  const base_url = 'http://localhost:3000';
 
-  // define current page product
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-    };
-    fetch(`${base_url}/products/40347`, requestOptions)
+    fetch(`${base_url}/api/products/40344`)
       .then(response => response.json())
       .then(data => setPageProduct(data));
+    fetchOutfitList();
   }, []);
 
-  useEffect(() => {
-    const requestOptions = {
+  const fetchOutfitList = () => {
+    fetch(`${base_url}/outfit/${username}`)
+      .then(response => response.json())
+      .then(data => setOutfitList(data));
+  };
+
+  const addToList = () => {
+    fetch(`${base_url}/outfit/${username}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pageProduct)
-    };
-    fetch('http://localhost:3000/outfit/:username', requestOptions)
-      .then(response => response.json())
-  }, []);
+    })
+      .then(() => {
+        fetch(`${base_url}/outfit/${username}`)
+          .then(response => response.json())
+          .then(data => setOutfitList(data));
+      })
+  };
 
   return (
     <div data-testid={'Outfit-Items'}>
-      <span>YOUR OUTFIT</span>
-      <button >Add to Outfit</button>
+      <p>YOUR OUTFIT</p>
+      <button onClick={addToList}>Add to Outfit</button>
+      {outfitList.map((productId, index) =>
+        <OutfitCard
+          key={index}
+          productId={productId}
+          username={username}
+          fetchOutfitList={fetchOutfitList}
+        />)}
+
     </div>
   );
 }

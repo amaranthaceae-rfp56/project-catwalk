@@ -1,10 +1,12 @@
 import React from 'react';
+import QuestionList from './QuestionList.jsx';
 import '../../styles/sections/_questions.scss';
 
 const QuestionsAndAnswers = () => {
   return (
-    <span className="test">questions and answers
-    </span>
+    <div>
+      < QuestionList />
+    </div>
   );
 };
 
