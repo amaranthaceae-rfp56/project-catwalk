@@ -7,8 +7,18 @@ import '../../styles/sections/_questions.scss';
 const QuestionList = () => {
 
   const questionContext = useContext(QuestionContext);
-  const data = questionContext.questions.results;
+  const data = questionContext.questions.results
   const [questions, setQuestions] = useState([]);
+  const [visibleQuestions, setVisibleQuestions] = useState(2);
+  let moreQuestions;
+
+  const loadMoreQuestions = () => {
+    if (visibleQuestions + 2 <= questions.length) {
+      setVisibleQuestions(visibleQuestions + 2);
+    } else {
+      setVisibleQuestions(questions.length);
+    }
+  };
 
   useEffect(() => {
     if (data) {
@@ -16,11 +26,19 @@ const QuestionList = () => {
     }
   }, [data]);
 
+  if (questions.length > visibleQuestions) {
+    moreQuestions = (<button className="review-button" onClick = {loadMoreQuestions} >MORE ANSWERED QUESTIONS</button>);
+  }
+
   return (
     <div>
-      {questions.map((question) => (
-        < QuestionItem key={question.question_id} questionBody={question.question_body} questionAnswers={question.answers}/>
-        ))}
+      <div className='questions-scrollable-container'>
+        {questions.filter((question, index) => index < visibleQuestions)
+          .map((question) => (
+            < QuestionItem key={question.question_id} questionBody={question.question_body} questionAnswers={question.answers}/>
+          ))}
+      </div>
+      <div>{moreQuestions}</div>
     </div>
   );
 };
