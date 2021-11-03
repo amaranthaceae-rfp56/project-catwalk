@@ -10,7 +10,7 @@ const BarGraph = (props) => {
     const percent = props.ratings[i] / props.count;
 
     result.push(
-    <div className = 'graph-rating'>
+    <div className = 'graph-rating' key = {`graph-section-${i}`}>
       <div className = 'label-container'>
         <p className = 'graph-rating-value'>{'★'.repeat(i)}</p>
         <p className = 'graph-rating-count'>{props.ratings[i]}</p>
@@ -21,12 +21,11 @@ const BarGraph = (props) => {
   </div>);
 
   }
-  // result = (<div>Hi</div>)
-  console.log(result)
+
   return (
     <div className = 'ratings-graph'>
 
-      {result.map(bar => {return bar})}
+      {result.map((bar) => {return bar})}
 
 
     </div>
