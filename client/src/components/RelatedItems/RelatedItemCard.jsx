@@ -22,13 +22,13 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
       .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
   }, []);
   return Object.keys(cardProduct).length > 0 && (
-    <div className="related-card">
-      <img src={thumbnail} className="thumbnailImg"/>
+    <div className="related-card outer">
+      <img src={thumbnail} className="thumbnail-style inner-card1"/>
       <CompareModal left={pageProduct} right={cardProduct} />
-      <p>{cardProduct.category}</p>
-      <h4>{cardProduct.name}</h4>
-      <p>{cardProduct.default_price}</p>
-      <p>{cardProduct.review}</p>
+      <p className="inner-card2">{cardProduct.category}</p>
+      <h4 className="inner-card3">{cardProduct.name}</h4>
+      <p className="inner-card4">{cardProduct.default_price}</p>
+      <p className="inner-card5">{cardProduct.review}</p>
     </div>
   );
 };

@@ -6,15 +6,55 @@
   color: colors.$titleColor;
   font-weight: 300;
 }
+.Related-Items {
+  scroll-behavior: smooth;
+  overflow: hidden;
+  white-space : nowrap;
+  display: inline-block;
+
+}
 
 .related-card {
   height: 500px;
+  width: 300px;
   border-radius: 0%;
   border: solid;
   display: inline-block;
-  vertical-align:middle;
-  justify-content: center;
+  margin: 10px;
+  position: relative;
+
 }
+
+.inner-card1 {
+  height: 60%;
+  width: inherit;
+  position: absolute;
+}
+.inner-card2 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+.inner-card3 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+.inner-card4 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+.inner-card5 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+
 
 
 .outfit-card {

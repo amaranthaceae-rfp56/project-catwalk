@@ -120,7 +120,7 @@ app.get('/api/cart', (req, res) => {
 });
 
 app.post('/api/cart', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   cartObj.push(req.body);
   res.sendStatus(201);
 });
