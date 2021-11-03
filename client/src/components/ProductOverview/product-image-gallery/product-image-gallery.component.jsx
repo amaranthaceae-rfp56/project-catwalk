@@ -50,11 +50,13 @@ const ProductImageGallery = () => {
       <div className="product-image-gallery-container">
 
         <div className="product-image-gallery-thumbnail-container">
+          <img src={upArrow} style={{ height: '25px', width: '25px'}}/>
           {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
             <div key={index}>
               <img src={photo.thumbnail_url} className={ page === index ? "image-gallery-thumbnail active" : "image-gallery-thumbnail" } onClick={handleClick} name={index} />
             </div>
           ))}
+          <img src={downArrow} style={{ height: '25px', width: '25px'}} />
         </div>
 
         <div className="product-image-gallery-main">
