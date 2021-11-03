@@ -1,4 +1,21 @@
+@use '../abstracts/fonts';
+
+
+// CONTAINERS
+
 @mixin scrollable-container($height) {
   max-height: $height;
   overflow: auto;
+}
+
+
+// FONTS
+
+@mixin noto-sans ($size, $weight) {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: rgb(0, 0, 0);
+  //text-transform: uppercase;
+  //font-style: italic;
 }

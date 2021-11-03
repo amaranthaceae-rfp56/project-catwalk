@@ -1,27 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import '../../styles/sections/_questions.scss';
+
+import AnswerItem from './AnswerItem.jsx';
 
 const AnswerList = (props) => {
 
   let questionAnswers = Object.values(props.questionAnswers);
 
+  const [visibleAnswers, setVisibleAnswers] = useState(2);
+  const [moreAnswersBtnLabel, setMoreAnswersBtnLabel] = useState('load more answers');
+
+
+  const loadMoreAnswers = () => {
+    if (visibleAnswers === questionAnswers.length) {
+      setVisibleAnswers(2);
+      setMoreAnswersBtnLabel('load more answers')
+    } else {
+      setVisibleAnswers(questionAnswers.length);
+      setMoreAnswersBtnLabel('collapase answers');
+    }
+  };
+
+  let moreAnswers = (<div className="load-answers-font" onClick={loadMoreAnswers} >{moreAnswersBtnLabel}</div>);
+
+
   return (
-    <div className="questions-answer">
-      {questionAnswers.map((answer) => (
-        < AnswerItem key={answer.id} answer={answer.body} />
+    <div>
+      {questionAnswers.filter((answer, index) => index < visibleAnswers)
+        .map((answer) => (
+        < AnswerItem key={answer.id} answer={answer} />
       ))}
+      <div>{moreAnswers}</div>
     </div>
   )
 };
 
-const AnswerItem = (props) => {
-  return (
-    <div className="questions-answer">{props.answer}</div>
-  )
+AnswerList.propTypes = {
+  questionAnswers: PropTypes.object.isRequired,
 };
 
 export default AnswerList;
-
-// {questions.map((question) => (
-//   < QuestionItem key={question.question_id} questionBody={question.question_body} questionAnswers={question.answers}/>
-//  ))}
