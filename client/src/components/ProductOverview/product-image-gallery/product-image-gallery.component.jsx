@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import ProductContext from '../../../context/products/ProductContext';
 
 import leftArrow from '../../../../assets/backArrow.svg';
@@ -14,6 +14,8 @@ const ProductImageGallery = () => {
   const [mainPhoto, setMainPhoto] = useState(null);
   const [page, setPage] = useState(0);
   const [length, setLength] = useState(0);
+  const [height, setHeight] = useState(0);
+  const ref = useRef(null);
 
   useEffect(() => {
     if(currentStyle.photos) {
@@ -46,17 +48,31 @@ const ProductImageGallery = () => {
     }
   }
 
+  const handleLoad = (e) => {
+    if (ref.current.clientHeight) {
+      setHeight(ref.current.clientHeight)
+      console.log(ref)
+    }
+  }
+
+  const handleScroll = (height) => {
+    console.log(ref.current.scrollTop)
+    ref.current.scrollTop -= height
+  }
+
     return (
       <div className="product-image-gallery-container">
 
-        <div className="product-image-gallery-thumbnail-container">
-          <img src={upArrow} style={{ height: '25px', width: '25px'}}/>
-          {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
-            <div key={index}>
-              <img src={photo.thumbnail_url} className={ page === index ? "image-gallery-thumbnail active" : "image-gallery-thumbnail" } onClick={handleClick} name={index} />
-            </div>
-          ))}
-          <img src={downArrow} style={{ height: '25px', width: '25px'}} />
+        <div className="product-image-gallery-thumbnail-container" >
+          <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(20)}/>
+          <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
+            {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
+              <div key={index}>
+                <img src={photo.thumbnail_url} className={ page === index ? "image-gallery-thumbnail active" : "image-gallery-thumbnail" } onClick={handleClick} name={index} />
+              </div>
+            ))}
+          </div>
+          <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-20)}/>
         </div>
 
         <div className="product-image-gallery-main">
