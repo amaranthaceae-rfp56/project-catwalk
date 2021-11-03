@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 $fontTitle: 3.0rem, Helvetica, sans-serif;
 $bold: 700;
 $medium: 550;
+
+$notosans:'Noto Sans';
+
+@mixin noto-sans {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
