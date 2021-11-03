@@ -41,13 +41,15 @@ const ReviewList = () => {
     <div className = 'reviews-container'>
       <h3>Reviews</h3>
       <Sorter/>
-      <ul>
+      <div className = 'review-list-wrapper'>
+      <ul className = 'reviews-list'>
         {reviews.map((review, index) => {
           if (index < visibleReviewsCount) {
             return (<Review review = {review} key = {`Review-${index}`}/>)
           }
         })}
       </ul>
+      </div>
       <div className = 'review-button-container'>
         {moreReviews}
         <button className = 'review-button'>Add Review  +</button>
