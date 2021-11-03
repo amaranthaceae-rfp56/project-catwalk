@@ -57,14 +57,15 @@ app.post('/api/reviews/:product_id', async (req, res) => {
 });
 
 // Mark Review as Helpful
-app.put('/api/reviews/helpful/:review_id', async (req, res) => {
-  var data = await markReview(req.params.review_id);
+app.put('/api/reviews/helpful/', async (req, res) => {
+
+  var data = await markReview(req.query.review_id);
   res.send(data);
 });
 
 // Report Review
-app.put('/api/reviews/report/:review_id', async (req, res) => {
-  var data = await reportReview(req.params.review_id);
+app.put('/api/reviews/report/', async (req, res) => {
+  var data = await reportReview(req.query.review_id);
   res.send(data);
 })
 
