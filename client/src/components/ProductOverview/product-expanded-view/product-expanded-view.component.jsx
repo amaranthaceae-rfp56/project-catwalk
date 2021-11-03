@@ -56,7 +56,7 @@ const ProductExpandedView = ({ expandView }) => {
 
 
         <div className="expanded-view-gallery-main">
-                    <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
+                    <img src={leftArrow} className="expanded-view-left-arrow" onClick={handlePageChange} name="back" value={page}/>
                     {currentStyle.photos.map((photo, index) => {
                       if (page === index) {
                         return (
@@ -64,7 +64,7 @@ const ProductExpandedView = ({ expandView }) => {
                         )
                       }
                     })}
-                    <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
+                    <img src={rightArrow} className="expanded-view-right-arrow" onClick={handlePageChange} name="front" value={page}/>
           </div>
 
         <div className="expanded-view-thumbnail-container" >
