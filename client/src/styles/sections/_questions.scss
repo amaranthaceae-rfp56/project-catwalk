@@ -2,28 +2,73 @@
 @use '../abstracts/colors';
 @use '../base/mixins';
 
+
+// SCROLLABLE CONTAINERS
+
 .questions-scrollable-container {
   @include mixins.scrollable-container(100vh);
 }
 
-.answers-scrollable-container answers {
+.answers-scrollable-container {
   @include mixins.scrollable-container(50vh);
+}
+
+// FIXED CONTAINERS
+
+.questions-section-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .questions-container {
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .questions-idContainer {
   display: flex;
-  width: 5%;
+  width: 3%;
 }
 
 .questions-bodyContainer {
   display: flex;
   flex-direction: column;
 }
+
+.answer-footnote-container {
+  display: flex;
+  margin-right: 20px;
+  border-right: 1px solid;
+  padding-right: 10px;
+  margin-top: -15px;
+}
+
+
+// FONTS
+
+.questions-section-title-font {
+  @include mixins.noto-sans(18px, 700);
+}
+
+.questions-font {
+  @include mixins.noto-sans(16px, 700);
+}
+
+.answers-font {
+  @include mixins.noto-sans(16px, 400);
+}
+
+.answers-info-font {
+  @include mixins.noto-sans(12px, 400);
+}
+
+.load-answers-font {
+  @include mixins.noto-sans(14px, 700);
+}
+
 
 .questions-title {
   font: fonts.$fontTitle;

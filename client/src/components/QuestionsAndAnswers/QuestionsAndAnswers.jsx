@@ -5,7 +5,10 @@ import '../../styles/sections/_questions.scss';
 const QuestionsAndAnswers = () => {
   return (
     <div>
-      < QuestionList />
+      <div className="questions-section-container questions-section-title-font">
+        {`QUESTIONS & ANSWERS`}
+      </div>
+      <div>< QuestionList /></div>
     </div>
   );
 };
