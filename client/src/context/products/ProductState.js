@@ -45,7 +45,7 @@ const ProductState = props => {
   }
 
   const getProductInfo = async () => {
-    const res = await Axios.get(`${API_URL}/40344`);
+    const res = await Axios.get(`${API_URL}/40348`);
 
     dispatch({
       type: GET_PRODUCT_INFO,
@@ -54,7 +54,7 @@ const ProductState = props => {
   }
 
   const getProductStyles = async () => {
-    const res = await Axios.get(`${API_URL}/40344/styles`);
+    const res = await Axios.get(`${API_URL}/40348/styles`);
 
     dispatch({
       type: GET_PRODUCT_STYLES,

@@ -60,11 +60,53 @@ const ProductImageGallery = ({ expandView }) => {
     ref.current.scrollTop -= height
   }
 
+    // if (!currentStyle.photos) {
+    //   return <p>Loading...</p>
+    // } else {
+    // return (
+    //   <div className="product-image-gallery-container">
+    //     <div className="product-image-gallery-thumbnail-container" >
+    //       <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
+    //       <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
+    //         {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
+    //           <div key={index}>
+    //             <img src={photo.thumbnail_url} className={ page === index ? "image-gallery-thumbnail active" : "image-gallery-thumbnail" } onClick={handleClick} name={index} />
+    //           </div>
+    //         ))}
+    //       </div>
+    //       <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
+    //     </div>
+
+    //     <div className="product-image-gallery-main">
+    //         <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
+    //         {currentStyle.photos.map((photo, index) => {
+    //           if (page === index) {
+    //             return (
+    //               <img className="image-gallery-main" src={photo.url} onClick={expandView}/>
+    //             )
+    //           }
+    //         })}
+    //         <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
+    //     </div>
+    //   </div>
+    // )};
     if (!currentStyle.photos) {
       return <p>Loading...</p>
     } else {
     return (
       <div className="product-image-gallery-container">
+
+        <div className="product-image-gallery-main">
+            <img src={leftArrow} style={{ height: '30px', width: '30px'}}className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
+            {currentStyle.photos.map((photo, index) => {
+              if (page === index) {
+                return (
+                  <img className="image-gallery-main" src={photo.url} onClick={expandView}/>
+                )
+              }
+            })}
+            <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" style={{ height: '30px', width: '30px'}} value={page}/>
+        </div>
         <div className="product-image-gallery-thumbnail-container" >
           <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
           <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
@@ -77,7 +119,7 @@ const ProductImageGallery = ({ expandView }) => {
           <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
         </div>
 
-        <div className="product-image-gallery-main">
+        {/* <div className="product-image-gallery-main">
             <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
             {currentStyle.photos.map((photo, index) => {
               if (page === index) {
@@ -87,7 +129,7 @@ const ProductImageGallery = ({ expandView }) => {
               }
             })}
             <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
-        </div>
+        </div> */}
       </div>
     )};
 }

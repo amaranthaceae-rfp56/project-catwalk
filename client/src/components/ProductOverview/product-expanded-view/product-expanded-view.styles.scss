@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  width: 70%;
+  width: 100%;
 }
 
 .expanded-view-thumbnail-container {
@@ -44,14 +44,14 @@
   position: relative;
 }
 
-.image-gallery-thumbnail.active {
-  opacity: 0.4;
+.expanded-view-thumbnail.active {
+  border: 2px solid white;
 }
 
 .expanded-view-main {
   margin-left: 15px;
-  max-width: 450px;
-  max-height: 700px;
+  max-width: 800px;
+  max-height: 800px;
   border: 2px solid black;
   display: block;
   object-fit: contain;
