@@ -14,7 +14,7 @@ const PhotoTiles = (props) => {
   return (
     <div className = 'photos-container'>
       {props.photos.map( (photo, index) => {
-        return (<img className = 'review-photo' key = {`photo-${index}`}src = {photo}></img>)
+        return (<img className = 'review-photo' key = {`photo-${index}`}src = {photo.url}></img>)
       })}
 
     </div>

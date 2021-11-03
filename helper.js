@@ -57,7 +57,7 @@ const getRelatedProducts = async (id) => {
 const getReviews = async (id) => {
   return axios.get(`${apiUrl}/reviews`, {
     headers,
-    params: { page: 1, count: 5, sort: 'newest', product_id: id }
+    params: { page: 1, count: 100, sort: 'newest', product_id: id }
   })
   .then((result) => {
     return result.data
@@ -105,9 +105,9 @@ const postReview = async (id, postData) => {
 }
 
 const markReview = async (id) => {
-  return axios.put(`${apiUrl}/reviews/${id}/helpful`, {
-    headers
-  })
+
+
+  return axios.put(`${apiUrl}/reviews/${id}/helpful`, id, {headers})
     .then((result) => {
       return result.data
     })
@@ -117,10 +117,9 @@ const markReview = async (id) => {
 }
 
 const reportReview = async (id) => {
-  return axios.put(`${apiUrl}/reviews/${id}/report`, {
-    headers
-  })
+  return axios.put(`${apiUrl}/reviews/${id}/report`, null, {headers})
     .then((result) => {
+      console.log('reported');
       return result.data
     })
     .catch((error) => {
