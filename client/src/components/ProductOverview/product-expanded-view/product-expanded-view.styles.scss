@@ -44,13 +44,17 @@
   opacity: 0.4;
 }
 
-.image-gallery-main {
+.expanded-view-main {
   margin-left: 15px;
   max-width: 450px;
   max-height: 700px;
   border: 2px solid black;
   display: block;
   object-fit: contain;
+
+  &:hover {
+    cursor: crosshair;
+  }
 }
 
 .left-arrow {

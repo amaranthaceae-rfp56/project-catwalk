@@ -11,24 +11,12 @@ import './product-expanded-view.styles.scss';
 const ProductExpandedView = ({ expandView }) => {
   const productContext = useContext(ProductContext);
   const { currentStyle } = productContext;
-  // const [mainPhoto, setMainPhoto] = useState(null);
   const [page, setPage] = useState(0);
-  // const [length, setLength] = useState(0);
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
 
-  // useEffect(() => {
-  //   if(currentStyle.photos) {
-  //     // setMainPhoto(currentStyle.photos[0])
-  //     setLength(currentStyle.photos.length - 1);
-  //   }
-  // }, [currentStyle.photos])
-
 
   const handleClick = (e) => {
-    // const currentIndex = Number(e.target.name);
-    // const selectedPhoto = currentStyle.photos[currentIndex];
-    // setMainPhoto(selectedPhoto);
     const currentIndex = Number(e.target.name);
     setPage(currentIndex);
   }
@@ -82,7 +70,7 @@ const ProductExpandedView = ({ expandView }) => {
             {currentStyle.photos.map((photo, index) => {
               if (page === index) {
                 return (
-                  <img className="image-gallery-main" src={photo.url} onClick={expandView}/>
+                  <img className="expanded-view-main" src={photo.url} onClick={expandView}/>
                 )
               }
             })}

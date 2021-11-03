@@ -51,6 +51,10 @@
   border: 2px solid black;
   display: block;
   object-fit: contain;
+
+  &:hover {
+    cursor: zoom-in
+  }
 }
 
 .left-arrow {
