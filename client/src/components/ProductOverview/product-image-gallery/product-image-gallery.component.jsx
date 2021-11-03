@@ -3,6 +3,8 @@ import ProductContext from '../../../context/products/ProductContext';
 
 import leftArrow from '../../../../assets/backArrow.svg';
 import rightArrow from '../../../../assets/forwardArrow.svg';
+import upArrow from '../../../../assets/upArrow.svg';
+import downArrow from '../../../../assets/downArrow.svg';
 
 import './product-image-gallery.styles.scss';
 
