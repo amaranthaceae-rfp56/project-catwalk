@@ -68,13 +68,9 @@ const ProductExpandedView = ({ expandView }) => {
           </div>
 
         <div className="expanded-view-thumbnail-container" >
-          <div className="expanded-view-thumbnail-display" ref={ref} onLoad={handleLoad}>
             {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
-              <div key={index}>
                 <img src={photo.thumbnail_url} className={ page === index ? "expanded-view-thumbnail active" : "expanded-view-thumbnail" } onClick={handleClick} name={index} />
-              </div>
             ))}
-          </div>
         </div>
 
       </div>

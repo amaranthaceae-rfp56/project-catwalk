@@ -19,9 +19,11 @@
 }
 
 .expanded-view-thumbnail-container {
+  margin-top: 20px;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -42,6 +44,7 @@
   border-radius: 50%;
   border: 2px solid black;
   position: relative;
+  margin-right: 8px;
 }
 
 .expanded-view-thumbnail.active {
@@ -50,9 +53,9 @@
 
 .expanded-view-main {
   margin-left: 15px;
-  max-width: 800px;
-  max-height: 800px;
-  border: 2px solid black;
+  max-width: 1200px;
+  max-height: 600px;
+  // border: 2px solid black;
   display: block;
   object-fit: contain;
 
