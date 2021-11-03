@@ -48,15 +48,13 @@ const ProductImageGallery = () => {
     }
   }
 
-  const handleLoad = (e) => {
+  const handleLoad = () => {
     if (ref.current.clientHeight) {
       setHeight(ref.current.clientHeight)
-      console.log(ref)
     }
   }
 
   const handleScroll = (height) => {
-    console.log(ref.current.scrollTop)
     ref.current.scrollTop -= height
   }
 
@@ -64,7 +62,7 @@ const ProductImageGallery = () => {
       <div className="product-image-gallery-container">
 
         <div className="product-image-gallery-thumbnail-container" >
-          <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(20)}/>
+          <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
           <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
             {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
               <div key={index}>
@@ -72,7 +70,7 @@ const ProductImageGallery = () => {
               </div>
             ))}
           </div>
-          <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-20)}/>
+          <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
         </div>
 
         <div className="product-image-gallery-main">
