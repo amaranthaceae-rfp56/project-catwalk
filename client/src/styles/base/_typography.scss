@@ -1,7 +1,16 @@
-$font-stack: Helvetica, sans-serif;
-$primary-color: rgb(63, 207, 171);
+@use '../abstracts/fonts';
 
-.test {
-  font: 100% $font-stack;
-  color: $primary-color;
-}
+// body {
+//   font-family: fonts.$noto-sans;
+//   font-weight: normal;
+// }
+
+// h1, h2, h3, h4, h5, h6 {
+//   font-family: $header-font;
+//   font-weight: normal;
+// }
+
+// .button {
+//   font-family: $roboto-slab;
+//   font-weight: bold;
+// }
