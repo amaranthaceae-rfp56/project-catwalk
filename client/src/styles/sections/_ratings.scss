@@ -3,6 +3,8 @@
 $font-stack: Helvetica, sans-serif;
 
 $primary-color: rgb(63, 207, 171);
+$transparent: rgba(255, 255, 255, 0);
+$background: rgb(233, 228, 225);
 
 body {
   background: rgb(233, 228, 225);
@@ -12,7 +14,8 @@ ul {
 }
 .review-list-wrapper {
   overflow-y: auto;
-  max-height: 600px;
+  // max-height: 600px;
+  height: 600px;
   width: 95%;
   background: rgb(233, 228, 225);
   border-radius: 10px;
@@ -89,7 +92,6 @@ ul {
 .reviews-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 45%;
   background: rgba(47, 79, 79, 0.5);
@@ -212,9 +214,23 @@ ul {
   flex-direction: column;
 }
 .characteristic-line-plot {
-  background: chocolate;
+  background:
+    linear-gradient(90deg, $background,
+    $background 25%,
+
+    $transparent 25%,
+    $transparent 30%,
+
+    $background 30%,
+    $background 70%,
+
+    $transparent 70%,
+    $transparent 75%,
+
+    $background 75%,
+    $background 100%);
   width: 100%;
-  height: 6px;
+  height: 8px;
   display: flex;
 
 }
@@ -222,7 +238,8 @@ ul {
   position: relative;
 
   align-self: center;
-  left: 95%;
+  left: calc(var(--score) * 1%);
+  top: -1px;
 }
 
 .line-plot-value-marks {
