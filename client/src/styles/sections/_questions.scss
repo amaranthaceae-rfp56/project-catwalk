@@ -28,14 +28,28 @@
   margin-bottom: 20px;
 }
 
-.questions-idContainer {
+.questions-q-container {
   display: flex;
   width: 3%;
 }
 
-.questions-bodyContainer {
+.questions-question-container {
   display: flex;
+  width: 40%;
   flex-direction: column;
+}
+
+.questions-helpful-container {
+  display: flex;
+  margin-right: 20px;
+  border-right: 1px solid;
+  padding-right: 10px;
+  white-space: pre-wrap;
+}
+
+.questions-addAnswer-container {
+  display: flex;
+  white-space: pre-wrap;
 }
 
 .answer-footnote-container {
@@ -44,6 +58,7 @@
   border-right: 1px solid;
   padding-right: 10px;
   margin-top: -15px;
+  white-space: pre-wrap;
 }
 
 
@@ -65,9 +80,15 @@
   @include mixins.noto-sans(12px, 400);
 }
 
+.found-helpful-font {
+  @include mixins.noto-sans(12px, 400);
+  text-decoration: underline;
+}
+
 .load-answers-font {
   @include mixins.noto-sans(14px, 700);
 }
+
 
 
 .questions-title {
