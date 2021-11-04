@@ -7,7 +7,6 @@ import AnswerItem from './AnswerItem.jsx';
 const AnswerList = (props) => {
 
   let questionAnswers = Object.values(props.questionAnswers);
-  console.log('qa',questionAnswers);
 
   questionAnswers.sort((a, b) => {
     return b.helpfulness - a.helpfulness;
