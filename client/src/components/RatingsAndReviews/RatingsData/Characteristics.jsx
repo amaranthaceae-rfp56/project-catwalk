@@ -19,9 +19,9 @@ const Characteristics = (props) => {
               <div className = 'line-plot-marker' style = {score}>&#9679;</div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Too Small</p>
+            <p>Small</p>
             <p>Perfect</p>
-            <p>Too Big</p>
+            <p>Big</p>
           </div>
       </div>);
       break;
@@ -34,9 +34,9 @@ const Characteristics = (props) => {
               <div className = 'line-plot-marker' style = {score}>&#9679;</div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Too Short</p>
+            <p>Short</p>
             <p>Perfect</p>
-            <p>Too Long</p>
+            <p>Long</p>
           </div>
       </div>);
       break;
@@ -49,7 +49,7 @@ const Characteristics = (props) => {
               <div className = 'line-plot-marker' style = {score}>&#9679;</div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Uncomfortable</p>
+            <p>Poor</p>
             <p>Okay</p>
             <p>Perfect</p>
           </div>
@@ -79,9 +79,9 @@ const Characteristics = (props) => {
               <div className = 'line-plot-marker' style = {score}>&#9679;</div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Too Small</p>
+            <p>Small</p>
             <p>Perfect</p>
-            <p>Too Big</p>
+            <p>Big</p>
           </div>
       </div>);
       break;
@@ -94,9 +94,9 @@ const Characteristics = (props) => {
               <div className = 'line-plot-marker' style = {score}>&#9679;</div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Too Narrow</p>
+            <p>Narrow</p>
             <p>Perfect</p>
-            <p>Too Wide</p>
+            <p>Wide</p>
           </div>
       </div>);
       break;

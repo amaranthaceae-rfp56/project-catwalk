@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewList from './Reviews/ReviewList.jsx';
 import RatingsData from './RatingsData/RatingsData.jsx';
 
+
 const RatingsAndReviews = () => {
   return (
     <div
