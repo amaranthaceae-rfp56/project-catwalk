@@ -9,7 +9,7 @@ import ProductDropdown from './product-dropdown/product-dropdown.component.jsx';
 import ProductSocialMedia from './product-social-media/product-social-media.component.jsx';
 import ProductExpandedView from './product-expanded-view/product-expanded-view.component.jsx';
 
-import GreenCheckmark from '../../../assets/GreenCheckmark.svg';
+import GreenCheckmark from '../../../assets/greenCheckmark.svg';
 
 import './ProductOverview.styles.scss';
 
