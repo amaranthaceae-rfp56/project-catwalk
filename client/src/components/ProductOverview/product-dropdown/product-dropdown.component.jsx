@@ -15,6 +15,9 @@ const ProductDropdown = () => {
 
   const handleChange = (e) => {
     const skuVal = e.target[e.target.selectedIndex].dataset.id;
+
+    let dropdown = document.getElementsByClassName('product-dropdown')[0];
+    dropdown.setAttribute('size', 0);
     setQuantitySize(Number(e.target.value));
     setSku(skuVal);
   }
@@ -25,14 +28,12 @@ const ProductDropdown = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!quantitySize) {
-      var dropdown = document.getElementsByClassName('product-dropdown')[0];
-      console.log(dropdown);
+      let dropdown = document.getElementsByClassName('product-dropdown')[0];
       dropdown.setAttribute('size', Object.values(currentStyle.skus).length)
-      console.log('testing')
+    } else {
+      cartContext.addCartItem(sku, quantity);
     }
-    cartContext.addCartItem(sku, quantity);
   }
 
   return (
