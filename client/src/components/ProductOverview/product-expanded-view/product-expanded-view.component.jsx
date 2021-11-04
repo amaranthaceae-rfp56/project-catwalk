@@ -56,8 +56,8 @@ const ProductExpandedView = ({ expandView }) => {
     setZoomState(!zoomState);
     const { left, top, width, height } = e.target.getBoundingClientRect();
     console.log(left, top, width, height);
-    const x = (e.pageX - left) / width * 250;
-    const y = (e.pageY - top) / height * 250;
+    const x = (e.pageX - left) / width * 100;
+    const y = (e.pageY - top) / height * 100;
     console.log(x, y);
 
     setZoom({
@@ -66,16 +66,16 @@ const ProductExpandedView = ({ expandView }) => {
     })
   }
 
-  // const handleZoomScroll = (e) => {
-  //   const { left, top, width, height } = e.target.getBoundingClientRect();
-  //   console.log(left, top, width, height);
-  //   const x = (e.pageX - left) / width * 250;
-  //   const y = (e.pageY - top) / height * 250;
-
-  //   setZoom({
-  //     backgroundPosition: `${x}% ${y}%`,
-  //   })
-  // }
+  const handleMouseMove = (e, photoUrl) => {
+    // console.log(e.target.getBoundingClientRect());
+   const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = (e.pageX - left) / width * 100;
+    const y = (e.pageY - top) / height * 100;
+    setZoom({
+      backgroundImage: `url(${photoUrl})`,
+      backgroundPosition: `${x}% ${y}%`
+    })
+  }
 
     if (!currentStyle.photos) {
       return <p>Loading...</p>
@@ -88,7 +88,7 @@ const ProductExpandedView = ({ expandView }) => {
                     {currentStyle.photos.map((photo, index) => {
                       if (page === index) {
                         return (
-                          <figure onClick={(e) => handleZoom(e, photo.url)} style={!zoom ? { backgroundImage: `url(${photo.url})`, backgroundPosition: '0% 0%'} : zoom}>
+                          <figure onClick={(e) => handleZoom(e, photo.url)} style={!zoom ? { backgroundImage: `url(${photo.url})`, backgroundPosition: '0% 0%'} : zoom} onMouseMove={(e) => handleMouseMove(e, photo.url)}>
                             <img className={!zoomState ? "expanded-view-main" : "expanded-view-main active"} src={photo.url} />
                           </figure>
                         )
