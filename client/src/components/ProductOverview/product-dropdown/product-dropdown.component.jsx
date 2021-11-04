@@ -27,6 +27,9 @@ const ProductDropdown = () => {
     e.preventDefault();
 
     if (!quantitySize) {
+      var dropdown = document.getElementsByClassName('product-dropdown')[0];
+      console.log(dropdown);
+      dropdown.setAttribute('size', Object.values(currentStyle.skus).length)
       console.log('testing')
     }
     cartContext.addCartItem(sku, quantity);
