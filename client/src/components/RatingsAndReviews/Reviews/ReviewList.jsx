@@ -23,7 +23,13 @@ const ReviewList = () => {
     }
     const result = {};
     result['RELEVANCE'] = () => {
-      console.log('Has data');
+      sorted.sort((b, a) => (new Date(b.date))-(new Date(a.date)));
+      sorted.map((current, index) => {
+        current.score = index/2 + current.helpfulness;
+        return current;
+      });
+      sorted.sort((a, b) => b.score - a.score);
+      setReviews(sorted);
     };
     result['HELPFULNESS'] = () => {
       sorted.sort((a, b) => b.helpfulness - a.helpfulness);
