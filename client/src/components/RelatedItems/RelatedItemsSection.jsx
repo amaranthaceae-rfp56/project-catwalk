@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import RelatedItemCard from './RelatedItemCard.jsx';
 import '../../styles/sections/_related.scss';
+import leftArrow from '../../../assets/backArrow.svg';
+import rightArrow from '../../../assets/forwardArrow.svg';
 
 
 
@@ -30,15 +32,22 @@ const RelatedItemsSection = () => {
   }, []);
 
   return (
-    <div data-testid={'Related-Items'}>
-      <p>RELATED PRODUCTS</p>
+    <div className="related-card-container">
+       <p>RELATED PRODUCTS</p>
+       <div data-testid={'Related-Items'} className="Related-Items">
+       <img src={leftArrow} />
       {relatedItems.map((product, index) => {
         return <RelatedItemCard
           pageProduct={pageProduct}
           cardProductId={product}
           key={index} />
       })}
+
+      <img src={rightArrow} />
+
     </div>
+    </div>
+
   );
 };
 
