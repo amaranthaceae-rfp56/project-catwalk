@@ -5,6 +5,7 @@ import leftArrow from '../../../../assets/backArrow.svg';
 import rightArrow from '../../../../assets/forwardArrow.svg';
 import upArrow from '../../../../assets/upArrow.svg';
 import downArrow from '../../../../assets/downArrow.svg';
+import expandIcon from '../../../../assets/expand.svg';
 
 // import ProductMagnify from '../product-magnify.component.jsx';
 
@@ -82,9 +83,9 @@ const ProductExpandedView = ({ expandView }) => {
     } else {
     return (
       <div className="expanded-view-container">
-
           <div className="expanded-view-gallery-main">
-                    <img src={leftArrow} className="expanded-view-left-arrow" onClick={handlePageChange} name="back" value={page}/>
+          <img src={expandIcon} className="expand-icon" style={{ height: '25px', width: '25px' }} onClick={expandView}/>
+                  <img src={leftArrow} className="expanded-view-left-arrow" onClick={handlePageChange} name="back" value={page}/>
                     {currentStyle.photos.map((photo, index) => {
                       if (page === index) {
                         return (
