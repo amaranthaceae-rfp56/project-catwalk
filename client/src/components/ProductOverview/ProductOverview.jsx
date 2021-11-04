@@ -9,6 +9,8 @@ import ProductDropdown from './product-dropdown/product-dropdown.component.jsx';
 import ProductSocialMedia from './product-social-media/product-social-media.component.jsx';
 import ProductExpandedView from './product-expanded-view/product-expanded-view.component.jsx';
 
+import GreenCheckmark from '../../../assets/GreenCheckmark.svg';
+
 import './ProductOverview.styles.scss';
 
 const ProductOverview = () => {
@@ -21,24 +23,39 @@ const ProductOverview = () => {
   }
 
   return (
-    <div className="product-overview-container">
-
-      <div className={!expandView ? "product-overview-container-left" : "product-overview-container-left active"}>
-        {!expandView ? <ProductImageGallery expandView={handleExpandView}/> : <ProductExpandedView expandView={handleExpandView}/> }
-      </div>
-
-      <div className={!expandView ? "product-overview-container-right" : "product-overview-container-right active"}>
-        <ProductStarRating />
-        <div className="product-overview-details">
-          <h2>{currentStyle.name}</h2>
-          {!currentStyle.sale_price ? <h3>$ {currentStyle.original_price}</h3> : <div> <strike style={{ color: "red"}}>$ {currentStyle.original_price}</strike><h3>$ {currentStyle.sale_price}</h3></div>}
+    <div className="product-overview">
+      <div className="product-overview-container">
+        <div className={!expandView ? "product-overview-container-left" : "product-overview-container-left active"}>
+          {!expandView ? <ProductImageGallery expandView={handleExpandView}/> : <ProductExpandedView expandView={handleExpandView}/> }
         </div>
-        <h4>Select Style</h4>
-        <ProductStyleSelector />
-        <ProductDropdown />
-        <ProductSocialMedia />
+
+        <div className={!expandView ? "product-overview-container-right" : "product-overview-container-right active"}>
+          <ProductStarRating />
+          <div className="product-overview-details">
+            <h2>{currentStyle.name}</h2>
+            {!currentStyle.sale_price ? <h3>$ {currentStyle.original_price}</h3> : <div> <strike style={{ color: "red"}}>$ {currentStyle.original_price}</strike><h3>$ {currentStyle.sale_price}</h3></div>}
+          </div>
+          <h4>Select Style</h4>
+          <ProductStyleSelector />
+          <ProductDropdown />
+          <ProductSocialMedia />
+        </div>
       </div>
 
+      <div className="product-overview-description">
+          <div className="product-overview-description-left">
+            <h3>{productInfo.slogan}</h3>
+            <p>{productInfo.description}</p>
+          </div>
+          <div className="product-overview-description-right">
+            {productInfo.features && productInfo.features.map(({ feature, value }) => (
+              <div className="product-overview-description-feature">
+                  <img src={GreenCheckmark} style={{ height: '25px', width: '25px', marginRight: '10px' }}/>
+                  <h5>{feature}: {value}</h5>
+              </div>
+            ))}
+           </div>
+      </div>
     </div>
   );
 };

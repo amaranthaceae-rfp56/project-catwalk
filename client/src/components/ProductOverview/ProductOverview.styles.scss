@@ -1,3 +1,8 @@
+.product-overview {
+  display: flex;
+  flex-direction: column;
+}
+
 .product-overview-container {
   display: flex;
   flex-direction: row;
@@ -27,4 +32,36 @@
 
 .product-overview-container-right.active {
   display: none;
+}
+
+.product-overview-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.product-overview-description-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.product-overview-description-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.product-overview-description-feature {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
