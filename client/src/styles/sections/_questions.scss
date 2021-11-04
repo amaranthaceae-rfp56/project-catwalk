@@ -3,6 +3,12 @@
 @use '../base/mixins';
 
 
+// SEARCH BAR
+
+.questions-search-bar {
+  @include mixins.search-bar;
+}
+
 // SCROLLABLE CONTAINERS
 
 .questions-scrollable-container {

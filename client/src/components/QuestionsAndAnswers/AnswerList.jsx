@@ -7,6 +7,11 @@ import AnswerItem from './AnswerItem.jsx';
 const AnswerList = (props) => {
 
   let questionAnswers = Object.values(props.questionAnswers);
+  console.log('qa',questionAnswers);
+
+  questionAnswers.sort((a, b) => {
+    return b.helpfulness - a.helpfulness;
+  });
 
   const [visibleAnswers, setVisibleAnswers] = useState(2);
   const [moreAnswersBtnLabel, setMoreAnswersBtnLabel] = useState('load more answers');
