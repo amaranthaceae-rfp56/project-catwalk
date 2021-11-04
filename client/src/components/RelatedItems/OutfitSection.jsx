@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import OutfitCard from './OutfitCard.jsx';
+import rightArrow from '../../../assets/forwardArrow.svg';
+import '../../styles/sections/_outfit.scss';
+
 
 const OutfitSection = () => {
   const username = window.location.search.slice(10);
@@ -35,17 +38,20 @@ const OutfitSection = () => {
   };
 
   return (
-    <div data-testid={'Outfit-Items'}>
+    <div className="outfit-card-container">
       <p>YOUR OUTFIT</p>
-      <button onClick={addToList}>Add to Outfit</button>
-      {outfitList.map((productId, index) =>
-        <OutfitCard
-          key={index}
-          productId={productId}
-          username={username}
-          fetchOutfitList={fetchOutfitList}
-        />)}
-
+      <div data-testid={'Outfit-Items'} className="Outfit-Items">
+        <button onClick={addToList}
+          className="outfit-button">Add to Outfit</button>
+        {outfitList.map((productId, index) =>
+          <OutfitCard
+            key={index}
+            productId={productId}
+            username={username}
+            fetchOutfitList={fetchOutfitList}
+          />)}
+        <img src={rightArrow} />
+      </div>
     </div>
   );
 }

@@ -1,40 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import CompareModal from './CompareModal.jsx';
 import '../../styles/sections/_related.scss';
-
-import rightArrow from '../../../assets/forwardArrow.svg';
+import ReviewContext from '../../context/reviews/ReviewContext';
+import ProductContext from '../../context/products/ProductContext';
+import StarRating from '../sharedComponents/StarRating.jsx';
 
 
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
+  const productContext = useContext(ProductContext);
   const [cardProduct, setCardProduct] = useState({});
   const [thumbnail, setThumbnail] = useState('');
+  const reviewContext = useContext(ReviewContext);
+  const { reviewMeta: { avgRatings } } = reviewContext;
+  const { currentStyle } = productContext;
   const API_URL = 'http://localhost:3000/api/products';
-  const requestOptions = {
-    method: 'GET',
-  };
+
   useEffect(() => {
-    fetch(`${API_URL}/${cardProductId}`, requestOptions)
+    fetch(`${API_URL}/${cardProductId}`)
       .then(response => response.json())
       .then(obj => setCardProduct(obj));
     // get thumbnail_url photo
-    fetch(`${API_URL}/${cardProductId}/styles`, requestOptions)
+    fetch(`${API_URL}/${cardProductId}/styles`)
       .then(response => response.json())
       .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
   }, []);
 
   return Object.keys(cardProduct).length > 0 && (
     <div className="related-card-container">
-      <div  className="related-card">
-
-      <CompareModal left={pageProduct} right={cardProduct} />
-      <img src={thumbnail}
-       className="thumbnail-style inner-card1"/>
-      <p className="category-style">{cardProduct.category}</p>
-      <h4 className="releateName-style">{cardProduct.name}</h4>
-      <p className="price-style">{cardProduct.default_price}</p>
-      <p className="inner-card5">{cardProduct.review}</p>
-
+      <div className="related-card">
+        <i className="fa fa-star compare-style"></i>
+        <img src={thumbnail}
+          className="thumbnail-style" />
+        <p className="category-style">
+          {cardProduct.category}
+        </p>
+        <p className="releateName-style">
+          <b>{cardProduct.name}</b>
+        </p>
+        {!currentStyle.sale_price ? <p>$ {currentStyle.original_price}</p> : <div> <strike style={{ color: "red" }}>$ {currentStyle.original_price}</strike><p>$ {currentStyle.sale_price}</p></div>}
+        <StarRating rating={Number(avgRatings)} />
       </div>
 
     </div>

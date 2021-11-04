@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import '../../styles/sections/_related.scss';
-
+import '../../styles/sections/_outfit.scss';
+import ReviewContext from '../../context/reviews/ReviewContext';
+import ProductContext from '../../context/products/ProductContext';
+import StarRating from '../sharedComponents/StarRating.jsx';
 
 const OutfitCard = ({ productId, username, fetchOutfitList }) => {
+  const productContext = useContext(ProductContext);
+  const reviewContext = useContext(ReviewContext);
+  const { currentStyle } = productContext;
   const [cardProduct, setCardProduct] = useState({});
+  const { reviewMeta: { avgRatings } } = reviewContext;
   const [thumbnail, setThumbnail] = useState('');
   const API_URL = 'http://localhost:3000/api/products';
 
@@ -28,13 +34,15 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   };
 
   return Object.keys(cardProduct).length > 0 && (
-    <div className="outfit-card">
-      <img src={thumbnail} />
-      <button onClick={deleteOutfit}>x</button>
-      <p>{cardProduct.category}</p>
-      <h4>{cardProduct.name}</h4>
-      <p>{cardProduct.default_price}</p>
-      <p>{cardProduct.review}</p>
+    <div className="outfit-card-container">
+      <div className="outfit-card flex-container">
+        <i className="fa fa-times-circle delete-style"
+          onClick={deleteOutfit}></i>
+        <img src={thumbnail} className="outfit-thumbnail-style" />
+        <p>{cardProduct.category}</p>
+        <h4>{cardProduct.name}</h4>
+        {!currentStyle.sale_price ? <p>$ {currentStyle.original_price}</p> : <div> <strike style={{ color: "red" }}>$ {currentStyle.original_price}</strike><p>$ {currentStyle.sale_price}</p></div>}
+        <StarRating rating={Number(avgRatings)} />      </div>
     </div>
   );
 };
