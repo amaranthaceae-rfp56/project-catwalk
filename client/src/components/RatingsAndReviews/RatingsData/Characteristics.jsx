@@ -7,7 +7,7 @@ const Characteristics = (props) => {
   const meters = [];
  for (let trait in props.traits) {
    const score = {'--score': props.traits[trait].value * 20};
-  console.log(trait.toUpperCase());
+
   let meter;
   // console.log(props.traits);
   switch (trait.toUpperCase()) {
@@ -103,7 +103,7 @@ const Characteristics = (props) => {
   }
 
   meters.push(meter);
-  // console.log(results);
+
 }
 useEffect(()=>{
   setResults(meters);

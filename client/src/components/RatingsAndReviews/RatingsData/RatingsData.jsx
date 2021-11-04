@@ -40,7 +40,7 @@ const RatingsData = () => {
         {graph}
       </div>
       <div>
-        CHARACTERISTICS
+
         <Characteristics traits = {characteristics}/>
       </div>
     </div>
