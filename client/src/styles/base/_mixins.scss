@@ -8,6 +8,13 @@
   overflow: auto;
 }
 
+@mixin search-bar {
+  width: 65%;
+  height: 20px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
 
 // FONTS
 
