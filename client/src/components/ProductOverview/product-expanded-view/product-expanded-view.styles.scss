@@ -1,0 +1,80 @@
+.expanded-view-container {
+  // background-color: rgb(169, 169, 173);
+  padding: 20px;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.expanded-view-gallery-main {
+  // width: 100%;
+  // height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 1000px;
+  height: 600px;
+  width: 100%;
+}
+
+.expanded-view-thumbnail-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.expanded-view-thumbnail-display {
+  // overflow-x: hidden;
+  // overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  scroll-behavior: smooth;
+  .product-image-gallery-thumbnail-display::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.expanded-view-thumbnail {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+  margin-right: 8px;
+}
+
+.expanded-view-thumbnail.active {
+  border: 2px solid white;
+}
+
+.expanded-view-main {
+  height: 100%;
+  width: 100%;
+  // max-width: 1200px;
+  // max-height: 600px;
+  // border: 2px solid black;
+  display: block;
+  object-fit: contain;
+
+  &:hover {
+    cursor: crosshair;
+  }
+}
+
+.expanded-view-left-arrow {
+  position: absolute;
+  top: 40%;
+  left: 40px;
+}
+
+.expanded-view-right-arrow {
+  position: absolute;
+  top: 40%;
+  right: 70px;
+}

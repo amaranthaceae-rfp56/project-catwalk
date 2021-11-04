@@ -1,8 +1,68 @@
 @use '../abstracts/fonts';
 @use '../abstracts/colors';
+@use '../base/mixins';
 
-.ratings-title {
+.related-title {
   font: fonts.$fontTitle;
   color: colors.$titleColor;
   font-weight: 300;
+}
+
+
+.Related-Items {
+  overflow-x: scroll;
+  white-space : nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.related-card {
+  background-color: salmon;
+  height: 500px;
+  width: 300px;
+  border-radius: 0%;
+  border: solid;
+  display: inline-block;
+  margin: 10px;
+}
+
+.thumbnail-style {
+  max-width:auto;
+  max-height:auto
+}
+
+.inner-card1 {
+  height: 60%;
+  width: inherit;
+  position: absolute;
+}
+.inner-card2 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+.inner-card3 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+.inner-card4 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+.inner-card5 {
+  height: inherit;
+  width: inherit;
+  position: absolute;
+
+}
+
+
+
+.outfit-card {
+  display: inline-block;
 }

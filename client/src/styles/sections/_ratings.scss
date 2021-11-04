@@ -1,11 +1,33 @@
+@use '../base/mixins';
+
 $font-stack: Helvetica, sans-serif;
+
 $primary-color: rgb(63, 207, 171);
+$transparent: rgba(255, 255, 255, 0);
+$background: rgb(233, 228, 225);
 
 body {
   background: rgb(233, 228, 225);
 }
 ul {
   list-style-type: none;
+}
+.review-list-wrapper {
+  overflow-y: auto;
+  // max-height: 600px;
+  height: 600px;
+  width: 95%;
+  background: rgb(233, 228, 225);
+  border-radius: 10px;
+
+}
+.reviews-list {
+
+  width: 80%;
+
+}
+.review-list-wrapper::-webkit-scrollbar {
+  display: none;
 }
 .ratings-reviews-container {
   font: 100% $font-stack;
@@ -18,7 +40,7 @@ ul {
   border: black solid 2px;
   border-radius: 20px;
   width: 100%;
-  margin: 15px;
+  margin: 5px 10px 10px 5px;
   padding: 20px;
 }
 
@@ -63,14 +85,17 @@ ul {
 
 
 //////////////////////////////////////////////////////////////
-
+.review-sorter {
+  margin: 5px;
+  padding: 10px;
+}
 .reviews-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 45%;
-  background: rgba(0, 206, 209, 0.486);
+  background: rgba(47, 79, 79, 0.5);
+  border-radius: 5px;
 }
 
 .review-button-container {
@@ -119,10 +144,11 @@ ul {
 
   &::before {
     content: '★★★★★';
-    letter-spacing: 3px;
+    letter-spacing: 0px;
     background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
   }
 }
 
@@ -139,7 +165,10 @@ ul {
   padding: 10px;
 }
 
-
+////////////////////////////////////////////////////////////
+.percent-rec {
+  margin: 10px;
+}
 ////BARGRAPH////////////////////
 .graph-rating {
   display: flex;
@@ -174,4 +203,47 @@ ul {
 .ratings-graph {
   display: flex;
   flex-direction: column;
+  background: rgba(107, 91, 2, 0.959);
+  padding: 5px;
+}
+
+///////////////////////////////////////////////////////////////////
+///               CHARACTERISTICS
+.characteristics-container {
+  display: flex;
+  flex-direction: column;
+}
+.characteristic-line-plot {
+  background:
+    linear-gradient(90deg, $background,
+    $background 25%,
+
+    $transparent 25%,
+    $transparent 30%,
+
+    $background 30%,
+    $background 70%,
+
+    $transparent 70%,
+    $transparent 75%,
+
+    $background 75%,
+    $background 100%);
+  width: 100%;
+  height: 8px;
+  display: flex;
+
+}
+.line-plot-marker {
+  position: relative;
+
+  align-self: center;
+  left: calc(var(--score) * 1%);
+  top: -1px;
+}
+
+.line-plot-value-marks {
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
 }

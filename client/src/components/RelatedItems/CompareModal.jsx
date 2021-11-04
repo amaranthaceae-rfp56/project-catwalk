@@ -5,6 +5,7 @@ import Modal from "react-modal";
 Modal.setAppElement("#root");
 
 const CompareModal = ({ left, right }) => {
+  console.log('compare', left);
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {

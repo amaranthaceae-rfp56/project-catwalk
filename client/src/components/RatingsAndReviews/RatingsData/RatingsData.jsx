@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import ReviewContext from '../../../context/reviews/ReviewContext';
 import BarGraph from './BarGraph.jsx';
 import StarRating from '../../sharedComponents/StarRating.jsx';
+import Characteristics from './Characteristics.jsx';
 
 const RatingsData = () => {
 
@@ -36,11 +37,11 @@ const RatingsData = () => {
       </div>
       <div className = 'percent-rec'>{percentRec}% reviewers recommended!</div>
       <div>
-        BAR GRAPH
         {graph}
       </div>
       <div>
-        CHARACTERISTICS
+
+        <Characteristics traits = {characteristics}/>
       </div>
     </div>
   );

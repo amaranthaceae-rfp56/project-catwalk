@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 
@@ -11,7 +11,9 @@ const Voter = (props) => {
   //requires a props.report that fires on click events of report
 
   // requires props.helpfulness an integer that displays the count of users that clicked yes
-
+  useEffect(()=>{
+    setHelpfulness(props.helpfulness);
+  }, [props.helpfulness])
   const wasHelpful = () => {
 
     const options = {
