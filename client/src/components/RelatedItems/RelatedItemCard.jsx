@@ -12,7 +12,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const [thumbnail, setThumbnail] = useState('');
   const reviewContext = useContext(ReviewContext);
   const { reviewMeta: { avgRatings } } = reviewContext;
-  const { productInfo, currentStyle } = productContext;
+  const { currentStyle } = productContext;
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {

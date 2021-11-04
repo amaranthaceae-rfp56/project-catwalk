@@ -5,6 +5,12 @@
 .Outfit-Items {
   white-space: nowrap;
   display: flex;
+  flex-direction: row;
+}
+
+.outfit-scroll {
+  overflow-x: scroll;
+  width: 100%;
 }
 
 .outfit-card {
@@ -37,8 +43,8 @@
   color: aquamarine;
 }
 
-.thumbnail-style {
+.outfit-thumbnail-style {
   width: 100%;
-  height: 70%;
+  height: 66%;
   object-fit: fill;
 }
