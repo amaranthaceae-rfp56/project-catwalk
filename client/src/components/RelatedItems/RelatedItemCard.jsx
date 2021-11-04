@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CompareModal from './CompareModal.jsx';
+import '../../styles/sections/_related.scss';
+
+import rightArrow from '../../../assets/forwardArrow.svg';
 
 
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
@@ -19,14 +22,21 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
       .then(response => response.json())
       .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
   }, []);
+
   return Object.keys(cardProduct).length > 0 && (
-    <div>
-      <img src={thumbnail} />
+    <div className="related-card-container">
+      <div  className="related-card">
+
       <CompareModal left={pageProduct} right={cardProduct} />
-      <p>{cardProduct.category}</p>
-      <h4>{cardProduct.name}</h4>
-      <p>{cardProduct.default_price}</p>
-      <p>{cardProduct.review}</p>
+      <img src={thumbnail}
+       className="thumbnail-style inner-card1"/>
+      <p className="category-style">{cardProduct.category}</p>
+      <h4 className="releateName-style">{cardProduct.name}</h4>
+      <p className="price-style">{cardProduct.default_price}</p>
+      <p className="inner-card5">{cardProduct.review}</p>
+
+      </div>
+
     </div>
   );
 };

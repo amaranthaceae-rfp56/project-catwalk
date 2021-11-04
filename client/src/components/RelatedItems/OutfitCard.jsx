@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import '../../styles/sections/_related.scss';
 
 
 const OutfitCard = ({ productId, username, fetchOutfitList }) => {
@@ -27,7 +28,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   };
 
   return Object.keys(cardProduct).length > 0 && (
-    <div>
+    <div className="outfit-card">
       <img src={thumbnail} />
       <button onClick={deleteOutfit}>x</button>
       <p>{cardProduct.category}</p>
