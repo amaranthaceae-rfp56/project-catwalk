@@ -12,6 +12,7 @@ import ProductExpandedView from './product-expanded-view/product-expanded-view.c
 import GreenCheckmark from '../../../assets/greenCheckmark.svg';
 
 import './ProductOverview.styles.scss';
+import '../../styles/sections/_products.scss';
 
 const ProductOverview = () => {
   const productContext = useContext(ProductContext);

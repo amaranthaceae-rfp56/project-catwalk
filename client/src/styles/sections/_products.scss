@@ -1,8 +1,13 @@
 @use '../abstracts/fonts';
 @use '../abstracts/colors';
+@use '../base/mixins';
 
 .products-title {
   font: fonts.$fontTitle;
   color: colors.$bodyColor;
   font-weight: 700;
+}
+
+.product-overview {
+  @include mixins.noto-sans(18px, 700);
 }
