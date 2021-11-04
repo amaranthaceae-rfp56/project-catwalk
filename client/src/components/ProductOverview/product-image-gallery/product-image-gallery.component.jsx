@@ -98,6 +98,7 @@ const ProductImageGallery = ({ expandView }) => {
 
         <div className="product-image-gallery-main">
             <img src={leftArrow} style={{ height: '30px', width: '30px'}}className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
+
             {currentStyle.photos.map((photo, index) => {
               if (page === index) {
                 return (
@@ -107,8 +108,10 @@ const ProductImageGallery = ({ expandView }) => {
             })}
             <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" style={{ height: '30px', width: '30px'}} value={page}/>
         </div>
+
         <div className="product-image-gallery-thumbnail-container" >
           <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
+
           <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
             {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
               <div key={index}>
@@ -116,6 +119,7 @@ const ProductImageGallery = ({ expandView }) => {
               </div>
             ))}
           </div>
+
           <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
         </div>
 
