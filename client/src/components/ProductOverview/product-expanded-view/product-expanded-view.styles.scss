@@ -90,6 +90,10 @@ figure {
 
 .expanded-view-main.active {
   opacity: 0;
+
+  &:hover {
+    cursor: vertical-text
+  }
 }
 
 // figure:hover img {
