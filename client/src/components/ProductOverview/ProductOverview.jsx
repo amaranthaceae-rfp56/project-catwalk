@@ -33,7 +33,7 @@ const ProductOverview = () => {
           <h2>{currentStyle.name}</h2>
           {!currentStyle.sale_price ? <h3>$ {currentStyle.original_price}</h3> : <div> <strike style={{ color: "red"}}>$ {currentStyle.original_price}</strike><h3>$ {currentStyle.sale_price}</h3></div>}
         </div>
-        <h4> Style: Selected Style</h4>
+        <h4>Select Style</h4>
         <ProductStyleSelector />
         <ProductDropdown />
         <ProductSocialMedia />

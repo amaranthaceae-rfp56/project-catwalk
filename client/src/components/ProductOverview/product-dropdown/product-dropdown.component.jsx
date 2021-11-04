@@ -35,7 +35,7 @@ const ProductDropdown = () => {
   return (
     <div className="product-dropdown-container">
       <select onChange={handleChange} value={quantitySize} className="product-dropdown">
-        <option value="" className="product-dropdown-option" selected disabled hidden >Select Size</option>
+        <option value="" className="product-dropdown-option" selected disabled hidden >SELECT SIZE</option>
         {currentStyle.skus && Object.entries(currentStyle.skus).map((sku, i) => (
           <option data-id={sku[0]} value={sku[1].quantity}>{sku[1].size}</option>
         ))}
