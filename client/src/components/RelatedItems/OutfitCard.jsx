@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../../styles/sections/_related.scss';
+import '../../styles/sections/_outfit.scss';
 
 
 const OutfitCard = ({ productId, username, fetchOutfitList }) => {
@@ -28,13 +28,17 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   };
 
   return Object.keys(cardProduct).length > 0 && (
-    <div className="outfit-card">
-      <img src={thumbnail} />
-      <button onClick={deleteOutfit}>x</button>
-      <p>{cardProduct.category}</p>
-      <h4>{cardProduct.name}</h4>
-      <p>{cardProduct.default_price}</p>
-      <p>{cardProduct.review}</p>
+    <div className="outfit-card-container">
+      <div className="outfit-card">
+
+        <i className="fa fa-star delete-style"
+          onClick={deleteOutfit}></i>
+        <img src={thumbnail} className="thumbnail-style" />
+        <p>{cardProduct.category}</p>
+        <h4>{cardProduct.name}</h4>
+        <p>{cardProduct.default_price}</p>
+        <p>{cardProduct.review}</p>
+      </div>
     </div>
   );
 };
