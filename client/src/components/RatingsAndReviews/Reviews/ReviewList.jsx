@@ -26,11 +26,7 @@ const ReviewList = () => {
       console.log('Has data');
     };
     result['HELPFULNESS'] = () => {
-
-
       sorted.sort((a, b) => b.helpfulness - a.helpfulness);
-      console.log(sorted);
-      console.log(reviews);
       setReviews(sorted);
     };
 
