@@ -296,7 +296,7 @@ ul {
 
 .review-form {
   height: 700px;
-  width: 650px;
+  width: 600px;
   background: $background;
 }
 
@@ -317,27 +317,4 @@ ul {
 .input {
   margin: 5px;
   width: 100%;
-}
-///FORM RADIO BUTTONS
-
-.form-characteristics-voting-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.trait-rater-container {
-  display: flex;
-  flex-direction: column;
-  border: solid 1px black;
-  margin: 3px 6px 3px 6px;
-}
-.trait-rater-options-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px;
-}
-.radio-title {
-  align-self: center;
-  font-weight: 900;
-  text-decoration: underline;
 }

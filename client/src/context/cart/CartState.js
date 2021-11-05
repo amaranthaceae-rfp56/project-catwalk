@@ -32,16 +32,13 @@ const CartState = props => {
   }
 
   const addCartItem = (sku, quantity) => {
+    console.log(sku, quantity);
+
     const cartInfo = {
       sku: sku,
       count: quantity
     }
 
-    const itemExists = state.cart.filter((item) => item.sku === sku);
-
-    if (itemExists.length > 0) {
-      return
-    }
     const res = Axios.post(API_URL, cartInfo);
 
     dispatch({

@@ -45,9 +45,8 @@ const ProductOverview = () => {
       <div className="product-overview-description">
           <div className="product-overview-description-left">
             <h3>{productInfo.slogan}</h3>
-            <p className="product-overview-description-left-body">{productInfo.description}</p>
+            <p>{productInfo.description}</p>
           </div>
-          <hr className="product-overview-description-divider" />
           <div className="product-overview-description-right">
             {productInfo.features && productInfo.features.map(({ feature, value }) => (
               <div className="product-overview-description-feature">
