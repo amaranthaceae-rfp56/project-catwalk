@@ -72,7 +72,7 @@ const QuestionList = () => {
           })
           .filter((question, index) => index < visibleQuestions)
           .map((question) => (
-            < QuestionItem key={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} />
+            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} />
           ))}
       </div>
       <div>{moreQuestions}</div>

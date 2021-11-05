@@ -3,7 +3,7 @@ const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion } = require('./helper.js');
+const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, voteQuestionHelpful } = require('./helper.js');
 
 const app = express();
 
@@ -86,6 +86,13 @@ app.post('/api/qa/questions/:product_id', async (req, res) => {
   var data = await postQuestion(req.params.product_id, req.body);
   res.send(data);
 })
+
+// Vote Question as Helpful
+app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
+  console.log(req.query.question_id);
+  var data = await voteQuestionHelpful(req.query.question_id);
+  res.send(data);
+});
 
 var yourOutfit = {
   'xinyi': [40353, 40352, 40433, 40347, 40351, 40348, 40345]

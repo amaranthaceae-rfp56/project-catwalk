@@ -1,7 +1,6 @@
-@use '../abstracts/fonts';
-@use '../abstracts/colors';
-@use '../base/mixins';
-
+@use "../abstracts/fonts";
+@use "../abstracts/colors";
+@use "../base/mixins";
 
 // SEARCH BAR
 
@@ -67,7 +66,6 @@
   white-space: pre-wrap;
 }
 
-
 // FONTS
 
 .questions-section-title-font {
@@ -86,16 +84,37 @@
   @include mixins.noto-sans(12px, 400);
 }
 
+.questions-info-font {
+  @include mixins.theme(12px, 700);
+}
+
 .found-helpful-font {
-  @include mixins.noto-sans(12px, 400);
+  @include mixins.theme(12px, 400);
+  text-decoration: underline;
+}
+
+.found-helpful-font:hover {
+  cursor: pointer;
+}
+
+.found-question-helpful-font {
+  @include mixins.theme(12px, 700);
+  text-decoration: underline;
+}
+
+.found-question-helpful-font:hover {
+  cursor: pointer;
+  color: rgba(138, 135, 135, 0.712);
+}
+
+.add-answer-font {
+  @include mixins.theme(12px, 700);
   text-decoration: underline;
 }
 
 .load-answers-font {
   @include mixins.noto-sans(14px, 700);
 }
-
-
 
 .questions-title {
   font: fonts.$fontTitle;

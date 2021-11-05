@@ -9,36 +9,36 @@ const getProducts = async () => {
   return axios.get(`${apiUrl}/products`, {
     headers
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 const getProduct = async (id) => {
   return axios.get(`${apiUrl}/products/${id}`, {
     headers
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 const getProductStyles = async (id) => {
   return axios.get(`${apiUrl}/products/${id}/styles`, {
     headers
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 
@@ -46,12 +46,12 @@ const getRelatedProducts = async (id) => {
   return axios.get(`${apiUrl}/products/${id}/related`, {
     headers
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 const getReviews = async (id) => {
@@ -59,12 +59,12 @@ const getReviews = async (id) => {
     headers,
     params: { page: 1, count: 100, sort: 'newest', product_id: id }
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 }
 
 const getReviewMetaData = async (id) => {
@@ -72,42 +72,42 @@ const getReviewMetaData = async (id) => {
     headers,
     params: { product_id: id }
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 }
 
 const postReview = async (id, postData) => {
   const { rating, summary, body, recommend, name, email, photos, characteristics } = postData;
 
   return axios.post(`${apiUrl}/reviews`, {
-      product_id: id,
-      rating: rating,
-      summary: summary,
-      body: body,
-      recommend: recommend,
-      name: name,
-      email: email,
-      photos: photos,
-      characteristics: characteristics
-    },
+    product_id: id,
+    rating: rating,
+    summary: summary,
+    body: body,
+    recommend: recommend,
+    name: name,
+    email: email,
+    photos: photos,
+    characteristics: characteristics
+  },
     { headers }
   )
-  .then((result) => {
-    return result.data
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 }
 
 const markReview = async (id) => {
 
 
-  return axios.put(`${apiUrl}/reviews/${id}/helpful`, id, {headers})
+  return axios.put(`${apiUrl}/reviews/${id}/helpful`, id, { headers })
     .then((result) => {
       return result.data
     })
@@ -117,7 +117,7 @@ const markReview = async (id) => {
 }
 
 const reportReview = async (id) => {
-  return axios.put(`${apiUrl}/reviews/${id}/report`, null, {headers})
+  return axios.put(`${apiUrl}/reviews/${id}/report`, null, { headers })
     .then((result) => {
       console.log('reported');
       return result.data
@@ -132,12 +132,12 @@ const getQuestions = async (id) => {
     headers,
     params: { page: 1, count: 5, sort: 'newest', product_id: id }
   })
-  .then((result) => {
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 }
 
 const getAnswers = async (id) => {
@@ -145,13 +145,13 @@ const getAnswers = async (id) => {
     headers,
     params: { question_id: id, page: 1, count: 5 }
   })
-  .then((result) => {
-    console.log(result);
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+    .then((result) => {
+      console.log(result);
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 }
 
 const postQuestion = async (id, postData) => {
@@ -163,13 +163,26 @@ const postQuestion = async (id, postData) => {
     email: email,
     product_id: id
   }, { headers })
-  .then((result) => {
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+    .then((result) => {
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 }
+
+const voteQuestionHelpful = async (id) => {
+
+  return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id, { headers })
+    .then((result) => {
+      console.log('ok', result);
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
 
 module.exports = {
   getProducts: getProducts,
@@ -183,5 +196,6 @@ module.exports = {
   reportReview: reportReview,
   getQuestions: getQuestions,
   getAnswers: getAnswers,
-  postQuestion: postQuestion
+  postQuestion: postQuestion,
+  voteQuestionHelpful: voteQuestionHelpful
 }
