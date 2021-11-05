@@ -11,7 +11,7 @@ const FormPhotoViewer = (props) => {
       {props.photos.map( (photo, index) => {
         const clickTile = () => {
           const selectedPhoto = (<PhotoModal image = {photo}/>);
-          setModalPhoto(<Modal callback = {setModalPhoto} component={selectedPhoto}/>)
+          setModalPhoto(<Modal class = 'form-photo' callback = {setModalPhoto} component={selectedPhoto}/>)
         };
 
         return (<img  onClick = {clickTile}className = 'review-photo' key = {`photo-${index}`}src = {photo}></img>)

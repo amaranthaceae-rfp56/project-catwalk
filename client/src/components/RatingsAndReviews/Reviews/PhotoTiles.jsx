@@ -15,7 +15,7 @@ const PhotoTiles = (props) => {
       {props.photos.map( (photo, index) => {
         const clickTile = () => {
           const selectedPhoto = (<PhotoModal image = {photo.url}/>);
-          setModal(<Modal callback = {setModal} component={selectedPhoto}/>)
+          setModal(<Modal class = 'photo-tile' callback = {setModal} component={selectedPhoto}/>)
         };
 
         return (<img onClick = {clickTile} className = 'review-photo' key = {`photo-${index}`}src = {photo.url}></img>)
