@@ -90,6 +90,10 @@
   @include mixins.theme(12px, 400);
 }
 
+.questions-info-font {
+  @include mixins.theme(12px, 700);
+}
+
 .found-helpful-font {
   @include mixins.theme(12px, 400);
   text-decoration: underline;
@@ -99,8 +103,18 @@
   cursor: pointer;
 }
 
+.found-question-helpful-font {
+  @include mixins.theme(12px, 700);
+  text-decoration: underline;
+}
+
+.found-question-helpful-font:hover {
+  cursor: pointer;
+  color: rgba(138, 135, 135, 0.712);
+}
+
 .add-answer-font {
-  @include mixins.theme(12px, 400);
+  @include mixins.theme(12px, 700);
   text-decoration: underline;
 }
 
