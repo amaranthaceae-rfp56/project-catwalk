@@ -15,13 +15,17 @@ const ProductDropdown = () => {
 
   const handleChange = (e) => {
     const skuVal = e.target[e.target.selectedIndex].dataset.id;
-    let dropdown = document.getElementsByClassName('product-dropdown')[0];
-    dropdown.setAttribute('size', 0);
+
+    if (quantitySize === null) {
+      let dropdown = document.getElementsByClassName('product-dropdown')[0];
+      dropdown.setAttribute('size', 0);
+    }
+    setQuantity(1);
     setQuantitySize(Number(e.target.value));
     setSku(skuVal);
   }
 
-  const handleQuantityChange = async (e) => {
+  const handleQuantityChange = (e) => {
     setQuantity(Number(e.target.value));
   }
 
