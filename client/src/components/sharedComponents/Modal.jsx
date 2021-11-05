@@ -2,7 +2,7 @@ import React from 'react';
 //SCSS is currently at bottom of the _ratings.scss file
 const Modal = (props) => {
   let left = props.left || 92;
-  let top = props.top || 55;
+    let top = props.top || 55;
   const closeModal = () => {
     // setModal(null);
     let closeBoth;
@@ -24,9 +24,9 @@ const Modal = (props) => {
 
   }
   return (
-    <div onClick={closeModal} className='modal-background'>
-      <div className='modal-container'>
-        <div style={{ left: `${left}%`, top: `${top}px` }} className='modal-close'>X</div>
+    <div onClick = {closeModal} className = 'modal-background'>
+      <div className = 'modal-container'>
+        <div style = {{left: `${left}%`, top: `${top}px`}} className = 'modal-close'>X</div>
         {props.component}
       </div>
     </div>

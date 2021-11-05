@@ -1,16 +1,22 @@
 import React, {useState, useEffect, useContext} from 'react';
 import QuestionContext from '../../context/questions/QuestionContext';
+import ProductContext from '../../context/products/ProductContext';
 import QuestionItem from './QuestionItem.jsx';
 import QuestionSearch from './QuestionSearch.jsx';
+import Modal from '../sharedComponents/Modal.jsx';
+import QuestionForm from './QuestionForm.jsx';
 
 import '../../styles/sections/_questions.scss';
 
 const QuestionList = () => {
 
   const questionContext = useContext(QuestionContext);
+  const productContext = useContext(ProductContext);
+  const product = productContext.productInfo.name;
   const data = questionContext.questions.results;
   const [questions, setQuestions] = useState([]);
   const [visibleQuestions, setVisibleQuestions] = useState(2);
+  const [modalVisible, setModalVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   let moreQuestions;
 
@@ -32,17 +38,24 @@ const QuestionList = () => {
     }
   };
 
+  const handleAddMoreQuestions = () => {
+    setModalVisible(true);
+  }
+
   useEffect(() => {
     if (data) {
+
       data.sort((a, b) => {
+
         return b.question_helpfulness - a.question_helpfulness;
       });
+
       setQuestions(data);
     }
   }, [data]);
 
   if (questions.length > visibleQuestions) {
-    moreQuestions = (<button className="review-button" onClick = {loadMoreQuestions} >MORE ANSWERED QUESTIONS</button>);
+    moreQuestions = (<button className="theme-button" onClick = {loadMoreQuestions}>MORE ANSWERED QUESTIONS</button>);
   }
 
   return (
@@ -75,7 +88,11 @@ const QuestionList = () => {
             < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} />
           ))}
       </div>
-      <div>{moreQuestions}</div>
+      <div className="questions-container">
+        <div>{moreQuestions}</div>
+        <button className="theme-button" onClick = {handleAddMoreQuestions}>ADD A QUESTION +</button>
+        {modalVisible ? <Modal callback={setModalVisible} left={89} top={52} both={false} component={<QuestionForm productName={product} />}/> : <></>}
+      </div>
     </div>
   );
 };
