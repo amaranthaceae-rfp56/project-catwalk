@@ -3,7 +3,7 @@ import ReviewContext from '../../../context/reviews/ReviewContext';
 import Review from './Review.jsx';
 import Sorter from './Sorter.jsx';
 import Modal from '../../sharedComponents/Modal.jsx';
-import ReviewForm from './ReviewForm.jsx';
+import ReviewForm from './ReviewForm/ReviewForm.jsx';
 
 const ReviewList = () => {
   const reviewContext = useContext(ReviewContext);
