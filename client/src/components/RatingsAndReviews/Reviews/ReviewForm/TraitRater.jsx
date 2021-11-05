@@ -4,46 +4,54 @@ const TraitRater = (props) => {
 
 
   const traits = {};
-  const initialState = {};
-  props.traits.forEach(trait => initialState[trait] = 0);
-  // console.log(initialState);
+  const [traitsKeys, setTraitsKeys] = useState([]);
 
-  const [values, setValues] = useState(initialState);
+
+
 
   useEffect(()=>{
-    setValues(initialState);
-  }, [props.traits]);
+    setTraitsKeys(Object.keys(props.traits))
+
+
+  },[props.traits])
+
 
 
 
   traits['SIZE'] = {
     name: 'Size',
-    values: ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too big' ]
+    values: ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too big' ],
+    // id: props.traits.Size.id,
   }
   traits['WIDTH'] = {
     name: 'Width',
-    values: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide' ]
+    values: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide' ],
+    // id: props.traits.Size.id,
   }
   traits['LENGTH'] = {
     name: 'Length',
-    values: ['Short', 'Slightly Short', 'Perfect', 'Slightly Long', 'Long' ]
+    values: ['Short', 'Slightly Short', 'Perfect', 'Slightly Long', 'Long' ],
+    // id: props.traits.Size.id,
   }
   traits['COMFORT'] = {
     name: 'Comfort',
-    values: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect' ]
+    values: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect' ],
+    // id: props.traits.Size.id,
   }
   traits['QUALITY'] = {
     name: 'Qaulity',
-    values: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect' ]
+    values: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect' ],
+    // id: props.traits.Size.id,
   }
   traits['FIT'] = {
     name: 'Fit',
-    values: ['Tight', 'Slightly Tight', 'Perfect', 'Slightly Loose', 'Loose' ]
+    values: ['Tight', 'Slightly Tight', 'Perfect', 'Slightly Loose', 'Loose' ],
+    // id: props.traits.Size.id,
   }
-  if (props.traits.length > 0 && traits) {
+  if (traitsKeys.length > 0 && traits) {
     return (
       <div className = 'form-characteristics-voting-container'>
-        {props.traits.map((trait, index) => {
+        {traitsKeys.map((trait, index) => {
           return (
             <div className = 'trait-rater-container' key = {`trait-rater-container-${index}`}>
               <p className = 'radio-title'>{trait}</p>
@@ -51,7 +59,7 @@ const TraitRater = (props) => {
               {traits[trait.toUpperCase()].values.map((value, i) => {
                 return (
                   <div key = {`trait-rater-container-${index}-option-${i}`}>
-                      <input onChange = {()=>{props.callback(trait, i+1)}} type = 'radio' id = {`${trait}-${i+1}`} name = {`${trait}`} value = {i+1}/>
+                      <input onChange = {()=>{props.callback(trait, {id: props.ids[trait].id, value: i+1})}} type = 'radio' id = {`${trait}-${i+1}`} name = {`${trait}`} value = {i+1}/>
                       <label htmlFor = {`${trait}-${i+1}`} >{value}</label>
                   </div>
                 );
