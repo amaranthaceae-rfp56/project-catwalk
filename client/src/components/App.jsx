@@ -10,33 +10,43 @@ import ProductState from '../context/products/ProductState.js';
 import ReviewState from '../context/reviews/ReviewState.js';
 import QuestionState from '../context/questions/QuestionState.js';
 import CartState from '../context/cart/CartState.js';
+import ClickTrackerState from '../context/clickTracker/ClickTrackerState.js';
 
 // Context
-import ProductContext from '../context/products/ProductContext';
-import ReviewContext from '../context/reviews/ReviewContext';
-import QuestionContext from '../context/questions/QuestionContext';
-import CartContext from '../context/cart/CartContext';
+// import ProductContext from '../context/products/ProductContext';
+// import ReviewContext from '../context/reviews/ReviewContext';
+// import QuestionContext from '../context/questions/QuestionContext';
+// import CartContext from '../context/cart/CartContext';
+import ClickTrackerContext from '../context/clickTracker/ClickTrackerContext';
 
 const App = () => {
-  const productContext = useContext(ProductContext);
-  const reviewContext = useContext(ReviewContext);
-  const questionContext = useContext(QuestionContext);
-  const cartContext = useContext(CartContext);
+  // const productContext = useContext(ProductContext);
+  // const reviewContext = useContext(ReviewContext);
+  // const questionContext = useContext(QuestionContext);
+  // const cartContext = useContext(CartContext);
+  const clickTrackerContext = useContext(ClickTrackerContext);
 
-  useEffect(() => {
-    //  productContext.getProducts();
-  }, []);
+
+  const handleClick = (e) => {
+    if (e.target.className !== "") {
+      clickTrackerContext.getTrackedClick(e.target.tagName, e.target.className, e.timeStamp)
+    }
+  }
 
   return (
     <ProductState>
       <ReviewState>
         <QuestionState>
           <CartState>
-            <ProductOverview />
-            <RelatedItemsSection />
-            <OutfitSection />
-            <QuestionsAndAnswers />
-            <RatingsAndReviews />
+            <ClickTrackerState>
+              <div onClick={handleClick}>
+                <ProductOverview />
+                <RelatedItemsSection />
+                <OutfitSection />
+                <QuestionsAndAnswers />
+                <RatingsAndReviews />
+              </div>
+            </ClickTrackerState>
           </CartState>
         </QuestionState>
       </ReviewState>
