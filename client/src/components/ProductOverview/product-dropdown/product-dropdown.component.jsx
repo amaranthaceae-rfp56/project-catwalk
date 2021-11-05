@@ -15,7 +15,6 @@ const ProductDropdown = () => {
 
   const handleChange = (e) => {
     const skuVal = e.target[e.target.selectedIndex].dataset.id;
-
     let dropdown = document.getElementsByClassName('product-dropdown')[0];
     dropdown.setAttribute('size', 0);
     setQuantitySize(Number(e.target.value));
@@ -30,7 +29,7 @@ const ProductDropdown = () => {
     e.preventDefault();
     if (!quantitySize) {
       let dropdown = document.getElementsByClassName('product-dropdown')[0];
-      dropdown.setAttribute('size', Object.values(currentStyle.skus).length)
+      dropdown.setAttribute('size', Object.values(currentStyle.skus).length - 1)
     } else {
       cartContext.addCartItem(sku, quantity);
     }
@@ -47,10 +46,12 @@ const ProductDropdown = () => {
 
       <select onChange={handleQuantityChange} value={quantity} className="product-dropdown">
       {/* <option value="" selected disabled hidden> - </option> */}
-         {quantitySize === 0 ? <option>OUT OF STOCK</option> : [...Array(quantitySize)].map((num, i) => {
+         {quantitySize === null ? <option> - </option> : quantitySize === 0 ? <option>OUT OF STOCK</option> : [...Array(quantitySize)].map((num, i) => {
            if (i + 1 > 15) {
              return
-           } else {
+           } else if (i === 1) {
+            return <option selected value={i + 1}>{i + 1}</option>
+          }else {
              return (<option value={i + 1}>{i + 1}</option>);
            }
          })}
