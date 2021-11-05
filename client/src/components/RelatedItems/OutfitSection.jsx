@@ -41,8 +41,11 @@ const OutfitSection = () => {
     <div className="outfit-card-container">
       <p>YOUR OUTFIT</p>
       <div data-testid={'Outfit-Items'} className="Outfit-Items">
-        <button onClick={addToList}
-          className="outfit-button">Add to Outfit</button>
+        <div className="outfit-button">
+          <button onClick={addToList}
+            className="outfit-button-text"
+          >Add to Outfit</button>
+        </div>
         {outfitList.map((productId, index) =>
           <OutfitCard
             key={index}

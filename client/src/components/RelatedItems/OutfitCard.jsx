@@ -35,7 +35,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
 
   return Object.keys(cardProduct).length > 0 && (
     <div className="outfit-card-container">
-      <div className="outfit-card flex-container">
+      <div className="outfit-card outfit-scroll">
         <i className="fa fa-times-circle delete-style"
           onClick={deleteOutfit}></i>
         <img src={thumbnail} className="outfit-thumbnail-style" />
