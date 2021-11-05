@@ -52,7 +52,7 @@ const ReviewForm = (props) => {
         <div className = 'input-fields'>
             <input onChange = {inputDataSetter.bind(null, 'summary')}type = 'text' className = 'review-form-summary input' placeholder = 'Enter Summary...'></input>
             <input onChange = {inputDataSetter.bind(null, 'email')} type = 'email' className = 'review-form-email input' placeholder = 'Enter Email...'></input>
-            <textarea  onChange = {inputDataSetter.bind(null, 'body')} className = 'review-form-body input' placeholder = {`'Enter your review...'`}></textarea>
+            <textarea  onChange = {inputDataSetter.bind(null, 'body')} className = 'review-form-body input' placeholder = 'Enter your review...'></textarea>
         </div>
 
         <TraitRater callback = {radioClick}traits = {traits} ids={formData.characteristics}/>
