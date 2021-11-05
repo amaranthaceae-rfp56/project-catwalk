@@ -4,12 +4,12 @@ $fontTitle: 3.0rem, Helvetica, sans-serif;
 $bold: 700;
 $medium: 550;
 
-$notosans:'Noto Sans';
+$noto-sans:'Noto Sans', sans-serif;
 
-@mixin noto-sans {
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-}
+// @mixin noto-sans {
+//   font-family: 'Noto Sans', sans-serif;
+//   font-size: 12px;
+//   font-weight: 700;
+//   text-transform: uppercase;
+//   color: rgb(0, 0, 0);
+// }

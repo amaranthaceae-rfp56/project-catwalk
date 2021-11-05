@@ -4,14 +4,10 @@ import '../../styles/sections/_related.scss';
 import ReviewContext from '../../context/reviews/ReviewContext';
 import ProductContext from '../../context/products/ProductContext';
 import StarRating from '../sharedComponents/StarRating.jsx';
-import CompareModal from './CompareModal.jsx';
-import Modal from '../../components/sharedComponents/Modal.jsx';
-
 
 
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const productContext = useContext(ProductContext);
-  const [modal, setModal] = useState(false);
   const [cardProduct, setCardProduct] = useState({});
   const [thumbnail, setThumbnail] = useState('');
   const reviewContext = useContext(ReviewContext);
@@ -29,19 +25,10 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
       .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
   }, []);
 
-
-
-  const openModal = () => {
-    const compareList = (<CompareModal left={cardProduct} right={pageProduct} />);
-    setModal(<Modal callback={setModal} component={compareList} />)
-  };
-
   return Object.keys(cardProduct).length > 0 && (
     <div className="related-card-container">
       <div className="related-card">
-        <i className="fa fa-star compare-style"
-          onClick={openModal}></i>
-        {modal}
+        <i className="fa fa-star compare-style"></i>
         <img src={thumbnail}
           className="thumbnail-style" />
         <p className="category-style">
