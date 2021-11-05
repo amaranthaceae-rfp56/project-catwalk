@@ -29,9 +29,9 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   }, []);
 
   const openModal = () => {
-    console.log('clicked');
+
     const compareList = (<CompareModal left={cardProduct} right={pageProduct} />);
-    setModal(<Modal callback={setModal} component={compareList} class = 'photo-tile'/>)
+    setModal(<Modal callback={setModal} component={compareList}/>)
   };
 
   return Object.keys(cardProduct).length > 0 && (
