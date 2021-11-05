@@ -83,7 +83,7 @@ const ProductExpandedView = ({ expandView }) => {
       <div className="expanded-view-container">
           <div className="expanded-view-gallery-main">
           <img src={expandIcon} className="expand-icon" style={{ height: '25px', width: '25px' }} onClick={expandView}/>
-                  <img src={leftArrow} className="expanded-view-left-arrow" onClick={handlePageChange} name="back" value={page}/>
+                  <img src={leftArrow} className={!zoomState ? "expanded-view-left-arrow" : "expanded-view-left-arrow active"} onClick={handlePageChange} name="back" value={page}/>
                     {currentStyle.photos.map((photo, index) => {
                       if (page === index) {
                         return (
@@ -93,7 +93,7 @@ const ProductExpandedView = ({ expandView }) => {
                         )
                       }
                     })}
-                    <img src={rightArrow} className="expanded-view-right-arrow" onClick={handlePageChange} name="front" value={page}/>
+                    <img src={rightArrow} className={!zoomState ?"expanded-view-right-arrow" : "expanded-view-right-arrow active"} onClick={handlePageChange} name="front" value={page}/>
           </div>
 
         {/* <div className="expanded-view-gallery-main">
@@ -110,7 +110,9 @@ const ProductExpandedView = ({ expandView }) => {
 
         <div className="expanded-view-thumbnail-container" >
             {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
-                <img src={photo.thumbnail_url} className={ page === index ? "expanded-view-thumbnail active" : "expanded-view-thumbnail" } onClick={handleClick} name={index} />
+              <>
+                { !zoomState ? <img src={photo.thumbnail_url} className={ page === index ? "expanded-view-thumbnail active" : "expanded-view-thumbnail" } onClick={handleClick} name={index} /> : null}
+              </>
             ))}
         </div>
 

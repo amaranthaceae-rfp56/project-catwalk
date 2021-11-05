@@ -11,7 +11,7 @@
 
 .product-overview-container-left {
   width: 60%;
-  background-color: rgb(169, 169, 173);
+  // background-color: rgb(169, 169, 173);
   transition: 0.5s;
   // transition-property: background-color;
 }
@@ -24,7 +24,10 @@
 
 .product-overview-container-left.active {
   width: 100%;
-  z-index: 20;
+  height: 80vh;
+  transition: 0.5s;
+  // z-index: 10;
+  // transition: 0.5s ease-in;
   // transition-property: background-color 2s;
   // transition: 1s ease out;
   // transition: background-color 3s ease-out;

@@ -70,12 +70,22 @@
   position: absolute;
   top: 40%;
   left: 40px;
+
+  &.active {
+    display: none;
+  }
 }
+
+
 
 .expanded-view-right-arrow {
   position: absolute;
   top: 40%;
   right: 70px;
+
+  &.active {
+    display: none;
+  }
 }
 
 figure {
@@ -101,7 +111,3 @@ figure {
   top: 30px;
   right: 55px;
 }
-
-// figure:hover img {
-//   opacity: 0;
-// }
