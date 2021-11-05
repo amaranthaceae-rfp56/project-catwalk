@@ -3,7 +3,7 @@ const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, voteQuestionHelpful } = require('./helper.js');
+const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, voteQuestionHelpful, voteAnswerHelpful } = require('./helper.js');
 
 const app = express();
 
@@ -81,15 +81,6 @@ app.get('/api/qa/questions/answers/:question_id', async (req, res) => {
   res.send(data)
 })
 
-app.put('/api/questions/helpful/', async (req, res) => {
-
-  //helper that update question helpful
-  // console.log(req.query.question_id);
-  // res.sendStatus(200);
-  var data = await markQuestion(req.query.question_id);
-  res.send(data);
-});
-
 // Post question
 app.post('/api/qa/questions/:product_id', async (req, res) => {
   var data = await postQuestion(req.params.product_id, req.body);
@@ -100,6 +91,13 @@ app.post('/api/qa/questions/:product_id', async (req, res) => {
 app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
   console.log(req.query.question_id);
   var data = await voteQuestionHelpful(req.query.question_id);
+  res.send(data);
+});
+
+// Vote Answer as Helpful
+app.put('/api/qa/answers/:answer_id/helpful', async (req, res) => {
+  console.log(req.query.answer_id);
+  var data = await voteAnswerHelpful(req.query.answer_id);
   res.send(data);
 });
 
