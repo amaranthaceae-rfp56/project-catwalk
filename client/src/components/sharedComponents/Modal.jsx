@@ -10,11 +10,11 @@ const Modal = (props) => {
     props.both === undefined ? closeBoth = true : closeBoth = false;
 
     if (closeBoth) {
-      if (event.target.className === 'modal-background' || event.target.className === 'modal-close') {
+      if (event.target.className === `${props.class}-modal-background` || event.target.className === `${props.class}-modal-close`) {
         props.callback(false);
       }
     } else {
-      if (event.target.className === 'modal-close') {
+      if (event.target.className === `${props.class}-modal-close`) {
         props.callback(false);
       }
     }
@@ -24,9 +24,9 @@ const Modal = (props) => {
 
   }
   return (
-    <div onClick = {closeModal} className = 'modal-background'>
-      <div className = 'modal-container'>
-        <div style = {{left: `${left}%`, top: `${top}px`}} className = 'modal-close'>X</div>
+    <div onClick = {closeModal} className = {`${props.class}-modal-background`}>
+      <div className = {`${props.class}-9modal-container`}>
+        <div style = {{left: `${left}%`, top: `${top}px`}} className = {`${props.class}-modal-close`}>X</div>
         {props.component}
       </div>
     </div>
