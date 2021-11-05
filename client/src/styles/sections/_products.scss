@@ -1,8 +1,20 @@
 @use '../abstracts/fonts';
 @use '../abstracts/colors';
+@use '../base/mixins';
 
 .products-title {
   font: fonts.$fontTitle;
   color: colors.$bodyColor;
   font-weight: 700;
+}
+
+.product-overview {
+  @include mixins.theme(18px, 700);
+}
+.product-overview-description-left {
+  @include mixins.theme(16px, 300);
+}
+
+.product-overview-description-right {
+  @include mixins.theme(16px, 300);
 }

@@ -58,7 +58,7 @@ app.post('/api/reviews/:product_id', async (req, res) => {
 
 // Mark Review as Helpful
 app.put('/api/reviews/helpful/', async (req, res) => {
-
+  console.log(req.query.review_id);
   var data = await markReview(req.query.review_id);
   res.send(data);
 });
@@ -80,6 +80,15 @@ app.get('/api/qa/questions/answers/:question_id', async (req, res) => {
   var data = await getAnswers(req.params.question_id);
   res.send(data)
 })
+
+app.put('/api/questions/helpful/', async (req, res) => {
+
+  //helper that update question helpful
+  // console.log(req.query.question_id);
+  // res.sendStatus(200);
+  var data = await markQuestion(req.query.question_id);
+  res.send(data);
+});
 
 // Post question
 app.post('/api/qa/questions/:product_id', async (req, res) => {

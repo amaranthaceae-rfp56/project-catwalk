@@ -7,8 +7,6 @@ import upArrow from '../../../../assets/upArrow.svg';
 import downArrow from '../../../../assets/downArrow.svg';
 import expandIcon from '../../../../assets/expand.svg';
 
-// import ProductMagnify from '../product-magnify.component.jsx';
-
 import './product-expanded-view.styles.scss';
 
 const ProductExpandedView = ({ expandView }) => {

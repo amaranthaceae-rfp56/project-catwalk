@@ -44,9 +44,12 @@ const QuestionList = () => {
 
   useEffect(() => {
     if (data) {
+
       data.sort((a, b) => {
+
         return b.question_helpfulness - a.question_helpfulness;
       });
+
       setQuestions(data);
     }
   }, [data]);

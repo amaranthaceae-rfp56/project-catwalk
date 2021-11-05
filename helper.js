@@ -109,6 +109,7 @@ const markReview = async (id) => {
 
   return axios.put(`${apiUrl}/reviews/${id}/helpful`, id, {headers})
     .then((result) => {
+      console.log(result);
       return result.data
     })
     .catch((error) => {
@@ -173,7 +174,7 @@ const postQuestion = async (id, postData) => {
 
 const voteQuestionHelpful = async (id) => {
 
-  return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id.toString(), {headers})
+  return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id, {headers})
     .then((result) => {
       console.log('ok',result);
       return result.data
