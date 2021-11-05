@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from "react-modal";
+import '../../styles/sections/_related.scss';
 
-Modal.setAppElement("#root");
 
 const CompareModal = ({ left, right }) => {
-  console.log('compare', left);
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal() {
-    setIsOpen(!isOpen);
-  }
 
   const obj = ((left, right) => {
     var res = {};
@@ -29,24 +22,20 @@ const CompareModal = ({ left, right }) => {
   })(left.features, right.features);
 
   return (
-    <div>
-      <button onClick={toggleModal}>Open modal</button>
-
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={toggleModal}
-        contentLabel="My dialog"
-      >
-        <div>{Object.keys(obj).map((feature, index) => {
-          return (<div key={index}>
-            <span>{obj[feature] % 2 === 1 ? 'V' : ''}</span>
-            <span>{feature}</span>
-            <span>{obj[feature] % 2 === 0 ? 'V' : ''}</span>
+    <div className="compare-modal">
+      <h3>Compare List</h3>
+      <h4 className="left-compare">{left.name}</h4>
+      <h4 className="right-compare">{right.name}</h4>
+      <div className="feature">{Object.keys(obj).map((feature, index) => {
+        return (
+          <div key={index}>
+            <span className="left-compare-mark">{obj[feature] % 2 === 1 ? 'V' : ''}</span>
+            <span className="compare-feature">{feature}</span>
+            <span className="right-compare-mark">{obj[feature] % 2 === 0 ? 'V' : ''}</span>
           </div>);
-        })}</div>
-        <button onClick={toggleModal}>Close modal</button>
-      </Modal>
-    </div>
+      })}
+      </div>
+    </div >
   );
 };
 
