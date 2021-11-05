@@ -22,7 +22,7 @@ const QuestionSearch = (props) => {
 }
 
 QuestionSearch.propTypes = {
-  handleSearch: PropTypes.string.isRequired,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 
