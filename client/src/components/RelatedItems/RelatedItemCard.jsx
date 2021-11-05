@@ -48,8 +48,6 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
           onClick={openModal}
         ></i>
         <img src={thumbnail}
-        ></i>
-        <img src={thumbnail}
           className="thumbnail-style" />
         <p className="category-style">
           {cardProduct.category}
