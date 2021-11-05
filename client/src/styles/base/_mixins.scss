@@ -26,3 +26,40 @@
   //text-transform: uppercase;
   //font-style: italic;
 }
+
+//MODAL
+
+@mixin modal-background {
+  background: rgba(160, 157, 157, 0.788);
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin modal-close {
+  color: #ddd;
+  position: relative;
+  z-index: 2;
+
+  height: 30px;
+  width: 30px;
+  background: #83808d73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: xx-large;
+  border-radius: 5px;
+  border: solid 2px #ddd;
+}
+@mixin modal-close-hover {
+  color: black;
+  background: radial-gradient(red, #ddd);
+  border-color: black;
+  cursor: pointer;
+}

@@ -29,16 +29,25 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   }, []);
 
   const openModal = () => {
-    console.log('clicked');
+
     const compareList = (<CompareModal left={cardProduct} right={pageProduct} />);
-    setModal(<Modal callback={setModal} component={compareList} class="related-modal" />)
+    setModal(<Modal callback={setModal} component={compareList} />)
   };
 
+  const handleClick = (e) => {
+    // console.log(e.currentTarget.dataset.divId);
+    const clickedProductId = e.currentTarget.getAttribute('data-divId');
+    productContext.getProductInfo(clickedProductId)
+    productContext.getProductStyles(clickedProductId)
+  }
+
   return Object.keys(cardProduct).length > 0 && (
-    <div className="related-card-container">
-      <div className="related-card">
+    <div className="related-card-container" data-divId={cardProduct.id} onClick={handleClick} >
+      <div className="related-card" >
         <i className="fa fa-star compare-style"
           onClick={openModal}
+        ></i>
+        <img src={thumbnail}
         ></i>
         <img src={thumbnail}
           className="thumbnail-style" />
