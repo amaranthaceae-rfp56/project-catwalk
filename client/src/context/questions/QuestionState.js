@@ -29,7 +29,8 @@ const QuestionState = props => {
   }, [])
 
   const getQuestions = async() => {
-    const res = await Axios.get(`${API_URL}/43044`);
+    const res = await Axios.get(`${API_URL}/40351`);
+    //43044
 
     dispatch({
       type: GET_QUESTIONS,

@@ -171,6 +171,19 @@ const postQuestion = async (id, postData) => {
   })
 }
 
+const voteQuestionHelpful = async (id) => {
+
+  return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id.toString(), {headers})
+    .then((result) => {
+      console.log('ok',result);
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
+
 module.exports = {
   getProducts: getProducts,
   getProduct: getProduct,
@@ -183,5 +196,6 @@ module.exports = {
   reportReview: reportReview,
   getQuestions: getQuestions,
   getAnswers: getAnswers,
-  postQuestion: postQuestion
+  postQuestion: postQuestion,
+  voteQuestionHelpful: voteQuestionHelpful
 }
