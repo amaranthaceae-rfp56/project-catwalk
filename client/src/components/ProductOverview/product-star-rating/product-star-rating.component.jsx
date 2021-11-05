@@ -11,8 +11,10 @@ const ProductStarRating = () => {
 
   return (
     <div className="product-star-ratings-container">
-      <StarRating rating={Number(avgRatings)}/>
-      <h5>Read all {avgReviewCount} reviews</h5>
+      <StarRating rating={Number(avgRatings)} style={{ transform: 'scale(0.8)'}}/>
+      <a href="#ratings-reviews-container">
+        <h6 style={{ marginLeft: '5px'}}> Read all {avgReviewCount} reviews</h6>
+      </a>
     </div>
   )
 };

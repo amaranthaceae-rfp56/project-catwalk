@@ -97,7 +97,7 @@ app.post('/api/qa/questions/:product_id', async (req, res) => {
 })
 
 var yourOutfit = {
-  'xinyi': [40353, 40352]
+  'xinyi': [40353, 40352, 40433, 40347, 40351, 40348, 40345]
 };
 
 // Post product to Outfit List
