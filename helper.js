@@ -176,7 +176,7 @@ const voteQuestionHelpful = async (id) => {
 
   return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id, {headers})
     .then((result) => {
-      console.log('ok',result);
+      console.log('question helpfulness updated',result);
       return result.data
     })
     .catch((error) => {
@@ -188,13 +188,26 @@ const voteAnswerHelpful = async (id) => {
 
   return axios.put(`${apiUrl}/qa/answers/${id}/helpful`, id, {headers})
     .then((result) => {
-      console.log('ok',result);
+      console.log('answer helpfulness updated',result);
       return result.data
     })
     .catch((error) => {
       console.log(error)
     })
 }
+
+const reportAnswer = async (id) => {
+
+  return axios.put(`${apiUrl}/qa/answers/${id}/report`, id, {headers})
+    .then((result) => {
+      console.log('reported',result);
+      return result.data
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
 
 
 module.exports = {
@@ -212,4 +225,5 @@ module.exports = {
   postQuestion: postQuestion,
   voteQuestionHelpful: voteQuestionHelpful,
   voteAnswerHelpful: voteAnswerHelpful,
+  reportAnswer: reportAnswer,
 }

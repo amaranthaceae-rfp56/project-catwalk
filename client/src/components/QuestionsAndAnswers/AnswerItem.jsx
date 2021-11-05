@@ -6,11 +6,14 @@ import '../../styles/sections/_questions.scss';
 const AnswerItem = (props) => {
 
   const [helpfulCount, setHelpfulCount] = useState(props.answer.helpfulness);
+  const [reportDisable, setReportDisable] = useState(false);
+  const [reportFont, setReportFont] = useState('report-font')
+  const [reportLabel, setReportLabel] = useState('Report');
 
-  const addHelpfulCount = () => {
+  const handleUserAction = (userAction) => {
 
     const options = {
-      url: `http://localhost:3000/api/qa/answers/:answer_id/helpful/`,
+      url: `http://localhost:3000/api/qa/answers/:answer_id/${userAction}/`,
       method: 'PUT',
       params: {
         answer_id: props.answer.id
@@ -19,22 +22,32 @@ const AnswerItem = (props) => {
 
     axios(options)
       .then(() => {
-        console.log('user found answer helpful!', props.answer.id);
-        setHelpfulCount(helpfulCount + 1);
+        console.log('user found answer helpful!');
+        if (userAction === 'helpful') {
+          setHelpfulCount(helpfulCount + 1);
+        } else {
+          if (!reportDisable) {
+            console.log('user reported this answer');
+            setReportDisable(true);
+            setReportLabel('Reported');
+            setReportFont('reported-font');
+          }
+        }
       })
       .catch(err => {
         console.log(err);
       });
   };
 
+  // PUT /qa/questions/:question_id/report
+  // PUT /qa/answers/:answer_id/report
 
-  let foundHelpful = (<div className="found-helpful-font" onClick={addHelpfulCount} >Yes</div>);
 
-  let doReport = (<div className="found-helpful-font" onClick={() => {alert('This answer was offensive')}} >Report</div>);
+  let foundHelpful = (<div className="found-helpful-font" onClick={() => {handleUserAction('helpful')}} >Yes</div>);
+
+  let doReport = (<div className={reportFont} onClick={() => {handleUserAction('report')}} >{reportLabel}</div>);
 
   let dateAnswered = new Date(props.answer.date).toLocaleDateString(undefined,{month: 'long', day: 'numeric', year: 'numeric'});
-
-
 
   return (
     <div>
