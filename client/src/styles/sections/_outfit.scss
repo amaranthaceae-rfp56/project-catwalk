@@ -6,6 +6,17 @@
   white-space: nowrap;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.outfit-card-section {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  .outfit-card-section::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .outfit-scroll {
@@ -20,8 +31,9 @@
   width: 300px;
   border-radius: 0%;
   border: solid;
-  display: inline-block;
   margin: 10px;
+  align-items: center;
+  display: inline-block;
 }
 
 .outfit-button {
@@ -33,6 +45,13 @@
   border: solid;
   display: inline-block;
   margin: 10px;
+}
+
+.outfit-button-text {
+  background-color: aquamarine;
+  width: 300px;
+  height: 100px;
+  top: 50%;
 }
 
 .delete-style {
