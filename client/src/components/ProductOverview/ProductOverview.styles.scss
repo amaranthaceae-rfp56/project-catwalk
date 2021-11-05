@@ -19,7 +19,7 @@
 .product-overview-container-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .product-overview-container-left.active {
