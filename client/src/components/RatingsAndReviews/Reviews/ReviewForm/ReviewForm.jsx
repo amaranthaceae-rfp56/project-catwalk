@@ -1,12 +1,15 @@
 import React, {useState, useEffect, useContext} from 'react';
 import ReviewContext from '../../../../context/reviews/ReviewContext';
 import TraitRater from './TraitRater.jsx';
+import StarRater from './StarRater.jsx';
+import FormPhotoViewer from './FormPhotoViewer.jsx';
+import PhotoInputs from './PhotoInput.jsx';
 
 
 const ReviewForm = (props) => {
   const {reviewMeta} = useContext(ReviewContext);
   const [traits, setTraits] = useState([]);
-  const [formData, setFormData] = useState({characteristics: {}, recommended: false});
+  const [formData, setFormData] = useState({characteristics: {test: 5}, recommended: false, photos: []});
 
   const inputDataSetter = (property) => {
     if (event.target.type === 'checkbox') {
@@ -16,18 +19,33 @@ const ReviewForm = (props) => {
     }
 
   };
-
+  const clickStar = (value) => {
+    setFormData({...formData, rating: value});
+  }
   const radioClick = (trait, value) => {
+
     const copyState = {...formData.characteristics};
     copyState[trait] = value;
     setFormData({...formData, characteristics: copyState});
   }
   useEffect(() => {
     if (reviewMeta) {
-      setTraits(Object.keys(reviewMeta.characteristics));
+      setTraits(reviewMeta.characteristics);
+      const characteristics = {};
+      Object.keys(reviewMeta.characteristics).forEach(key => {
+        characteristics[key] = {id: reviewMeta.characteristics[key].id};
+      })
+      setFormData({...formData, characteristics: characteristics})
+      console.log(characteristics)
     }
 
-  }, [reviewMeta])
+  }, [reviewMeta]);
+  const addPhoto = (url) => {
+    event.preventDefault();
+    const photos = [...formData.photos];
+    photos.push(url);
+    setFormData({...formData, photos: photos})
+  };
 
   return (
     <div className = 'review-form'>
@@ -37,15 +55,18 @@ const ReviewForm = (props) => {
           <h3>About this thing!!</h3>
           <input  onChange={inputDataSetter.bind(null, 'recommended')}type = 'checkbox' id = 'recommended' name = 'recommended' value = {true}/>
           <label htmlFor = 'recommended'>I recommend this product!</label>
-          <div className = 'star-rater'>Stars</div>
+         <StarRater callback = {clickStar}/>
         </div>
         <div className = 'input-fields'>
             <input onChange = {inputDataSetter.bind(null, 'summary')}type = 'text' className = 'review-form-summary input' placeholder = 'Enter Summary...'></input>
             <input onChange = {inputDataSetter.bind(null, 'email')} type = 'email' className = 'review-form-email input' placeholder = 'Enter Email...'></input>
-            <textarea  onChange = {inputDataSetter.bind(null, 'body')} className = 'review-form-body input' placeholder = {`'Enter your review...'`}></textarea>
+            <textarea  onChange = {inputDataSetter.bind(null, 'body')} className = 'review-form-body input' placeholder = 'Enter your review...'></textarea>
+            <PhotoInputs callback = {addPhoto}/>
+            <FormPhotoViewer photos = {formData.photos}/>
         </div>
 
-        <TraitRater callback = {radioClick}traits = {traits}/>
+        <TraitRater callback = {radioClick}traits = {traits} ids={formData.characteristics}/>
+
       </form>
     </div>
   );
