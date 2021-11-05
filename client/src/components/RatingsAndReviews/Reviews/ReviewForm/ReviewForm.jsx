@@ -2,12 +2,14 @@ import React, {useState, useEffect, useContext} from 'react';
 import ReviewContext from '../../../../context/reviews/ReviewContext';
 import TraitRater from './TraitRater.jsx';
 import StarRater from './StarRater.jsx';
+import FormPhotoViewer from './FormPhotoViewer.jsx';
+import PhotoInputs from './PhotoInput.jsx';
 
 
 const ReviewForm = (props) => {
   const {reviewMeta} = useContext(ReviewContext);
   const [traits, setTraits] = useState([]);
-  const [formData, setFormData] = useState({characteristics: {test: 5}, recommended: false});
+  const [formData, setFormData] = useState({characteristics: {test: 5}, recommended: false, photos: []});
 
   const inputDataSetter = (property) => {
     if (event.target.type === 'checkbox') {
@@ -37,7 +39,13 @@ const ReviewForm = (props) => {
       console.log(characteristics)
     }
 
-  }, [reviewMeta])
+  }, [reviewMeta]);
+  const addPhoto = (url) => {
+    event.preventDefault();
+    const photos = [...formData.photos];
+    photos.push(url);
+    setFormData({...formData, photos: photos})
+  };
 
   return (
     <div className = 'review-form'>
@@ -53,9 +61,12 @@ const ReviewForm = (props) => {
             <input onChange = {inputDataSetter.bind(null, 'summary')}type = 'text' className = 'review-form-summary input' placeholder = 'Enter Summary...'></input>
             <input onChange = {inputDataSetter.bind(null, 'email')} type = 'email' className = 'review-form-email input' placeholder = 'Enter Email...'></input>
             <textarea  onChange = {inputDataSetter.bind(null, 'body')} className = 'review-form-body input' placeholder = 'Enter your review...'></textarea>
+            <PhotoInputs callback = {addPhoto}/>
+            <FormPhotoViewer photos = {formData.photos}/>
         </div>
 
         <TraitRater callback = {radioClick}traits = {traits} ids={formData.characteristics}/>
+
       </form>
     </div>
   );
