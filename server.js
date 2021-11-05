@@ -125,6 +125,7 @@ app.post('/api/cart', (req, res) => {
   cartObj.push(req.body);
   res.sendStatus(201);
 });
+
 // delete from outfit List
 app.delete('/outfit/:username', (req, res) => {
   const username = req.params.username;
@@ -140,8 +141,7 @@ app.delete('/outfit/:username', (req, res) => {
   }
   yourOutfit[username].splice(index, 1);
   res.sendStatus(202);
-}
-);
+});
 
 app.listen(3000, () => {
   console.log(`app listening on port 3000`)
