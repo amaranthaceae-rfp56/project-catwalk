@@ -29,16 +29,18 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   }, []);
 
   const openModal = () => {
+    console.log('clicked');
     const compareList = (<CompareModal left={cardProduct} right={pageProduct} />);
-    setModal(<Modal callback={setModal} component={compareList} />)
+    setModal(<Modal callback={setModal} component={compareList} class="related-modal" />)
   };
 
   return Object.keys(cardProduct).length > 0 && (
     <div className="related-card-container">
       <div className="related-card">
-        <i className="fa fa-star compare-style"></i>
-        <img src={thumbnail}
+        <i className="fa fa-star compare-style"
           onClick={openModal}
+        ></i>
+        <img src={thumbnail}
           className="thumbnail-style" />
         <p className="category-style">
           {cardProduct.category}
@@ -49,7 +51,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
         {!currentStyle.sale_price ? <p>$ {currentStyle.original_price}</p> : <div> <strike style={{ color: "red" }}>$ {currentStyle.original_price}</strike><p>$ {currentStyle.sale_price}</p></div>}
         <StarRating rating={Number(avgRatings)} />
       </div>
-
+      {modal}
     </div>
   );
 };
