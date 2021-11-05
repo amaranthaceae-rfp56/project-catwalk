@@ -15,21 +15,21 @@ const QuestionForm = (props) => (
         const errors = {};
         // Nickname validation
         if (!values.nickname) {
-          errors.nickname = 'Required';
+          errors.nickname = 'You must enter the following: Required field is blank';
         } else if (values.nickname.length > 60) {
           errors.nickname = 'Cannot exceed 60 characters';
         }
         // Email validation
         if (!values.email) {
-          errors.email = 'Required';
+          errors.email = 'You must enter the following: Required field is blank';
         } else if (
           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
         ) {
-          errors.email = 'Invalid email address';
+          errors.email = 'You must enter the following: The email address provided is not in correct email format';
         }
         // Question validation
         if (!values.question) {
-          errors.question = 'Required';
+          errors.question = 'You must enter the following: Required field is blank';
         } else if (values.question.length > 1000) {
           'Cannot exceed 1000 characters';
         }
@@ -62,7 +62,7 @@ const QuestionForm = (props) => (
             <ErrorMessage className="form-error-text" name="question" component="div" />
           </div>
           <button className="theme-button" type="submit" disabled={isSubmitting}>
-            Submit Question
+            Submit question
           </button>
         </Form>
       )}

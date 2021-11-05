@@ -95,6 +95,19 @@
   text-decoration: underline;
 }
 
+.found-helpful-font:hover {
+  cursor: pointer;
+}
+
+.add-answer-font {
+  @include mixins.theme(12px, 400);
+  text-decoration: underline;
+}
+
+.add-answer-font:hover {
+  cursor: pointer;
+}
+
 .load-answers-font {
   @include mixins.theme(14px, 700);
 }
