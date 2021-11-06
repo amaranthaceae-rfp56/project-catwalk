@@ -5,3 +5,8 @@
 
 @use './abstracts/fonts';
 @use './abstracts/colors';
+
+* {
+  box-sizing: border-box;
+  margin: 0
+}
