@@ -9,15 +9,17 @@ const ProductNavbar = () => {
   return (
     <nav className="product-navbar">
       <div className="product-navbar-left">
-        <img src={navbarIcon} style={{ height: '50px', width: '50px'}}/>
-        <h4>Amaranthaceae</h4>
+        {/* <img src={navbarIcon} style={{ height: '50px', width: '50px'}}/> */}
+        <span>
+            <span style={{ color: 'white' }}>&lt;/ Amaranthaceae &gt;</span>
+          </span>
       </div>
 
       <div className="product-navbar-right">
 
-          <a href="#related-card-container" style={{ textDecoration: 'none'}}>Related</a>
-          <a href="#questions-section-container" style={{ textDecoration: 'none'}}>Questions</a>
-          <a href="#ratings-reviews-container" style={{ textDecoration: 'none'}}>Reviews</a>
+          <a href="#related-card-container" style={{ textDecoration: 'none', color: 'white'}}>Related</a>
+          <a href="#questions-section-container" style={{ textDecoration: 'none', color: 'white'}}>Questions</a>
+          <a href="#ratings-reviews-container" style={{ textDecoration: 'none', color: 'white'}}>Reviews</a>
           <img src={CartIcon} style={{ height: '40px', width: '40px' }}/>
       </div>
 

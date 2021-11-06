@@ -28,7 +28,7 @@ const ProductOverview = () => {
     <div className="product-overview">
       <ProductNavbar />
       <div className="product-overview-message">
-        <span>SITE-WIDE ANNOUNCEMENT MESSAGE! -- SALE /DISCOUNT <bold>OFFER</bold> -- NEW PRODUCT HIGHLIGHT</span>
+        <span>SITE-WIDE ANNOUNCEMENT MESSAGE! -- SALE /DISCOUNT <b>OFFER</b> -- <u>NEW PRODUCT HIGHLIGHT</u></span>
       </div>
       <div className="product-overview-container">
         <div className={!expandView ? "product-overview-container-left" : "product-overview-container-left active"}>
