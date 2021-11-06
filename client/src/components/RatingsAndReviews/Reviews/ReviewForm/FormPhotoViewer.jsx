@@ -7,19 +7,14 @@ const FormPhotoViewer = (props) => {
   const [modalPhoto, setModalPhoto] = useState(false);
 
    return (
-    <div className = 'form-photos-container'>
+    <div className = 'photos-container'>
       {props.photos.map( (photo, index) => {
         const clickTile = () => {
           const selectedPhoto = (<PhotoModal image = {photo}/>);
           setModalPhoto(<Modal class = 'form-photo' callback = {setModalPhoto} component={selectedPhoto}/>)
         };
 
-        return (
-          <div className = 'photo-thumbnail-container' key = {`photo-${index}`}>
-            <div  onClick = {()=>{props.deletePhoto(index)}} value = {`${index}`}style = {{cursor: 'cell'}}className = 'remove-image'>X</div>
-            <img  onClick = {clickTile}className = 'form-review-photo' src = {photo}></img>
-          </div>
-        );
+        return (<img  onClick = {clickTile}className = 'review-photo' key = {`photo-${index}`}src = {photo}></img>)
       })}
       {modalPhoto}
     </div>

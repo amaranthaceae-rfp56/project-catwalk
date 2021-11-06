@@ -34,9 +34,16 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
     setModal(<Modal callback={setModal} component={compareList}/>)
   };
 
+  const handleClick = (e) => {
+    // console.log(e.currentTarget.dataset.divId);
+    const clickedProductId = e.currentTarget.getAttribute('data-divId');
+    productContext.getProductInfo(clickedProductId)
+    productContext.getProductStyles(clickedProductId)
+  }
+
   return Object.keys(cardProduct).length > 0 && (
-    <div className="related-card-container">
-      <div className="related-card">
+    <div className="related-card-container" data-divId={cardProduct.id} onClick={handleClick} >
+      <div className="related-card" >
         <i className="fa fa-star compare-style"></i>
         <img src={thumbnail}
           onClick={openModal}
