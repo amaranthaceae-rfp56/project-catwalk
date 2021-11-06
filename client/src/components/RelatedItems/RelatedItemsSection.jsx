@@ -32,7 +32,7 @@ const RelatedItemsSection = () => {
   }, []);
 
   return (
-    <div className="related-card-container">
+    <div className="related-card-container" id="related-card-container">
        <p>RELATED PRODUCTS</p>
        <div data-testid={'Related-Items'} className="Related-Items">
        <img src={leftArrow} style={{ height: '30px', width: '30px'}}/>
