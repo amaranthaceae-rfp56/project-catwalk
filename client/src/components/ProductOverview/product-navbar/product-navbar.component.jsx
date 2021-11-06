@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CartIcon from '../../../../assets/cart.svg';
 import './product-navbar.styles.scss';
 
 import navbarIcon from '../../../../assets/navbar-icon.svg';
+import ProductCartModal from '../product-cart-modal/product-cart-modal.component.jsx';
 
 const ProductNavbar = () => {
+  const [show, setShow] = useState(false);
+
+  const showModal = () => {
+    setShow(!show)
+  }
 
   return (
     <nav className="product-navbar">
@@ -20,7 +26,9 @@ const ProductNavbar = () => {
           <a href="#related-card-container" style={{ textDecoration: 'none', color: 'white'}}>Related</a>
           <a href="#questions-section-container" style={{ textDecoration: 'none', color: 'white'}}>Questions</a>
           <a href="#ratings-reviews-container" style={{ textDecoration: 'none', color: 'white'}}>Reviews</a>
-          <img src={CartIcon} style={{ height: '40px', width: '40px' }}/>
+
+          <img src={CartIcon} style={{ height: '40px', width: '40px' }} onClick={showModal} />
+          {!show ? null : <ProductCartModal showModal={showModal}/>}
       </div>
 
     </nav>

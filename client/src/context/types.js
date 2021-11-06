@@ -27,6 +27,7 @@ export const REPORT_ANSWER = 'REPORT_ANSWER';
 // Cart Types
 export const GET_CART_ITEMS = 'GET_CART_ITEMS';
 export const ADD_CART_ITEM = 'ADD_CART_ITEM';
+export const ADD_CART_ITEM_DETAILS = 'ADD_CART_ITEM_DETAILS';
 
 // Click Tracker Types
 export const ADD_CLICKED_DATA = 'ADD_CLICKED_DATA'
