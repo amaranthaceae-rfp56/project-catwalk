@@ -6,6 +6,8 @@ import AnswerForm from './AnswerForm.jsx';
 import AnswerList from './AnswerList.jsx';
 import axios from 'axios';
 
+import '../../styles/sections/_questions.scss';
+
 const QuestionItem = (props) => {
 
   const productContext = useContext(ProductContext);
@@ -57,7 +59,7 @@ const QuestionItem = (props) => {
       </div>
       <div className="questions-addAnswer-container questions-info-font">
         <div>{doAnswer}</div>
-        {modalVisible ? <Modal callback={setModalVisible} left={89} top={52} both={false} component={<AnswerForm productName={product} questionBody={props.questionBody} />}/> : <></>}
+        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<AnswerForm callback={setModalVisible} productName={product} questionBody={props.questionBody} questionId={props.questionId}/>}/> : <></>}
       </div>
     </div>
     <div className="questions-container">
@@ -65,7 +67,7 @@ const QuestionItem = (props) => {
         <div className="questions-font">A:</div>
       </div>
         <div className="answers-scrollable-container">
-          < AnswerList questionAnswers={props.questionAnswers} />
+          < AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/>
       </div>
     </div>
     </div>
