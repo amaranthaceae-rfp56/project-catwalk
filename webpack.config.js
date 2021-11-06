@@ -39,20 +39,8 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              name: '[name].ext',
-              publicPath: 'client/assets',
-              outPath: 'client/assets'
-            },
-          },
-        ]
-      },
-    ],
+    ]
+  },
    output: {
     filename: 'bundle.js',
     path: __dirname + '/client/dist'
