@@ -52,7 +52,7 @@ const CartState = props => {
     })
   }
 
-  const addCartItemDetails = (name, img, price, quantity) => {
+  const addCartItemDetails = (name, img, price, quantity, sku) => {
     const data = {
       name,
       img_url: img,
@@ -60,7 +60,7 @@ const CartState = props => {
       quantity
     }
 
-    const itemExists = state.cartDetails.filter((item) => item.name === name);
+    const itemExists = state.cartDetails.filter((item) => item.sku === sku);
 
     if (itemExists.length > 0) {
       return
