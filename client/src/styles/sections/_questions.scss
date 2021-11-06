@@ -153,3 +153,15 @@
   font: fonts.$fontTitle;
   color: colors.$titleColor;
 }
+
+.submit-question-modal-background {
+  @include mixins.modal-background
+}
+
+.submit-question-modal-close {
+  @include mixins.modal-close
+}
+
+.submit-question-modal-close:hover {
+  @include mixins.modal-close-hover
+}
