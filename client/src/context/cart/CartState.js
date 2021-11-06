@@ -6,14 +6,16 @@ import CartReducer from './CartReducer';
 
 import {
   GET_CART_ITEMS,
-  ADD_CART_ITEM
+  ADD_CART_ITEM,
+  ADD_CART_ITEM_DETAILS
 } from '../types'
 
 const API_URL = 'http://localhost:3000/api/cart';
 
 const CartState = props => {
   const initialState = {
-    cart: []
+    cart: [],
+    cartDetails: []
   }
 
   const [state, dispatch] = useReducer(CartReducer, initialState);
@@ -50,8 +52,28 @@ const CartState = props => {
     })
   }
 
+  const addCartItemDetails = (name, img, price, quantity) => {
+    const data = {
+      name,
+      img_url: img,
+      price,
+      quantity
+    }
+
+    const itemExists = state.cartDetails.filter((item) => item.name === name);
+
+    if (itemExists.length > 0) {
+      return
+    }
+
+    dispatch({
+      type: ADD_CART_ITEM_DETAILS,
+      payload: data
+    })
+  }
+
   return (
-    <CartContext.Provider value={{ cart: state.cart, getCartItems, addCartItem }}>
+    <CartContext.Provider value={{ cart: state.cart, cartDetails: state.cartDetails, getCartItems, addCartItem, addCartItemDetails }}>
       {props.children}
     </CartContext.Provider>
   )

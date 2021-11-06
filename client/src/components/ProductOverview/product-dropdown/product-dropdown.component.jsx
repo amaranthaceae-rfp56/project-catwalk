@@ -36,6 +36,7 @@ const ProductDropdown = () => {
       dropdown.setAttribute('size', Object.values(currentStyle.skus).length - 1)
     } else {
       cartContext.addCartItem(sku, quantity);
+      cartContext.addCartItemDetails(currentStyle.name, currentStyle.photos[0].thumbnail_url, currentStyle.original_price, quantity)
     }
   }
 
