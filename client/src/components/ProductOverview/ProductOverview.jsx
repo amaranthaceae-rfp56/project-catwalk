@@ -8,10 +8,8 @@ import ProductStyleSelector from './product-style-selector/product-style-selecto
 import ProductDropdown from './product-dropdown/product-dropdown.component.jsx';
 import ProductSocialMedia from './product-social-media/product-social-media.component.jsx';
 import ProductExpandedView from './product-expanded-view/product-expanded-view.component.jsx';
-import ProductNavbar from './product-navbar/product-navbar.component.jsx';
 
 import GreenCheckmark from '../../../assets/greenCheckmark.svg';
-// import Banner from '../../../assets/banner.png';
 
 import './ProductOverview.styles.scss';
 
@@ -26,10 +24,6 @@ const ProductOverview = () => {
 
   return (
     <div className="product-overview">
-      <ProductNavbar />
-      <div className="product-overview-message">
-        <span>SITE-WIDE ANNOUNCEMENT MESSAGE! -- SALE /DISCOUNT <b>OFFER</b> -- <u>NEW PRODUCT HIGHLIGHT</u></span>
-      </div>
       <div className="product-overview-container">
         <div className={!expandView ? "product-overview-container-left" : "product-overview-container-left active"}>
           {!expandView ? <ProductImageGallery expandView={handleExpandView}/> : <ProductExpandedView expandView={handleExpandView}/> }
@@ -38,10 +32,10 @@ const ProductOverview = () => {
         <div className={!expandView ? "product-overview-container-right" : "product-overview-container-right active"}>
           <ProductStarRating />
           <div className="product-overview-details">
-            <h2>{productInfo.name}</h2>
+            <h2>{currentStyle.name}</h2>
             {!currentStyle.sale_price ? <h3>$ {currentStyle.original_price}</h3> : <div> <strike style={{ color: "red"}}>$ {currentStyle.original_price}</strike><h3>$ {currentStyle.sale_price}</h3></div>}
           </div>
-          <h5>Select Style <span style={{ fontWeight: '10'}}>&gt; {currentStyle.name}</span></h5>
+          <h4>Select Style</h4>
           <ProductStyleSelector />
           <ProductDropdown />
           <ProductSocialMedia />

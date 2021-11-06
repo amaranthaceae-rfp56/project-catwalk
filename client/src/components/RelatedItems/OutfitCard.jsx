@@ -24,13 +24,6 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
       .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
   }, []);
 
-  const handleClick = (e) => {
-    // console.log(e.currentTarget.dataset.divId);
-    const clickedProductId = e.currentTarget.getAttribute('data-divId');
-    productContext.getProductInfo(clickedProductId)
-    productContext.getProductStyles(clickedProductId)
-  }
-
   const deleteOutfit = () => {
     fetch(`http://localhost:3000/outfit/${username}`, {
       method: 'DELETE',
@@ -41,7 +34,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   };
 
   return Object.keys(cardProduct).length > 0 && (
-    <div className="outfit-card" data-divId={cardProduct.id} onClick={handleClick}>
+    <div className="outfit-card">
 
       <i
         className="fa fa-times-circle delete-style"
