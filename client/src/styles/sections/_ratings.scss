@@ -247,49 +247,7 @@ ul {
   display: flex;
   justify-content: space-between;
 }
-////MODAL
 
-.modal-background {
-  background: rgba(160, 157, 157, 0.788);
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  position: fixed;
-  left: 0%;
-  top: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-close {
-  color: #ddd;
-  position: relative;
-  z-index: 2;
-
-  height: 30px;
-  width: 30px;
-  background: #83808d73;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 900;
-  font-size: xx-large;
-  border-radius: 5px;
-  border: solid 2px #ddd;
-}
-.modal-close:hover {
-  color: black;
-  background: radial-gradient(red, #ddd);
-  border-color: black;
-  cursor: pointer;
-}
-
-.photo-modal {
-  width: 800px;
-  height: 600px;
-
-}
 
 //////////////////////////////////@at-root
 //REVIEW FORM
@@ -355,4 +313,89 @@ ul {
 
 .filled {
   color: black;
+}
+
+////MODAL
+
+.form-photo-modal-background {
+  @include mixins.modal-background;
+}
+
+.form-photo-modal-close {
+  @include mixins.modal-close;
+}
+.form-photo-modal-close:hover {
+  @include mixins.modal-close-hover;
+}
+
+.photo-modal {
+  width: 800px;
+  height: 600px;
+
+}
+///@at-root
+////MODAL
+
+.review-form-modal-background {
+  @include mixins.modal-background;
+}
+
+.review-form-modal-close {
+  @include mixins.modal-close;
+}
+.review-form-modal-close:hover {
+  @include mixins.modal-close-hover;
+}
+
+.photo-modal {
+  width: 800px;
+  height: 600px;
+
+}
+///@at-root
+
+////MODAL
+
+.photo-tile-modal-background {
+  @include mixins.modal-background;
+
+}
+
+.photo-tile-modal-close {
+  @include mixins.modal-close;
+}
+.photo-tile-modal-close:hover {
+  @include mixins.modal-close-hover;
+}
+
+.photo-modal {
+  width: 800px;
+  height: 600px;
+
+}
+
+
+///////////////////////////////
+//ADD YOU CLASS NAME TO THE FRONT OF THESE .(class)-modal-background {
+
+.modal-background {
+  background: rgba(160, 157, 157, 0.788);
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-close {
+
+}
+.modal-close:hover {
+  color: black;
+  background: radial-gradient(red, #ddd);
+  border-color: black;
+  cursor: pointer;
 }

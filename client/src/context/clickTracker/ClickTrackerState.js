@@ -22,8 +22,6 @@ const ClickTrackerState = (props) => {
       time: d
     }
 
-    console.log(data);
-    // console.log(element, module, timestamp, d);
     dispatch({
       type: ADD_CLICKED_DATA,
       payload: data

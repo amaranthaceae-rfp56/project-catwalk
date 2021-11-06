@@ -48,7 +48,7 @@ const ReviewList = () => {
 
   const newReview = () => {
     const form = (<ReviewForm/>);
-    const reviewForm = (<Modal top = {70} both = {false} component = {form} callback = {setModal}/>);
+    const reviewForm = (<Modal class = 'review-form' top = {70} both = {false} component = {form} callback = {setModal}/>);
     console.log(reviewForm);
     setModal(reviewForm);
   };
