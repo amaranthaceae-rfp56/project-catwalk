@@ -157,12 +157,13 @@ const getAnswers = async (id) => {
 
 const postQuestion = async (id, postData) => {
   const { body, name, email } = postData
+  // console.log(id, body, name, email);
 
   return axios.post(`${apiUrl}/qa/questions`, {
     body: body,
     name: name,
     email: email,
-    product_id: id
+    product_id: Number(id)
   }, { headers })
   .then((result) => {
     return result.data

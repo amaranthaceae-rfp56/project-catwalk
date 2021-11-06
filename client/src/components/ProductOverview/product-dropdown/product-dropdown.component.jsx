@@ -62,7 +62,7 @@ const ProductDropdown = () => {
       </select>
 
       <form onSubmit={handleSubmit}>
-        <button className="product-dropdown" type="submit">Add To Cart</button>
+        <button className="product-dropdown-button" type="submit">Add To Cart</button>
       </form>
 
     </div>
