@@ -2,16 +2,24 @@
 @use "../abstracts/colors";
 @use "../base/mixins";
 
+.outfit-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .Outfit-Items {
   white-space: nowrap;
   display: flex;
   flex-direction: row;
   overflow: hidden;
   overflow-x: scroll;
+  justify-content: center;
+  align-items: flex;
+  width: 100%;
 }
 
 .outfit-card-section {
-  width: 100%;
+  width: 60%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   .outfit-card-section::-webkit-scrollbar {

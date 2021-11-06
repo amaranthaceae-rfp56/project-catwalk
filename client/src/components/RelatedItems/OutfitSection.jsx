@@ -7,9 +7,11 @@ import '../../styles/sections/_outfit.scss';
 
 const OutfitSection = () => {
   const username = window.location.search.slice(10);
-  const [pageProduct, setPageProduct] = useState({});
+
   const [outfitList, setOutfitList] = useState([]);
   const ref = useRef(null);
+  const leftRef = useRef(null);
+  const RightRef = useRef(null);
   const [width, setWidth] = useState(0);
 
   const base_url = 'http://localhost:3000';
@@ -41,7 +43,7 @@ const OutfitSection = () => {
   };
 
   const handleLoad = () => {
-    // console.log(ref);
+    console.log(ref);
     if (ref.current.clientWidth) {
       setWidth(ref.current.clientWidth);
     }
@@ -51,10 +53,20 @@ const OutfitSection = () => {
     ref.current.scrollLeft += width;
     console.log('scrollLeft>>', ref.current.scrollLeft);
   }
+  const handleVisible = () => {
+    if (ref.current.scrollLeft === 0) {
+      leftRef.current.style.visibility = 'hidden';
+    } else {
+      leftRef.current.visibility = '';
+    }
+  }
+
+
 
   return (
     <div className="outfit-card-container">
-      <p>YOUR OUTFIT</p>
+      <p className="outfit-title">YOUR OUTFIT</p>
+
       <div
         data-testid={'Outfit-Items'}
         className="Outfit-Items"
@@ -64,15 +76,13 @@ const OutfitSection = () => {
             className="outfit-button-text"
           >Add to Outfit</button>
         </div>
-        {ref && ref.current && ref.current.scrollLeft !== 0 &&
-          <img
+        {
+          (<img
+            ref={leftRef}
             src={leftArrow}
-            onClick={() => handleScroll(-width / 2)}
-          />}
-        {/* <img
-          src={leftArrow}
-          onClick={() => handleScroll(-300)}
-        /> */}
+            onClick={() => { handleScroll(-300); handleVisible() }}
+          />)
+        }
         <div
           className="outfit-card-section"
           ref={ref}

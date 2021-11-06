@@ -33,19 +33,20 @@ const RelatedItemsSection = () => {
 
   return (
     <div className="related-card-container">
-       <p>RELATED PRODUCTS</p>
-       <div data-testid={'Related-Items'} className="Related-Items">
-       <img src={leftArrow} />
-      {relatedItems.map((product, index) => {
-        return <RelatedItemCard
-          pageProduct={pageProduct}
-          cardProductId={product}
-          key={index} />
-      })}
+      <p>RELATED PRODUCTS</p>
+      <div data-testid={'Related-Items'} className="Related-Items">
+        <img src={leftArrow} />
+        <div className="related-card-section">
+          {relatedItems.map((product, index) => {
+            return <RelatedItemCard
+              pageProduct={pageProduct}
+              cardProductId={product}
+              key={index} />
+          })}
+        </div>
+        <img src={rightArrow} />
 
-      <img src={rightArrow} />
-
-    </div>
+      </div>
     </div>
 
   );

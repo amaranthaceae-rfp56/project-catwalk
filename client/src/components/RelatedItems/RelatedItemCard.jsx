@@ -31,7 +31,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const openModal = () => {
 
     const compareList = (<CompareModal left={cardProduct} right={pageProduct} />);
-    setModal(<Modal callback={setModal} component={compareList} />)
+    setModal(<Modal callback={setModal} component={compareList} class="related-modal" />)
   };
 
   const handleClick = (e) => {

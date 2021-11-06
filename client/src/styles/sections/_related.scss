@@ -8,10 +8,31 @@
   font-weight: 300;
 }
 
+.related-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .Related-Items {
   white-space: nowrap;
   display: flex;
   flex-direction: row;
+  overflow-x: scroll;
+  overflow: hidden;
+  align-items: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.related-card-section {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  .related-card-section::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .related-card {
@@ -42,7 +63,7 @@
 //modal css
 
 .compare-modal {
-  background-size: contain;
+  background-color: lightpink;
   width: 400px;
   height: 250px;
 }
