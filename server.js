@@ -3,7 +3,7 @@ const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
 
-const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, voteQuestionHelpful, voteAnswerHelpful, reportAnswer } = require('./helper.js');
+const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, postAnswer, voteQuestionHelpful, voteAnswerHelpful, reportAnswer } = require('./helper.js');
 
 const app = express();
 
@@ -69,16 +69,12 @@ app.put('/api/reviews/report/', async (req, res) => {
   res.send(data);
 })
 
+//QUESTIONS
+
 // Get questions for product
 app.get('/api/qa/questions/:product_id', async (req, res) => {
   var data = await getQuestions(req.params.product_id);
   res.send(data);
-})
-
-// Get answers for question
-app.get('/api/qa/questions/answers/:question_id', async (req, res) => {
-  var data = await getAnswers(req.params.question_id);
-  res.send(data)
 })
 
 // Post question
@@ -97,6 +93,24 @@ app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
   res.send(data);
 });
 
+// ANSWERS
+
+// Get answers for question
+app.get('/api/qa/questions/:question_id/answers', async (req, res) => {
+  var data = await getAnswers(req.query.question_id);
+  console.log('whathappened',data);
+  res.send(data)
+})
+
+// Post an answer
+app.post('/api/qa/questions/:question_id/answers', async (req, res) => {
+  console.log('params',req.query.question_id);
+  console.log('body',req.body);
+  var data = await postAnswer(req.query.question_id, req.body);
+  res.send(data);
+})
+
+
 // Vote Answer as Helpful
 app.put('/api/qa/answers/:answer_id/helpful', async (req, res) => {
   console.log(req.query.answer_id);
@@ -111,6 +125,8 @@ app.put('/api/qa/answers/:answer_id/report', async (req, res) => {
   res.send(data);
 });
 
+
+// OUTFITS
 
 var yourOutfit = {
   'xinyi': [40353, 40352, 40433, 40347, 40351, 40348, 40345]

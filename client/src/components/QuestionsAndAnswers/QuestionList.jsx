@@ -91,7 +91,7 @@ const QuestionList = () => {
       <div className="questions-container">
         <div>{moreQuestions}</div>
         <button className="theme-button" onClick = {handleAddMoreQuestions}>ADD A QUESTION +</button>
-        {modalVisible ? <Modal class='submit-question' callback={setModalVisible} left={89} top={52} both={false} component={<QuestionForm callback={setModalVisible} product={product} />}/> : <></>}
+        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<QuestionForm callback={setModalVisible} product={product} />}/> : <></>}
       </div>
     </div>
   );

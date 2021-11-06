@@ -176,6 +176,27 @@ const postQuestion = async (postData) => {
   })
 }
 
+const postAnswer = async (id, postData) => {
+  console.log(postData);
+  const { name, email, body, photos } = postData
+  console.log(name, email, body, photos);
+
+  axios.post(`${apiUrl}/qa/questions/${id}/answers`, {
+    name: name,
+    email: email,
+    body: body,
+    photos: photos,
+  }, { headers })
+  .then((result) => {
+    console.log('answer successfully posted!');
+    console.log(result.status, result.data);
+    return result.data
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
 const voteQuestionHelpful = async (id) => {
 
   return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id, {headers})
@@ -227,6 +248,7 @@ module.exports = {
   getQuestions: getQuestions,
   getAnswers: getAnswers,
   postQuestion: postQuestion,
+  postAnswer: postAnswer,
   voteQuestionHelpful: voteQuestionHelpful,
   voteAnswerHelpful: voteAnswerHelpful,
   reportAnswer: reportAnswer,
