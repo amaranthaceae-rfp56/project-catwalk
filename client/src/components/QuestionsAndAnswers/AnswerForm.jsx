@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import '../../styles/sections/_questions.scss';
 
@@ -36,10 +37,26 @@ const AnswerForm = (props) => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+
+        const options = {
+          url: `http://localhost:3000/api/qa/questions/:question_id/answers`,
+          method: 'POST',
+          params: {
+            name: values.nickname,
+            email: values.email,
+            body: values.answer,
+           // photos: photos,
+           }
+        };
+
+        axios(options)
+          .then(() => {
+            console.log('answer posted successfully!');
+            setSubmitting(false);
+          })
+          .catch(err => {
+          console.log(err);
+        });
       }}
     >
       {({ isSubmitting }) => (

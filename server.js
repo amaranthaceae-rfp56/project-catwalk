@@ -82,8 +82,11 @@ app.get('/api/qa/questions/answers/:question_id', async (req, res) => {
 })
 
 // Post question
-app.post('/api/qa/questions/:product_id', async (req, res) => {
-  var data = await postQuestion(req.params.product_id, req.body);
+app.post('/api/qa/questions', async (req, res) => {
+  //console.log('params',req.query.product_id);
+  console.log('body',req.body);
+  var data = await postQuestion(req.body);
+
   res.send(data);
 })
 

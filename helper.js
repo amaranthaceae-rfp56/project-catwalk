@@ -166,17 +166,20 @@ const getAnswers = async (id) => {
   })
 }
 
-const postQuestion = async (id, postData) => {
-  const { body, name, email } = postData
-  // console.log(id, body, name, email);
 
-  return axios.post(`${apiUrl}/qa/questions`, {
-    body: body,
+const postQuestion = async (postData) => {
+  const { name, email, body, product_id } = postData
+  console.log(name, email, body, product_id);
+
+  axios.post(`${apiUrl}/qa/questions`, {
     name: name,
     email: email,
-    product_id: Number(id)
+    body: body,
+    product_id: product_id
   }, { headers })
   .then((result) => {
+    console.log('question successfully posted!');
+    console.log(result.status, result.data);
     return result.data
   })
   .catch((error) => {
