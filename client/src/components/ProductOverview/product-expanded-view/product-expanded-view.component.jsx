@@ -83,7 +83,7 @@ const ProductExpandedView = ({ expandView }) => {
       <div className="expanded-view-container">
           <div className="expanded-view-gallery-main">
           <img src={expandIcon} className="expand-icon" style={{ height: '25px', width: '25px' }} onClick={expandView}/>
-                  <img src={leftArrow} className={!zoomState ? "expanded-view-left-arrow" : "expanded-view-left-arrow active"} onClick={handlePageChange} name="back" value={page}/>
+                  <img src={leftArrow} style={{ height: '30px', width: '30px'}} className={!zoomState ? "expanded-view-left-arrow" : "expanded-view-left-arrow active"} onClick={handlePageChange} name="back" value={page}/>
                     {currentStyle.photos.map((photo, index) => {
                       if (page === index) {
                         return (
@@ -93,7 +93,7 @@ const ProductExpandedView = ({ expandView }) => {
                         )
                       }
                     })}
-                    <img src={rightArrow} className={!zoomState ?"expanded-view-right-arrow" : "expanded-view-right-arrow active"} onClick={handlePageChange} name="front" value={page}/>
+                    <img src={rightArrow} style={{ height: '30px', width: '30px'}} className={!zoomState ?"expanded-view-right-arrow" : "expanded-view-right-arrow active"} onClick={handlePageChange} name="front" value={page}/>
           </div>
 
         {/* <div className="expanded-view-gallery-main">

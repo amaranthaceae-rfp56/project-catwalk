@@ -1,0 +1,30 @@
+.product-navbar {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  width: 100%;
+  background-color: grey;
+  font-weight: 10;
+  align-items: center;
+  background-color: rgb(153, 150, 148);
+  // background-image: url('https://i.pinimg.com/originals/19/1d/a9/191da9c06cc828a64155c0fa636ae86b.jpg');
+  position: relative;
+}
+
+.product-navbar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+}
+
+.product-navbar-right {
+  position: absolute;
+  right: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 500px;
+}
