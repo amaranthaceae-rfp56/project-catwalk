@@ -155,6 +155,7 @@ const getAnswers = async (id) => {
   })
 }
 
+
 const postQuestion = async (postData) => {
   const { name, email, body, product_id } = postData
   console.log(name, email, body, product_id);
