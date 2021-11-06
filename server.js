@@ -52,7 +52,6 @@ app.get('/api/reviews/meta/:product_id', async (req, res) => {
 // Post Review
 app.post('/api/reviews/:product_id', async (req, res) => {
   // console.log(req.body);
-  // console.log(req.params.product_id);
   var data = await postReview(req.params.product_id, req.body);
   res.send(data);
 });
