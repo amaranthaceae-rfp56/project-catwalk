@@ -47,7 +47,7 @@ const ReviewList = () => {
   };
 
   const newReview = () => {
-    const form = (<ReviewForm/>);
+    const form = (<ReviewForm product_id = {reviewContext.reviews.product}callback = {setModal} />);
     const reviewForm = (<Modal class = 'review-form' top = {70} both = {false} component = {form} callback = {setModal}/>);
     console.log(reviewForm);
     setModal(reviewForm);

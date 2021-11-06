@@ -67,7 +67,6 @@ const OutfitSection = () => {
         {ref && ref.current && ref.current.scrollLeft !== 0 &&
           <img
             src={leftArrow}
-            style={{ height: '30px', width: '30px'}}
             onClick={() => handleScroll(-width / 2)}
           />}
         {/* <img
@@ -89,7 +88,6 @@ const OutfitSection = () => {
         </div>
         <img
           src={rightArrow}
-          style={{ height: '30px', width: '30px'}}
           onClick={() => handleScroll(width / 2)}
         />
       </div>

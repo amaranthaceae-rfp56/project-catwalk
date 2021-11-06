@@ -81,22 +81,25 @@ const getReviewMetaData = async (id) => {
 }
 
 const postReview = async (id, postData) => {
-  const { rating, summary, body, recommend, name, email, photos, characteristics } = postData;
+  const { rating, summary, body, recommended, username, email, photos, characteristics } = postData;
 
-  return axios.post(`${apiUrl}/reviews`, {
-      product_id: id,
+  const data = {
+      product_id: Number(id),
       rating: rating,
       summary: summary,
       body: body,
-      recommend: recommend,
-      name: name,
+      recommend: recommended,
+      name: username,
       email: email,
       photos: photos,
-      characteristics: characteristics
-    },
+      characteristics: {[`${characteristics.id}`]: characteristics.value}
+  };
+  console.log(data);
+  return axios.post(`${apiUrl}/reviews`, data,
     { headers }
   )
   .then((result) => {
+
     return result.data
   })
   .catch((err) => {
@@ -157,13 +160,12 @@ const getAnswers = async (id) => {
 
 const postQuestion = async (id, postData) => {
   const { body, name, email } = postData
-  // console.log(id, body, name, email);
 
   return axios.post(`${apiUrl}/qa/questions`, {
     body: body,
     name: name,
     email: email,
-    product_id: Number(id)
+    product_id: id
   }, { headers })
   .then((result) => {
     return result.data
