@@ -16,6 +16,11 @@ export default (state, action) => {
         ...state,
         questions: action.payload
       }
+    case GET_ANSWERS:
+        return {
+          ...state,
+          answers: action.payload
+    }
     default:
       return {
         ...state

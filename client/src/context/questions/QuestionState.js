@@ -19,13 +19,14 @@ import {
 const QuestionState = props => {
   const initialState = {
     questions: [],
-    answers: {},
+    answers: [],
   }
 
   const [state, dispatch] = useReducer(QuestionReducer, initialState);
 
   useEffect(() => {
     getQuestions();
+    getAnswers();
   }, [])
 
   const getQuestions = async() => {
@@ -38,8 +39,18 @@ const QuestionState = props => {
     })
   }
 
+  const getAnswers = async() => {
+    const res = await Axios.get(`${API_URL}/answers/40351`);
+    //43044
+    dispatch({
+      type: GET_QUESTIONS,
+      payload: res.data
+    })
+  }
+
+
   return (
-    <QuestionContext.Provider value={{ questions: state.questions, answers: state.answers, getQuestions }}>
+    <QuestionContext.Provider value={{ questions: state.questions, answers: state.answers, getQuestions, getAnswers }}>
         {props.children}
     </QuestionContext.Provider>
   )
