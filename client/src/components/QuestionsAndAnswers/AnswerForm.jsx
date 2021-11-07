@@ -136,7 +136,10 @@ const AnswerForm = (props) => {
           </div>
           <div className="form-child-photo-container">
             {uploadedPhotos.map ((photo, index)  => (
-              <img className="form-thumbnail" key={index} src={photo} height = "50" width = "50" onClick={() => handlePhotoView(photo)} />
+              <div className="form-thumbnail" key={index}>
+                <img className="form-thumbnail-img"  src={photo} height = "50" width = "50" onClick={() => handlePhotoView(photo)} />
+                <div className="form-thumbnail-delete">X</div>
+              </div>
             ))}
           </div>
 
