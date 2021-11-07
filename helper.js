@@ -144,7 +144,7 @@ const getQuestions = async (id) => {
 const getAnswers = async (id) => {
   return axios.get(`${apiUrl}/qa/questions/${id}/answers`, {
     headers,
-    params: { question_id: id, page: 1, count: 5 }
+    params: { question_id: id, page: 1, count: 200 }
   })
   .then((result) => {
     console.log(result);
@@ -168,27 +168,6 @@ const postQuestion = async (postData) => {
   }, { headers })
   .then((result) => {
     console.log('question successfully posted!');
-    console.log(result.status, result.data);
-    return result.data
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-}
-
-const postAnswer = async (id, postData) => {
-  console.log(postData);
-  const { name, email, body, photos } = postData
-  console.log(name, email, body, photos);
-
-  axios.post(`${apiUrl}/qa/questions/${id}/answers`, {
-    name: name,
-    email: email,
-    body: body,
-    photos: photos,
-  }, { headers })
-  .then((result) => {
-    console.log('answer successfully posted!');
     console.log(result.status, result.data);
     return result.data
   })
@@ -233,7 +212,26 @@ const reportAnswer = async (id) => {
     })
 }
 
+const postAnswer = async (id, postData) => {
+  console.log(postData);
+  const { name, email, body, photos } = postData
+  console.log(name, email, body, photos);
 
+  axios.post(`${apiUrl}/qa/questions/${id}/answers`, {
+    name: name,
+    email: email,
+    body: body,
+    photos: photos,
+  }, { headers })
+  .then((result) => {
+    console.log('answer successfully posted!');
+    console.log(result.status, result.data);
+    return result.data
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
 
 module.exports = {
   getProducts: getProducts,
@@ -248,8 +246,8 @@ module.exports = {
   getQuestions: getQuestions,
   getAnswers: getAnswers,
   postQuestion: postQuestion,
-  postAnswer: postAnswer,
   voteQuestionHelpful: voteQuestionHelpful,
   voteAnswerHelpful: voteAnswerHelpful,
   reportAnswer: reportAnswer,
+  postAnswer: postAnswer
 }

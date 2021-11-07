@@ -97,8 +97,9 @@ app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
 
 // Get answers for question
 app.get('/api/qa/questions/:question_id/answers', async (req, res) => {
-  var data = await getAnswers(req.query.question_id);
-  console.log('whathappened',data);
+  // var data = await getAnswers(req.query.question_id);
+  var data = await getAnswers(req.params.question_id);
+  console.log('whathappened', data);
   res.send(data)
 })
 
