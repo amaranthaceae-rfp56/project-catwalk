@@ -11,12 +11,11 @@ import Modal from '../../components/sharedComponents/Modal.jsx';
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const productContext = useContext(ProductContext);
   const [cardProduct, setCardProduct] = useState({});
-
+  const [salePrice, setSalePrice] = useState(null);
   const [modal, setModal] = useState(false);
   const [thumbnail, setThumbnail] = useState('');
   const reviewContext = useContext(ReviewContext);
   const { reviewMeta: { avgRatings } } = reviewContext;
-  const { currentStyle } = productContext;
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
@@ -26,7 +25,10 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
     // get thumbnail_url photo
     fetch(`${API_URL}/${cardProductId}/styles`)
       .then(response => response.json())
-      .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
+      .then(data => {
+        setThumbnail(data.results[0].photos[0].thumbnail_url);
+        setSalePrice(data.results[0].sale_price)
+      });
   }, []);
 
   const openModal = () => {
@@ -36,10 +38,11 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   };
 
   const handleClick = (e) => {
-    // console.log(e.currentTarget.dataset.divId);
+
     const clickedProductId = e.currentTarget.getAttribute('data-divId');
     productContext.getProductInfo(clickedProductId)
     productContext.getProductStyles(clickedProductId)
+
   }
 
   return Object.keys(cardProduct).length > 0 && (
@@ -56,7 +59,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
         <p className="releateName-style">
           <b>{cardProduct.name}</b>
         </p>
-        {!currentStyle.sale_price ? <p>$ {currentStyle.original_price}</p> : <div> <strike style={{ color: "red" }}>$ {currentStyle.original_price}</strike><p>$ {currentStyle.sale_price}</p></div>}
+        {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
         <StarRating rating={Number(avgRatings)} />
       </div>
       {modal}

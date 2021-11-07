@@ -10,6 +10,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   const reviewContext = useContext(ReviewContext);
   const { currentStyle } = productContext;
   const [cardProduct, setCardProduct] = useState({});
+  const [salePrice, setSalePrice] = useState(null);
   const { reviewMeta: { avgRatings } } = reviewContext;
   const [thumbnail, setThumbnail] = useState('');
   const API_URL = 'http://localhost:3000/api/products';
@@ -21,7 +22,10 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
     // get thumbnail_url photo
     fetch(`${API_URL}/${productId}/styles`)
       .then(response => response.json())
-      .then(data => setThumbnail(data.results[0].photos[0].thumbnail_url));
+      .then(data => {
+        setThumbnail(data.results[0].photos[0].thumbnail_url);
+        setSalePrice(data.results[0].sale_price)
+      });
   }, []);
 
   const handleClick = (e) => {
@@ -50,14 +54,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
       <img src={thumbnail} className="outfit-thumbnail-style" />
       <p>{cardProduct.category}</p>
       <h4>{cardProduct.name}</h4>
-      {!currentStyle.sale_price
-        ? <p>$ {currentStyle.original_price}</p>
-        : (
-          <div>
-            <strike style={{ color: "red" }}>$ {currentStyle.original_price}</strike>
-            <p>$ {currentStyle.sale_price}</p>
-          </div>
-        )}
+      {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
       <StarRating rating={Number(avgRatings)} />
 
     </div>
