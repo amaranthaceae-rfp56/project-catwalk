@@ -1,9 +1,11 @@
 @use '../../../../base/mixins';
 
-
+$input-background: rgb(233, 228, 225);
 
 .review-form {
   @include mixins.background;
+  border: black solid 2px;
+  padding: 15px;
   width: 650px;
 
 }
@@ -12,11 +14,16 @@
 }
 
 .review-form-submit {
+  @include mixins.button-colors;
+  margin: 10px;
 
+}
+.review-form-submit:hover {
+  @include mixins.button-hover;
 }
 
 .recommend-checkbox {
-
+ background: $input-background;
 }
 
 .recommend-checkbox-label {
@@ -34,6 +41,7 @@
 .input {
   margin: 5px;
   width: 100%;
+  background: $input-background;
 }
 
 .review-form-summary {

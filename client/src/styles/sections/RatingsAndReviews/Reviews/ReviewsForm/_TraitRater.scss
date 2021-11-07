@@ -1,6 +1,8 @@
 
 
 
+$input-background: rgb(233, 228, 225);
+
 
 .form-characteristics-voting-container {
   display: flex;
@@ -27,8 +29,9 @@
 
 }
 .trait-rater-option-radio {
-
+  background: $input-background;
 }
+
 
 .trait-rater-option-label {
 

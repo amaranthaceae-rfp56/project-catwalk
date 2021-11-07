@@ -4,21 +4,21 @@
 
 
 .reviews-container {
+  @include mixins.font;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 45%;
-  background: rgba(47, 79, 79, 0.5);
+  width: 70%;
   border-radius: 5px;
 }
 .review-list-wrapper {
   overflow-y: auto;
-  // max-height: 600px;
-  height: 600px;
+  height: 700px;
   width: 95%;
-  background: rgb(233, 228, 225);
-  border-radius: 10px;
+  background: #e9e4e1;
 
+  border-bottom: solid 1px;
+  border-top: solid 1px;
 }
 .review-list-wrapper::-webkit-scrollbar {
   display: none;
@@ -34,12 +34,19 @@
   display: flex;
 }
 .review-button {
+  @include mixins.button-colors;
+  @include mixins.font;
   padding: 10px;
   margin: 10px;
+  height: 85%;
+  width: 50%;
+  margin-left: 20px;
+  margin-right: 90px;
+
 }
 
 .review-button:hover {
-  cursor: pointer;
+  @include mixins.button-hover;
 }
 
 

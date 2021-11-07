@@ -1,6 +1,4 @@
 @use '../base/mixins';
-
-
 //              Reviews
 
 @use './RatingsAndReviews/Reviews/ReviewList';
@@ -40,16 +38,9 @@ ul {
 
 
 .ratings-reviews-container {
-  font: 100% $font-stack;
+  @include mixins.font;
   padding: 10px;
   display: flex;
   justify-content: center;
-  background: rgba(87, 62, 25, 0.534);
 }
-
-.ratings-reviews-container {
-
-}
-
-
 

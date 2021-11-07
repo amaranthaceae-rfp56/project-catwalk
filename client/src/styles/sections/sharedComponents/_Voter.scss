@@ -1,3 +1,4 @@
+@use '../../base/mixins';
 
 
 
@@ -9,16 +10,15 @@
 }
 
 .helpful-vote-option {
-  border: black solid 1px;
-  border-radius: 10px;
+ @include mixins.button-colors;
+
   padding: 5px;
-  width: 40px;
+  width: 70px;
   display: flex;
   justify-content: center;
-  background: rgb(196, 188, 188);
+
 }
 .helpful-vote-option:hover {
   cursor: pointer;
-  background: rgb(99, 94, 94);
-  color: whitesmoke;
+  @include mixins.button-hover;
 }
