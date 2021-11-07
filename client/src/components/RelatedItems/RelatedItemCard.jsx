@@ -11,6 +11,7 @@ import Modal from '../../components/sharedComponents/Modal.jsx';
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const productContext = useContext(ProductContext);
   const [cardProduct, setCardProduct] = useState({});
+
   const [modal, setModal] = useState(false);
   const [thumbnail, setThumbnail] = useState('');
   const reviewContext = useContext(ReviewContext);

@@ -7,12 +7,11 @@ import '../../styles/sections/_outfit.scss';
 
 const OutfitSection = () => {
   const username = window.location.search.slice(10);
-
+  const [pageProduct, setPageProduct] = useState({});
   const [outfitList, setOutfitList] = useState([]);
   const ref = useRef(null);
-  const leftRef = useRef(null);
-  const RightRef = useRef(null);
-  const [width, setWidth] = useState(0);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
 
   const base_url = 'http://localhost:3000';
 
@@ -42,26 +41,20 @@ const OutfitSection = () => {
       })
   };
 
+
   const handleLoad = () => {
-    console.log(ref);
-    if (ref.current.clientWidth) {
-      setWidth(ref.current.clientWidth);
+    var element = ref.current;
+    if (element.clientWidth) {
+      element.addEventListener('scroll', () => {
+        setShowLeftArrow(element.scrollLeft > 0);
+        setShowRightArrow(element.scrollLeft < element.scrollWidth - element.clientWidth);
+      });
     }
   }
 
   const handleScroll = (width) => {
     ref.current.scrollLeft += width;
-    console.log('scrollLeft>>', ref.current.scrollLeft);
   }
-  const handleVisible = () => {
-    if (ref.current.scrollLeft === 0) {
-      leftRef.current.style.visibility = 'hidden';
-    } else {
-      leftRef.current.visibility = '';
-    }
-  }
-
-
 
   return (
     <div className="outfit-card-container">
@@ -78,9 +71,9 @@ const OutfitSection = () => {
         </div>
         {
           (<img
-            ref={leftRef}
             src={leftArrow}
-            onClick={() => { handleScroll(-300); handleVisible() }}
+            onClick={() => handleScroll(-300)}
+            className={showLeftArrow ? 'active' : 'non-active'}
           />)
         }
         <div
@@ -97,8 +90,9 @@ const OutfitSection = () => {
             />)}
         </div>
         <img
+          className={showRightArrow ? 'active' : 'non-active'}
           src={rightArrow}
-          onClick={() => handleScroll(width / 2)}
+          onClick={() => handleScroll(300)}
         />
       </div>
     </div>

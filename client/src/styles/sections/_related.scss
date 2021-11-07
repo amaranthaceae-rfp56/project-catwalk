@@ -46,6 +46,14 @@
   margin: 10px;
 }
 
+.active {
+  visibility: visible;
+}
+
+.non-active {
+  visibility: hidden;
+}
+
 .compare-style {
   position: absolute;
   top: 10px;
