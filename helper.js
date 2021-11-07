@@ -246,8 +246,8 @@ module.exports = {
   getQuestions: getQuestions,
   getAnswers: getAnswers,
   postQuestion: postQuestion,
+  postAnswer: postAnswer,
   voteQuestionHelpful: voteQuestionHelpful,
   voteAnswerHelpful: voteAnswerHelpful,
   reportAnswer: reportAnswer,
-  postAnswer: postAnswer
 }

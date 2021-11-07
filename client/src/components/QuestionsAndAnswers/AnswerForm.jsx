@@ -9,10 +9,36 @@ import '../../styles/sections/_questions.scss';
 const AnswerForm = (props) => {
 
   const [imgModalVisible, setImgModalVisible] = useState(false);
+  const [uploadedPhotos, setUploadedPhotos] = useState([]);
+  const [uploadPhotoButtonLabel, setUploadPhotoButtonLabel] = useState('Upload photo');
+  const [photoView, setPhotoView] = useState(false);
+  const [image, setImage] = useState('');
 
   const handleAddImages = () => {
     setImgModalVisible(true);
   }
+
+  const handlePhotoView = (photo) => {
+    setImage(photo);
+    setPhotoView(true);
+  }
+
+  const handlePhotoUpload = (newPhoto) => {
+
+    if (uploadedPhotos.length < 5) {
+      const previousPhotoArray = [...uploadedPhotos];
+      previousPhotoArray.push(newPhoto);
+      setUploadedPhotos(previousPhotoArray);
+      setUploadPhotoButtonLabel('Upload next photo');
+    } else {
+      setUploadPhotoButtonLabel('');
+    }
+  }
+
+
+
+
+
 
   return (
 
@@ -59,7 +85,7 @@ const AnswerForm = (props) => {
             name: values.nickname,
             email: values.email,
             body: values.answer,
-            photos: [],
+            photos: uploadedPhotos,
           }
         };
 
@@ -103,7 +129,19 @@ const AnswerForm = (props) => {
             <Field className="form-large-input-container form-input-text" as="textarea" name="answer" placeholder="1000 characters max..." />
             <ErrorMessage className="form-error-text" name="answer" component="div" />
           </div>
-          <button className="theme-button" type="button" onClick={handleAddImages}>Upload photos</button>
+
+          <div className="form-child-container">
+            <div className="form-label-text">{`Uploaded photos (up to 5)`}</div>
+            {uploadedPhotos.length < 5 ? <button className="upload-photo-button" type="button" onClick={handleAddImages}>{uploadPhotoButtonLabel}</button> : <></>}
+          </div>
+          <div className="form-child-photo-container">
+            {uploadedPhotos.map ((photo, index)  => (
+              <img className="form-thumbnail" key={index} src={photo} height = "50" width = "50" onClick={() => handlePhotoView(photo)} />
+            ))}
+          </div>
+
+          {photoView ? <Modal class="questionAnswer-submit" callback={setPhotoView} left={87} top={46} component={<img className="questionAnswer-photo-view" src={image} max-height="60vh" callback={setPhotoView} /> } /> : <></>}
+
           <button className="theme-button" type="submit" disabled={isSubmitting}>
             Submit answer
           </button>
@@ -111,7 +149,7 @@ const AnswerForm = (props) => {
       )}
     </Formik>
 
-    {imgModalVisible ? <Modal class="questionAnswer-submit" callback={setImgModalVisible} left={87} top={46} both={false} component={<AnswerImgForm callback={setImgModalVisible} productName={props.productName} questionBody={props.questionBody} questionId={props.questionId} />}/> : <></>}
+    {imgModalVisible ? <Modal class="questionAnswer-submit" callback={setImgModalVisible} left={87} top={46} both={false} component={<AnswerImgForm handlePhotoUpload={handlePhotoUpload} callback={setImgModalVisible} photoUploadIndex={uploadedPhotos.length} productName={props.productName} questionBody={props.questionBody} questionId={props.questionId} />}/> : <></>}
 
   </div>
   )

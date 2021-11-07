@@ -98,6 +98,7 @@ app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
 // Get answers for question
 app.get('/api/qa/questions/:question_id/answers', async (req, res) => {
   // var data = await getAnswers(req.query.question_id);
+  console.log(req.params.question_id);
   var data = await getAnswers(req.params.question_id);
   console.log('whathappened', data);
   res.send(data)
@@ -110,7 +111,6 @@ app.post('/api/qa/questions/:question_id/answers', async (req, res) => {
   var data = await postAnswer(req.query.question_id, req.body);
   res.send(data);
 })
-
 
 // Vote Answer as Helpful
 app.put('/api/qa/answers/:answer_id/helpful', async (req, res) => {
