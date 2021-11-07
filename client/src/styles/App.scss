@@ -1,7 +1,8 @@
 @use './sections/questions';
 @use './sections/products';
-@use './sections/ratings';
+@use './sections/RatingsAndReviews';
 @use './sections/related';
+@use './sections/sharedComponents';
 
 @use './abstracts/fonts';
 @use './abstracts/colors';

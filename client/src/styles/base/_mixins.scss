@@ -2,7 +2,9 @@
 
 
 // CONTAINERS
-
+@mixin background {
+  background: rgb(233, 228, 225);
+}
 @mixin scrollable-container($height) {
   max-height: $height;
   overflow: auto;

@@ -51,6 +51,7 @@ const ReviewForm = (props) => {
     copyState[trait] = value;
     setFormData({...formData, characteristics: copyState});
   }
+
   useEffect(() => {
     if (reviewMeta) {
       setTraits(reviewMeta.characteristics);
@@ -102,12 +103,12 @@ const ReviewForm = (props) => {
         <div className = 'review-form-title-container'>
           <h2>Write your review</h2>
           <h3>About this thing!!</h3>
-          <input type = 'submit' value = 'Post Review'/>
-          <input  onChange={inputDataSetter.bind(null, 'recommended')}type = 'checkbox' id = 'recommended' name = 'recommended' value = {true}/>
-          <label htmlFor = 'recommended'>I recommend this product!</label>
+          <input className = 'review-form-submit' type = 'submit' value = 'Post Review'/>
+          <input   className = 'recommend-checkbox' onChange={inputDataSetter.bind(null, 'recommended')}type = 'checkbox' id = 'recommended' name = 'recommended' value = {true}/>
+          <label className = 'recommend-checkbox-label' htmlFor = 'recommended'>I recommend this product!</label>
          <StarRater callback = {clickStar}/>
         </div>
-        <div className = 'input-fields'>
+        <div className = 'review-form-input-fields'>
             <input onChange = {inputDataSetter.bind(null, 'summary')}type = 'text' required = 'required' maxLength = '60' className = 'review-form-summary input' placeholder = 'Enter Summary...'></input>
             <input required = 'required' onChange = {inputDataSetter.bind(null, 'email')} type = 'email' className = 'review-form-email input' placeholder = 'Enter Email...'></input>
             <textarea  required = 'required' minLength = '50' maxLength = '1000' onChange = {inputDataSetter.bind(null, 'body')} className = 'review-form-body input' placeholder = 'Enter your review...'></textarea>

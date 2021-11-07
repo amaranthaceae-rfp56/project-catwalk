@@ -58,9 +58,9 @@ const TraitRater = (props) => {
               <div className = 'trait-rater-options-container'>
               {traits[trait.toUpperCase()].values.map((value, i) => {
                 return (
-                  <div key = {`trait-rater-container-${index}-option-${i}`}>
-                      <input required = 'required' onChange = {()=>{props.callback(trait, {id: props.ids[trait].id, value: i+1})}} type = 'radio' id = {`${trait}-${i+1}`} name = {`${trait}`} value = {i+1}/>
-                      <label htmlFor = {`${trait}-${i+1}`} >{value}</label>
+                  <div className = 'trait-rater-option-container' key = {`trait-rater-container-${index}-option-${i}`}>
+                      <input  className = 'trait-rater-option-radio'required = 'required' onChange = {()=>{props.callback(trait, {id: props.ids[trait].id, value: i+1})}} type = 'radio' id = {`${trait}-${i+1}`} name = {`${trait}`} value = {i+1}/>
+                      <label className = 'trait-rater-option-label' htmlFor = {`${trait}-${i+1}`} >{value}</label>
                   </div>
                 );
               })}
@@ -72,7 +72,7 @@ const TraitRater = (props) => {
     );
   } else {
     return (
-      <div>
+      <div className = 'trait-rater-loading'>
         LOADING...
       </div>
     );

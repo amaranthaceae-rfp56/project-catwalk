@@ -1,0 +1,48 @@
+
+
+$background: green;
+$transparent: rgba(0, 128, 0, 0);
+
+.characteristics-container {
+  display: flex;
+  flex-direction: column;
+}
+.characteristics-label {
+
+}
+
+.characteristic-line-plot {
+  background:
+    linear-gradient(90deg, $background,
+    $background 25%,
+
+    $transparent 25%,
+    $transparent 30%,
+
+    $background 30%,
+    $background 70%,
+
+    $transparent 70%,
+    $transparent 75%,
+
+    $background 75%,
+    $background 100%);
+  width: 100%;
+  height: 8px;
+  display: flex;
+
+}
+
+.line-plot-marker {
+  position: relative;
+
+  align-self: center;
+  left: calc(var(--score) * 1%);
+  top: -1px;
+}
+
+.line-plot-value-marks {
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
+}

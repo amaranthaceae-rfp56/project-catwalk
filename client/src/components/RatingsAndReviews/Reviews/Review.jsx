@@ -58,8 +58,8 @@ const Review = (props) => {
             {reviewer_name}, {formattedDate}
           </div>
         </div>
-        <h3>{summary}</h3>
-        <div className = {'review-body'}>
+        <h3 className = 'review-summary'>{summary}</h3>
+        <div className = 'review-body'>
           <p>{body}</p>
         </div>
         {recommended}

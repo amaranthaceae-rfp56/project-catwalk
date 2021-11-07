@@ -1,0 +1,53 @@
+@use '../../../../base/mixins';
+
+
+
+.review-form {
+  @include mixins.background;
+  width: 650px;
+
+}
+.review-form-title-container {
+
+}
+
+.review-form-submit {
+
+}
+
+.recommend-checkbox {
+
+}
+
+.recommend-checkbox-label {
+
+}
+.review-form-input-fields {
+  width: 500px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-around;
+}
+
+.input {
+  margin: 5px;
+  width: 100%;
+}
+
+.review-form-summary {
+
+}
+
+
+.review-form-email {
+
+}
+
+.review-form-body {
+  padding: 5px;
+  resize: none;
+  width: 100%;
+  height: 100px;
+}
