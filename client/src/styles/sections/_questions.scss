@@ -153,3 +153,26 @@
   font: fonts.$fontTitle;
   color: colors.$titleColor;
 }
+
+// Modal Windows
+
+.questionAnswer-submit-modal-background {
+  @include mixins.modal-background
+}
+
+.questionAnswer-submit-modal-close {
+  @include mixins.modal-close;
+  @include mixins.theme(20px, 700);
+  background: rgb(255, 255, 255);
+  height: 25px;
+  width: 25px;
+  border-radius: 0px;
+  border: none;
+}
+
+.questionAnswer-submit-modal-close:hover {
+  @include mixins.modal-close-hover;
+  color: rgb(255, 255, 255);
+  background: none;
+  background-color:rgb(0, 0, 0);
+}

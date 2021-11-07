@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../styles/sections/_related.scss';
 import ReviewContext from '../../context/reviews/ReviewContext';
 import ProductContext from '../../context/products/ProductContext';
+import QuestionContext from '../../context/questions/QuestionContext';
 import StarRating from '../sharedComponents/StarRating.jsx';
 import CompareModal from './CompareModal.jsx';
 import Modal from '../../components/sharedComponents/Modal.jsx';
@@ -10,6 +11,7 @@ import Modal from '../../components/sharedComponents/Modal.jsx';
 
 const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const productContext = useContext(ProductContext);
+  const questionContext = useContext(QuestionContext);
   const [cardProduct, setCardProduct] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [modal, setModal] = useState(false);
@@ -42,7 +44,12 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
     const clickedProductId = e.currentTarget.getAttribute('data-divId');
     productContext.getProductInfo(clickedProductId)
     productContext.getProductStyles(clickedProductId)
+<<<<<<< HEAD
 
+=======
+    questionContext.getQuestions(clickedProductId)
+    questionContext.getAnswers(clickedProductId)
+>>>>>>> a68f16a1bf3df0fe75156d0001f2bde83e328d57
   }
 
   return Object.keys(cardProduct).length > 0 && (

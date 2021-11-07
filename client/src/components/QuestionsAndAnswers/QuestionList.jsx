@@ -12,7 +12,7 @@ const QuestionList = () => {
 
   const questionContext = useContext(QuestionContext);
   const productContext = useContext(ProductContext);
-  const product = productContext.productInfo.name;
+  const product = productContext.productInfo;
   const data = questionContext.questions.results;
   const [questions, setQuestions] = useState([]);
   const [visibleQuestions, setVisibleQuestions] = useState(2);
@@ -91,7 +91,7 @@ const QuestionList = () => {
       <div className="questions-container">
         <div>{moreQuestions}</div>
         <button className="theme-button" onClick = {handleAddMoreQuestions}>ADD A QUESTION +</button>
-        {modalVisible ? <Modal callback={setModalVisible} left={89} top={52} both={false} component={<QuestionForm productName={product} />}/> : <></>}
+        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<QuestionForm callback={setModalVisible} product={product} />}/> : <></>}
       </div>
     </div>
   );

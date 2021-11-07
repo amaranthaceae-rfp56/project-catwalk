@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import '../../styles/sections/_questions.scss';
 
@@ -7,7 +8,7 @@ const QuestionForm = (props) => (
   <div className="form-container">
     <div className="form-child-container">
       <div className="form-title-text">Ask Your Question</div>
-      <div className="form-subtitle-text">About the {props.productName}</div>
+      <div className="form-subtitle-text">About the {props.product.name}</div>
     </div>
     <Formik
       initialValues={{ nickname: '', email: '', question: '' }}
@@ -36,10 +37,29 @@ const QuestionForm = (props) => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+
+        const options = {
+          url: `http://localhost:3000/api/qa/questions`,
+          method: 'POST',
+          data: {
+            name: values.nickname,
+            email: values.email,
+            body: values.question,
+            product_id: props.product.id
+          }
+        };
+
+        axios(options)
+          .then(() => {
+            setTimeout(() => {
+            props.callback(false);
+            alert('Your question has been submitted!');
+            setSubmitting(false);
+            }, 400);
+          })
+          .catch(err => {
+          console.log(err);
+        });
       }}
     >
       {({ isSubmitting }) => (
@@ -71,7 +91,8 @@ const QuestionForm = (props) => (
 );
 
 QuestionForm.propTypes = {
-  productName: PropTypes.string.isRequired
+  product: PropTypes.object.isRequired,
+  callback: PropTypes.func.isRequired
 }
 
 export default QuestionForm;

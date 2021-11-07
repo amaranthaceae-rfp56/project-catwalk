@@ -1,6 +1,7 @@
 import {
   GET_CART_ITEMS,
-  ADD_CART_ITEM
+  ADD_CART_ITEM,
+  ADD_CART_ITEM_DETAILS
 } from '../types'
 
 export default (state, action) => {
@@ -15,6 +16,11 @@ export default (state, action) => {
         ...state,
         cart: [...state.cart, action.payload]
       }
+    case ADD_CART_ITEM_DETAILS:
+        return {
+          ...state,
+          cartDetails: [...state.cartDetails, action.payload]
+        }
     default:
       return state
   }

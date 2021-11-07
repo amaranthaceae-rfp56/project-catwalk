@@ -33,7 +33,7 @@ const AnswerList = (props) => {
     <div>
       {questionAnswers.filter((answer, index) => index < visibleAnswers)
         .map((answer) => (
-        < AnswerItem key={answer.id} answer={answer} />
+        < AnswerItem key={answer.id} answer={answer} questionId={props.questionId} />
       ))}
       <div>{moreAnswers}</div>
     </div>
@@ -42,6 +42,7 @@ const AnswerList = (props) => {
 
 AnswerList.propTypes = {
   questionAnswers: PropTypes.object.isRequired,
+  questionId: PropTypes.number.isRequired,
 };
 
 export default AnswerList;

@@ -50,6 +50,7 @@ const RelatedItemsSection = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div className="related-card-container">
       <p>RELATED PRODUCTS</p>
       <div data-testid={'Related-Items'} className="Related-Items">
@@ -72,6 +73,20 @@ const RelatedItemsSection = () => {
           className={showRightArrow ? 'active' : 'non-active'}
           onClick={() => handleScroll(300)}
         />
+=======
+    <div className="related-card-container" id="related-card-container">
+       <p>RELATED PRODUCTS</p>
+       <div data-testid={'Related-Items'} className="Related-Items">
+       <img src={leftArrow} style={{ height: '30px', width: '30px'}}/>
+      {relatedItems.map((product, index) => {
+        return <RelatedItemCard
+          pageProduct={pageProduct}
+          cardProductId={product}
+          key={index} />
+      })}
+
+      <img src={rightArrow} style={{ height: '30px', width: '30px'}}/>
+>>>>>>> a68f16a1bf3df0fe75156d0001f2bde83e328d57
 
       </div>
     </div>
