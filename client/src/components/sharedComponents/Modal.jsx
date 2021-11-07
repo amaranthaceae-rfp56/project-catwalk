@@ -25,7 +25,7 @@ const Modal = (props) => {
   }
   return (
     <div onClick = {closeModal} className = {`${props.class}-modal-background`}>
-      <div className = {`${props.class}-9modal-container`}>
+      <div className = {`${props.class}-modal-container`}>
         <div style = {{left: `${left}%`, top: `${top}px`}} className = {`${props.class}-modal-close`}>X</div>
         {props.component}
       </div>
