@@ -73,6 +73,7 @@ const OutfitSection = () => {
           (<img
             src={leftArrow}
             onClick={() => handleScroll(-300)}
+            style={{ height: '30px', width: '30px' }}
             className={showLeftArrow ? 'active' : 'non-active'}
           />)
         }
@@ -93,6 +94,7 @@ const OutfitSection = () => {
           className={showRightArrow ? 'active' : 'non-active'}
           src={rightArrow}
           onClick={() => handleScroll(300)}
+          style={{ height: '30px', width: '30px' }}
         />
       </div>
     </div>

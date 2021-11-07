@@ -8,7 +8,7 @@ import StarRating from '../sharedComponents/StarRating.jsx';
 const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   const productContext = useContext(ProductContext);
   const reviewContext = useContext(ReviewContext);
-  const { currentStyle } = productContext;
+
   const [cardProduct, setCardProduct] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const { reviewMeta: { avgRatings } } = reviewContext;
