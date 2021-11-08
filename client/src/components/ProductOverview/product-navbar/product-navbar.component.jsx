@@ -24,7 +24,7 @@ const ProductNavbar = () => {
       <div className="product-navbar-right">
 
           <a href="#related-card-container" style={{ textDecoration: 'none', color: 'white'}}>Related</a>
-          <a href="#questions-section-container" style={{ textDecoration: 'none', color: 'white'}}>Questions</a>
+          <a href="#questions-main-container" style={{ textDecoration: 'none', color: 'white'}}>Questions</a>
           <a href="#ratings-reviews-container" style={{ textDecoration: 'none', color: 'white'}}>Reviews</a>
 
           <img src={CartIcon} style={{ height: '40px', width: '40px' }} onClick={showModal} />
