@@ -4,7 +4,7 @@ import '../../styles/sections/_questions.scss';
 
 const QuestionsAndAnswers = () => {
   return (
-    <div>
+    <div className="questions-main-container">
       <div id="questions-section-container" className="questions-section-container questions-section-title-font">
         {`QUESTIONS & ANSWERS`}
       </div>

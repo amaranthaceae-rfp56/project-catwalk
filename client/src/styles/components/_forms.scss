@@ -38,6 +38,13 @@
   background-color: rgb(255, 255, 255);
 }
 
+.form-thumbnail:hover {
+  cursor: pointer;
+
+}
+
+
+
 .form-thumbnail-img {
   display: flex;
   //position: relative;
@@ -63,7 +70,6 @@
 .form-thumbnail-delete:hover {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
-  cursor: pointer;
 }
 
 .form-input-container {
