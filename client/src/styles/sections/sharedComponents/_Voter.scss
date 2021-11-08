@@ -29,7 +29,8 @@
   width: 70px;
   display: flex;
   justify-content: center;
-  background-color: rgb(50, 71, 40);
+  background-color: #6da553;
+  border-color: white;
 }
 .reported {
   @include mixins.button-colors;
@@ -37,5 +38,7 @@
   width: 70px;
   display: flex;
   justify-content: center;
-  background-color: rgb(71, 23, 23);
+  background-color: #cd3d3d;
+  border-color: white;
+
 }
