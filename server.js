@@ -33,8 +33,8 @@ app.get('/api/products/:product_id/styles', async (req, res) => {
 
 // Get Related Products
 app.get('/api/products/:product_id/related', async (req, res) => {
-  // var data = await getRelatedProducts(req.params.product_id);
-  res.send([40353, 40344, 40433, 40347, 40351, 40348, 40345]);
+  var data = await getRelatedProducts(req.params.product_id);
+  res.send(data);
 })
 
 // Get Reviews
@@ -80,7 +80,7 @@ app.get('/api/qa/questions/:product_id', async (req, res) => {
 // Post question
 app.post('/api/qa/questions', async (req, res) => {
   //console.log('params',req.query.product_id);
-  console.log('body',req.body);
+  console.log('body', req.body);
   var data = await postQuestion(req.body);
 
   res.send(data);
@@ -106,8 +106,8 @@ app.get('/api/qa/questions/:question_id/answers', async (req, res) => {
 
 // Post an answer
 app.post('/api/qa/questions/:question_id/answers', async (req, res) => {
-  console.log('params',req.query.question_id);
-  console.log('body',req.body);
+  console.log('params', req.query.question_id);
+  console.log('body', req.body);
   var data = await postAnswer(req.query.question_id, req.body);
   res.send(data);
 })

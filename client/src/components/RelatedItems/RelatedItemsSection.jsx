@@ -21,12 +21,12 @@ const RelatedItemsSection = () => {
       method: 'GET',
     };
     //get page product info
-    fetch(`${API_URL}/40344`, requestOptions)
+    fetch(`${API_URL}/40348`, requestOptions)
       .then(response => response.json())
       .then(data => setPageProduct(data));
 
     // get related item id list and map out to an array of related item info list
-    fetch(`${API_URL}/40344/related`, requestOptions)
+    fetch(`${API_URL}/40348/related`, requestOptions)
       .then(response => response.json())
       .then(res => setRelatedItems(res));
 
