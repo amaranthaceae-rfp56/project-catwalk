@@ -35,7 +35,7 @@
   height:50px;
   margin-right: 5px;
   position: relative;
-  background-color: royalblue;
+  background-color: rgb(255, 255, 255);
 }
 
 .form-thumbnail-img {
@@ -43,7 +43,6 @@
   //position: relative;
   max-height: 100%;
   max-width: 100%;
-  background-color: aquamarine
 }
 
 .form-thumbnail-delete {
@@ -109,6 +108,10 @@
 
 .form-footnote-text {
   @include mixins.theme(10px, 700);
+}
+
+.form-other-text {
+  @include mixins.theme(12px, 400);
 }
 
 .form-error-text {

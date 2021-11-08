@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Modal from '../sharedComponents/Modal.jsx';
 import AnswerImgForm from './AnswerImgForm.jsx';
+//import trash from '../../../assets/trash-solid.svg';
 import '../../styles/sections/_questions.scss';
 
 const AnswerForm = (props) => {
@@ -24,7 +25,6 @@ const AnswerForm = (props) => {
   }
 
   const handlePhotoUpload = (newPhoto) => {
-
     if (uploadedPhotos.length < 5) {
       const previousPhotoArray = [...uploadedPhotos];
       previousPhotoArray.push(newPhoto);
@@ -36,10 +36,9 @@ const AnswerForm = (props) => {
   }
 
   const handleDeleteImages = (index) => {
-
     const previousPhotoArray = [...uploadedPhotos];
-    const newPhotoArray = previousPhotoArray.splice(index, 1);
-    setUploadedPhotos(newPhotoArray);
+    previousPhotoArray.splice(index, 1);
+    setUploadedPhotos(previousPhotoArray);
   }
 
 
@@ -138,14 +137,18 @@ const AnswerForm = (props) => {
           </div>
 
           <div className="form-child-container">
-            <div className="form-label-text">{`Uploaded photos (up to 5)`}</div>
+            <div className="form-label-text">{`Uploaded photos (Max: 5)`}</div>
             {uploadedPhotos.length < 5 ? <button className="upload-photo-button" type="button" onClick={handleAddImages}>{uploadPhotoButtonLabel}</button> : <></>}
+            {uploadedPhotos.length === 0 ? <div className="form-child-container">
+            <div className="form-other-text">No photos have been uploaded</div>
+          </div> : <></>}
           </div>
           <div className="form-child-photo-container">
             {uploadedPhotos.map ((photo, index)  => (
               <div className="form-thumbnail" key={index}>
                 <img className="form-thumbnail-img" src={photo} onClick={() => handlePhotoView(photo)} />
-                <div className="form-thumbnail-delete" onClick={() => handleDeleteImages(index)}>X</div>
+                <div className="form-thumbnail-delete" onClick={() => handleDeleteImages(index)} >X</div>
+                {/* <img className="form-thumbnail-delete" src={trash} onClick={() => handleDeleteImages(index)} /> */}
               </div>
             ))}
           </div>
