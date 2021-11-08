@@ -98,7 +98,7 @@ const ReviewList = () => {
       </div>
       <div className = 'review-button-container'>
         {moreReviews}
-        <button onClick = {newReview} className = 'review-button'>Add Review  +</button>
+        <button onClick = {newReview} className = 'review-button'>Add <br/> Review  +</button>
       </div>
       {modal}
     </div>

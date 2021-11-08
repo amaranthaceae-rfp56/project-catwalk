@@ -22,3 +22,20 @@
   cursor: pointer;
   @include mixins.button-hover;
 }
+
+.voted {
+  @include mixins.button-colors;
+  padding: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(50, 71, 40);
+}
+.reported {
+  @include mixins.button-colors;
+  padding: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(71, 23, 23);
+}

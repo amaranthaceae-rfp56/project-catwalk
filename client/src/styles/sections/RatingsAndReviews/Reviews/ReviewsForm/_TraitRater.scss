@@ -28,7 +28,7 @@ $input-background: rgb(233, 228, 225);
 .trait-rater-option-container {
 
 }
-.trait-rater-option-radio {
+.trait-rater-option-radio::before {
   background: $input-background;
 }
 
