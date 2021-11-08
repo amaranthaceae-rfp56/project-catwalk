@@ -34,6 +34,7 @@
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  margin-top: 10px;
   .product-image-gallery-thumbnail-display::-webkit-scrollbar {
     display: none;
   }
@@ -62,6 +63,25 @@
   position: absolute;
   top: 45%;
   right: 5%;
+}
+
+
+.down-arrow {
+  // position: absolute;
+  // top: 45%;
+  // left: 18%;
+  // z-index: 2
+}
+
+.down-arrow.active {
+  display: none;
+}
+
+.up-arrow.active {
+  display: none;
+  // position: absolute;
+  // top: 45%;
+  // right: 5%;
 }
 
 // .product-image-gallery-container {
