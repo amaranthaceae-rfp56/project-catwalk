@@ -35,6 +35,13 @@ const AnswerForm = (props) => {
     }
   }
 
+  const handleDeleteImages = (index) => {
+
+    const previousPhotoArray = [...uploadedPhotos];
+    const newPhotoArray = previousPhotoArray.splice(index, 1);
+    setUploadedPhotos(newPhotoArray);
+  }
+
 
 
 
@@ -137,12 +144,11 @@ const AnswerForm = (props) => {
           <div className="form-child-photo-container">
             {uploadedPhotos.map ((photo, index)  => (
               <div className="form-thumbnail" key={index}>
-                <img className="form-thumbnail-img"  src={photo} height = "50" width = "50" onClick={() => handlePhotoView(photo)} />
-                <div className="form-thumbnail-delete">X</div>
+                <img className="form-thumbnail-img" src={photo} onClick={() => handlePhotoView(photo)} />
+                <div className="form-thumbnail-delete" onClick={() => handleDeleteImages(index)}>X</div>
               </div>
             ))}
           </div>
-
           {photoView ? <Modal class="questionAnswer-submit" callback={setPhotoView} left={87} top={46} component={<img className="questionAnswer-photo-view" src={image} max-height="60vh" callback={setPhotoView} /> } /> : <></>}
 
           <button className="theme-button" type="submit" disabled={isSubmitting}>
