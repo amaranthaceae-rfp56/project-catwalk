@@ -1,0 +1,37 @@
+@use '../../../base/mixins';
+
+
+
+.photos-container {
+  display: flex;
+}
+
+.photo-tile-modal-background {
+  @include mixins.modal-background;
+}
+
+.photo-tile-modal-container {
+
+}
+
+.photo-tile-modal-close {
+  @include mixins.modal-close;
+}
+
+.photo-tile-modal-close:hover {
+  @include mixins.modal-close-hover;
+}
+
+.review-photo {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 15%;
+  height: 100px;
+  box-shadow: 1px 1px grey;
+  margin: 5px;
+}
+
+.review-photo:hover {
+  cursor: pointer;
+  border-color: black;
+}

@@ -2,16 +2,32 @@
 @use "../abstracts/colors";
 @use "../base/mixins";
 
+.outfit-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .Outfit-Items {
   white-space: nowrap;
   display: flex;
   flex-direction: row;
   overflow: hidden;
   overflow-x: scroll;
+  justify-content: center;
+  align-items: flex;
+  width: 100%;
+}
+
+.active {
+  visibility: visible;
+}
+
+.non-active {
+  visibility: hidden;
 }
 
 .outfit-card-section {
-  width: 100%;
+  width: 60%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   .outfit-card-section::-webkit-scrollbar {
@@ -37,21 +53,20 @@
 }
 
 .outfit-button {
-  position: relative;
   background-color: rgb(192, 174, 172);
   height: 500px;
   width: 300px;
   border-radius: 0%;
   border: solid;
-  display: inline-block;
-  margin: 10px;
+  display: flex;
 }
 
 .outfit-button-text {
   background-color: aquamarine;
-  width: 300px;
+  width: 100%;
   height: 100px;
   top: 50%;
+  align-items: center;
 }
 
 .delete-style {

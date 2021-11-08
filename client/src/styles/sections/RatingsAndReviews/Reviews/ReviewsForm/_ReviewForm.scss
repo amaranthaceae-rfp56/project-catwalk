@@ -1,0 +1,74 @@
+@use '../../../../base/mixins';
+
+$input-background: rgb(233, 228, 225);
+
+.review-form {
+  @include mixins.background;
+  border: black solid 2px;
+  padding: 15px;
+  width: 650px;
+
+}
+.review-form-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-form-submit {
+  @include mixins.button-colors;
+  align-self: flex-start;
+  height: 60px;
+  width: 150px;
+  position: absolute;
+  margin: 10px;
+
+}
+.review-form-submit:hover {
+  @include mixins.button-hover;
+}
+.checkbox-container {
+  margin: 10px;
+}
+.recommend-checkbox {
+ margin: 10px;
+ cursor: pointer;
+}
+.checkbox-container:hover {
+  cursor: pointer;
+ }
+
+.recommend-checkbox-label:hover {
+  cursor: pointer;
+}
+.review-form-input-fields {
+  width: 500px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-around;
+}
+
+.input {
+  margin: 5px;
+  width: 100%;
+  background: $input-background;
+}
+
+.review-form-summary {
+
+}
+
+
+.review-form-email {
+
+}
+
+.review-form-body {
+  padding: 5px;
+  resize: none;
+  width: 100%;
+  height: 100px;
+}

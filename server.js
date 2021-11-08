@@ -33,8 +33,8 @@ app.get('/api/products/:product_id/styles', async (req, res) => {
 
 // Get Related Products
 app.get('/api/products/:product_id/related', async (req, res) => {
-  var data = await getRelatedProducts(req.params.product_id);
-  res.send(data);
+  // var data = await getRelatedProducts(req.params.product_id);
+  res.send([40353, 40344, 40433, 40347, 40351, 40348, 40345]);
 })
 
 // Get Reviews

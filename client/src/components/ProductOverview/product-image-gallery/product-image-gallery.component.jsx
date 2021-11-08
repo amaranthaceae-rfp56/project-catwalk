@@ -15,6 +15,8 @@ const ProductImageGallery = ({ expandView }) => {
   const [page, setPage] = useState(0);
   // const [length, setLength] = useState(0);
   const [height, setHeight] = useState(0);
+  const [displayUpArrow, setDisplayUpArrow] = useState(false)
+  const [displayDownArrow, setDisplayDownArrow] = useState(true)
   const ref = useRef(null);
 
   // useEffect(() => {
@@ -50,9 +52,20 @@ const ProductImageGallery = ({ expandView }) => {
     }
   }
 
-  const handleLoad = () => {
+  // const handleLoad = () => {
+  //   if (ref.current.clientHeight) {
+  //     setHeight(ref.current.clientHeight)
+  //   }
+  // }
+
+   const handleLoad = () => {
+     var element = ref.current;
     if (ref.current.clientHeight) {
       setHeight(ref.current.clientHeight)
+      element.addEventListener('scroll', () => {
+        setDisplayUpArrow(element.scrollTop > 0);
+        setDisplayDownArrow(element.scrollTop < element.scrollHeight - element.clientHeight);
+      });
     }
   }
 
@@ -60,36 +73,6 @@ const ProductImageGallery = ({ expandView }) => {
     ref.current.scrollTop -= height
   }
 
-    // if (!currentStyle.photos) {
-    //   return <p>Loading...</p>
-    // } else {
-    // return (
-    //   <div className="product-image-gallery-container">
-    //     <div className="product-image-gallery-thumbnail-container" >
-    //       <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
-    //       <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
-    //         {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
-    //           <div key={index}>
-    //             <img src={photo.thumbnail_url} className={ page === index ? "image-gallery-thumbnail active" : "image-gallery-thumbnail" } onClick={handleClick} name={index} />
-    //           </div>
-    //         ))}
-    //       </div>
-    //       <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
-    //     </div>
-
-    //     <div className="product-image-gallery-main">
-    //         <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
-    //         {currentStyle.photos.map((photo, index) => {
-    //           if (page === index) {
-    //             return (
-    //               <img className="image-gallery-main" src={photo.url} onClick={expandView}/>
-    //             )
-    //           }
-    //         })}
-    //         <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
-    //     </div>
-    //   </div>
-    // )};
     if (!currentStyle.photos) {
       return <p>Loading...</p>
     } else {
@@ -97,7 +80,7 @@ const ProductImageGallery = ({ expandView }) => {
       <div className="product-image-gallery-container">
 
         <div className="product-image-gallery-main">
-            <img src={leftArrow} style={{ height: '30px', width: '30px'}}className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
+            <img src={leftArrow} style={{ height: '30px', width: '30px'}} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
 
             {currentStyle.photos.map((photo, index) => {
               if (page === index) {
@@ -110,7 +93,7 @@ const ProductImageGallery = ({ expandView }) => {
         </div>
 
         <div className="product-image-gallery-thumbnail-container" >
-          <img src={upArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
+          <img src={upArrow} className={displayUpArrow ? "up-arrow" : "up-arrow active"} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(height/2)}/>
 
           <div className="product-image-gallery-thumbnail-display" ref={ref} onLoad={handleLoad}>
             {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (
@@ -120,7 +103,7 @@ const ProductImageGallery = ({ expandView }) => {
             ))}
           </div>
 
-          <img src={downArrow} style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
+          <img src={downArrow} className={displayDownArrow ? "down-arrow" : "down-arrow active"}  style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
         </div>
 
         {/* <div className="product-image-gallery-main">

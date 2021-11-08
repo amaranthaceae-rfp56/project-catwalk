@@ -8,10 +8,31 @@
   font-weight: 300;
 }
 
+.related-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .Related-Items {
   white-space: nowrap;
   display: flex;
   flex-direction: row;
+  overflow-x: scroll;
+  overflow: hidden;
+  align-items: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.related-card-section {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  .related-card-section::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .related-card {
@@ -23,6 +44,15 @@
   border: solid;
   display: inline-block;
   margin: 10px;
+}
+
+.active {
+  align-self: center;
+  visibility: visible;
+}
+
+.non-active {
+  visibility: hidden;
 }
 
 .compare-style {
@@ -42,9 +72,44 @@
 //modal css
 
 .compare-modal {
+  background-color: lightpink;
   width: 400px;
   height: 250px;
-  background-color: bisque;
+}
+
+.related-modal-modal-background {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.related-modal-modal-close {
+  color: #ddd;
+  position: relative;
+  z-index: 2;
+
+  height: 30px;
+  width: 30px;
+  background: #83808d73;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: xx-large;
+  border-radius: 5px;
+  border: solid 2px #ddd;
+}
+.related-modal-modal-close:hover {
+  color: black;
+  background: radial-gradient(red, #ddd);
+  border-color: black;
+  cursor: pointer;
 }
 
 .right-compare {

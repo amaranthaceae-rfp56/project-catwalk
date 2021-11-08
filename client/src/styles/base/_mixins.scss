@@ -2,7 +2,9 @@
 
 
 // CONTAINERS
-
+@mixin background {
+  background: #cabbb9;;
+}
 @mixin scrollable-container($height) {
   max-height: $height;
   overflow: auto;
@@ -46,8 +48,8 @@
   position: relative;
   z-index: 2;
 
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   background: #83808d73;
   display: flex;
   justify-content: center;
@@ -62,4 +64,27 @@
   background: radial-gradient(red, #ddd);
   border-color: black;
   cursor: pointer;
+}
+
+
+
+//// Ratings and reviews button style
+@mixin button-hover {
+  cursor: pointer;
+  color: #000000;
+  background: #cabbb9;
+  border-color:  #000000;
+}
+@mixin button-colors {
+  border: solid #cac6b3 3px;
+  border-radius: 5px;
+  font-weight: bolder;
+  background: black;
+  color: #e9e4e1;
+}
+
+//// FONT
+
+@mixin font {
+  font-family: fonts.$noto-sans;
 }

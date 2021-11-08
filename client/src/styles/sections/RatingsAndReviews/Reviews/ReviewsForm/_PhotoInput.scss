@@ -1,0 +1,20 @@
+@use '../../../../base/mixins';
+
+
+
+.photo-inputs {
+
+}
+
+.photo-input {
+  $input-background: rgb(233, 228, 225);
+  margin-left: 15px;
+}
+
+.photo-input-button {
+  @include mixins.button-colors;
+  margin: 10px;
+}
+.photo-input-button:hover {
+  @include mixins.button-hover;
+}

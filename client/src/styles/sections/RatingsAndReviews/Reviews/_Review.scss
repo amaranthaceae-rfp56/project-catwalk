@@ -1,0 +1,39 @@
+
+.review {
+  display: flex;
+  flex-direction: column;
+  background: rgb(192 174 172 / 75%);
+  border: #cac6b3 solid 4px;
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px 10px 10px 5px;
+  padding: 20px;
+}
+
+.review-rating-and-date {
+  display: flex;
+  align-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.review-summary {
+
+}
+
+.review-body {
+
+}
+
+.review-recomended-product {
+
+}
+
+.review-response {
+  display: flex;
+  align-self: center;
+  background: rgba(124, 150, 184, 0.596);
+  border: whitesmoke solid 1px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 80%;
+}

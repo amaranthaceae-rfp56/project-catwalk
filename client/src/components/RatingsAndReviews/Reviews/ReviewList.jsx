@@ -47,7 +47,7 @@ const ReviewList = () => {
   };
 
   const newReview = () => {
-    const form = (<ReviewForm/>);
+    const form = (<ReviewForm product_id = {reviewContext.reviews.product}callback = {setModal} />);
     const reviewForm = (<Modal class = 'review-form' top = {70} both = {false} component = {form} callback = {setModal}/>);
     console.log(reviewForm);
     setModal(reviewForm);
@@ -98,7 +98,7 @@ const ReviewList = () => {
       </div>
       <div className = 'review-button-container'>
         {moreReviews}
-        <button onClick = {newReview} className = 'review-button'>Add Review  +</button>
+        <button onClick = {newReview} className = 'review-button'>Add <br/> Review  +</button>
       </div>
       {modal}
     </div>
