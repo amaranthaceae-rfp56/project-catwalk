@@ -161,7 +161,7 @@ const AnswerForm = (props) => {
       )}
     </Formik>
 
-    {imgModalVisible ? <Modal class="questionAnswer-submit" callback={setImgModalVisible} left={87} top={46} both={false} component={<AnswerImgForm handlePhotoUpload={handlePhotoUpload} callback={setImgModalVisible} photoUploadIndex={uploadedPhotos.length} productName={props.productName} questionBody={props.questionBody} questionId={props.questionId} />}/> : <></>}
+    {imgModalVisible ? <Modal class="questionAnswer-upload-submit" callback={setImgModalVisible} left={87} top={46} both={false} component={<AnswerImgForm handlePhotoUpload={handlePhotoUpload} callback={setImgModalVisible} photoUploadIndex={uploadedPhotos.length} productName={props.productName} questionBody={props.questionBody} questionId={props.questionId} />}/> : <></>}
 
   </div>
   )
