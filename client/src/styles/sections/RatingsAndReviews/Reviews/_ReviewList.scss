@@ -1,0 +1,67 @@
+@use '../../../base/mixins';
+
+
+
+
+.reviews-container {
+  @include mixins.font;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  border-radius: 5px;
+}
+.review-list-wrapper {
+  overflow-y: auto;
+  height: 700px;
+  width: 95%;
+  background: #e9e4e1;
+
+  border-bottom: solid 1px;
+  border-top: solid 1px;
+}
+.review-list-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.reviews-list {
+
+  width: 80%;
+
+}
+
+.review-button-container {
+  align-self: center;
+  display: flex;
+}
+.review-button {
+  @include mixins.button-colors;
+  @include mixins.font;
+  padding: 10px;
+  margin: 10px;
+  height: 85%;
+  width: 50%;
+  margin-left: 20px;
+  margin-right: 90px;
+
+}
+
+.review-button:hover {
+  @include mixins.button-hover;
+}
+
+
+//Modal
+
+.review-form-modal-background {
+  @include mixins.modal-background;
+}
+.review-form-modal-container {
+
+}
+
+.review-form-modal-close {
+  @include mixins.modal-close;
+}
+.review-form-modal-close:hover {
+  @include mixins.modal-close-hover;
+}

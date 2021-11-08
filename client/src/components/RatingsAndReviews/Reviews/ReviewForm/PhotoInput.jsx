@@ -10,8 +10,8 @@ const PhotoInputs = (props) => {
   return (
     <div className = 'photo-inputs'>
       Enter Photo URL :
-      <input onChange = {inputChange} type = 'text'></input>
-      <button onClick = {() => { props.callback(url)}} >Enter</button>
+      <input className = 'photo-input' onChange = {inputChange} type = 'text'></input>
+      <button className = 'photo-input-button' onClick = {() => { props.callback(url)}} >Enter</button>
     </div>
   );
 };

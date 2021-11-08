@@ -36,13 +36,13 @@ const RatingsData = () => {
         <StarRating rating = {avgRatings}/>
       </div>
       <div className = 'percent-rec'>{percentRec}% reviewers recommended!</div>
-      <div>
+
         {graph}
-      </div>
-      <div>
+
+
 
         <Characteristics traits = {characteristics}/>
-      </div>
+
     </div>
   );
 };

@@ -16,12 +16,12 @@ const Characteristics = (props) => {
         <div className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
-              <div className = 'line-plot-marker' style = {score}>&#9679;</div>
+              <div className = 'line-plot-marker' style = {score}></div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Small</p>
-            <p>Perfect</p>
-            <p>Big</p>
+            <p className = 'mark-left'>Small</p>
+            <p className = 'mark-mid'>Perfect</p>
+            <p className = 'mark-right'>Big</p>
           </div>
       </div>);
       break;
@@ -31,12 +31,12 @@ const Characteristics = (props) => {
         <div className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
-              <div className = 'line-plot-marker' style = {score}>&#9679;</div>
+              <div className = 'line-plot-marker' style = {score}></div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Short</p>
-            <p>Perfect</p>
-            <p>Long</p>
+            <p className = 'mark-left'>Short</p>
+            <p className = 'mark-mid'>Perfect</p>
+            <p className = 'mark-right'>Long</p>
           </div>
       </div>);
       break;
@@ -46,12 +46,12 @@ const Characteristics = (props) => {
         <div className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
-              <div className = 'line-plot-marker' style = {score}>&#9679;</div>
+              <div className = 'line-plot-marker' style = {score}></div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Poor</p>
-            <p>Okay</p>
-            <p>Perfect</p>
+            <p className = 'mark-left'>Poor</p>
+            <p className = 'mark-mid'>Okay</p>
+            <p className = 'mark-right'>Perfect</p>
           </div>
       </div>);
       break;
@@ -61,12 +61,12 @@ const Characteristics = (props) => {
         <div className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
-              <div className = 'line-plot-marker' style = {score}>&#9679;</div>
+              <div className = 'line-plot-marker' style = {score}></div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Poor</p>
-            <p>Okay</p>
-            <p>Perfect</p>
+            <p className = 'mark-left'>Poor</p>
+            <p className = 'mark-mid'>Okay</p>
+            <p className = 'mark-right'>Perfect</p>
           </div>
       </div>);
       break;
@@ -76,12 +76,12 @@ const Characteristics = (props) => {
         <div className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
-              <div className = 'line-plot-marker' style = {score}>&#9679;</div>
+              <div className = 'line-plot-marker' style = {score}></div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Small</p>
-            <p>Perfect</p>
-            <p>Big</p>
+            <p className = 'mark-left'>Small</p>
+            <p className = 'mark-mid'>Perfect</p>
+            <p className = 'mark-right'>Big</p>
           </div>
       </div>);
       break;
@@ -91,12 +91,12 @@ const Characteristics = (props) => {
         <div className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
-              <div className = 'line-plot-marker' style = {score}>&#9679;</div>
+              <div className = 'line-plot-marker' style = {score}></div>
           </div>
           <div className = 'line-plot-value-marks'>
-            <p>Narrow</p>
-            <p>Perfect</p>
-            <p>Wide</p>
+            <p className = 'mark-left'>Narrow</p>
+            <p className = 'mark-mid'>Perfect</p>
+            <p className = 'mark-right'>Wide</p>
           </div>
       </div>);
       break;
@@ -109,7 +109,7 @@ useEffect(()=>{
   setResults(meters);
 },[props.traits]);
   return (
-    <div>
+    <div className = 'characteristics-graph-container'>
       {results.map(scoreMeter => {return scoreMeter})}
     </div>
   );

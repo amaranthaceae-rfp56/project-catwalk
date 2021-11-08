@@ -1,0 +1,44 @@
+@use '../../base/mixins';
+
+
+
+
+.helpful-vote {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.helpful-vote-option {
+ @include mixins.button-colors;
+
+  padding: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+
+}
+.helpful-vote-option:hover {
+  cursor: pointer;
+  @include mixins.button-hover;
+}
+
+.voted {
+  @include mixins.button-colors;
+  padding: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: #6da553;
+  border-color: white;
+}
+.reported {
+  @include mixins.button-colors;
+  padding: 5px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: #cd3d3d;
+  border-color: white;
+
+}

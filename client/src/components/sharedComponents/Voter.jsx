@@ -7,44 +7,59 @@ const Voter = (props) => {
   const {id, section} = props;
 
   const [helpfulness, setHelpfulness] = useState(props.helpfulness);
+  const [notVoted, setNotVoted] = useState(true);
+  const [notReported, setNotReported] = useState(true);
   //requires a props.yes that fires on click events of Yes
   //requires a props.report that fires on click events of report
 
   // requires props.helpfulness an integer that displays the count of users that clicked yes
   useEffect(()=>{
     setHelpfulness(props.helpfulness);
-  }, [props.helpfulness])
-  const wasHelpful = () => {
+  }, [props.helpfulness]);
 
-    const options = {
-      url: `http://localhost:3000/api/${section}s/helpful/`,
-      method: 'PUT',
-      params: id
-    };
-    axios(options)
-      .then(() => {
-        console.log('Was helpful!');
-        setHelpfulness(helpfulness+1);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+
+  const wasHelpful = () => {
+    const button = event.target;
+    if (notVoted) {
+      const options = {
+        url: `http://localhost:3000/api/${section}s/helpful/`,
+        method: 'PUT',
+        params: id
+      };
+      axios(options)
+        .then(() => {
+
+          setHelpfulness(helpfulness+1);
+
+          setNotVoted(false);
+
+          button.className = 'voted';
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+
   }
 
   const report = () => {
-    console.log(id)
-    const options = {
-      url: `http://localhost:3000/api/${section}s/report/`,
-      method: 'PUT',
-      params: id
-    };
-    axios(options)
-      .then(() => {
-        console.log('Report!');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    if (notReported) {
+      const button = event.target;
+      const options = {
+        url: `http://localhost:3000/api/${section}s/report/`,
+        method: 'PUT',
+        params: id
+      };
+      axios(options)
+        .then(() => {
+          setNotReported(false);
+          button.className = 'reported';
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+
   }
 
   return (
