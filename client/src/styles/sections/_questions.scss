@@ -25,6 +25,12 @@
 
 // FIXED CONTAINERS
 
+// .questions-main-container {
+//   display: flex;
+//   margin-left: 20px;
+// }
+
+
 .questions-section-container {
   display: flex;
   flex-direction: row;
@@ -175,4 +181,8 @@
   color: rgb(255, 255, 255);
   background: none;
   background-color:rgb(0, 0, 0);
+}
+
+.questionAnswer-photo-view {
+  max-height: 80vh;
 }
