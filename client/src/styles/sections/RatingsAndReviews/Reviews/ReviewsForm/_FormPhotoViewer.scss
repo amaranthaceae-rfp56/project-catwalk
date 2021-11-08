@@ -4,6 +4,9 @@
 
 .form-photos-container {
   display: flex;
+  justify-content: center;
+  height: 150px;
+  width: 600px;
 }
 ///////////////////////////////////////////////
 .form-photo-modal-background {
@@ -23,7 +26,7 @@
 ///////////////////////////////////////////////
 .photo-thumbnail-container {
   width: 100px;
-  height: 175px;
+  height: 120px;
   display: flex;
   margin: 5px;
 }
@@ -34,20 +37,14 @@
   align-content: center;
   position: relative;
   z-index: 3;
-  width: 10%;
-  height: 10%;
+  width: 15%;
+  height: 15%;
   color: white;
-  background: red;
-  border-radius: 50%;
   left: 92%;
   top: 6%;
+  cursor: not-allowed;
+}
 
-  border: solid white 1px;
-}
-.remove-image:hover {
-  border-color: black;
-  color: black;
-}
 
 .form-review-photo {
   width:100%;
@@ -55,7 +52,7 @@
   border-radius: 10px;
   border: 1px solid #ddd;
   box-shadow: 1px 1px grey;
-  cursor: cell;
+
 }
 
 .form-review-photo:hover {

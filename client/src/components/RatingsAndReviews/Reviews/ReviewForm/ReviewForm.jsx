@@ -104,8 +104,10 @@ const ReviewForm = (props) => {
           <h2>Write your review</h2>
           <h3>About this thing!!</h3>
           <input className = 'review-form-submit' type = 'submit' value = 'Post Review'/>
-          <input   className = 'recommend-checkbox' onChange={inputDataSetter.bind(null, 'recommended')}type = 'checkbox' id = 'recommended' name = 'recommended' value = {true}/>
-          <label className = 'recommend-checkbox-label' htmlFor = 'recommended'>I recommend this product!</label>
+          <div className = "checkbox-container">
+            <input   className = 'recommend-checkbox' onChange={inputDataSetter.bind(null, 'recommended')}type = 'checkbox' id = 'recommended' name = 'recommended' value = {true}/>
+            <label className = 'recommend-checkbox-label' htmlFor = 'recommended'>I recommend this product!</label>
+          </div>
          <StarRater callback = {clickStar}/>
         </div>
         <div className = 'review-form-input-fields'>

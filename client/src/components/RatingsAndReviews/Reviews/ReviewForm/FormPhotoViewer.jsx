@@ -16,7 +16,7 @@ const FormPhotoViewer = (props) => {
 
         return (
           <div className = 'photo-thumbnail-container' key = {`photo-${index}`}>
-            <div  onClick = {()=>{props.deletePhoto(index)}} value = {`${index}`}style = {{cursor: 'cell'}}className = 'remove-image'>X</div>
+            <div  onClick = {()=>{props.deletePhoto(index)}} value = {`${index}`} className = 'remove-image'>&#10060;</div>
             <img  onClick = {clickTile}className = 'form-review-photo' src = {photo}></img>
           </div>
         );

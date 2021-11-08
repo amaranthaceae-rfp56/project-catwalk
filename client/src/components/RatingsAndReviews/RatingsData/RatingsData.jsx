@@ -35,7 +35,7 @@ const RatingsData = () => {
         AVG RATIING : {avgRatings}
         <StarRating rating = {avgRatings}/>
       </div>
-      <div className = 'percent-rec'>{percentRec}% reviewers recommended!</div>
+      <div className = 'percent-rec'>{percentRec}% Reviewers recommended!</div>
 
         {graph}
 
