@@ -61,8 +61,9 @@ const QuestionList = () => {
   return (
 
     <div>
+
       <div>
-        <QuestionSearch handleSearch={handleSearch} />
+        <QuestionSearch id="questionSearch" handleSearch={handleSearch} />
       </div>
       <div className='questions-scrollable-container'>
         {questions
