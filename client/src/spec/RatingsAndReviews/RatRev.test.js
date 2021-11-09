@@ -9,14 +9,20 @@ import RatingsAndReviews from '../../components/RatingsAndReviews/RatingsAndRevi
 afterEach( ()=> {
   cleanup();
 });
+describe.only('render component',() => {
+  test('test', () => {
 
-test('test', async () => {
-  render(<ReviewState><RatingsAndReviews/></ReviewState>);
-  const review = screen.getByTestId('Ratings-And-Reviews');
+    const { container } = render(<ReviewState><RatingsAndReviews/></ReviewState>);
 
-  global.expect(review).toBeInTheDocument();
+    console.log(container);
+    global.expect(container.querySelector('.ratings-reviews-container')).toBeInTheDocument();
+    global.expect(container.querySelector('.ratings-reviews-container')).toHaveTextContent('Reviews');
 
+    global.expect(container.querySelector('.ratings-data-container')).toBeInTheDocument();
+    global.expect(container.querySelector('.reviews-container')).toBeInTheDocument();
+  });
 });
+
 
 // test('snapshots', () => {
 //   const tree = renderer.create(<RatingsAndReviews/>).toJSON();
