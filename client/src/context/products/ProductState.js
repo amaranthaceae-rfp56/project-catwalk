@@ -12,7 +12,7 @@ import {
   SET_LOADING
 } from '../types';
 
-const API_URL = 'http://localhost:3000/api/products';
+const API_URL = '/api/products';
 
 const ProductState = props => {
   const initialState = {
