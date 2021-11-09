@@ -38,7 +38,8 @@ const ProductOverview = () => {
         <div className={!expandView ? "product-overview-container-right" : "product-overview-container-right active"}>
           <ProductStarRating />
           <div className="product-overview-details">
-            <h2>{productInfo.name}</h2>
+            <h2 className="product-name">{productInfo.name}</h2>
+
             {!currentStyle.sale_price ? <h3>$ {currentStyle.original_price}</h3> : <div> <strike style={{ color: "red"}}>$ {currentStyle.original_price}</strike><h3>$ {currentStyle.sale_price}</h3></div>}
           </div>
           <h5>Select Style <span style={{ fontWeight: '10'}}>&gt; {currentStyle.name}</span></h5>
