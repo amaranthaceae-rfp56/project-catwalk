@@ -2,8 +2,15 @@ import React from 'react';
 
 const StarRating = (props) => {
   //requires props.rating as an integer
-  const roundedRating = (Math.round(props.rating * 4) / 4).toFixed(2);
+  let roundedRating = Number((Math.round(props.rating * 4) / 4).toFixed(2));
+  console.log(props.rating % 1);
+  if (roundedRating % 1 === .25) {
+    roundedRating = roundedRating + .1;
 
+  } else if (roundedRating % 1 === .75) {
+    roundedRating = roundedRating - .1;
+
+  }
 
   return (
     <div className='star-rating'>
