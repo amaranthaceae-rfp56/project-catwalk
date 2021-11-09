@@ -3,18 +3,19 @@ import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 
+import ReviewState from '../../context/reviews/ReviewState.js';
 import RatingsAndReviews from '../../components/RatingsAndReviews/RatingsAndReviews.jsx';
 
 afterEach( ()=> {
   cleanup();
 });
 
-test('test', () => {
-  render(<RatingsAndReviews/>);
+test('test', async () => {
+  render(<ReviewState><RatingsAndReviews/></ReviewState>);
   const review = screen.getByTestId('Ratings-And-Reviews');
 
-  expect(review).toBeInTheDocument();
-  expect(review).toHaveTextContent('RATINGS AND REVIEWS');
+  global.expect(review).toBeInTheDocument();
+
 });
 
 // test('snapshots', () => {
