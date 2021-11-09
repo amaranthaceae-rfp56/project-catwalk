@@ -3,7 +3,7 @@ import React from 'react';
 const StarRating = (props) => {
   //requires props.rating as an integer
   let roundedRating = Number((Math.round(props.rating * 4) / 4).toFixed(2));
-  console.log(props.rating % 1);
+
   if (roundedRating % 1 === .25) {
     roundedRating = roundedRating + .1;
 
