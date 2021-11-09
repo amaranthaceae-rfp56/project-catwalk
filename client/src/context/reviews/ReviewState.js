@@ -50,7 +50,7 @@ const ReviewState = props => {
         count += Number(ratingsObj[keys])
         finalAverage += average
       }
-      return [ Math.floor(finalAverage/count), count ]
+      return [ Math.round((finalAverage/count) * 4)/4, count ]
     }
 
     dispatch({
