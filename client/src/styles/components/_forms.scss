@@ -7,7 +7,7 @@
   display: "flex";
   flex-direction: "column";
   background: colors.$themeColor;
-  width: 50vh;
+  width: 60vh;
   padding: 30px;
 }
 
@@ -17,10 +17,63 @@
   position: "relative";
   margin-bottom: 20px;
   width: 100%;
+ //background-color: rosybrown;
+}
+
+.form-child-photo-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-thumbnail {
+  display: flex;
+  width:50px;
+  height:50px;
+  margin-right: 5px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.form-thumbnail:hover {
+  cursor: pointer;
+
+}
+
+
+
+.form-thumbnail-img {
+  display: flex;
+  //position: relative;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.form-thumbnail-delete {
+  @include mixins.theme(12px, 700);
+  display: flex;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top:0px;
+  right:0px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.form-thumbnail-delete:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .form-input-container {
-  display: "flex";
+  display: flex;
   width: 100%;
   height: 25px;
   position: relative;
@@ -29,7 +82,7 @@
 }
 
 .form-large-input-container {
-  display: "flex";
+  display: flex;
   width: 100%;
   height: 100px;
   position: relative;
@@ -47,6 +100,10 @@
   @include mixins.theme(14px, 700);
 }
 
+.form-subtitle-info-text {
+  @include mixins.theme(12px, 400);
+}
+
 .form-label-text {
   @include mixins.theme(12px, 700);
 }
@@ -57,6 +114,10 @@
 
 .form-footnote-text {
   @include mixins.theme(10px, 700);
+}
+
+.form-other-text {
+  @include mixins.theme(12px, 400);
 }
 
 .form-error-text {

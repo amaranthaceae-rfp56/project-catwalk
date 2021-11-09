@@ -10,6 +10,9 @@
 
 .questions-search-bar {
   @include mixins.search-bar;
+  width: 60%;
+  height: 30px;
+  border: none;
 }
 
 // SCROLLABLE CONTAINERS
@@ -24,6 +27,13 @@
 
 
 // FIXED CONTAINERS
+
+.questions-main-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+}
+
 
 .questions-section-container {
   display: flex;
@@ -101,6 +111,7 @@
 
 .found-helpful-font:hover {
   cursor: pointer;
+  color: rgba(138, 135, 135, 0.712);
 }
 
 .report-font {
@@ -110,6 +121,7 @@
 
 .report-font:hover {
   cursor: pointer;
+  color: rgba(138, 135, 135, 0.712);
 }
 
 .reported-font {
@@ -135,6 +147,7 @@
 
 .add-answer-font:hover {
   cursor: pointer;
+  color: rgba(138, 135, 135, 0.712);
 }
 
 .load-answers-font {
@@ -175,4 +188,32 @@
   color: rgb(255, 255, 255);
   background: none;
   background-color:rgb(0, 0, 0);
+}
+
+
+.questionAnswer-upload-submit-modal-background {
+  @include mixins.modal-background
+}
+
+.questionAnswer-upload-submit-modal-close {
+  @include mixins.modal-close;
+  @include mixins.theme(20px, 700);
+  background: rgb(255, 255, 255);
+  height: 25px;
+  width: 25px;
+  border-radius: 0px;
+  border: none;
+}
+
+.questionAnswer-upload-submit-modal-close:hover {
+  @include mixins.modal-close-hover;
+  color: rgb(255, 255, 255);
+  background: none;
+  background-color:rgb(0, 0, 0);
+}
+
+
+
+.questionAnswer-photo-view {
+  max-height: 80vh;
 }
