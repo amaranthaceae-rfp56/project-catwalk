@@ -14,7 +14,7 @@ const ReviewForm = (props) => {
   const [formData, setFormData] = useState({characteristics: {test: 5}, recommended: false, photos: [], username: username});
   const submitPOST = () => {
 
-    const url = `http://localhost:3000/api/reviews/${props.product_id}/`;
+    const url = `/api/reviews/${props.product_id}/`;
     axios.post(url, formData)
       .then(results => {
         console.log(results);
