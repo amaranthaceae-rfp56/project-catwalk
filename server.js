@@ -2,6 +2,12 @@ const path = require("path")
 const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
+const fs = require ('fs');
+
+const React = require('react');
+const ReactDOMServer = require('react-dom/server')
+
+const App = require('./client/src/components/App.jsx');
 
 const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, postAnswer, voteQuestionHelpful, voteAnswerHelpful, reportAnswer } = require('./helper.js');
 
@@ -10,8 +16,27 @@ const app = express();
 app.use(cors());
 app.use(parser.urlencoded({ extended: true }))
 app.use(parser.json());
+
+const mainApp = ReactDOMServer.renderToString(<App />)
+
+app.use('^/$', (req, res, next) => {
+  fs.readFile(path.resolve('./client/dist/index.html'), 'utf-8', (err, data) => {
+    if (err) {
+      console.log(err)
+      return res.status(500).send("Error ")
+    }
+    return res.send(
+      data.replace(
+        '<div id="root"></div>',
+        `<div id="root">${mainApp}</div>`))
+
+  })
+})
+
 app.use(express.static(path.join(__dirname, "/client/dist")));
 // other configuration...
+
+
 
 // Get Products
 app.get('/api/products', async (req, res) => {

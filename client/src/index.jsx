@@ -5,7 +5,7 @@ import './styles/App.scss';
 
 import ClickTrackerState from './context/clickTracker/ClickTrackerState';
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <ClickTrackerState>
       <App />
   </ClickTrackerState>,
