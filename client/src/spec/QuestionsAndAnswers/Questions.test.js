@@ -40,18 +40,21 @@ global.describe('QUESTIONS AND ANSWERS', () => {
     }
   });
 
-  global.test.skip('Should detect the section title " QUESTIONS & ANSWERS"', () => {
+  global.test.skip('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
     //await act(() => {
       ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
   //  });
 
-  // global.expect.assertions(1);
-
     const result = container.querySelector('#test-questions-and-answers');
 
-    global.expect(result).toBeInTheDocument();
-   //global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-    global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+    global.expect.assertions(2);
+    try {
+      await global.expect(result).toBeInTheDocument();
+      //global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+      await global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+    } catch (err) {
+      global.expect(err).toEqual(new Error());
+    }
 
   });
 
@@ -59,17 +62,22 @@ global.describe('QUESTIONS AND ANSWERS', () => {
 
 global.describe('QUESTIONS LIST', () => {
 
-  global.test('Add a Question Button should exist"', () => {
+  global.test('Add a Question Button should exist"', async () => {
       ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
       const button = container.querySelector('button');
 
-      global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
-      //global.expect(button).toHaveBeenCalledTimes(1)
+      global.expect.assertions(1);
+      try {
+        await global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
+        //global.expect(button).toHaveBeenCalledTimes(1)
+      } catch (err) {
+        global.expect(err).toEqual(new Error());
+      }
 
   });
 
-  global.test('Add a Question Button should open Question Form component when clicked"', () => {
+  global.test('Add a Question Button should open Question Form component when clicked"', async () => {
     //await act(() => {
       ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
   //  });
@@ -84,9 +92,15 @@ global.describe('QUESTIONS LIST', () => {
 
       after = container.querySelector('.form-title-text');
 
-      global.expect(before).toBe(null);
-      global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
-      global.expect(after).toHaveTextContent(`Ask Your Question`);
+      global.expect.assertions(3);
+      try {
+        await global.expect(before).toBe(null);
+        await global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
+        await global.expect(after).toHaveTextContent(`Ask Your Question`);
+      } catch (err) {
+        global.expect(err).toEqual(new Error());
+      }
+
   });
 
 
