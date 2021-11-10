@@ -10,7 +10,7 @@ import {
   ADD_CART_ITEM_DETAILS
 } from '../types'
 
-const API_URL = 'http://localhost:3000/api/cart';
+const API_URL = '/api/cart';
 
 const CartState = props => {
   const initialState = {
