@@ -1,5 +1,6 @@
 import {render, screen, cleanup, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
+import {jest} from '@jest/globals'
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -25,45 +26,48 @@ global.afterEach( ()=> {
 global.describe('QUESTIONS AND ANSWERS', () => {
 
   global.test('Screen test: Should detect the section title " QUESTIONS & ANSWERS"', async () => {
-      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
-    const result = container.querySelector('#test-questions-and-answers');
+    await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+
+    let result = container.querySelector('#test-questions-and-answers');
 
     global.expect.assertions(3);
 
     try {
-      await global.expect(result).toBeInTheDocument();
-      await global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-      await global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+      global.expect(result).toBeInTheDocument();
+      global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+      global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
     } catch (err) {
       global.expect(err).toEqual(new Error());
-    }
-  });
-
-  global.test.skip('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
-    //await act(() => {
-      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
-  //  });
-
-    const result = container.querySelector('#test-questions-and-answers');
-
-    global.expect.assertions(2);
-    try {
-      await global.expect(result).toBeInTheDocument();
-      //global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-      await global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
-    } catch (err) {
-      global.expect(err).toEqual(new Error());
+      //done.fail(err);
     }
 
   });
+
+  // global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
+
+  //   await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+
+  //   const result = container.querySelector('#test-questions-and-answers');
+
+  //   global.expect.assertions(3);
+  //   try {
+  //     global.expect(result).toBeInTheDocument();
+  //     global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+  //     global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+  //   } catch (err) {
+  //     global.expect(err).toEqual(new Error());
+  //     //done.fail(err);
+  //   }
+
+  // });
 
 });
 
 global.describe('QUESTIONS LIST', () => {
 
   global.test('Add a Question Button should exist"', async () => {
-      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+      await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
       const button = container.querySelector('button');
 
@@ -79,7 +83,7 @@ global.describe('QUESTIONS LIST', () => {
 
   global.test('Add a Question Button should open Question Form component when clicked"', async () => {
     //await act(() => {
-      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+      await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
   //  });
 
       const button = container.querySelector('button');
