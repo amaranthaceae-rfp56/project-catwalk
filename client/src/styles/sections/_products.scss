@@ -29,5 +29,9 @@
 }
 
 .product-name {
-  @include mixins.sans-serif-theme(30px, 800);
+  @include mixins.sans-serif-theme(40px, 800);
+}
+
+.product-style-title {
+  @include mixins.sans-serif-theme(25px, 350);
 }
