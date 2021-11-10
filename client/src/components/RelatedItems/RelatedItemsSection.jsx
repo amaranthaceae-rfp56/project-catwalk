@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import RelatedItemCard from './RelatedItemCard.jsx';
 import '../../styles/sections/_related.scss';
 import leftArrow from '../../../assets/backArrow.svg';
 import rightArrow from '../../../assets/forwardArrow.svg';
+import ProductContext from '../../context/products/ProductContext';
 
 
 
@@ -12,21 +13,20 @@ const RelatedItemsSection = () => {
   const ref = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const productContext = useContext(ProductContext);
 
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
-    const requestOptions = {
-      method: 'GET',
-    };
+
     //get page product info
-    fetch(`${API_URL}/40348`, requestOptions)
+    fetch(`${API_URL}/40348`)
       .then(response => response.json())
       .then(data => setPageProduct(data));
 
     // get related item id list and map out to an array of related item info list
-    fetch(`${API_URL}/40348/related`, requestOptions)
+    fetch(`${API_URL}/40348/related`)
       .then(response => response.json())
       .then(res => setRelatedItems(res));
 

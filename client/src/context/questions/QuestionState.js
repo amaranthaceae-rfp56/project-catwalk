@@ -40,7 +40,7 @@ const QuestionState = props => {
   }
 
   const getAnswers = async (id) => {
-    const res = await Axios.get(`http://localhost:3000/api/qa/questions/${id}/answers`);
+    const res = await Axios.get(`/api/qa/questions/${id}/answers`);
     console.log(res)
     //43044
     dispatch({

@@ -2,16 +2,64 @@ import {render, screen, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-
+import ReactDOM from 'react-dom';
+import { act } from 'react-dom/test-utils';
+import QuestionState from '../../context/questions/QuestionState.js';
+import ProductState from '../../context/products/ProductState.js';
 import QuestionsAndAnswers from '../../components/QuestionsAndAnswers/QuestionsAndAnswers.jsx';
-import QuestionList from '../../components/QuestionsAndAnswers/QuestionsList.jsx';
+import QuestionList from '../../components/QuestionsAndAnswers/QuestionList.jsx';
 
-global.afterEach( ()=> {
-  cleanup();
+let container;
+
+global.beforeEach(() => {
+  container = document.createElement('div');
+  document.body.appendChild(container);
 });
 
-// global.test('should filter an array of strings and only output items that fit the criteria', () => {
-//   render(<QuestionList/>);
+global.afterEach( ()=> {
+  document.body.removeChild(container);
+  container = null;
+  //cleanup();
+});
+
+global.describe('QUESTIONS AND ANSWERS', () => {
+
+  global.test('Should detect the section title " QUESTIONS & ANSWERS"', () => {
+    //await act(() => {
+      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+  //  });
+
+    const result = container.querySelector('#test-questions-and-answers');
+
+    global.expect(result).toBeInTheDocument();
+    global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+    global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+
+  });
+});
+
+global.describe('QUESTIONS AND ANSWERS', () => {
+
+  global.test('Should detect the section title " QUESTIONS & ANSWERS"', () => {
+    //await act(() => {
+      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+  //  });
+
+    const result = container.querySelector('#test-questions-and-answers');
+
+    global.expect(result).toBeInTheDocument();
+    global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+    global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+
+  });
+});
+
+
+
+
+
+/* // </QuestionState>global.test('should filter an array of strings and only output items that fit the criteria', () => { */
+//   render(<QuestionList/>)
 
 
 //   var result = QuestionList.handleSearch('car')
@@ -22,21 +70,13 @@ global.afterEach( ()=> {
 
 // });
 
-global.test('tasdfkja;sldfjasdfljasd;lf', () => {
-  render (<QuestionList />);
-  const searchBar = screen.getByTestId("questionSearch");
+// global.test('tasdfkja;sldfjasdfljasd;lf', () =>
+//   render (<QuestionList />);
+//   const searchBar = screen.getByTestId("questionSearch");
 
-  global.expect(searchBar).toBeInTheDocument();
-});
+//   global.expect(searchBar).toBeInTheDocument();
+// });
 
-
-
-// global.test('test', () => {
-//   render(<QuestionsAndAnswers/>);
-//   const item = screen.getByTestId('Questions-And-Answers');
-
-//   global.expect(item).toBeInTheDocument();
-//   global.expect(item).toHaveTextContent('QUESTIONS AND ANSWERS');
 
 
 // });
@@ -45,4 +85,5 @@ global.test('tasdfkja;sldfjasdfljasd;lf', () => {
 //   const tree = renderer.create(<QuestionsAndAnswers/>).toJSON();
 //   console.log(tree);
 //   expect(tree).toMatchSnapshot();
-// });
+// })
+
