@@ -29,6 +29,12 @@
   //font-style: italic;
 }
 
+@mixin sans-serif-theme($size, $weight) {
+  font-family: fonts.$sans-serf;
+  font-size: $size;
+  font-weight: $weight;
+}
+
 //MODAL
 
 @mixin modal-background {
@@ -87,4 +93,8 @@
 
 @mixin font {
   font-family: fonts.$noto-sans;
+}
+
+@mixin sans-serif-font {
+  font-family:'Source Sans Pro', sans-serif;
 }
