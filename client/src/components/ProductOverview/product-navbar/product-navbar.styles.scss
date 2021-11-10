@@ -21,10 +21,24 @@
 .product-navbar-right {
   position: absolute;
   font-size: 18px;
+  font-weight: 15;
   right: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   width: 350px;
+
+}
+
+.cart-container {
+  position: relative;
+}
+
+.cart-count {
+  color:white;
+  font-size: 18px;
+  position: absolute;
+  top: 8px;
+  right: 18px;
 }
