@@ -17,6 +17,12 @@ const ProductCartModal = ({ showModal }) => {
         </div>
 
         <div className="modal-body">
+          <div className="modal-body-header">
+            <p>Image</p>
+            <p>Name</p>
+            <p>Price</p>
+            <p>Quantity</p>
+          </div>
           { !cartDetails ? <p>Loading...</p> : cartDetails.map(({ name, img_url, price, quantity}) => (
             <div className="modal-body-container">
               <img src={img_url} style={{ height: '80px', width: '80px'}}></img>

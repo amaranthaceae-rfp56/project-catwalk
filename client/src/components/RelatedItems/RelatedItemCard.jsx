@@ -15,9 +15,8 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const [cardProduct, setCardProduct] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [modal, setModal] = useState(false);
+  const [reviewRating, setReviwRating] = useState(0);
   const [thumbnail, setThumbnail] = useState('');
-  const reviewContext = useContext(ReviewContext);
-  const { reviewMeta: { avgRatings } } = reviewContext;
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
@@ -31,6 +30,19 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
         setThumbnail(data.results[0].photos[0].thumbnail_url);
         setSalePrice(data.results[0].sale_price)
       });
+    // get ratings for individual card product
+    fetch(`http://localhost:3000/api/reviews/meta/${cardProductId}`)
+      .then(response => response.json())
+      .then(obj => {
+        var totalVote = 0;
+        var totalScore = 0;
+        for (var vote in obj.ratings) {
+          totalScore += (Number(vote) * obj.ratings[vote]);
+          totalVote += Number(obj.ratings[vote]);
+        }
+        setReviwRating(totalScore / totalVote);
+      });
+
   }, []);
 
   const openModal = () => {
@@ -63,7 +75,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
           <b>{cardProduct.name}</b>
         </p>
         {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
-        <StarRating rating={Number(avgRatings)} />
+        <StarRating rating={reviewRating} />
       </div>
       {modal}
     </div>
