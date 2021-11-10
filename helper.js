@@ -142,7 +142,7 @@ const reportReview = async (id) => {
 const getQuestions = async (id) => {
   return axios.get(`${apiUrl}/qa/questions`, {
     headers,
-    params: { page: 1, count: 5, sort: 'newest', product_id: id }
+    params: { page: 1, count: 20, sort: 'newest', product_id: id }
   })
   .then((result) => {
     return result.data
