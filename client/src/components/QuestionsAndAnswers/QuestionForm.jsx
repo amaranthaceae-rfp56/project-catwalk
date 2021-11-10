@@ -39,7 +39,7 @@ const QuestionForm = (props) => (
       onSubmit={(values, { setSubmitting }) => {
 
         const options = {
-          url: `http://localhost:3000/api/qa/questions`,
+          url: `/api/qa/questions`,
           method: 'POST',
           data: {
             name: values.nickname,

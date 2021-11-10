@@ -82,7 +82,7 @@ const AnswerForm = (props) => {
       onSubmit={(values, { setSubmitting }) => {
 
         const options = {
-          url: `http://localhost:3000/api/qa/questions/:question_id/answers`,
+          url: `/api/qa/questions/:question_id/answers`,
           method: 'POST',
           params: {
             question_id: props.questionId,
