@@ -5,10 +5,10 @@ import '../../styles/sections/_questions.scss';
 const QuestionsAndAnswers = () => {
   return (
     <div id="questions-main-container" className="questions-main-container">
-      <div className="questions-section-container questions-section-title-font">
+      <div id="test-questions-and-answers" className="questions-section-container questions-section-title-font">
         {`QUESTIONS & ANSWERS`}
       </div>
-      <div>
+      <div id="test-question-list">
         < QuestionList />
       </div>
     </div>

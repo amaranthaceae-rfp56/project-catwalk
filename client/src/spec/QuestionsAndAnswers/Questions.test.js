@@ -24,16 +24,32 @@ global.afterEach( ()=> {
 
 global.describe('QUESTIONS AND ANSWERS', () => {
 
-  global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
-    act(() => {
+  global.test('Should detect the section title " QUESTIONS & ANSWERS"', () => {
+    //await act(() => {
       ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
-    });
+  //  });
 
-    //const result = await container.querySelector('#test-questions-and-answers');
+    const result = container.querySelector('#test-questions-and-answers');
 
-    //await global.expect(result).toBeInTheDocument();
+    global.expect(result).toBeInTheDocument();
     global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-    //await global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+    global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+
+  });
+});
+
+global.describe('QUESTIONS AND ANSWERS', () => {
+
+  global.test('Should detect the section title " QUESTIONS & ANSWERS"', () => {
+    //await act(() => {
+      ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+  //  });
+
+    const result = container.querySelector('#test-questions-and-answers');
+
+    global.expect(result).toBeInTheDocument();
+    global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+    global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
 
   });
 });
