@@ -28,7 +28,6 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
     fetch(`http://localhost:3000/api/reviews/meta/${productId}`)
       .then(response => response.json())
       .then(obj => {
-        console.log('rating >>> ', obj);
         var totalVote = 0;
         var totalScore = 0;
         for (var vote in obj.ratings) {

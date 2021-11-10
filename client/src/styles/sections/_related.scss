@@ -77,6 +77,19 @@
   height: 250px;
 }
 
+.modal-table-container {
+  width: 100%;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-table-title {
+  width: 100%;
+}
+
 .related-modal-modal-background {
   background: transparent;
   height: 100%;
@@ -93,13 +106,12 @@
   color: #ddd;
   position: relative;
   z-index: 2;
-
+  top: 5px;
   height: 30px;
   width: 30px;
   background: #83808d73;
   display: flex;
   justify-content: center;
-  align-items: center;
   font-weight: 900;
   font-size: xx-large;
   border-radius: 5px;
@@ -114,20 +126,36 @@
 
 .right-compare {
   float: right;
+  width: 40%;
 }
 
 .left-compare {
   float: left;
+  width: 40%;
+}
+
+.feature-table {
+  // display: inline-block;
+  width: 100%;
 }
 
 .right-compare-mark {
   float: right;
+  width: 40%;
+  white-space: normal;
+  text-align: center;
+}
+
+.compare-feature {
+  // text-align: center;
+  width: 10%;
+  white-space: normal;
+  text-align: center;
 }
 
 .left-compare-mark {
   float: left;
-}
-
-.feature {
-  flex-direction: center;
+  width: 40%;
+  white-space: pre;
+  text-align: center;
 }
