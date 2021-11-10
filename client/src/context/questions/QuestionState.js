@@ -3,7 +3,7 @@ import QuestionContext from './QuestionContext.js';
 import QuestionReducer from './QuestionReducer.js';
 import Axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/qa/questions';
+const API_URL = '/api/qa/questions';
 
 import {
   GET_QUESTIONS,

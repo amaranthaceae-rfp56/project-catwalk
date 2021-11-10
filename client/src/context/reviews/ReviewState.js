@@ -3,7 +3,7 @@ import Axios from 'axios';
 import ReviewReducer from './ReviewReducer';
 import ReviewContext from './ReviewContext';
 
-const API_URL = 'http://localhost:3000/api/reviews';
+const API_URL = '/api/reviews';
 
 import {
   GET_REVIEWS,
@@ -50,7 +50,7 @@ const ReviewState = props => {
         count += Number(ratingsObj[keys])
         finalAverage += average
       }
-      return [ Math.floor(finalAverage/count), count ]
+      return [ Math.round((finalAverage/count) * 4)/4, count ]
     }
 
     dispatch({
