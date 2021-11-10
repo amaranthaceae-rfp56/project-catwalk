@@ -21,9 +21,13 @@
 }
 
 .product-dropdown {
-  @include mixins.sans-serif-theme(20px, 500);
+  @include mixins.sans-serif-theme(20px, 600);
 }
 
 .product-dropdown-button {
-  @include mixins.sans-serif-theme(20px, 500);
+  @include mixins.sans-serif-theme(20px, 600);
+}
+
+.product-name {
+  @include mixins.sans-serif-theme(30px, 800);
 }
