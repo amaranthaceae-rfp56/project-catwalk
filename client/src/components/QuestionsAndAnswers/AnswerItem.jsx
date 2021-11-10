@@ -21,7 +21,7 @@ const AnswerItem = (props) => {
   const handleUserAction = (userAction) => {
 
     const options = {
-      url: `http://localhost:3000/api/qa/answers/:answer_id/${userAction}/`,
+      url: `/api/qa/answers/:answer_id/${userAction}/`,
       method: 'PUT',
       params: {
         answer_id: props.answer.id
