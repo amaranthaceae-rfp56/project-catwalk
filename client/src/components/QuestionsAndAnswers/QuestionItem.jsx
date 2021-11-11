@@ -19,7 +19,7 @@ const QuestionItem = (props) => {
   const addHelpfulCount = () => {
 
     const options = {
-      url: `http://localhost:3000/api/qa/questions/:question_id/helpful/`,
+      url: `/api/qa/questions/:question_id/helpful/`,
       method: 'PUT',
       params: {
         question_id: props.questionId

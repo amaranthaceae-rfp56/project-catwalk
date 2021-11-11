@@ -9,12 +9,29 @@
 }
 
 .product-overview {
-  @include mixins.theme(18px, 700);
+  // @include mixins.theme(18px, 700);
+  @include mixins.sans-serif-theme(18px, 200);
 }
 .product-overview-description-left {
-  @include mixins.theme(16px, 300);
+  @include mixins.sans-serif-theme(16px, 300);
 }
 
 .product-overview-description-right {
-  @include mixins.theme(16px, 300);
+  @include mixins.sans-serif-theme(16px, 300);
+}
+
+.product-dropdown {
+  @include mixins.sans-serif-theme(20px, 600);
+}
+
+.product-dropdown-button {
+  @include mixins.sans-serif-theme(20px, 600);
+}
+
+.product-name {
+  @include mixins.sans-serif-theme(40px, 800);
+}
+
+.product-style-title {
+  @include mixins.sans-serif-theme(25px, 350);
 }

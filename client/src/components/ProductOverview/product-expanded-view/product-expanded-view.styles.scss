@@ -14,6 +14,7 @@
   // height: 100%;
   display: flex;
   justify-content: center;
+  object-fit: cover;
   position: relative;
   width: 1100px;
   height: 600px;
@@ -60,6 +61,7 @@
   // max-height: 600px;
   // border: 2px solid black;
   display: block;
+  object-fit: cover;
   // object-fit: contain;
 
   &:hover {
