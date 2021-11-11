@@ -13,6 +13,8 @@ const QuestionItem = (props) => {
   const productContext = useContext(ProductContext);
   const product = productContext.productInfo.name;
   const [helpfulCount, setHelpfulCount] = useState(props.questionHelpfulness);
+  const [helpfulDisable, setHelpfulDisable] = useState(false);
+  const [helpfulFont, setHelpfulFont] = useState('found-question-helpful-font');
   const [modalVisible, setModalVisible] = useState(false);
 
 
@@ -29,7 +31,11 @@ const QuestionItem = (props) => {
     axios(options)
       .then(() => {
         console.log('user found question helpful!');
-        setHelpfulCount(helpfulCount + 1);
+        if (!helpfulDisable) {
+          setHelpfulCount(helpfulCount + 1);
+          setHelpfulDisable(true);
+          setHelpfulFont('pressed-question-helpful-font');
+        }
       })
       .catch(err => {
         console.log(err);
@@ -37,7 +43,7 @@ const QuestionItem = (props) => {
   };
 
 
-  let foundHelpful = (<div className="found-question-helpful-font" onClick={addHelpfulCount}>Yes</div>);
+  let foundHelpful = (<div className={helpfulFont} onClick={addHelpfulCount}>Yes</div>);
 
   let doAnswer = (<div className="add-answer-font" onClick={() => {handleAddAnswer()}} >Add Answer</div>);
 
