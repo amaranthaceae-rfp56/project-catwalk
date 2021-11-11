@@ -147,6 +147,10 @@
   color: rgba(138, 135, 135, 0.712);
 }
 
+.pressed-helpful-font {
+  @include mixins.theme(10px, 700);
+}
+
 .report-font {
   @include mixins.theme(10px, 400);
   text-decoration: underline;
