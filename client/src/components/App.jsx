@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, lazy, Suspense } from 'react';
 import ProductOverview from './ProductOverview/ProductOverview.jsx';
 import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
 import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
@@ -13,17 +13,15 @@ import CartState from '../context/cart/CartState.js';
 import ClickTrackerState from '../context/clickTracker/ClickTrackerState.js';
 
 // Context
-// import ProductContext from '../context/products/ProductContext';
-// import ReviewContext from '../context/reviews/ReviewContext';
-// import QuestionContext from '../context/questions/QuestionContext';
-// import CartContext from '../context/cart/CartContext';
 import ClickTrackerContext from '../context/clickTracker/ClickTrackerContext';
 
+const ProductOverviewComponent = lazy(() => import('./ProductOverview/ProductOverview.jsx'));
+const RelatedItemsSectionComponent = lazy(() => import('./RelatedItems/RelatedItemsSection.jsx'));
+const OutfitSectionComponent = lazy(() => import('./RelatedItems/OutfitSection.jsx'));
+const QuestionsAndAnswersComponent = lazy(() => import('./QuestionsAndAnswers/QuestionsAndAnswers.jsx'));
+const RatingsAndReviewsComponent = lazy(() => import('./RatingsAndReviews/RatingsAndReviews.jsx'));
+
 const App = () => {
-  // const productContext = useContext(ProductContext);
-  // const reviewContext = useContext(ReviewContext);
-  // const questionContext = useContext(QuestionContext);
-  // const cartContext = useContext(CartContext);
   const clickTrackerContext = useContext(ClickTrackerContext);
 
 
@@ -40,11 +38,18 @@ const App = () => {
           <CartState>
             <ClickTrackerState>
               <div onClick={handleClick}>
-                <ProductOverview />
-                <RelatedItemsSection />
-                <OutfitSection />
-                <QuestionsAndAnswers />
-                <RatingsAndReviews />
+              <Suspense fallback={<p>Loading...</p>}>
+                  <ProductOverviewComponent />
+                  {/* <ProductOverview /> */}
+                  <RelatedItemsSectionComponent />
+                  {/* <RelatedItemsSection /> */}
+                  <OutfitSectionComponent />
+                  {/* <OutfitSection /> */}
+                  <QuestionsAndAnswersComponent />
+                  {/* <QuestionsAndAnswers /> */}
+                  <RatingsAndReviewsComponent />
+                </Suspense>
+                {/* <RatingsAndReviews /> */}
               </div>
             </ClickTrackerState>
           </CartState>

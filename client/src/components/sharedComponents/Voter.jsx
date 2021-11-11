@@ -22,7 +22,7 @@ const Voter = (props) => {
     const button = event.target;
     if (notVoted) {
       const options = {
-        url: `http://localhost:3000/api/${section}s/helpful/`,
+        url: `/api/${section}s/helpful/`,
         method: 'PUT',
         params: id
       };
@@ -46,7 +46,7 @@ const Voter = (props) => {
     if (notReported) {
       const button = event.target;
       const options = {
-        url: `http://localhost:3000/api/${section}s/report/`,
+        url: `/api/${section}s/report/`,
         method: 'PUT',
         params: id
       };

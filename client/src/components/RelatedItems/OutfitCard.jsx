@@ -7,11 +7,9 @@ import StarRating from '../sharedComponents/StarRating.jsx';
 
 const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   const productContext = useContext(ProductContext);
-  const reviewContext = useContext(ReviewContext);
-
+  const [reviewRating, setReviwRating] = useState(0);
   const [cardProduct, setCardProduct] = useState({});
   const [salePrice, setSalePrice] = useState(null);
-  const { reviewMeta: { avgRatings } } = reviewContext;
   const [thumbnail, setThumbnail] = useState('');
   const API_URL = 'http://localhost:3000/api/products';
 
@@ -25,6 +23,19 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
       .then(data => {
         setThumbnail(data.results[0].photos[0].thumbnail_url);
         setSalePrice(data.results[0].sale_price)
+      });
+    // get ratings for individual card product
+    fetch(`http://localhost:3000/api/reviews/meta/${productId}`)
+      .then(response => response.json())
+      .then(obj => {
+        console.log('rating >>> ', obj);
+        var totalVote = 0;
+        var totalScore = 0;
+        for (var vote in obj.ratings) {
+          totalScore += (Number(vote) * obj.ratings[vote]);
+          totalVote += Number(obj.ratings[vote]);
+        }
+        setReviwRating(totalScore / totalVote);
       });
   }, []);
 
@@ -55,7 +66,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
       <p>{cardProduct.category}</p>
       <h4>{cardProduct.name}</h4>
       {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
-      <StarRating rating={Number(avgRatings)} />
+      <StarRating rating={reviewRating} />
 
     </div>
   );

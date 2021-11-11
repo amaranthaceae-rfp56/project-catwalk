@@ -19,7 +19,7 @@ const QuestionItem = (props) => {
   const addHelpfulCount = () => {
 
     const options = {
-      url: `http://localhost:3000/api/qa/questions/:question_id/helpful/`,
+      url: `/api/qa/questions/:question_id/helpful/`,
       method: 'PUT',
       params: {
         question_id: props.questionId
@@ -66,8 +66,8 @@ const QuestionItem = (props) => {
       <div className="questions-q-container">
         <div className="questions-font">A:</div>
       </div>
-        <div className="answers-scrollable-container">
-          < AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/>
+      <div className="questions-answer-container">
+        < AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/>
       </div>
     </div>
     </div>

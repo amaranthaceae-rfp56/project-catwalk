@@ -21,7 +21,7 @@ const AnswerItem = (props) => {
   const handleUserAction = (userAction) => {
 
     const options = {
-      url: `http://localhost:3000/api/qa/answers/:answer_id/${userAction}/`,
+      url: `/api/qa/answers/:answer_id/${userAction}/`,
       method: 'PUT',
       params: {
         answer_id: props.answer.id
@@ -72,14 +72,13 @@ const AnswerItem = (props) => {
     {photoView ? <Modal class="questionAnswer-submit" callback={setPhotoView} left={87} top={46} component={<img className="questionAnswer-photo-view" src={image} callback={setPhotoView} /> } /> : <></>}
 
     <div className="questions-container answers-info-font">
-      <div className="answer-footnote-container">{`by ${props.answer.answerer_name}`}</div>
-      <div className="answer-footnote-container">{dateAnswered}</div>
-      <div className="answer-footnote-container">
+      <div className="answer-author-container">{`by ${props.answer.answerer_name}, ${dateAnswered}`}</div>
+      <div className="answer-helpful-container">
         <div>{`Helpful?  `}</div>
         <div>{foundHelpful}</div>
         {`  (${helpfulCount})`}
       </div>
-      <div className="answer-footnote-container">
+      <div className="answer-report-container">
         <div>{doReport}</div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ProductContext from '../../../context/products/ProductContext';
 import CartContext from '../../../context/cart/CartContext'
-
 import './product-dropdown.styles.scss';
 
 const ProductDropdown = () => {
@@ -63,7 +62,7 @@ const ProductDropdown = () => {
       </select>
 
       <form onSubmit={handleSubmit}>
-        <button className="product-dropdown-button" type="submit">Add To Cart</button>
+        <button className="product-dropdown-button" type="submit">Add To Cart </button>
       </form>
 
     </div>
