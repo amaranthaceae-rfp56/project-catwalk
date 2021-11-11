@@ -147,6 +147,11 @@
   color: rgba(138, 135, 135, 0.712);
 }
 
+.pressed-helpful-font {
+  @include mixins.theme(10px, 700);
+  color: rgb(138, 135, 135);
+}
+
 .report-font {
   @include mixins.theme(10px, 400);
   text-decoration: underline;
@@ -172,6 +177,12 @@
   cursor: pointer;
   color: rgba(138, 135, 135, 0.712);
 }
+
+.pressed-question-helpful-font {
+  @include mixins.theme(12px, 700);
+  color: rgb(138, 135, 135);
+}
+
 
 .add-answer-font {
   @include mixins.theme(12px, 700);
