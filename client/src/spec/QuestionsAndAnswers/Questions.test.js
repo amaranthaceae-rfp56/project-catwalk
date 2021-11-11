@@ -25,7 +25,7 @@ global.afterEach( ()=> {
 
 global.describe('QUESTIONS AND ANSWERS', () => {
 
-  global.test('Screen test: Should detect the section title " QUESTIONS & ANSWERS"', async () => {
+  global.test('Screen test: Should detect the section title " QUESTIONS & ANSWERS"', async (done) => {
 
     await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
@@ -44,72 +44,72 @@ global.describe('QUESTIONS AND ANSWERS', () => {
 
   });
 
-  // global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
+  global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
 
-  //   await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+    await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
-  //   const result = container.querySelector('#test-questions-and-answers');
+    const result = container.querySelector('#test-questions-and-answers');
 
-  //   global.expect.assertions(3);
-  //   try {
-  //     global.expect(result).toBeInTheDocument();
-  //     global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-  //     global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
-  //   } catch (err) {
-  //     global.expect(err).toEqual(new Error());
-  //     //done.fail(err);
-  //   }
-
-  // });
-
-});
-
-global.describe('QUESTIONS LIST', () => {
-
-  global.test('Add a Question Button should exist"', async () => {
-      await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
-
-      const button = container.querySelector('button');
-
-      global.expect.assertions(1);
-      try {
-        await global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
-        //global.expect(button).toHaveBeenCalledTimes(1)
-      } catch (err) {
-        global.expect(err).toEqual(new Error());
-      }
+    global.expect.assertions(3);
+    try {
+      global.expect(result).toBeInTheDocument();
+      global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+      global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+    } catch (err) {
+      global.expect(err).toEqual(new Error());
+      //done.fail(err);
+    }
 
   });
 
-  global.test('Add a Question Button should open Question Form component when clicked"', async () => {
-    //await act(() => {
-      await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
-  //  });
-
-      const button = container.querySelector('button');
-      let before = container.querySelector('.form-title-text');
-      let after = before;
-
-      act(() => {
-        fireEvent.click(button);
-      });
-
-      after = container.querySelector('.form-title-text');
-
-      global.expect.assertions(3);
-      try {
-        await global.expect(before).toBe(null);
-        await global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
-        await global.expect(after).toHaveTextContent(`Ask Your Question`);
-      } catch (err) {
-        global.expect(err).toEqual(new Error());
-      }
-
-  });
-
-
-
 });
+
+// global.describe('QUESTIONS LIST', () => {
+
+//   global.test('Add a Question Button should exist"', async () => {
+//       await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+
+//       const button = container.querySelector('button');
+
+//       global.expect.assertions(1);
+//       try {
+//         await global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
+//         //global.expect(button).toHaveBeenCalledTimes(1)
+//       } catch (err) {
+//         global.expect(err).toEqual(new Error());
+//       }
+
+//   });
+
+//   global.test('Add a Question Button should open Question Form component when clicked"', async () => {
+//     //await act(() => {
+//       await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+//   //  });
+
+//       const button = container.querySelector('button');
+//       let before = container.querySelector('.form-title-text');
+//       let after = before;
+
+//       act(() => {
+//         fireEvent.click(button);
+//       });
+
+//       after = container.querySelector('.form-title-text');
+
+//       global.expect.assertions(3);
+//       try {
+//         await global.expect(before).toBe(null);
+//         await global.expect(button).toHaveTextContent(`ADD A QUESTION +`);
+//         await global.expect(after).toHaveTextContent(`Ask Your Question`);
+//       } catch (err) {
+//         global.expect(err).toEqual(new Error());
+//       }
+
+//   });
+
+
+
+// });
 
 // global.describe.skip('QUESTIONS ITEM', () => {
 
