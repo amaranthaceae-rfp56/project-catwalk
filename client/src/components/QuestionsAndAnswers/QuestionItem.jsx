@@ -66,8 +66,8 @@ const QuestionItem = (props) => {
       <div className="questions-q-container">
         <div className="questions-font">A:</div>
       </div>
-        <div className="answers-scrollable-container">
-          < AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/>
+      <div className="questions-answer-container">
+        < AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/>
       </div>
     </div>
     </div>
