@@ -2,11 +2,12 @@ const path = require("path")
 const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
+var compression = require('compression')
 
 const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, postAnswer, voteQuestionHelpful, voteAnswerHelpful, reportAnswer } = require('./helper.js');
 
 const app = express();
-
+app.use(compression())
 app.use(cors());
 app.use(parser.urlencoded({ extended: true }))
 app.use(parser.json());
