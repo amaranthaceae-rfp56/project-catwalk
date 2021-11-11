@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, lazy, Suspense } from 'react';
 import ProductContext from '../../context/products/ProductContext';
 import '../../styles/sections/_products.scss';
 
@@ -11,9 +11,13 @@ import ProductExpandedView from './product-expanded-view/product-expanded-view.c
 import ProductNavbar from './product-navbar/product-navbar.component.jsx';
 
 import GreenCheckmark from '../../../assets/greenCheckmark.svg';
-// import Banner from '../../../assets/banner.png';
+
+const ProductImageGalleryComponent = lazy(() => import('./product-image-gallery/product-image-gallery.component.jsx'))
+const ProductExpandedViewComponent = lazy(() => import('./product-expanded-view/product-expanded-view.component.jsx'))
 
 import './ProductOverview.styles.scss';
+
+
 
 const ProductOverview = () => {
   const productContext = useContext(ProductContext);
@@ -32,7 +36,17 @@ const ProductOverview = () => {
       </div>
       <div className="product-overview-container">
         <div className={!expandView ? "product-overview-container-left" : "product-overview-container-left active"}>
-          {!expandView ? <ProductImageGallery expandView={handleExpandView}/> : <ProductExpandedView expandView={handleExpandView}/> }
+          {!expandView ?
+          <Suspense fallback={<p>Loading...</p>}>
+              <ProductImageGalleryComponent expandView={handleExpandView}/>
+                {/* <ProductImageGallery expandView={handleExpandView}/>  */}
+          </Suspense>
+          :
+          <Suspense fallback={<p>Loading...</p>}>
+              <ProductExpandedViewComponent expandView={handleExpandView} />
+              {/* <ProductExpandedView expandView={handleExpandView}/> */}
+          </Suspense>
+          }
         </div>
 
         <div className={!expandView ? "product-overview-container-right" : "product-overview-container-right active"}>
