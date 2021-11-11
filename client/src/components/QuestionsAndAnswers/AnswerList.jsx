@@ -28,15 +28,29 @@ const AnswerList = (props) => {
 
   let moreAnswers = (<div className="load-answers-font" onClick={loadMoreAnswers} >{moreAnswersBtnLabel}</div>);
 
+  let anotherLabel = () => {
+    if (questionAnswers.length === 0) {
+      return  <div className="noAnswers-label-font">This question has not been answered yet</div>
+    } else {
+      return <div className="noMoreAnswers-label-font"></div>
+    }
+  }
+
 
   return (
-    <div>
-      {questionAnswers.filter((answer, index) => index < visibleAnswers)
-        .map((answer) => (
-        < AnswerItem key={answer.id} answer={answer} questionId={props.questionId} />
-      ))}
-      <div>{moreAnswers}</div>
-    </div>
+<div>
+      <div className="answers-scrollable-container">
+        {questionAnswers.filter((answer, index) => index < visibleAnswers)
+          .map((answer) => (
+          < AnswerItem key={answer.id} answer={answer} questionId={props.questionId} />
+        ))}
+      </div>
+      <div className="questions-loadAnswers-container">
+        {questionAnswers.length > 2 ? <div>{moreAnswers}</div> : anotherLabel() }
+      </div>
+</div>
+
+
   )
 };
 

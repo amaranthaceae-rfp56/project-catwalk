@@ -10,8 +10,9 @@
 
 .questions-search-bar {
   @include mixins.search-bar;
-  width: 60%;
+  width: 50%;
   height: 30px;
+  padding-left: 10px;
   border: none;
 }
 
@@ -34,7 +35,6 @@
   margin-left: 60px;
 }
 
-
 .questions-section-container {
   display: flex;
   flex-direction: row;
@@ -45,7 +45,7 @@
 .questions-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .questions-q-container {
@@ -55,8 +55,20 @@
 
 .questions-question-container {
   display: flex;
-  width: 40%;
+  width: 35%;
   flex-direction: column;
+}
+
+.questions-answer-container {
+  display: flex;
+  width: 35%;
+  flex-direction: column;
+}
+
+.questions-loadAnswers-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .questions-helpful-container {
@@ -72,13 +84,34 @@
   white-space: pre-wrap;
 }
 
-.answer-footnote-container {
+.answer-author-container {
   display: flex;
-  margin-right: 20px;
-  border-right: 1px solid;
-  padding-right: 10px;
-  margin-top: -15px;
+  //border-right: 1px solid;
+  padding-right: 5px;
+  border-right: 2px solid rgb(138, 135, 135);
   white-space: pre-wrap;
+  margin-bottom: 10px;
+  margin-top: -8px;
+}
+
+.answer-helpful-container {
+  display: flex;
+  //border-right: 1px solid;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-right: 2px solid rgb(138, 135, 135);
+  white-space: pre-wrap;
+  margin-bottom: 10px;
+  margin-top: -8px;
+}
+
+.answer-report-container {
+  display: flex;
+  //border-right: 1px solid;
+  padding-left: 5px;
+  white-space: pre-wrap;
+  margin-bottom: 10px;
+  margin-top: -8px;
 }
 
 
@@ -93,11 +126,11 @@
 }
 
 .answers-font {
-  @include mixins.theme(16px, 400);
+  @include mixins.theme(14px, 400);
 }
 
 .answers-info-font {
-  @include mixins.theme(12px, 400);
+  @include mixins.theme(10px, 400);
 }
 
 .questions-info-font {
@@ -105,7 +138,7 @@
 }
 
 .found-helpful-font {
-  @include mixins.theme(12px, 400);
+  @include mixins.theme(10px, 400);
   text-decoration: underline;
 }
 
@@ -115,7 +148,7 @@
 }
 
 .report-font {
-  @include mixins.theme(12px, 400);
+  @include mixins.theme(10px, 400);
   text-decoration: underline;
 }
 
@@ -152,7 +185,25 @@
 
 .load-answers-font {
   @include mixins.theme(14px, 700);
+  color: rgb(138, 135, 135);
 }
+
+.load-answers-font:hover {
+  cursor: pointer;
+  color: rgba(138, 135, 135, 0.712);
+}
+
+.noAnswers-label-font {
+  @include mixins.theme(14px, 700);
+  color: rgb(138, 135, 135);
+}
+
+.noMoreAnswers-label-font {
+  @include mixins.theme(12px, 700);
+  color: rgb(138, 135, 135);
+  font-style: italic;
+}
+
 
 
 
