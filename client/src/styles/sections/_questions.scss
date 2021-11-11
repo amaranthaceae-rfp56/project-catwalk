@@ -92,6 +92,16 @@
   @include mixins.theme(16px, 700);
 }
 
+.highlighted-term {
+  @include mixins.theme(16px, 700);
+  background-color: yellow;
+}
+
+mark {
+  @include mixins.theme(16px, 700);
+  background-color: yellow;
+}
+
 .answers-font {
   @include mixins.theme(16px, 400);
 }

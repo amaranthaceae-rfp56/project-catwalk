@@ -38,6 +38,12 @@ const QuestionList = () => {
     }
   };
 
+  // const handleHighlight = (value) => {
+  //   console.log('handlehightlight');
+  //   let highlightedResults = value.toLowerCase().replace((searchTerm.toLowerCase()), `</div><div className="highlighted-term">${searchTerm}</div><div className="questions-question-container questions-font">`)
+  //   setQuestions(highlightedResults)
+  // }
+
   const handleAddMoreQuestions = () => {
     setModalVisible(true);
   }
@@ -71,6 +77,7 @@ const QuestionList = () => {
             let inQuestion = question.question_body.toLowerCase()
             .includes(searchTerm.toLowerCase())
             if (inQuestion) {
+             // handleHighlight(question.question_body);
               return true;
             }
 
@@ -86,7 +93,7 @@ const QuestionList = () => {
           })
           .filter((question, index) => index < visibleQuestions)
           .map((question) => (
-            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} />
+            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} searchTerm={searchTerm}/>
           ))}
       </div>
       <div className="questions-container">
