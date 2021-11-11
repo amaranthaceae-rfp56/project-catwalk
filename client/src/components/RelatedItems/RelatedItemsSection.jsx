@@ -18,21 +18,22 @@ const RelatedItemsSection = () => {
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
+    const currentId = productContext.productInfo.id;
     // GET request using fetch inside useEffect React hook
 
     //get page product info
-    fetch(`${API_URL}/40348`)
+    fetch(`${API_URL}/${currentId}`)
       .then(response => response.json())
       .then(data => setPageProduct(data));
 
     // get related item id list and map out to an array of related item info list
-    fetch(`${API_URL}/40348/related`)
+    fetch(`${API_URL}/${currentId}/related`)
       .then(response => response.json())
       .then(res => setRelatedItems(res));
 
 
     // get related item id list and map out to an array of related item info list
-  }, []);
+  }, [productContext.productInfo.id]);
 
 
   const handleLoad = () => {

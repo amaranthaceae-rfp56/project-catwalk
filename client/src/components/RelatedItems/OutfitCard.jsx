@@ -36,7 +36,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
         }
         setReviwRating(totalScore / totalVote);
       });
-  }, []);
+  }, [productContext.productInfo.id]);
 
   const handleClick = (e) => {
     // console.log(e.currentTarget.dataset.divId);
@@ -74,7 +74,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
 OutfitCard.propTypes = {
   productId: PropTypes.number.isRequired,
   username: PropTypes.string.isRequired,
-  fetchOutfitList: PropTypes.object.isRequired,
+  fetchOutfitList: PropTypes.func.isRequired,
 
 };
 

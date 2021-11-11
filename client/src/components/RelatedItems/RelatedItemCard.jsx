@@ -20,6 +20,9 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
+    const currentId = productContext.productInfo.id;
+    console.log('current >>>', currentId);
+    // 'cardProductId';
     fetch(`${API_URL}/${cardProductId}`)
       .then(response => response.json())
       .then(obj => setCardProduct(obj));
@@ -43,7 +46,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
         setReviwRating(totalScore / totalVote);
       });
 
-  }, []);
+  }, [productContext.productInfo.id]);
 
   const openModal = () => {
 
@@ -52,7 +55,6 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   };
 
   const handleClick = (e) => {
-
     const clickedProductId = e.currentTarget.getAttribute('data-divId');
     productContext.getProductInfo(clickedProductId)
     productContext.getProductStyles(clickedProductId)

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import OutfitCard from './OutfitCard.jsx';
 import rightArrow from '../../../assets/forwardArrow.svg';
 import leftArrow from '../../../assets/backArrow.svg';
 import '../../styles/sections/_outfit.scss';
-
+import ProductContext from '../../context/products/ProductContext';
 
 const OutfitSection = () => {
   const username = window.location.search.slice(10);
@@ -12,15 +12,17 @@ const OutfitSection = () => {
   const ref = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const productContext = useContext(ProductContext);
+  const currentId = productContext.productInfo.id;
 
   const base_url = 'http://localhost:3000';
 
   useEffect(() => {
-    fetch(`${base_url}/api/products/40344`)
+    fetch(`${base_url}/api/products/${currentId}`)
       .then(response => response.json())
       .then(data => setPageProduct(data));
     fetchOutfitList();
-  }, []);
+  }, [productContext.productInfo.id]);
 
   const fetchOutfitList = () => {
     fetch(`${base_url}/outfit/${username}`)
