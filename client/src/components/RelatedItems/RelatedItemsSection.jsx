@@ -36,11 +36,23 @@ const RelatedItemsSection = () => {
   }, [productContext.productInfo.id]);
 
 
+  useEffect(() => {
+    var element = ref.current;
+    if (element) {
+      console.log('scrollWidth', element.scrollWidth);
+      console.log('clientWidth', element.clientWidth);
+      setShowRightArrow(element.scrollWidth > element.clientWidth);
+    }
+  });
+
   const handleLoad = () => {
     var element = ref.current;
     if (element.clientWidth) {
       element.addEventListener('scroll', () => {
         setShowLeftArrow(element.scrollLeft > 0);
+        // console.log('scrollLeft', element.scrollLeft);
+        // console.log('scrollWidth', element.scrollWidth);
+        // console.log('clientWidth', element.clientWidth);
         setShowRightArrow(element.scrollLeft < element.scrollWidth - element.clientWidth);
       });
     }
@@ -52,7 +64,9 @@ const RelatedItemsSection = () => {
 
   return (
     <div className="related-card-container">
-      <p>RELATED PRODUCTS</p>
+      <div className="related-title-container">
+        <p>RELATED PRODUCTS</p>
+      </div>
       <div data-testid={'Related-Items'} className="Related-Items">
         <img src={leftArrow}
           onClick={() => handleScroll(-300)}

@@ -13,16 +13,18 @@ const OutfitSection = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const productContext = useContext(ProductContext);
-  const currentId = productContext.productInfo.id;
+  // const currentId = productContext.productInfo.id;
 
   const base_url = 'http://localhost:3000';
 
   useEffect(() => {
-    fetch(`${base_url}/api/products/${currentId}`)
-      .then(response => response.json())
-      .then(data => setPageProduct(data));
-    fetchOutfitList();
+    setPageProduct(productContext.productInfo);
   }, [productContext.productInfo.id]);
+
+  useEffect(() => {
+    fetchOutfitList();
+  }, [username]);
+
 
   const fetchOutfitList = () => {
     fetch(`${base_url}/outfit/${username}`)
@@ -36,11 +38,7 @@ const OutfitSection = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pageProduct)
     })
-      .then(() => {
-        fetch(`${base_url}/outfit/${username}`)
-          .then(response => response.json())
-          .then(data => setOutfitList(data));
-      })
+      .then(() => fetchOutfitList())
   };
 
 
@@ -60,8 +58,9 @@ const OutfitSection = () => {
 
   return (
     <div className="outfit-card-container">
-      <p className="outfit-title">YOUR OUTFIT</p>
-
+      <div className="outfit-title-container">
+        <p className="outfit-title">YOUR OUTFIT</p>
+      </div>
       <div
         data-testid={'Outfit-Items'}
         className="Outfit-Items"

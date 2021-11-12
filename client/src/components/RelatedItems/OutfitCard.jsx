@@ -36,7 +36,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
         }
         setReviwRating(totalScore / totalVote);
       });
-  }, [productContext.productInfo.id]);
+  }, [productId]);
 
   const handleClick = (e) => {
     // console.log(e.currentTarget.dataset.divId);
@@ -55,18 +55,20 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   };
 
   return Object.keys(cardProduct).length > 0 && (
-    <div className="outfit-card" data-divId={cardProduct.id} onClick={handleClick}>
-
+    <div className="outfit-card-border">
       <i
         className="fa fa-times-circle delete-style"
         onClick={deleteOutfit}
       ></i>
-      <img src={thumbnail} className="outfit-thumbnail-style" />
-      <p>{cardProduct.category}</p>
-      <h4>{cardProduct.name}</h4>
-      {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
-      <StarRating rating={reviewRating} />
-
+      <div className="outfit-card" data-divId={cardProduct.id} onClick={handleClick}>
+        <img src={thumbnail} className="outfit-thumbnail-style" />
+        <p>{cardProduct.category}</p>
+        <h4>{cardProduct.name}</h4>
+        {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
+        <div className="star-outfit">
+          <StarRating rating={reviewRating} />
+        </div>
+      </div>
     </div>
   );
 };
