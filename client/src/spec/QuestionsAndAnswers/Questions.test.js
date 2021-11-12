@@ -39,28 +39,28 @@ global.describe('QUESTIONS AND ANSWERS', () => {
       global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
     } catch (err) {
       global.expect(err).toEqual(new Error());
-      //done.fail(err);
+      done.fail(err);
     }
 
   });
 
-  global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
+  // global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
 
-    await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+  //   await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
-    const result = container.querySelector('#test-questions-and-answers');
+  //   const result = container.querySelector('#test-questions-and-answers');
 
-    global.expect.assertions(3);
-    try {
-      global.expect(result).toBeInTheDocument();
-      global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-      global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
-    } catch (err) {
-      global.expect(err).toEqual(new Error());
-      //done.fail(err);
-    }
+  //   global.expect.assertions(3);
+  //   try {
+  //     global.expect(result).toBeInTheDocument();
+  //     global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+  //     global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+  //   } catch (err) {
+  //     global.expect(err).toEqual(new Error());
+  //     //done.fail(err);
+  //   }
 
-  });
+  // });
 
 });
 
