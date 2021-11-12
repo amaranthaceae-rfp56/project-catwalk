@@ -63,7 +63,7 @@ const RelatedItemsSection = () => {
   }
 
   return (
-    <div className="related-card-container">
+    <div className="related-card-container" id="related-card-container">
       <div className="related-title-container">
         <p>RELATED PRODUCTS</p>
       </div>

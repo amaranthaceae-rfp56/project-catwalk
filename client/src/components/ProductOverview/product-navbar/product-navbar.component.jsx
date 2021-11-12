@@ -35,7 +35,7 @@ const ProductNavbar = () => {
 
           <div className="cart-container">
             <p className="cart-count">{count}</p>
-            <img src={CartIcon} style={{ height: '55px', width: '55px' }} onClick={showModal} />
+            <img src={CartIcon} style={{ height: '55px', width: '55px' }} onClick={showModal} className="cart-svg"/>
             {!show ? null : <ProductCartModal showModal={showModal}/>}
           </div>
       </div>

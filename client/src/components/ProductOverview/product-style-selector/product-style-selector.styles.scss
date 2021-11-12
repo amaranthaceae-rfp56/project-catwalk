@@ -7,9 +7,9 @@
   margin-bottom: 5px;
   position:relative;
   object-fit: cover;
-  &:hover {
-    border: 2px solid white;
-  }
+  // &:hover {
+  //   border: 2px solid white;
+  // }
 }
 
 .checkmark {
@@ -54,4 +54,5 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 350px;
+  margin-top: 10px;
 }
