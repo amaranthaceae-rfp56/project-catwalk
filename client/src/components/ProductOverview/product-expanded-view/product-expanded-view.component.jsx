@@ -27,7 +27,6 @@ const ProductExpandedView = ({ expandView }) => {
   const handlePageChange = (e) => {
     if (e.target.name === "back") {
       if (page === 0) {
-        // setPage(length);
         setPage(currentStyle.photos.length - 1)
       } else {
         setPage(page - 1)
@@ -54,10 +53,8 @@ const ProductExpandedView = ({ expandView }) => {
   const handleZoom = (e, photoUrl) => {
     setZoomState(!zoomState);
     const { left, top, width, height } = e.target.getBoundingClientRect();
-    console.log(left, top, width, height);
     const x = (e.pageX - left) / width * 100;
     const y = (e.pageY - top) / height * 100;
-    console.log(x, y);
 
     setZoom({
       backgroundImage: `url(${photoUrl})`,
@@ -66,7 +63,6 @@ const ProductExpandedView = ({ expandView }) => {
   }
 
   const handleMouseMove = (e, photoUrl) => {
-    // console.log(e.target.getBoundingClientRect());
    const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = (e.pageX - left) / width * 100;
     const y = (e.pageY - top) / height * 100;
@@ -95,18 +91,6 @@ const ProductExpandedView = ({ expandView }) => {
                     })}
                     <img src={rightArrow} style={{ height: '30px', width: '30px'}} className={!zoomState ?"expanded-view-right-arrow" : "expanded-view-right-arrow active"} onClick={handlePageChange} name="front" value={page}/>
           </div>
-
-        {/* <div className="expanded-view-gallery-main">
-                    <img src={leftArrow} className="expanded-view-left-arrow" onClick={handlePageChange} name="back" value={page}/>
-                    {currentStyle.photos.map((photo, index) => {
-                      if (page === index) {
-                        return (
-                          <img className="expanded-view-main" src={photo.url} onClick={expandView}/>
-                        )
-                      }
-                    })}
-                    <img src={rightArrow} className="expanded-view-right-arrow" onClick={handlePageChange} name="front" value={page}/>
-          </div> */}
 
         <div className="expanded-view-thumbnail-container" >
             {currentStyle.photos && currentStyle.photos.map((photo, index, key) => (

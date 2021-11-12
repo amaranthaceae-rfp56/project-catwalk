@@ -49,7 +49,6 @@ const ProductDropdown = () => {
       </select>
 
       <select onChange={handleQuantityChange} value={quantity} className="product-dropdown">
-      {/* <option value="" selected disabled hidden> - </option> */}
          {quantitySize === null ? <option> - </option> : quantitySize === 0 ? <option>OUT OF STOCK</option> : [...Array(quantitySize)].map((num, i) => {
            if (i + 1 > 15) {
              return

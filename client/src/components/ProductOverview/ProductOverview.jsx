@@ -34,6 +34,7 @@ const ProductOverview = () => {
       <div className="product-overview-message">
         <span>SITE-WIDE ANNOUNCEMENT MESSAGE! -- SALE /DISCOUNT <b>OFFER</b> -- <u>NEW PRODUCT HIGHLIGHT</u></span>
       </div>
+
       <div className="product-overview-container">
         <div className={!expandView ? "product-overview-container-left" : "product-overview-container-left active"}>
           {!expandView ?
@@ -73,7 +74,7 @@ const ProductOverview = () => {
           <div className="product-overview-description-right">
             {productInfo.features && productInfo.features.map(({ feature, value }) => (
               <div className="product-overview-description-feature">
-                  <img src={GreenCheckmark} style={{ height: '25px', width: '25px', marginRight: '10px' }}/>
+                  <img src={GreenCheckmark} alt="green-checkmark" style={{ height: '25px', width: '25px', marginRight: '10px' }}/>
                   <h5>{feature}: {value}</h5>
               </div>
             ))}

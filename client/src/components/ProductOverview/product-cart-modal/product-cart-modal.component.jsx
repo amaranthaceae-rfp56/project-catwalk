@@ -5,10 +5,6 @@ import './product-cart-modal.styles.scss'
 const ProductCartModal = ({ showModal }) => {
   const { cartDetails } = useContext(CartContext);
 
-  // useEffect(() => {
-
-  // }, [cartDetails])
-
   return (
     <div className="modal">
       <div className="modal-content">
@@ -25,7 +21,7 @@ const ProductCartModal = ({ showModal }) => {
           </div>
           { !cartDetails ? <p>Loading...</p> : cartDetails.map(({ name, img_url, price, quantity}) => (
             <div className="modal-body-container">
-              <img src={img_url} style={{ height: '80px', width: '80px'}}></img>
+              <img src={img_url} style={{ height: '80px', width: '80px'}} alt="product-image"></img>
               <h4>{name}</h4>
               <h5>{price}</h5>
               <h6>{quantity}</h6>
