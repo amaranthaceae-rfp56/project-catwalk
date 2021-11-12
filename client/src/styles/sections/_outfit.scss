@@ -56,16 +56,18 @@
 
 .outfit-card {
   position: relative;
-  background-color: rgb(199, 171, 168);
+  background-color: rgb(218, 203, 202);
   height: 500px;
   width: 300px;
-  border-radius: 0%;
+  border-radius: 30px;
   border: solid;
+  border-color: blanchedalmond;
   margin: 10px;
   // display: inline-block;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .star-outfit {
@@ -74,19 +76,26 @@
 
 .outfit-button {
   background-color: rgb(218, 203, 202);
+
   height: 500px;
   width: 300px;
-  border-radius: 0%;
+  border-radius: 30px;
   border: solid;
+  border-color: blanchedalmond;
   display: flex;
 }
 
 .outfit-button-text {
-  background-color: aquamarine;
+  background-color: rgb(218, 203, 202);
+
   width: 100%;
-  height: 100px;
+  height: 100%;
   top: 50%;
+  border-radius: inherit;
   align-items: center;
+  font-size: 50px;
+  border: transparent;
+  font-family: cursive;
 }
 
 .outfit-card-border {
@@ -106,4 +115,5 @@
   width: 100%;
   height: 66%;
   object-fit: fill;
+  border-radius: inherit;
 }
