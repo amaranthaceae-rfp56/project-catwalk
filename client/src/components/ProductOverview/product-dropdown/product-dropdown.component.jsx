@@ -16,7 +16,7 @@ const ProductDropdown = () => {
     const skuVal = e.target[e.target.selectedIndex].dataset.id;
 
     if (quantitySize === null) {
-      let dropdown = document.getElementsByClassName('product-dropdown')[0];
+      let dropdown = document.getElementsByClassName('product-dropdown-size')[0];
       dropdown.setAttribute('size', 0);
     }
     setQuantity(1);
@@ -31,7 +31,7 @@ const ProductDropdown = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!quantitySize) {
-      let dropdown = document.getElementsByClassName('product-dropdown')[0];
+      let dropdown = document.getElementsByClassName('product-dropdown-size')[0];
       dropdown.setAttribute('size', Object.values(currentStyle.skus).length - 1)
     } else {
       cartContext.addCartItem(sku, quantity);
@@ -41,7 +41,7 @@ const ProductDropdown = () => {
 
   return (
     <div className="product-dropdown-container">
-      <select onChange={handleChange} value={quantitySize} className="product-dropdown">
+      <select onChange={handleChange} value={quantitySize} className="product-dropdown-size">
         <option value="" className="product-dropdown-option" selected disabled hidden >SELECT SIZE</option>
         {currentStyle.skus && Object.entries(currentStyle.skus).map((sku, i) => (
           <option data-id={sku[0]} value={sku[1].quantity}>{sku[1].size}</option>
