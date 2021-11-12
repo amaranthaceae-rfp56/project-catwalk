@@ -4,6 +4,6 @@
 
 /client/dist/bundle.js
 
-./coverage
+/coverage
 
 .env
