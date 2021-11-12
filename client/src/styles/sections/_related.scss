@@ -52,12 +52,14 @@
   background-color: rgb(218, 203, 202);
   height: 500px;
   width: 300px;
-  border-radius: 0%;
+  border-radius: 30px;
   border: solid;
+  border-color: blanchedalmond;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
+  padding: 10px;
 }
 
 .star-related {
@@ -78,7 +80,7 @@
   top: 20px;
   right: 20px;
   z-index: 1;
-  color: aquamarine;
+  color: white;
   font-size: 24px;
 }
 
@@ -86,6 +88,7 @@
   width: 100%;
   height: 68%;
   object-fit: fill;
+  border-radius: inherit;
 }
 
 //modal css
@@ -107,10 +110,6 @@
 
 .feature-table-title {
   width: 100%;
-}
-
-.related-modal-modal-container {
-  z-index: 10000;
 }
 
 .related-modal-modal-background {
