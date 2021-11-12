@@ -5,10 +5,6 @@ import './product-cart-modal.styles.scss'
 const ProductCartModal = ({ showModal }) => {
   const { cartDetails } = useContext(CartContext);
 
-  // useEffect(() => {
-
-  // }, [cartDetails])
-
   return (
     <div className="modal">
       <div className="modal-content">

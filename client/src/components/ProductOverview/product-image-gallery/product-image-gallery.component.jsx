@@ -11,26 +11,13 @@ import './product-image-gallery.styles.scss';
 const ProductImageGallery = ({ expandView }) => {
   const productContext = useContext(ProductContext);
   const { currentStyle } = productContext;
-  // const [mainPhoto, setMainPhoto] = useState(null);
   const [page, setPage] = useState(0);
-  // const [length, setLength] = useState(0);
   const [height, setHeight] = useState(0);
   const [displayUpArrow, setDisplayUpArrow] = useState(false)
   const [displayDownArrow, setDisplayDownArrow] = useState(true)
   const ref = useRef(null);
 
-  // useEffect(() => {
-  //   if(currentStyle.photos) {
-  //     // setMainPhoto(currentStyle.photos[0])
-  //     setLength(currentStyle.photos.length - 1);
-  //   }
-  // }, [currentStyle.photos])
-
-
   const handleClick = (e) => {
-    // const currentIndex = Number(e.target.name);
-    // const selectedPhoto = currentStyle.photos[currentIndex];
-    // setMainPhoto(selectedPhoto);
     const currentIndex = Number(e.target.name);
     setPage(currentIndex);
   }
@@ -38,7 +25,6 @@ const ProductImageGallery = ({ expandView }) => {
   const handlePageChange = (e) => {
     if (e.target.name === "back") {
       if (page === 0) {
-        // setPage(length);
         setPage(currentStyle.photos.length - 1)
       } else {
         setPage(page - 1)
@@ -51,12 +37,6 @@ const ProductImageGallery = ({ expandView }) => {
       }
     }
   }
-
-  // const handleLoad = () => {
-  //   if (ref.current.clientHeight) {
-  //     setHeight(ref.current.clientHeight)
-  //   }
-  // }
 
    const handleLoad = () => {
      var element = ref.current;
@@ -106,17 +86,6 @@ const ProductImageGallery = ({ expandView }) => {
           <img src={downArrow} alt="down-arrow" className={displayDownArrow ? "down-arrow" : "down-arrow active"}  style={{ height: '25px', width: '25px'}} onClick={() => handleScroll(-1 * (height/2))}/>
         </div>
 
-        {/* <div className="product-image-gallery-main">
-            <img src={leftArrow} className="left-arrow" onClick={handlePageChange} name="back" value={page}/>
-            {currentStyle.photos.map((photo, index) => {
-              if (page === index) {
-                return (
-                  <img className="image-gallery-main" src={photo.url} onClick={expandView}/>
-                )
-              }
-            })}
-            <img src={rightArrow} className="right-arrow" onClick={handlePageChange} name="front" value={page}/>
-        </div> */}
       </div>
     )};
 }

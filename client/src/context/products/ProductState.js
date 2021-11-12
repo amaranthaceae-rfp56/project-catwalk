@@ -28,15 +28,12 @@ const ProductState = props => {
 
   // GET PRODUCTS
   useEffect(() => {
-    // getProducts()
     getProductInfo('40348');
     getProductStyles('40348');
   }, [])
 
   const getProducts = async () => {
     const res = await Axios.get(`${API_URL}`);
-    console.log(res);
-
 
     dispatch({
       type: GET_PRODUCTS,
@@ -71,8 +68,6 @@ const ProductState = props => {
     })
   }
 
-
-  // SET LOADING
   const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
