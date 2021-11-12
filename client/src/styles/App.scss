@@ -1,11 +1,11 @@
-@use './sections/questions';
-@use './sections/products';
-@use './sections/RatingsAndReviews';
-@use './sections/related';
-@use './sections/sharedComponents';
+@use "./sections/questions";
+@use "./sections/products";
+@use "./sections/RatingsAndReviews";
+@use "./sections/related";
+@use "./sections/sharedComponents";
 
-@use './abstracts/fonts';
-@use './abstracts/colors';
+@use "./abstracts/fonts";
+@use "./abstracts/colors";
 
 * {
   box-sizing: border-box;

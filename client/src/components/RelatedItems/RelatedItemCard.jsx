@@ -20,6 +20,9 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const API_URL = 'http://localhost:3000/api/products';
 
   useEffect(() => {
+    // const currentId = productContext.productInfo.id;
+    // console.log('current >>>', currentId);
+    // 'cardProductId';
     fetch(`${API_URL}/${cardProductId}`)
       .then(response => response.json())
       .then(obj => setCardProduct(obj));
@@ -42,17 +45,15 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
         }
         setReviwRating(totalScore / totalVote);
       });
-
   }, []);
+  // }, [productContext.productInfo.id]);
 
   const openModal = () => {
-
     const compareList = (<CompareModal left={cardProduct} right={pageProduct} />);
     setModal(<Modal callback={setModal} component={compareList} class="related-modal" />)
   };
 
   const handleClick = (e) => {
-
     const clickedProductId = e.currentTarget.getAttribute('data-divId');
     productContext.getProductInfo(clickedProductId)
     productContext.getProductStyles(clickedProductId)
@@ -61,11 +62,13 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   }
 
   return Object.keys(cardProduct).length > 0 && (
-    <div className="related-card-container" data-divId={cardProduct.id} onClick={handleClick} >
-      <div className="related-card" >
-        <i className="fa fa-star compare-style"
-          onClick={openModal}
-        ></i>
+    <div className="related-card-border">
+
+      <i className="fa fa-star compare-style"
+        onClick={openModal}
+      ></i>
+      <div className="related-card"
+        data-divId={cardProduct.id} onClick={handleClick}>
         <img src={thumbnail}
           className="thumbnail-style" />
         <p className="category-style">
@@ -75,8 +78,11 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
           <b>{cardProduct.name}</b>
         </p>
         {!salePrice ? <p>$ {cardProduct.default_price}</p> : <div> <strike style={{ color: "red" }}>$ {cardProduct.default_price}</strike><p>$ {salePrice}</p></div>}
-        <StarRating rating={reviewRating} />
+        <div className="star-related">
+          <StarRating rating={reviewRating} />
+        </div>
       </div>
+
       {modal}
     </div>
   );
