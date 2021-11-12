@@ -13,7 +13,7 @@ const Characteristics = (props) => {
   switch (trait.toUpperCase()) {
     case 'FIT':
       meter = (
-        <div className = 'characteristics-container'>
+        <div  key = 'fit' className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
               <div className = 'line-plot-marker' style = {score}></div>
@@ -28,7 +28,7 @@ const Characteristics = (props) => {
 
     case 'LENGTH':
       meter = (
-        <div className = 'characteristics-container'>
+        <div key = 'length' className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
               <div className = 'line-plot-marker' style = {score}></div>
@@ -43,7 +43,7 @@ const Characteristics = (props) => {
 
     case 'COMFORT':
       meter = (
-        <div className = 'characteristics-container'>
+        <div key = 'comfort' className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
               <div className = 'line-plot-marker' style = {score}></div>
@@ -58,7 +58,7 @@ const Characteristics = (props) => {
 
     case 'QUALITY':
       meter = (
-        <div className = 'characteristics-container'>
+        <div key = 'quality' className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
               <div className = 'line-plot-marker' style = {score}></div>
@@ -73,7 +73,7 @@ const Characteristics = (props) => {
 
     case 'SIZE':
       meter = (
-        <div className = 'characteristics-container'>
+        <div key = 'size' className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
               <div className = 'line-plot-marker' style = {score}></div>
@@ -88,7 +88,7 @@ const Characteristics = (props) => {
 
       case 'WIDTH':
       meter = (
-        <div className = 'characteristics-container'>
+        <div  key = 'width' className = 'characteristics-container'>
           <p className = 'characteristic-label'>{trait}</p>
           <div className = 'characteristic-line-plot'>
               <div className = 'line-plot-marker' style = {score}></div>
