@@ -30,27 +30,31 @@ const AnswerItem = (props) => {
       }
     };
 
-    axios(options)
-      .then(() => {
-        console.log('user found answer helpful!');
-        if (userAction === 'helpful' && !helpfulDisable) {
+    if (userAction === 'helpful' && !helpfulDisable) {
+
+      axios(options)
+       .then(() => {
+          console.log('user found answer helpful!');
           setHelpfulCount(helpfulCount + 1);
           setHelpfulDisable(true);
           setHelpfulFont('pressed-helpful-font');
-        } else if (userAction === 'report' && !reportDisable) {
+      }).catch(err => {
+        console.log(err);
+      });
+
+    } else if (userAction === 'report' && !reportDisable) {
+
+      axios(options)
+        .then(() => {
           console.log('user reported this answer');
           setReportDisable(true);
           setReportLabel('Reported');
           setReportFont('reported-font');
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        }).catch(err => {
+          console.log(err);
+        });
+      }
   };
-
-  // PUT /qa/questions/:question_id/report
-  // PUT /qa/answers/:answer_id/report
 
 
   let foundHelpful = (<div className={helpfulFont} onClick={() => {handleUserAction('helpful')}} >Yes</div>);

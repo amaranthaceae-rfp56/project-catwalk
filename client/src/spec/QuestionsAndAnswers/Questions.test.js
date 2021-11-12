@@ -1,16 +1,17 @@
+import React, { useContext } from 'react';
+import ReactDOM from 'react-dom';
+import '@testing-library/jest-dom/extend-expect';
 import {render, screen, cleanup, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import {jest} from '@jest/globals'
-import '@testing-library/jest-dom/extend-expect';
-import React, { useContext } from 'react';
-import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import QuestionState from '../../context/questions/QuestionState.js';
 import ProductState from '../../context/products/ProductState.js';
 import QuestionsAndAnswers from '../../components/QuestionsAndAnswers/QuestionsAndAnswers.jsx';
-import QuestionList from '../../components/QuestionsAndAnswers/QuestionList.jsx';
-import ProductContext from '../../context/products/ProductContext';
+
 import QuestionContext from '../../context/questions/QuestionContext';
+import ProductContext from '../../context/products/ProductContext';
+const { mockPData, mockQData } = require('./QuestionsMockData.js');
 
 
 let container;
@@ -28,42 +29,39 @@ global.afterEach( ()=> {
 
 global.describe('QUESTIONS AND ANSWERS', () => {
 
-  global.test('Screen test: Should detect the section title " QUESTIONS & ANSWERS"', async () => {
+  const { container } = render(< ProductContext.Provider value={mockPData}> < QuestionContext.Provider value={mockQData}> < QuestionsAndAnswers /> </ QuestionContext.Provider > </ ProductContext.Provider >);
 
-    await ReactDOM.render(< ProductContext.Provider > < QuestionContext.Provider > < QuestionsAndAnswers /> </ QuestionContext.Provider > </ ProductContext.Provider >, container);
+  global.test('Screen test: Should detect the section title " QUESTIONS & ANSWERS"', () => {
+
+    console.log(mockPData);
 
     let result = container.querySelector('#test-questions-and-answers');
 
     global.expect.assertions(3);
 
-    try {
-      global.expect(result).toBeInTheDocument();
-      global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-      global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
-    } catch (err) {
-      global.expect(err).toEqual(new Error());
-      //done.fail(err);
-    }
+    global.expect(result).toBeInTheDocument();
+    global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+    global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
 
   });
 
-  global.test('Should detect the section title " QUESTIONS & ANSWERS"', async () => {
+  // global.test('Should detect the section title " QUESTIONS & ANSWERS"', () => {
 
-    await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
+  //   await ReactDOM.render(< ProductState > < QuestionState > < QuestionsAndAnswers /> </ QuestionState > </ ProductState >, container);
 
-    const result = container.querySelector('#test-questions-and-answers');
+  //   const result = container.querySelector('#test-questions-and-answers');
 
-    global.expect.assertions(3);
-    try {
-      global.expect(result).toBeInTheDocument();
-      global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
-      global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
-    } catch (err) {
-      global.expect(err).toEqual(new Error());
-      //done.fail(err);
-    }
+  //   global.expect.assertions(3);
+  //   try {
+  //     global.expect(result).toBeInTheDocument();
+  //     global.expect(screen.getByText(`QUESTIONS & ANSWERS`)).toBeInTheDocument();
+  //     global.expect(result).toHaveTextContent(`QUESTIONS & ANSWERS`);
+  //   } catch (err) {
+  //     global.expect(err).toEqual(new Error());
 
-  });
+  //   }
+
+  // });
 
 });
 
