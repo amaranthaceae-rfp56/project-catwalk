@@ -13,7 +13,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   const [cardProduct, setCardProduct] = useState({});
   const [salePrice, setSalePrice] = useState(null);
   const [thumbnail, setThumbnail] = useState('');
-  const API_URL = 'http://localhost:3000/api/products';
+  const API_URL = '/api/products';
 
   useEffect(() => {
     fetch(`${API_URL}/${productId}`)
@@ -27,7 +27,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
         setSalePrice(data.results[0].sale_price)
       });
     // get ratings for individual card product
-    fetch(`http://localhost:3000/api/reviews/meta/${productId}`)
+    fetch(`/api/reviews/meta/${productId}`)
       .then(response => response.json())
       .then(obj => {
         var totalVote = 0;
@@ -50,7 +50,7 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   }
 
   const deleteOutfit = () => {
-    fetch(`http://localhost:3000/outfit/${username}`, {
+    fetch(`/outfit/${username}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: productId })
