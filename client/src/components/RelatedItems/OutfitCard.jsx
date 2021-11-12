@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/sections/_outfit.scss';
 import ReviewContext from '../../context/reviews/ReviewContext';
+import QuestionContext from '../../context/questions/QuestionContext';
 import ProductContext from '../../context/products/ProductContext';
 import StarRating from '../sharedComponents/StarRating.jsx';
 
 const OutfitCard = ({ productId, username, fetchOutfitList }) => {
   const productContext = useContext(ProductContext);
+  const questionContext = useContext(QuestionContext);
   const [reviewRating, setReviwRating] = useState(0);
   const [cardProduct, setCardProduct] = useState({});
   const [salePrice, setSalePrice] = useState(null);
@@ -43,6 +45,8 @@ const OutfitCard = ({ productId, username, fetchOutfitList }) => {
     const clickedProductId = e.currentTarget.getAttribute('data-divId');
     productContext.getProductInfo(clickedProductId)
     productContext.getProductStyles(clickedProductId)
+    questionContext.getQuestions(clickedProductId)
+    questionContext.getAnswers(clickedProductId)
   }
 
   const deleteOutfit = () => {
