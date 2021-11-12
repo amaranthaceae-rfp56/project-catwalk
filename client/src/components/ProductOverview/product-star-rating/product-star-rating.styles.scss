@@ -3,4 +3,12 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+}
+
+.star-rating-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(0.7);
 }
