@@ -2,11 +2,12 @@ const path = require("path")
 const parser = require('body-parser');
 const express = require("express"); // npm installed
 const cors = require('cors');
+var compression = require('compression')
 
 const { getProducts, getProduct, getProductStyles, getRelatedProducts, getReviews, getReviewMetaData, postReview, markReview, reportReview, getQuestions, getAnswers, postQuestion, postAnswer, voteQuestionHelpful, voteAnswerHelpful, reportAnswer } = require('./helper.js');
 
 const app = express();
-
+app.use(compression())
 app.use(cors());
 app.use(parser.urlencoded({ extended: true }))
 app.use(parser.json());
@@ -58,7 +59,6 @@ app.post('/api/reviews/:product_id', async (req, res) => {
 
 // Mark Review as Helpful
 app.put('/api/reviews/helpful/', async (req, res) => {
-  console.log(req.query.review_id);
   var data = await markReview(req.query.review_id);
   res.send(data);
 });
@@ -79,16 +79,12 @@ app.get('/api/qa/questions/:product_id', async (req, res) => {
 
 // Post question
 app.post('/api/qa/questions', async (req, res) => {
-  //console.log('params',req.query.product_id);
-  console.log('body', req.body);
   var data = await postQuestion(req.body);
-
   res.send(data);
 })
 
 // Vote Question as Helpful
 app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
-  console.log(req.query.question_id);
   var data = await voteQuestionHelpful(req.query.question_id);
   res.send(data);
 });
@@ -97,31 +93,24 @@ app.put('/api/qa/questions/:question_id/helpful', async (req, res) => {
 
 // Get answers for question
 app.get('/api/qa/questions/:question_id/answers', async (req, res) => {
-  // var data = await getAnswers(req.query.question_id);
-  console.log(req.params.question_id);
   var data = await getAnswers(req.params.question_id);
-  console.log('whathappened', data);
   res.send(data)
 })
 
 // Post an answer
 app.post('/api/qa/questions/:question_id/answers', async (req, res) => {
-  console.log('params', req.query.question_id);
-  console.log('body', req.body);
   var data = await postAnswer(req.query.question_id, req.body);
   res.send(data);
 })
 
 // Vote Answer as Helpful
 app.put('/api/qa/answers/:answer_id/helpful', async (req, res) => {
-  console.log(req.query.answer_id);
   var data = await voteAnswerHelpful(req.query.answer_id);
   res.send(data);
 });
 
 // Report an Answer
 app.put('/api/qa/answers/:answer_id/report', async (req, res) => {
-  console.log(req.query.answer_id);
   var data = await reportAnswer(req.query.answer_id);
   res.send(data);
 });
