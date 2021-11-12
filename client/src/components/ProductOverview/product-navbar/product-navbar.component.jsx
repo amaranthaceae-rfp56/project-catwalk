@@ -22,7 +22,6 @@ const ProductNavbar = () => {
   return (
     <nav className="product-navbar">
       <div className="product-navbar-left">
-        {/* <img src={navbarIcon} style={{ height: '50px', width: '50px'}}/> */}
         <span>
             <span style={{ color: 'white' }}>&lt;/ Amaranthaceae &gt;</span>
           </span>

@@ -8,7 +8,9 @@ const AnswerItem = (props) => {
 
   const [helpfulCount, setHelpfulCount] = useState(props.answer.helpfulness);
   const [reportDisable, setReportDisable] = useState(false);
-  const [reportFont, setReportFont] = useState('report-font')
+  const [helpfulDisable, setHelpfulDisable] = useState(false);
+  const [reportFont, setReportFont] = useState('report-font');
+  const [helpfulFont, setHelpfulFont] = useState('found-helpful-font');
   const [reportLabel, setReportLabel] = useState('Report');
   const [photoView, setPhotoView] = useState(false);
   const [image, setImage] = useState('');
@@ -31,15 +33,15 @@ const AnswerItem = (props) => {
     axios(options)
       .then(() => {
         console.log('user found answer helpful!');
-        if (userAction === 'helpful') {
+        if (userAction === 'helpful' && !helpfulDisable) {
           setHelpfulCount(helpfulCount + 1);
-        } else {
-          if (!reportDisable) {
-            console.log('user reported this answer');
-            setReportDisable(true);
-            setReportLabel('Reported');
-            setReportFont('reported-font');
-          }
+          setHelpfulDisable(true);
+          setHelpfulFont('pressed-helpful-font');
+        } else if (userAction === 'report' && !reportDisable) {
+          console.log('user reported this answer');
+          setReportDisable(true);
+          setReportLabel('Reported');
+          setReportFont('reported-font');
         }
       })
       .catch(err => {
@@ -51,7 +53,7 @@ const AnswerItem = (props) => {
   // PUT /qa/answers/:answer_id/report
 
 
-  let foundHelpful = (<div className="found-helpful-font" onClick={() => {handleUserAction('helpful')}} >Yes</div>);
+  let foundHelpful = (<div className={helpfulFont} onClick={() => {handleUserAction('helpful')}} >Yes</div>);
 
   let doReport = (<div className={reportFont} onClick={() => {handleUserAction('report')}} >{reportLabel}</div>);
 
@@ -72,14 +74,13 @@ const AnswerItem = (props) => {
     {photoView ? <Modal class="questionAnswer-submit" callback={setPhotoView} left={87} top={46} component={<img className="questionAnswer-photo-view" src={image} callback={setPhotoView} /> } /> : <></>}
 
     <div className="questions-container answers-info-font">
-      <div className="answer-footnote-container">{`by ${props.answer.answerer_name}`}</div>
-      <div className="answer-footnote-container">{dateAnswered}</div>
-      <div className="answer-footnote-container">
+      <div className="answer-author-container">{`by ${props.answer.answerer_name}, ${dateAnswered}`}</div>
+      <div className="answer-helpful-container">
         <div>{`Helpful?  `}</div>
         <div>{foundHelpful}</div>
         {`  (${helpfulCount})`}
       </div>
-      <div className="answer-footnote-container">
+      <div className="answer-report-container">
         <div>{doReport}</div>
       </div>
     </div>

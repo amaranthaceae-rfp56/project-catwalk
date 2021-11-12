@@ -102,7 +102,6 @@ const postReview = async (id, postData) => {
     characteristics: reformattedChars
   };
 
-  console.log('DATA:', data);
   return axios.post(`${apiUrl}/reviews`, data,
     { headers }
   )
@@ -191,7 +190,6 @@ const voteQuestionHelpful = async (id) => {
 
   return axios.put(`${apiUrl}/qa/questions/${id}/helpful`, id, { headers })
     .then((result) => {
-      // console.log('question helpfulness updated',result);
       return result.data
     })
     .catch((error) => {
@@ -203,7 +201,6 @@ const voteAnswerHelpful = async (id) => {
 
   return axios.put(`${apiUrl}/qa/answers/${id}/helpful`, id, { headers })
     .then((result) => {
-      // console.log('answer helpfulness updated',result);
       return result.data
     })
     .catch((error) => {
@@ -215,7 +212,6 @@ const reportAnswer = async (id) => {
 
   return axios.put(`${apiUrl}/qa/answers/${id}/report`, id, { headers })
     .then((result) => {
-      // console.log('reported',result);
       return result.data
     })
     .catch((error) => {
@@ -224,9 +220,7 @@ const reportAnswer = async (id) => {
 }
 
 const postAnswer = async (id, postData) => {
-  // console.log(postData);
   const { name, email, body, photos } = postData
-  // console.log(name, email, body, photos);
 
   axios.post(`${apiUrl}/qa/questions/${id}/answers`, {
     name: name,
@@ -235,8 +229,6 @@ const postAnswer = async (id, postData) => {
     photos: photos,
   }, { headers })
     .then((result) => {
-      // console.log('answer successfully posted!');
-      // console.log(result.status, result.data);
       return result.data
     })
     .catch((error) => {
