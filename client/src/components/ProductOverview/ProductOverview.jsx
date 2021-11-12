@@ -29,6 +29,7 @@ const ProductOverview = () => {
   }
 
   return (
+    <div className="product-overview-background">
     <div className="product-overview">
       <ProductNavbar />
       <div className="product-overview-message">
@@ -80,6 +81,7 @@ const ProductOverview = () => {
             ))}
            </div>
       </div>
+    </div>
     </div>
   );
 };
