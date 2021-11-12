@@ -28,18 +28,18 @@ const QuestionItem = (props) => {
       }
     };
 
+    if (!helpfulDisable) {
+
     axios(options)
       .then(() => {
         console.log('user found question helpful!');
-        if (!helpfulDisable) {
           setHelpfulCount(helpfulCount + 1);
           setHelpfulDisable(true);
           setHelpfulFont('pressed-question-helpful-font');
-        }
-      })
-      .catch(err => {
+      }).catch(err => {
         console.log(err);
       });
+    }
   };
 
 
