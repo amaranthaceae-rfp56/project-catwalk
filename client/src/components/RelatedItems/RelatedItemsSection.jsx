@@ -15,7 +15,7 @@ const RelatedItemsSection = () => {
   const [showRightArrow, setShowRightArrow] = useState(true);
   const productContext = useContext(ProductContext);
 
-  const API_URL = 'http://localhost:3000/api/products';
+  const API_URL = '/api/products';
 
   useEffect(() => {
     const currentId = productContext.productInfo.id;

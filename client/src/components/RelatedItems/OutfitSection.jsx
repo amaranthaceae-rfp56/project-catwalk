@@ -15,7 +15,7 @@ const OutfitSection = () => {
   const productContext = useContext(ProductContext);
   // const currentId = productContext.productInfo.id;
 
-  const base_url = 'http://localhost:3000';
+  // const base_url = 'http://localhost:3000';
 
   useEffect(() => {
     setPageProduct(productContext.productInfo);
@@ -27,13 +27,13 @@ const OutfitSection = () => {
 
 
   const fetchOutfitList = () => {
-    fetch(`${base_url}/outfit/${username}`)
+    fetch(`/outfit/${username}`)
       .then(response => response.json())
       .then(data => setOutfitList(data));
   };
 
   const addToList = () => {
-    fetch(`${base_url}/outfit/${username}`, {
+    fetch(`/outfit/${username}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pageProduct)
