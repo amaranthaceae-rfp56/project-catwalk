@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.22% </span>
+                <span class="strong">91.95% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>70/72</span>
+                <span class='fraction'>80/87</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.22% </span>
+                <span class="strong">91.95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>70/72</span>
+                <span class='fraction'>80/87</span>
             </div>
         
             
@@ -128,7 +128,26 @@
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -151,6 +170,23 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -192,14 +228,8 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useContext } from 'react';
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useContext, lazy, Suspense } from 'react';
 import ProductContext from '../../context/products/ProductContext';
 import '../../styles/sections/_products.scss';
 &nbsp;
@@ -212,9 +242,13 @@ import ProductExpandedView from './product-expanded-view/product-expanded-view.c
 import ProductNavbar from './product-navbar/product-navbar.component.jsx';
 &nbsp;
 import GreenCheckmark from '../../../assets/greenCheckmark.svg';
-// import Banner from '../../../assets/banner.png';
+&nbsp;
+const ProductImageGalleryComponent = lazy(() =&gt; import('./product-image-gallery/product-image-gallery.component.jsx'))
+const ProductExpandedViewComponent = lazy(() =&gt; import('./product-expanded-view/product-expanded-view.component.jsx'))
 &nbsp;
 import './ProductOverview.styles.scss';
+&nbsp;
+&nbsp;
 &nbsp;
 const ProductOverview = () =&gt; {
   const productContext = useContext(ProductContext);
@@ -231,9 +265,20 @@ const ProductOverview = () =&gt; {
       &lt;div className="product-overview-message"&gt;
         &lt;span&gt;SITE-WIDE ANNOUNCEMENT MESSAGE! -- SALE /DISCOUNT &lt;b&gt;OFFER&lt;/b&gt; -- &lt;u&gt;NEW PRODUCT HIGHLIGHT&lt;/u&gt;&lt;/span&gt;
       &lt;/div&gt;
+&nbsp;
       &lt;div className="product-overview-container"&gt;
         &lt;div className={<span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >!expandView ? "product-overview-container-left" : "</span>product-overview-container-left active"}&gt;</span>
-          {<span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >!expandView ? &lt;P</span>roductImageGallery expandView={handleExpandView}/&gt; : &lt;P</span>roductExpandedView expandView={handleExpandView}/&gt; }
+          {<span class="branch-0 cbranch-no" title="branch not covered" >!expandView ?</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Suspense fallback={&lt;p&gt;Loading...&lt;/p&gt;}&gt;</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >              &lt;ProductImageGalleryComponent expandView={handleExpandView}/&gt;</span>
+<span class="cstat-no" title="statement not covered" >                {/* &lt;ProductImageGallery expandView={handleExpandView}/&gt;  */}</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/Suspense&gt;</span>
+<span class="cstat-no" title="statement not covered" >          :</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Suspense fallback={&lt;p&gt;Loading...&lt;/p&gt;}&gt;</span>
+              &lt;ProductExpandedViewComponent expandView={handleExpandView} /&gt;
+              {/* &lt;ProductExpandedView expandView={handleExpandView}/&gt; */}
+          &lt;/Suspense&gt;
+          }
         &lt;/div&gt;
 &nbsp;
         &lt;div className={<span class="branch-0 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >!expandView ? "product-overview-container-right" : "</span>product-overview-container-right active"}&gt;</span>
@@ -260,7 +305,7 @@ const ProductOverview = () =&gt; {
           &lt;div className="product-overview-description-right"&gt;
             {<span class="branch-0 cbranch-no" title="branch not covered" >productInfo.features &amp;&amp; productInfo.</span>features.map(({ feature, value }) =&gt; (
               &lt;div className="product-overview-description-feature"&gt;
-                  &lt;img src={GreenCheckmark} style={{ height: '25px', width: '25px', marginRight: '10px' }}/&gt;
+                  &lt;img src={GreenCheckmark} alt="green-checkmark" style={{ height: '25px', width: '25px', marginRight: '10px' }}/&gt;
                   &lt;h5&gt;{feature}: {value}&lt;/h5&gt;
               &lt;/div&gt;
             ))}
@@ -277,7 +322,7 @@ export default ProductOverview;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 08:10:00 GMT-0700 (Mountain Standard Time)
+                at Fri Nov 12 2021 11:20:38 GMT-0700 (Mountain Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

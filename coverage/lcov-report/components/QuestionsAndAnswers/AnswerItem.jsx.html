@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.82% </span>
+                <span class="strong">13.68% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/94</span>
+                <span class='fraction'>13/95</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.82% </span>
+                <span class="strong">13.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/94</span>
+                <span class='fraction'>13/95</span>
             </div>
         
             
@@ -150,13 +150,15 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -253,7 +255,9 @@ const AnswerItem = <span class="fstat-no" title="function not covered" >(props) 
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const [helpfulCount, setHelpfulCount] = useState(props.answer.helpfulness);</span>
 <span class="cstat-no" title="statement not covered" >  const [reportDisable, setReportDisable] = useState(false);</span>
-<span class="cstat-no" title="statement not covered" >  const [reportFont, setReportFont] = useState('report-font')</span>
+<span class="cstat-no" title="statement not covered" >  const [helpfulDisable, setHelpfulDisable] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >  const [reportFont, setReportFont] = useState('report-font');</span>
+<span class="cstat-no" title="statement not covered" >  const [helpfulFont, setHelpfulFont] = useState('found-helpful-font');</span>
 <span class="cstat-no" title="statement not covered" >  const [reportLabel, setReportLabel] = useState('Report');</span>
 <span class="cstat-no" title="statement not covered" >  const [photoView, setPhotoView] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" >  const [image, setImage] = useState('');</span>
@@ -276,15 +280,15 @@ const AnswerItem = <span class="fstat-no" title="function not covered" >(props) 
 <span class="cstat-no" title="statement not covered" >    axios(options)</span>
 <span class="cstat-no" title="statement not covered" >      .then(() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        console.log('user found answer helpful!');</span>
-<span class="cstat-no" title="statement not covered" >        if (userAction === 'helpful') {</span>
+<span class="cstat-no" title="statement not covered" >        if (userAction === 'helpful' &amp;&amp; !helpfulDisable) {</span>
 <span class="cstat-no" title="statement not covered" >          setHelpfulCount(helpfulCount + 1);</span>
-<span class="cstat-no" title="statement not covered" >        } else {</span>
-<span class="cstat-no" title="statement not covered" >          if (!reportDisable) {</span>
-<span class="cstat-no" title="statement not covered" >            console.log('user reported this answer');</span>
-<span class="cstat-no" title="statement not covered" >            setReportDisable(true);</span>
-<span class="cstat-no" title="statement not covered" >            setReportLabel('Reported');</span>
-<span class="cstat-no" title="statement not covered" >            setReportFont('reported-font');</span>
-<span class="cstat-no" title="statement not covered" >          }</span>
+<span class="cstat-no" title="statement not covered" >          setHelpfulDisable(true);</span>
+<span class="cstat-no" title="statement not covered" >          setHelpfulFont('pressed-helpful-font');</span>
+<span class="cstat-no" title="statement not covered" >        } else if (userAction === 'report' &amp;&amp; !reportDisable) {</span>
+<span class="cstat-no" title="statement not covered" >          console.log('user reported this answer');</span>
+<span class="cstat-no" title="statement not covered" >          setReportDisable(true);</span>
+<span class="cstat-no" title="statement not covered" >          setReportLabel('Reported');</span>
+<span class="cstat-no" title="statement not covered" >          setReportFont('reported-font');</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >      })</span>
 <span class="cstat-no" title="statement not covered" >      .catch(err =&gt; {</span>
@@ -296,7 +300,7 @@ const AnswerItem = <span class="fstat-no" title="function not covered" >(props) 
 <span class="cstat-no" title="statement not covered" >  // PUT /qa/answers/:answer_id/report</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  let foundHelpful = (&lt;div className="found-helpful-font" onClick={() =&gt; {handleUserAction('helpful')}} &gt;Yes&lt;/div&gt;);</span>
+<span class="cstat-no" title="statement not covered" >  let foundHelpful = (&lt;div className={helpfulFont} onClick={() =&gt; {handleUserAction('helpful')}} &gt;Yes&lt;/div&gt;);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  let doReport = (&lt;div className={reportFont} onClick={() =&gt; {handleUserAction('report')}} &gt;{reportLabel}&lt;/div&gt;);</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -317,14 +321,13 @@ const AnswerItem = <span class="fstat-no" title="function not covered" >(props) 
 <span class="cstat-no" title="statement not covered" >    {photoView ? &lt;Modal class="questionAnswer-submit" callback={setPhotoView} left={87} top={46} component={&lt;img className="questionAnswer-photo-view" src={image} callback={setPhotoView} /&gt; } /&gt; : &lt;&gt;&lt;/&gt;}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className="questions-container answers-info-font"&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-footnote-container"&gt;{`by ${props.answer.answerer_name}`}&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-footnote-container"&gt;{dateAnswered}&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-footnote-container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-author-container"&gt;{`by ${props.answer.answerer_name}, ${dateAnswered}`}&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-helpful-container"&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div&gt;{`Helpful?  `}&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div&gt;{foundHelpful}&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >        {`  (${helpfulCount})`}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-footnote-container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="answer-report-container"&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div&gt;{doReport}&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
@@ -343,7 +346,7 @@ export default AnswerItem;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 08:10:00 GMT-0700 (Mountain Standard Time)
+                at Fri Nov 12 2021 11:20:38 GMT-0700 (Mountain Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

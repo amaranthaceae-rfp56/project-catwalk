@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.16% </span>
+                <span class="strong">22.58% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/48</span>
+                <span class='fraction'>14/62</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.16% </span>
+                <span class="strong">22.58% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/48</span>
+                <span class='fraction'>14/62</span>
             </div>
         
             
@@ -104,13 +104,41 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -181,15 +209,29 @@ const AnswerList = <span class="fstat-no" title="function not covered" >(props) 
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  let moreAnswers = (&lt;div className="load-answers-font" onClick={loadMoreAnswers} &gt;{moreAnswersBtnLabel}&lt;/div&gt;);</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  let anotherLabel = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (questionAnswers.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return  &lt;div className="noAnswers-label-font"&gt;This question has not been answered yet&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >    } else {</span>
+<span class="cstat-no" title="statement not covered" >      return &lt;div className="noMoreAnswers-label-font"&gt;&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      {questionAnswers.filter((answer, index) =&gt; index &lt; visibleAnswers)</span>
-<span class="cstat-no" title="statement not covered" >        .map((answer) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >        &lt; AnswerItem key={answer.id} answer={answer} questionId={props.questionId} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      ))}</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div&gt;{moreAnswers}&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >&lt;div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="answers-scrollable-container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        {questionAnswers.filter((answer, index) =&gt; index &lt; visibleAnswers)</span>
+<span class="cstat-no" title="statement not covered" >          .map((answer) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >          &lt; AnswerItem key={answer.id} answer={answer} questionId={props.questionId} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        ))}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="questions-loadAnswers-container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        {questionAnswers.length &gt; 2 ? &lt;div&gt;{moreAnswers}&lt;/div&gt; : anotherLabel() }</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  )</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
@@ -205,7 +247,7 @@ export default AnswerList;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 08:10:00 GMT-0700 (Mountain Standard Time)
+                at Fri Nov 12 2021 11:20:38 GMT-0700 (Mountain Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

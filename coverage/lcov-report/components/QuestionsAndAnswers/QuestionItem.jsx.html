@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.7% </span>
+                <span class="strong">23.07% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/85</span>
+                <span class='fraction'>21/91</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.7% </span>
+                <span class="strong">23.07% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/85</span>
+                <span class='fraction'>21/91</span>
             </div>
         
             
@@ -141,7 +141,13 @@
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -152,6 +158,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -240,6 +252,8 @@ const QuestionItem = <span class="fstat-no" title="function not covered" >(props
 <span class="cstat-no" title="statement not covered" >  const productContext = useContext(ProductContext);</span>
 <span class="cstat-no" title="statement not covered" >  const product = productContext.productInfo.name;</span>
 <span class="cstat-no" title="statement not covered" >  const [helpfulCount, setHelpfulCount] = useState(props.questionHelpfulness);</span>
+<span class="cstat-no" title="statement not covered" >  const [helpfulDisable, setHelpfulDisable] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >  const [helpfulFont, setHelpfulFont] = useState('found-question-helpful-font');</span>
 <span class="cstat-no" title="statement not covered" >  const [modalVisible, setModalVisible] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -256,7 +270,11 @@ const QuestionItem = <span class="fstat-no" title="function not covered" >(props
 <span class="cstat-no" title="statement not covered" >    axios(options)</span>
 <span class="cstat-no" title="statement not covered" >      .then(() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        console.log('user found question helpful!');</span>
-<span class="cstat-no" title="statement not covered" >        setHelpfulCount(helpfulCount + 1);</span>
+<span class="cstat-no" title="statement not covered" >        if (!helpfulDisable) {</span>
+<span class="cstat-no" title="statement not covered" >          setHelpfulCount(helpfulCount + 1);</span>
+<span class="cstat-no" title="statement not covered" >          setHelpfulDisable(true);</span>
+<span class="cstat-no" title="statement not covered" >          setHelpfulFont('pressed-question-helpful-font');</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >      })</span>
 <span class="cstat-no" title="statement not covered" >      .catch(err =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        console.log(err);</span>
@@ -264,7 +282,7 @@ const QuestionItem = <span class="fstat-no" title="function not covered" >(props
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  let foundHelpful = (&lt;div className="found-question-helpful-font" onClick={addHelpfulCount}&gt;Yes&lt;/div&gt;);</span>
+<span class="cstat-no" title="statement not covered" >  let foundHelpful = (&lt;div className={helpfulFont} onClick={addHelpfulCount}&gt;Yes&lt;/div&gt;);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  let doAnswer = (&lt;div className="add-answer-font" onClick={() =&gt; {handleAddAnswer()}} &gt;Add Answer&lt;/div&gt;);</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -293,8 +311,8 @@ const QuestionItem = <span class="fstat-no" title="function not covered" >(props
 <span class="cstat-no" title="statement not covered" >      &lt;div className="questions-q-container"&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className="questions-font"&gt;A:&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className="answers-scrollable-container"&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt; AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="questions-answer-container"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt; AnswerList questionAnswers={props.questionAnswers} questionId={props.questionId}/&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
@@ -316,7 +334,7 @@ export default QuestionItem;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Nov 12 2021 08:10:00 GMT-0700 (Mountain Standard Time)
+                at Fri Nov 12 2021 11:20:38 GMT-0700 (Mountain Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
