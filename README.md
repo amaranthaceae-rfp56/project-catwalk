@@ -81,6 +81,7 @@ The RatingsData component is also made of two main subcomponents. The BarGraph a
 - [Business Requirements](https://docs.google.com/document/d/1KAqduzY8ae3DYrSoCL1i23qHe95zJRYFulqMk-sGLWY/edit#)
 - [Visual Design](https://xd.adobe.com/view/e600dc0f-454c-44e3-5075-7872d04189ff-9031/?fullscreen)
 - [API](https://learn-2.galvanize.com/cohorts/2967/blocks/94/content_files/Front%20End%20Capstone/phases/phase_0.md)
+- [Trello](https://trello.com/b/m1UGNsQm/amaranth-project-catwalk)
 
 ## Installation 
 
