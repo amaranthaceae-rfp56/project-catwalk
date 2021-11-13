@@ -25,7 +25,8 @@ The product overview consisted of four components. These components were the pro
   - The cart allows you to add products and displays your currently added products in a cart modal at the top of the navbar.
 - Image Gallery
   - The image gallery contains a thumbnail gallery displaying the different images for a particular style. You can scroll through the gallery with arrows and when clicking on the image, it creates an expanded view that allows you to zoom and scroll through the image when clicked.    
-
+- Click Tracker
+  - Tracks the module, element and timestamp of the user's click 
 
 ## Related Products
 - Related Items List
