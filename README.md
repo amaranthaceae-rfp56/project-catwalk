@@ -10,6 +10,9 @@
 ![Babel](https://img.shields.io/badge/-Babel-20232A?style=for-the-badge&logo=babel&logoColor=yellow)
 
 
+![image](https://user-images.githubusercontent.com/65197354/141656641-9711ea5a-afd6-4f5f-8da1-15769f2a3be4.gif)
+
+
 ## Mission
 This was the front end capstone project for Hack Reactor. We were assigned to build out an e-commerce website that would meet the requirements and specifications of project stakeholders to simulate a real life work scenario. The website consists of four main components which are listed below. Our team consisted of four members who each took responsibility of an individual component and worked collaboratively to create a cohesive, fully functional website.
 
