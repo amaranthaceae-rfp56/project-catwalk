@@ -43,27 +43,36 @@ const QuestionList = () => {
     setModalVisible(true);
   }
 
-  const updateAnswerSet = () => {
-    setNewAnswerPosted(!newAnswerPosted);
+  const updateAnswerSet = (id, answerData, index) => {
+    let newQuestions = [ ...questions ];
+    console.log('nq',newQuestions);
+    console.log('nq',answerData);
+    newQuestions[index].answers[id] = answerData;
+    //newQuestions.answers[id] = answerData;
+
+    //setNewAnswerPosted(!newAnswerPosted);
     console.log('did this happen');
+    setQuestions(newQuestions);
   }
 
 
 
 
-  useEffect(() => {
-    if (questions) {
+  // useEffect(() => {
+  //   if (questions) {
 
-      console.log('am i listening');
+  //     console.log('am i listening');
 
-      questions.sort((a, b) => {
+  //     let newAnsweObject.assign(questions.answers, )
 
-        return b.question_helpfulness - a.question_helpfulness;
-      });
-      setQuestions(questions);
-    }
+  //     questions.sort((a, b) => {
 
-  },[newAnswerPosted]);
+  //       return b.question_helpfulness - a.question_helpfulness;
+  //     });
+  //     setQuestions(questions);
+  //   }
+
+  // },[newAnswerPosted]);
 
 
 
@@ -112,8 +121,8 @@ const QuestionList = () => {
             }
           })
           .filter((question, index) => index < visibleQuestions)
-          .map((question) => (
-            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} updateAnswerSet={() => updateAnswerSet() } />
+          .map((question, index) => (
+            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} updateAnswerSet={(id, answerData) => updateAnswerSet(id, answerData, index) } />
           ))}
       </div>
       <div className="questions-container">
