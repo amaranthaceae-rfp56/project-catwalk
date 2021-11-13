@@ -42,14 +42,17 @@ const QuestionList = () => {
     setModalVisible(true);
   }
 
+  const updateAnswerSet = (id, answerData, index) => {
+    let newQuestions = [ ...questions ];
+    newQuestions[index].answers[id] = answerData;
+    setQuestions(newQuestions);
+  }
+
   useEffect(() => {
     if (data) {
-
       data.sort((a, b) => {
-
         return b.question_helpfulness - a.question_helpfulness;
       });
-
       setQuestions(data);
     }
   }, [data]);
@@ -61,7 +64,6 @@ const QuestionList = () => {
   return (
 
     <div>
-
       <div>
         <QuestionSearch id="questionSearch" handleSearch={handleSearch} />
       </div>
@@ -85,8 +87,8 @@ const QuestionList = () => {
             }
           })
           .filter((question, index) => index < visibleQuestions)
-          .map((question) => (
-            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} />
+          .map((question, index) => (
+            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} updateAnswerSet={ (id, answerData) => updateAnswerSet(id, answerData, index) } />
           ))}
       </div>
       <div className="questions-container">
@@ -97,8 +99,5 @@ const QuestionList = () => {
     </div>
   );
 };
-
-
-
 
 export default QuestionList;

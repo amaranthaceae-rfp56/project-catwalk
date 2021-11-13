@@ -42,10 +42,6 @@ const AnswerForm = (props) => {
   }
 
 
-
-
-
-
   return (
 
   <div className="form-container">
@@ -99,6 +95,15 @@ const AnswerForm = (props) => {
           .then(() => {
             props.callback(false);
             alert('Your answer has been submitted!');
+            let id = 6000000 + Math.floor(Math.random() * 9000);
+            props.updateAnswerSet(
+              id, {
+              body: values.answer,
+              date: Date.now(),
+              answerer_name: values.nickname,
+              helpfulness: 0,
+              photos: uploadedPhotos,
+            });
             setSubmitting(false);
           })
           .then(() => {
@@ -108,9 +113,6 @@ const AnswerForm = (props) => {
               params: { question_id: props.questionId},
             })
           })
-          // .then(() => {
-          //   useEffect(() => {}, []);
-          // })
           .catch(err => {
           console.log(err);
         });
@@ -172,6 +174,7 @@ AnswerForm.propTypes = {
   questionBody: PropTypes.string.isRequired,
   questionId: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
+  updateAnswerSet: PropTypes.func.isRequired
 }
 
 export default AnswerForm;

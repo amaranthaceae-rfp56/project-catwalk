@@ -65,7 +65,7 @@ const QuestionItem = (props) => {
       </div>
       <div className="questions-addAnswer-container questions-info-font">
         <div>{doAnswer}</div>
-        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<AnswerForm callback={setModalVisible} productName={product} questionBody={props.questionBody} questionId={props.questionId}/>}/> : <></>}
+        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<AnswerForm callback={setModalVisible} productName={product} questionBody={props.questionBody} questionId={props.questionId} answerSet={props.questionAnswers} updateAnswerSet={(id, data) => props.updateAnswerSet(id, data)} />}/> : <></>}
       </div>
     </div>
     <div className="questions-container">
@@ -80,12 +80,12 @@ const QuestionItem = (props) => {
   )
 };
 
-
 QuestionItem.propTypes = {
   questionHelpfulness: PropTypes.number.isRequired,
   questionBody: PropTypes.string.isRequired,
   questionAnswers: PropTypes.object.isRequired,
-  questionId: PropTypes.number.isRequired
+  questionId: PropTypes.number.isRequired,
+  updateAnswerSet: PropTypes.func.isRequired
 };
 
 export default QuestionItem;
