@@ -37,7 +37,10 @@ The product overview consisted of four components. These components were the pro
 This widget displays a set of user-generated questions and answers related to the product currently in view.  The viewable content is controlled by buttons that allow the sets of questions and answers to expand and/or collapse on request.  A search bar dynamically filters the content that contains text matching the search term.  All images in this widget are viewable as thumbnails and upon clicking on them, open a modal window with a larger version.  Both questions and answers allow users to vote them helpful, but answers can also be marked reported.  To maintain the content current, users can post both quetions and answers using the provided forms that have been designed to validate input type.  Answer forms allow for photo upload.
 
 ## Ratings and Reviews
-
+This widget is a combination of two main (ReviewsList/RatingsData) components comprised of many subcomponents. The main components utilize data acquired from an API that is stored client side within the ReviewContext. This context contains various information about a specific product, such as an array of review objects (Which contains data from users entered for their review.), a reviewMeta data object (Which contains information about average scores and ratings given from all reviews).
+	
+The ReviewsList component simply maps over the array of reviews and passes the data as a prop to a seperate Review component. The Review  displays the information from the review object. The component is also comprised of many smaller components (StarRating, PhotoTiles, Voter, Modal/PhotoModal) which all utilize the handed down data stored in the prop to display review unique data. Reviews are sorted based on the value of the html select element that is located at the top of the ReviewList component. So
+  
 ## Extra Technologies Used 
 - React Hooks
   - To learn a new technology as we had previously only learned class components and the lifecycle method in React
@@ -70,6 +73,11 @@ This widget displays a set of user-generated questions and answers related to th
 - Caching our API calls within our server for faster load times on repeat API calls
 - Creating a service worker that allows our website to be displayed even when offline
 - Reducing the amount of unnecessary rerenders on the client side
+
+## Business Rule Documents
+- [Business Requirements](https://docs.google.com/document/d/1KAqduzY8ae3DYrSoCL1i23qHe95zJRYFulqMk-sGLWY/edit#)
+- [Visual Design](https://xd.adobe.com/view/e600dc0f-454c-44e3-5075-7872d04189ff-9031/?fullscreen)
+- [API](https://learn-2.galvanize.com/cohorts/2967/blocks/94/content_files/Front%20End%20Capstone/phases/phase_0.md)
 
 ## Installation 
 
