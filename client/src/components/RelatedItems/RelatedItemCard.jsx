@@ -17,7 +17,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
   const [modal, setModal] = useState(false);
   const [reviewRating, setReviwRating] = useState(0);
   const [thumbnail, setThumbnail] = useState('');
-  const API_URL = 'http://localhost:3000/api/products';
+  const API_URL = '/api/products';
 
   useEffect(() => {
     // const currentId = productContext.productInfo.id;
@@ -34,7 +34,7 @@ const RelatedItemCard = ({ pageProduct, cardProductId }) => {
         setSalePrice(data.results[0].sale_price)
       });
     // get ratings for individual card product
-    fetch(`http://localhost:3000/api/reviews/meta/${cardProductId}`)
+    fetch(`/api/reviews/meta/${cardProductId}`)
       .then(response => response.json())
       .then(obj => {
         var totalVote = 0;
