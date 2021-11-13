@@ -21,6 +21,7 @@ The product overview consisted of four components. These components were the pro
 ## Related Products
 
 ## Questions and Answers
+This widget displays a set of user-generated questions and answers related to the product currently in view.  The viewable content is controlled by buttons that allow the sets of questions and answers to expand and/or collapse on request.  A search bar dynamically filters the content that contains text matching the search term.  All images in this widget are viewable as thumbnails and upon clicking on it, open a modal window with a larger version of it.  Both questions and answers allow users to vote them helpful, but answers can also be marked reported.  To maintain the content current, users can post both quetions and answers using the provided forms that have been designed to validate input type.  Answer forms allow for photo upload.
 
 ## Ratings and Reviews
 
@@ -37,6 +38,10 @@ The product overview consisted of four components. These components were the pro
 - Preloading 
   - Preloaded fonts and stylesheets
 
+## Deployment
+- We deployed our website on an AWS EC2 container using the Ubuntu 20.04 server 
+- Installed node, npm and all node modules relevant to run a build of our project
+- Updated in bound rules to reroute all traffic from Port 80 to Port 3000 as our server hosts our client on Port 3000
 
 ## Installation 
 
