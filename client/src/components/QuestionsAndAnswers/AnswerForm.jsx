@@ -99,6 +99,15 @@ const AnswerForm = (props) => {
           .then(() => {
             props.callback(false);
             alert('Your answer has been submitted!');
+            //let id = Math.floor(1000 + Math.random() * 9000);
+            props.updateAnswerSet();
+            //   id, {
+            //   body: values.answer,
+            //   date: Date.now(),
+            //   answerer_name: values.nickname,
+            //   helpfulness: 0,
+            //   photos: uploadedPhotos,
+            // });
             setSubmitting(false);
           })
           .then(() => {

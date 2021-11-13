@@ -18,6 +18,7 @@ const QuestionList = () => {
   const [visibleQuestions, setVisibleQuestions] = useState(2);
   const [modalVisible, setModalVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [newAnswerPosted, setNewAnswerPosted] = useState(false);
   let moreQuestions;
 
   const loadMoreQuestions = () => {
@@ -42,6 +43,30 @@ const QuestionList = () => {
     setModalVisible(true);
   }
 
+  const updateAnswerSet = () => {
+    setNewAnswerPosted(!newAnswerPosted);
+    console.log('did this happen');
+  }
+
+
+
+
+  useEffect(() => {
+    if (questions) {
+
+      console.log('am i listening');
+
+      questions.sort((a, b) => {
+
+        return b.question_helpfulness - a.question_helpfulness;
+      });
+      setQuestions(questions);
+    }
+
+  },[newAnswerPosted]);
+
+
+
   useEffect(() => {
     if (data) {
 
@@ -53,6 +78,8 @@ const QuestionList = () => {
       setQuestions(data);
     }
   }, [data]);
+
+
 
   if (questions.length > visibleQuestions) {
     moreQuestions = (<button className="theme-button" onClick = {loadMoreQuestions}>MORE ANSWERED QUESTIONS</button>);
@@ -86,7 +113,7 @@ const QuestionList = () => {
           })
           .filter((question, index) => index < visibleQuestions)
           .map((question) => (
-            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} />
+            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} updateAnswerSet={() => updateAnswerSet() } />
           ))}
       </div>
       <div className="questions-container">

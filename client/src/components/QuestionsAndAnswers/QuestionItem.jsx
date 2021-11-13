@@ -65,7 +65,7 @@ const QuestionItem = (props) => {
       </div>
       <div className="questions-addAnswer-container questions-info-font">
         <div>{doAnswer}</div>
-        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<AnswerForm callback={setModalVisible} productName={product} questionBody={props.questionBody} questionId={props.questionId}/>}/> : <></>}
+        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<AnswerForm callback={setModalVisible} productName={product} questionBody={props.questionBody} questionId={props.questionId} answerSet={props.questionAnswers} updateAnswerSet={() => props.updateAnswerSet()} />}/> : <></>}
       </div>
     </div>
     <div className="questions-container">
