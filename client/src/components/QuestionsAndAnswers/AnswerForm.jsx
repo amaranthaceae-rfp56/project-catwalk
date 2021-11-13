@@ -42,10 +42,6 @@ const AnswerForm = (props) => {
   }
 
 
-
-
-
-
   return (
 
   <div className="form-container">
@@ -117,9 +113,6 @@ const AnswerForm = (props) => {
               params: { question_id: props.questionId},
             })
           })
-          // .then(() => {
-          //   useEffect(() => {}, []);
-          // })
           .catch(err => {
           console.log(err);
         });
@@ -181,6 +174,7 @@ AnswerForm.propTypes = {
   questionBody: PropTypes.string.isRequired,
   questionId: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
+  updateAnswerSet: PropTypes.func.isRequired
 }
 
 export default AnswerForm;

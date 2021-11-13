@@ -80,12 +80,12 @@ const QuestionItem = (props) => {
   )
 };
 
-
 QuestionItem.propTypes = {
   questionHelpfulness: PropTypes.number.isRequired,
   questionBody: PropTypes.string.isRequired,
   questionAnswers: PropTypes.object.isRequired,
-  questionId: PropTypes.number.isRequired
+  questionId: PropTypes.number.isRequired,
+  updateAnswerSet: PropTypes.func.isRequired
 };
 
 export default QuestionItem;

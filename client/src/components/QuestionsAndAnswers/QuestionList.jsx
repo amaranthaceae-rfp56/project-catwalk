@@ -18,7 +18,6 @@ const QuestionList = () => {
   const [visibleQuestions, setVisibleQuestions] = useState(2);
   const [modalVisible, setModalVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [newAnswerPosted, setNewAnswerPosted] = useState(false);
   let moreQuestions;
 
   const loadMoreQuestions = () => {
@@ -45,50 +44,18 @@ const QuestionList = () => {
 
   const updateAnswerSet = (id, answerData, index) => {
     let newQuestions = [ ...questions ];
-    console.log('nq',newQuestions);
-    console.log('nq',answerData);
     newQuestions[index].answers[id] = answerData;
-    //newQuestions.answers[id] = answerData;
-
-    //setNewAnswerPosted(!newAnswerPosted);
-    console.log('did this happen');
     setQuestions(newQuestions);
   }
 
-
-
-
-  // useEffect(() => {
-  //   if (questions) {
-
-  //     console.log('am i listening');
-
-  //     let newAnsweObject.assign(questions.answers, )
-
-  //     questions.sort((a, b) => {
-
-  //       return b.question_helpfulness - a.question_helpfulness;
-  //     });
-  //     setQuestions(questions);
-  //   }
-
-  // },[newAnswerPosted]);
-
-
-
   useEffect(() => {
     if (data) {
-
       data.sort((a, b) => {
-
         return b.question_helpfulness - a.question_helpfulness;
       });
-
       setQuestions(data);
     }
   }, [data]);
-
-
 
   if (questions.length > visibleQuestions) {
     moreQuestions = (<button className="theme-button" onClick = {loadMoreQuestions}>MORE ANSWERED QUESTIONS</button>);
@@ -97,7 +64,6 @@ const QuestionList = () => {
   return (
 
     <div>
-
       <div>
         <QuestionSearch id="questionSearch" handleSearch={handleSearch} />
       </div>
@@ -122,7 +88,7 @@ const QuestionList = () => {
           })
           .filter((question, index) => index < visibleQuestions)
           .map((question, index) => (
-            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} updateAnswerSet={(id, answerData) => updateAnswerSet(id, answerData, index) } />
+            < QuestionItem key={question.question_id} questionId={question.question_id} questionBody={question.question_body} questionAnswers={question.answers} questionHelpfulness={question.question_helpfulness} updateAnswerSet={ (id, answerData) => updateAnswerSet(id, answerData, index) } />
           ))}
       </div>
       <div className="questions-container">
@@ -133,8 +99,5 @@ const QuestionList = () => {
     </div>
   );
 };
-
-
-
 
 export default QuestionList;
