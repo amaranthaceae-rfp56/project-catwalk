@@ -1,6 +1,4 @@
-# project-catwalk
-
-## Technologies
+# Amaranthaceae Retail Portal
 
 ![javascript](https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -12,7 +10,7 @@
 ![Babel](https://img.shields.io/badge/-Babel-20232A?style=for-the-badge&logo=babel&logoColor=yellow)
 
 
-## Project Catwalk
+## Mission
 This was the front end capstone project for Hack Reactor. We were assigned to build out an e-commerce website that would meet the requirements and specifications of project stakeholders to simulate a real life work scenario. The website consists of four main components which are listed below. Our team consisted of four members who each took responsibility of an individual component and worked collaboratively to create a cohesive, fully functional website.
 
 ## Product Overview
@@ -27,8 +25,13 @@ This widget displays a set of user-generated questions and answers related to th
 
 ## Extra Technologies Used 
 - React Hooks
+  - To learn a new technology as we had previously only learned class components and the lifecycle method in React
+  - Easier to work and test with
+  - Cleaner looking code
 - React Context
+  - To store all data made to the API and storing actions to update the state    
 - Sass
+  - To utilize mixins to allow for similar styling across the application
 
 ## Front End Optimization
 - React Lazy Loading
@@ -37,11 +40,21 @@ This widget displays a set of user-generated questions and answers related to th
   - Used the compression middleware on our node server to compress our files to increase our performance
 - Preloading 
   - Preloaded fonts and stylesheets
+- Webpack
+  - Ran our build in production mode which minified our javascript bundle file
 
 ## Deployment
 - We deployed our website on an AWS EC2 container using the Ubuntu 20.04 server 
 - Installed node, npm and all node modules relevant to run a build of our project
 - Updated in bound rules to reroute all traffic from Port 80 to Port 3000 as our server hosts our client on Port 3000
+
+## Future Enhancements
+- Server side rendering to send a basic skeleton of our html to the client on first load
+- Making our first API call on initial render to be on the server and sending the client a stringified version of the html with the necessary data
+- Reducing our image sizes by converting them to WebP
+- Caching our API calls within our server for faster load times on repeat API calls
+- Creating a service worker that allows our website to be displayed even when offline
+- Reducing the amount of unnecessary rerenders on the client side
 
 ## Installation 
 
