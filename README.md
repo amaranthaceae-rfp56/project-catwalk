@@ -35,7 +35,12 @@ The product overview consisted of four components. These components were the pro
 
 
 ## Questions and Answers
-This widget displays a set of user-generated questions and answers related to the product currently in view.  The viewable content is controlled by buttons that allow the sets of questions and answers to expand and/or collapse on request.  A search bar dynamically filters the content that contains text matching the search term.  All images in this widget are viewable as thumbnails and upon clicking on them, open a modal window with a larger version.  Both questions and answers allow users to vote them helpful, but answers can also be marked reported.  To maintain the content current, users can post both quetions and answers using the provided forms that have been designed to validate input type.  Answer forms allow for photo upload.
+- Display
+  - This widget displays a set of user-generated questions and answers related to the product currently in view.  The viewable content is controlled by buttons that allow the sets of questions and answers to expand and/or collapse on request. 
+- Seach Bar
+  - A search bar dynamically filters the content that contains text matching the search term.
+- Image Modal
+  - All images in this widget are viewable as thumbnails and upon clicking on them, open a modal window with a larger version.  Both questions and answers allow users to vote them helpful, but answers can also be marked reported.  To maintain the content current, users can post both quetions and answers using the provided forms that have been designed to validate input type.  Answer forms allow for photo upload.
 
 ## Ratings and Reviews
 This widget is a combination of two main (ReviewsList/RatingsData) components comprised of many subcomponents. The main components utilize data acquired from an API that is stored client side within the ReviewContext. This context contains various information about a specific product, such as an array of review objects (Which contains data from users entered for their review.), a reviewMeta data object (Which contains information about average scores and ratings given from all reviews).
