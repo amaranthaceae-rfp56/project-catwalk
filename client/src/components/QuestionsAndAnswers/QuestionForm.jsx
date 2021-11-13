@@ -54,6 +54,16 @@ const QuestionForm = (props) => (
             setTimeout(() => {
             props.callback(false);
             alert('Your question has been submitted!');
+            let id = 500000 + Math.floor(Math.random() * 9000);
+            props.updateQuestionSet(
+              id, {
+              question_body: values.question,
+              question_date: Date.now(),
+              asker_name: values.nickname,
+              questions_helpfulness: 0,
+              reported: false,
+              answers: {},
+            });
             setSubmitting(false);
             }, 400);
           })
@@ -92,7 +102,8 @@ const QuestionForm = (props) => (
 
 QuestionForm.propTypes = {
   product: PropTypes.object.isRequired,
-  callback: PropTypes.func.isRequired
+  callback: PropTypes.func.isRequired,
+  updateQuestionSet: PropTypes.func.isRequired
 }
 
 export default QuestionForm;

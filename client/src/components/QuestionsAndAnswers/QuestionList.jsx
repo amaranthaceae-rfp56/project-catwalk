@@ -42,6 +42,12 @@ const QuestionList = () => {
     setModalVisible(true);
   }
 
+  const updateQuestionSet = (id, questionData) => {
+    let newQuestions = [ ...questions ];
+    newQuestions[id] = questionData;
+    setQuestions(newQuestions);
+  }
+
   const updateAnswerSet = (id, answerData, index) => {
     let newQuestions = [ ...questions ];
     newQuestions[index].answers[id] = answerData;
@@ -94,7 +100,7 @@ const QuestionList = () => {
       <div className="questions-container">
         <div>{moreQuestions}</div>
         <button className="theme-button" onClick = {handleAddMoreQuestions}>ADD A QUESTION +</button>
-        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<QuestionForm callback={setModalVisible} product={product} />}/> : <></>}
+        {modalVisible ? <Modal class="questionAnswer-submit" callback={setModalVisible} left={87} top={46} both={false} component={<QuestionForm callback={setModalVisible} product={product} updateQuestionSet={ (id, questionData) => {updateQuestionSet(id, questionData)} } />}/> : <></>}
       </div>
     </div>
   );
